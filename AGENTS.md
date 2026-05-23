@@ -1,0 +1,31 @@
+# hud Agent Guide
+
+## Project Shape
+
+`hud` is a single-user local terminal cockpit. Simplicity and legibility win over general plugin-host architecture.
+
+Read `README.md` and `docs/engineering-spec.md` before making non-trivial changes.
+
+## Engineering Principles
+
+- Keep side effects at the edges: command execution, filesystem access, terminal I/O, and time should be explicit boundaries.
+- Prefer small, testable core logic over premature framework or plugin abstractions.
+- Do not add async, background refresh, long-running plugin processes, or persistent state until the spec calls for them.
+- Parse external data once at a boundary. Do not scatter defensive fallbacks through readers.
+- Tests must not depend on real sleeps, wall-clock timing, real shell commands, or a real terminal.
+
+## Current V1 Direction
+
+- Rust binary.
+- Local-first TUI, likely `ratatui` + `crossterm` when UI implementation starts.
+- Static config, likely TOML.
+- Command-backed panels.
+- Plain text panel output first, with a structured-output boundary defined early.
+- Manual refresh only in the first implementation slice.
+
+## Workflow
+
+- Run `./scripts/check` before calling work done.
+- Update `README.md`, `docs/engineering-spec.md`, or this file when behavior, structure, or workflow changes.
+- For non-trivial implementation, write or update the relevant spec before code.
+- Keep commits small and honest.
