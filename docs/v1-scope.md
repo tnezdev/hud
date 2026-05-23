@@ -166,11 +166,10 @@ V1 should not require all of these to be polished before the cockpit loop works.
 - V1 panel sources are command-backed.
 - V1 actions are fire-and-forget local commands.
 - V1 deploy means a source-install path from GitHub.
+- The default panel command timeout is 120 seconds, with per-panel `timeout_secs` overrides.
+- Plain text stdout is the V1 output protocol; structured output remains a reserved boundary for later semantic components.
 
 ## Open Scope Questions
 
-1. What is the exact TOML config shape?
-2. Does V1 implement structured output, or only reserve and document the boundary?
-3. Is the default command timeout 2 minutes, 5 minutes, or something panel-type-specific?
-4. Which semantic component comes immediately after plain text?
-5. Should initial panel commands run automatically on app open, or should the first screen wait for manual refresh?
+1. Which semantic component comes immediately after plain text?
+2. Should structured panel output be newline-delimited JSON, a single JSON document per refresh, or both behind explicit protocol markers?

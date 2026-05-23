@@ -1,0 +1,47 @@
+title = "Work cockpit"
+default_timeout_secs = 15
+
+[[panels]]
+id = "tmux"
+title = "tmux sessions"
+command = "tmux list-sessions 2>/dev/null || printf 'no tmux server\n'"
+timeout_secs = 5
+
+[[panels.actions]]
+key = "t"
+label = "switch to work"
+command = "tmux has-session -t work 2>/dev/null || tmux new-session -d -s work; tmux switch-client -t work"
+
+[[panels]]
+id = "repos"
+title = "dirty repos"
+command = "for dir in \"$HOME\"/Code/*; do [ -d \"$dir/.git\" ] || continue; status=$(git -C \"$dir\" status --short 2>/dev/null); [ -n \"$status\" ] && printf '%s\n%s\n\n' \"${dir##*/}\" \"$status\"; done"
+timeout_secs = 20
+
+[[panels.actions]]
+key = "r"
+label = "code window"
+command = "tmux new-window -n code -c \"$HOME/Code\""
+
+[[panels]]
+id = "github"
+title = "hud issues"
+command = "gh issue list --repo tnezdev/hud --state open --limit 8 2>/dev/null || printf 'gh unavailable or not authenticated\n'"
+timeout_secs = 10
+
+[[panels.actions]]
+key = "g"
+label = "open GitHub"
+command = "gh repo view tnezdev/hud --web"
+
+[[panels]]
+id = "tasks"
+title = "tasks"
+command = "task mine limit:8 2>/dev/null || printf 'taskwarrior unavailable\n'"
+timeout_secs = 10
+
+[[panels]]
+id = "agents"
+title = "agents"
+command = "ps -axo pid,comm,args | grep -E '[c]odex|[a]gent' | head -12"
+timeout_secs = 5

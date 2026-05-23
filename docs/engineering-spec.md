@@ -43,6 +43,8 @@ src/ui.rs            // ratatui rendering from typed state
 
 These boundaries are provisional. They should appear only when code needs them, not as empty architecture scaffolding.
 
+The current implementation has crossed the first useful threshold for these modules: config parsing, command execution, dashboard state, app coordination, action resolution, and ratatui rendering now exist because V1 needs them.
+
 ## Testing Strategy
 
 - Unit tests cover config validation, output parsing, focus movement, and action resolution.
@@ -60,20 +62,60 @@ These boundaries are provisional. They should appear only when code needs them, 
 - Avoid an async runtime until interval refresh, command execution, or input handling proves it is needed.
 - Treat long-running plugins, generated UI, approvals, and agent supervision as later design directions.
 
+## Config Shape
+
+V1 uses static TOML discovered at `$XDG_CONFIG_HOME/.hud/config.toml`, falling back to `$HOME/.config/.hud/config.toml` when `XDG_CONFIG_HOME` is unset.
+
+```toml
+title = "Work cockpit"
+default_timeout_secs = 120
+
+[[panels]]
+id = "tasks"
+title = "Tasks"
+command = "task mine"
+timeout_secs = 10
+
+[[panels.actions]]
+key = "t"
+label = "Open tasks"
+command = "taskwarrior-tui"
+```
+
+Config parsing happens once at the boundary into typed Rust values. Readers consume typed config, not TOML values.
+
+## Command Boundary
+
+Panel refreshes run through an injectable command runner. The real runner is a shell-command adapter at the app edge. Unit tests use fakes rather than real shell commands.
+
+Command results distinguish:
+
+- stdout
+- stderr
+- exit status
+- timeout
+- launch failure
+
+The V1 default command timeout is 120 seconds. Panels can override it with `timeout_secs`.
+
+Action commands use the same injectable boundary but are fire-and-forget: `hud` verifies that the action launches, then returns to the dashboard without waiting for completion.
+
+## Output Protocol
+
+Plain text stdout is valid V1 panel content. Structured output is intentionally reserved for a later semantic component pass; it should be parsed once at the panel output boundary when introduced.
+
 ## Refresh Model
 
 V1 starts with manual refresh only.
 
 - Manual refresh reruns either the focused panel or all panels, depending on the keybinding.
 - There is no background polling in the first implementation slice.
-- A slow panel should not block input handling or crash the dashboard.
+- Manually triggered panel commands run outside the terminal input loop so a slow panel does not block navigation or quitting.
 - Long-running panel processes are out of scope for v1; each refresh is a bounded command invocation.
 - Per-panel interval refresh remains a likely later extension. When added, time must enter through an injectable clock or tick source so tests can advance time deterministically.
 
 ## Open Decisions
 
-1. What is the smallest useful config shape?
-2. Should structured panel output be newline-delimited JSON in v1, or a single JSON document per refresh?
-3. When should per-panel interval refresh be introduced?
-4. What is the minimum semantic component set for the first useful dashboard?
-5. What does a deploy mean initially: local binary, GitHub release artifact, or package manager path?
+1. When should per-panel interval refresh be introduced?
+2. What is the minimum semantic component set after plain text?
+3. Should structured panel output be newline-delimited JSON, a single JSON document per refresh, or both behind explicit protocol markers?
