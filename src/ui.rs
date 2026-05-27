@@ -1,11 +1,12 @@
-use crate::panel::{DashboardState, Panel, PanelState, View};
+use crate::panel::{DashboardState, Panel, PanelContent, PanelState, TableContent, View};
 use ratatui::{
     Frame,
     layout::{Constraint, Direction, Layout, Rect},
     style::{Color, Modifier, Style},
     text::{Line, Span},
     widgets::{
-        Block, Borders, Clear, Paragraph, Scrollbar, ScrollbarOrientation, ScrollbarState, Wrap,
+        Block, Borders, Cell, Clear, Paragraph, Row, Scrollbar, ScrollbarOrientation,
+        ScrollbarState, Table, TableState, Wrap,
     },
 };
 
@@ -104,20 +105,7 @@ fn draw_panel(frame: &mut Frame<'_>, area: Rect, panel: &Panel, focused: bool) {
         .border_style(border_style)
         .title(title);
 
-    let text = match &panel.state {
-        PanelState::Idle => "press r to refresh this panel or R for all panels".into(),
-        PanelState::Loading => "loading...".into(),
-        PanelState::Ready { output } if output.trim().is_empty() => "(no output)".into(),
-        PanelState::Ready { output } => output.clone(),
-        PanelState::Error(error) => {
-            let mut lines = vec![format!("error: {}", error.message)];
-            if let Some(detail) = &error.detail {
-                lines.push(String::new());
-                lines.push(detail.clone());
-            }
-            lines.join("\n")
-        }
-    };
+    let text = panel_preview_text(panel);
 
     let paragraph = Paragraph::new(text).block(block).wrap(Wrap { trim: false });
     frame.render_widget(paragraph, area);
@@ -134,6 +122,14 @@ fn draw_panel_with_scroll(frame: &mut Frame<'_>, area: Rect, panel: &Panel, focu
         .borders(Borders::ALL)
         .border_style(border_style)
         .title(title);
+    if let PanelState::Ready {
+        content: PanelContent::Table(table),
+    } = &panel.state
+    {
+        draw_table_panel(frame, area, block, panel, table);
+        return;
+    }
+
     let text_width = area.width.saturating_sub(2) as usize;
     let text = panel_detail_lines(panel);
     let selected_visual_offset = row_visual_offset(&text, panel.selected_row, text_width);
@@ -161,6 +157,46 @@ fn draw_panel_with_scroll(frame: &mut Frame<'_>, area: Rect, panel: &Panel, focu
     }
 }
 
+fn draw_table_panel(
+    frame: &mut Frame<'_>,
+    area: Rect,
+    block: Block<'_>,
+    panel: &Panel,
+    table: &TableContent,
+) {
+    let widths = table
+        .columns
+        .iter()
+        .map(|_| Constraint::Min(8))
+        .collect::<Vec<_>>();
+    let header = Row::new(
+        table
+            .columns
+            .iter()
+            .map(|column| Cell::from(column.clone()).style(Style::default().fg(Color::Yellow))),
+    )
+    .bottom_margin(1);
+    let rows = table.rows.iter().map(|row| {
+        Row::new(
+            row.iter()
+                .map(|cell| Cell::from(cell.clone()))
+                .collect::<Vec<_>>(),
+        )
+    });
+    let selected = (!table.rows.is_empty()).then_some(panel.selected_row.min(table.rows.len() - 1));
+    let mut table_state = TableState::default().with_selected(selected);
+    let widget = Table::new(rows, widths)
+        .header(header)
+        .block(block)
+        .row_highlight_style(
+            Style::default()
+                .fg(Color::Black)
+                .bg(Color::Yellow)
+                .add_modifier(Modifier::BOLD),
+        );
+    frame.render_stateful_widget(widget, area, &mut table_state);
+}
+
 fn wrapped_line_count(lines: &[Line<'_>], width: usize) -> usize {
     if width == 0 {
         return lines.len();
@@ -176,8 +212,15 @@ fn panel_text(panel: &Panel) -> String {
     match &panel.state {
         PanelState::Idle => "press r to refresh this panel or R for all panels".into(),
         PanelState::Loading => "loading...".into(),
-        PanelState::Ready { output } if output.trim().is_empty() => "(no output)".into(),
-        PanelState::Ready { output } => output.clone(),
+        PanelState::Ready {
+            content: PanelContent::Text(output),
+        } if output.trim().is_empty() => "(no output)".into(),
+        PanelState::Ready {
+            content: PanelContent::Text(output),
+        } => output.clone(),
+        PanelState::Ready {
+            content: PanelContent::Table(table),
+        } => table_preview_text(table),
         PanelState::Error(error) => {
             let mut lines = vec![format!("error: {}", error.message)];
             if let Some(detail) = &error.detail {
@@ -189,15 +232,47 @@ fn panel_text(panel: &Panel) -> String {
     }
 }
 
+fn panel_preview_text(panel: &Panel) -> String {
+    match &panel.state {
+        PanelState::Ready {
+            content: PanelContent::Table(table),
+        } => table_preview_text(table),
+        _ => panel_text(panel),
+    }
+}
+
+fn table_preview_text(table: &TableContent) -> String {
+    if table.rows.is_empty() {
+        return format!("{} columns, no rows", table.columns.len());
+    }
+
+    let mut lines = vec![table.columns.join("  ")];
+    lines.extend(table.rows.iter().take(4).map(|row| row.join("  ")));
+    if table.rows.len() > 4 {
+        lines.push(format!("... {} more rows", table.rows.len() - 4));
+    }
+    lines.join("\n")
+}
+
 fn panel_detail_lines(panel: &Panel) -> Vec<Line<'static>> {
     match &panel.state {
-        PanelState::Ready { output } if output.is_empty() => {
+        PanelState::Ready {
+            content: PanelContent::Text(output),
+        } if output.is_empty() => {
             vec![selected_line("(no output)", panel.selected_row == 0)]
         }
-        PanelState::Ready { output } => output
+        PanelState::Ready {
+            content: PanelContent::Text(output),
+        } => output
             .lines()
             .enumerate()
             .map(|(index, line)| selected_line(line, index == panel.selected_row))
+            .collect(),
+        PanelState::Ready {
+            content: PanelContent::Table(table),
+        } => table_preview_text(table)
+            .lines()
+            .map(|line| Line::raw(line.to_string()))
             .collect(),
         _ => panel_text(panel)
             .lines()

@@ -102,7 +102,34 @@ Action commands use the same injectable boundary but are fire-and-forget: `hud` 
 
 ## Output Protocol
 
-Plain text stdout is valid V1 panel content. Structured output is intentionally reserved for a later semantic component pass; it should be parsed once at the panel output boundary when introduced.
+Plain text stdout is valid V1 panel content and remains the default.
+
+Panels can opt into the first structured protocol with:
+
+```toml
+[[panels]]
+id = "repos"
+title = "Repos"
+command = "./scripts/repos-json"
+output = "table-json"
+```
+
+`table-json` expects stdout to be a single JSON document:
+
+```json
+{
+  "type": "table",
+  "columns": ["Repo", "State"],
+  "rows": [
+    ["hud", "active"],
+    ["relay", "watch"]
+  ]
+}
+```
+
+The parser boundary is `panel`: command stdout is converted once into typed panel content. Rendering consumes typed text or typed table data and does not inspect raw JSON. Malformed structured stdout renders as a panel error instead of falling back to plain text.
+
+The first table protocol intentionally only supports string cells. Wider semantic widgets, richer cell types, charts, and nested row drill-ins are later slices.
 
 ## Refresh Model
 

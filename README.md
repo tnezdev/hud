@@ -90,13 +90,24 @@ Config shape:
 - `panels.id`: unique panel id.
 - `panels.title`: panel title.
 - `panels.command`: shell command used to refresh the panel.
+- `panels.output`: optional output protocol, either `text` or `table-json`; default `text`.
 - `panels.timeout_secs`: optional panel timeout override.
 - `[[panels.actions]]`: optional fire-and-forget action for the focused panel.
 - `panels.actions.key`: single-character keyboard shortcut.
 - `panels.actions.label`: footer label.
 - `panels.actions.command`: shell command launched without waiting for completion.
 
-Plain text stdout is the V1 panel content protocol. Non-zero exits, timeouts, and launch failures render as panel error states instead of crashing the dashboard.
+Plain text stdout is the default V1 panel content protocol. Panels can opt into typed table rendering with `output = "table-json"` and stdout shaped as:
+
+```json
+{
+  "type": "table",
+  "columns": ["Repo", "State"],
+  "rows": [["hud", "active"]]
+}
+```
+
+Malformed structured output, non-zero exits, timeouts, and launch failures render as panel error states instead of crashing the dashboard.
 
 ## Usage
 

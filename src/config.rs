@@ -20,8 +20,15 @@ pub struct PanelConfig {
     pub id: String,
     pub title: String,
     pub command: String,
+    pub output_format: OutputFormat,
     pub timeout: Duration,
     pub actions: Vec<ActionConfig>,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum OutputFormat {
+    Text,
+    TableJson,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -177,6 +184,7 @@ struct RawPanelConfig {
     id: Option<String>,
     title: Option<String>,
     command: Option<String>,
+    output: Option<RawOutputFormat>,
     timeout_secs: Option<u64>,
     #[serde(default)]
     actions: Vec<RawActionConfig>,
@@ -188,6 +196,13 @@ struct RawActionConfig {
     key: Option<String>,
     label: Option<String>,
     command: Option<String>,
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "kebab-case")]
+enum RawOutputFormat {
+    Text,
+    TableJson,
 }
 
 impl RawHudConfig {
@@ -226,6 +241,10 @@ impl RawHudConfig {
                     id,
                     title,
                     command,
+                    output_format: panel
+                        .output
+                        .map(OutputFormat::from)
+                        .unwrap_or(OutputFormat::Text),
                     timeout: Duration::from_secs(timeout_secs),
                     actions,
                 });
@@ -241,6 +260,15 @@ impl RawHudConfig {
             default_timeout: Duration::from_secs(default_timeout_secs),
             panels,
         })
+    }
+}
+
+impl From<RawOutputFormat> for OutputFormat {
+    fn from(value: RawOutputFormat) -> Self {
+        match value {
+            RawOutputFormat::Text => OutputFormat::Text,
+            RawOutputFormat::TableJson => OutputFormat::TableJson,
+        }
     }
 }
 
@@ -316,6 +344,7 @@ mod tests {
             id = "tasks"
             title = "Tasks"
             command = "task mine"
+            output = "table-json"
             timeout_secs = 5
 
             [[panels.actions]]
@@ -329,6 +358,7 @@ mod tests {
         assert_eq!(config.title, "Workspace");
         assert_eq!(config.default_timeout, Duration::from_secs(30));
         assert_eq!(config.panels[0].timeout, Duration::from_secs(5));
+        assert_eq!(config.panels[0].output_format, OutputFormat::TableJson);
         assert_eq!(config.panels[0].actions[0].key, 't');
     }
 

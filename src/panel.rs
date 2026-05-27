@@ -1,7 +1,8 @@
 use crate::{
     command::{CommandResult, CommandStatus},
-    config::HudConfig,
+    config::{HudConfig, OutputFormat},
 };
+use serde::Deserialize;
 use std::time::Duration;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -19,6 +20,7 @@ pub struct Panel {
     pub id: String,
     pub title: String,
     pub command: String,
+    pub output_format: OutputFormat,
     pub timeout: Duration,
     pub actions: Vec<Action>,
     pub state: PanelState,
@@ -37,8 +39,20 @@ pub struct Action {
 pub enum PanelState {
     Idle,
     Loading,
-    Ready { output: String },
+    Ready { content: PanelContent },
     Error(PanelError),
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum PanelContent {
+    Text(String),
+    Table(TableContent),
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct TableContent {
+    pub columns: Vec<String>,
+    pub rows: Vec<Vec<String>>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -53,6 +67,7 @@ pub enum PanelErrorKind {
     ExitStatus(i32),
     TimedOut,
     LaunchFailed,
+    InvalidOutput,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -84,6 +99,7 @@ impl DashboardState {
                     id: panel.id.clone(),
                     title: panel.title.clone(),
                     command: panel.command.clone(),
+                    output_format: panel.output_format,
                     timeout: panel.timeout,
                     actions: panel
                         .actions
@@ -150,7 +166,7 @@ impl DashboardState {
 
     pub fn apply_result(&mut self, panel_index: usize, result: CommandResult) {
         if let Some(panel) = self.panels.get_mut(panel_index) {
-            panel.state = PanelState::from_command_result(result);
+            panel.state = PanelState::from_command_result(result, panel.output_format);
             panel.scroll_offset = 0;
             panel.selected_row = 0;
         }
@@ -205,18 +221,30 @@ impl DashboardState {
 impl Panel {
     pub fn selectable_row_count(&self) -> usize {
         match &self.state {
-            PanelState::Ready { output } if output.is_empty() => 1,
-            PanelState::Ready { output } => output.lines().count().max(1),
+            PanelState::Ready {
+                content: PanelContent::Text(output),
+            } if output.is_empty() => 1,
+            PanelState::Ready {
+                content: PanelContent::Text(output),
+            } => output.lines().count().max(1),
+            PanelState::Ready {
+                content: PanelContent::Table(table),
+            } => table.rows.len().max(1),
             _ => 1,
         }
     }
 }
 
 impl PanelState {
-    pub fn from_command_result(result: CommandResult) -> Self {
+    pub fn from_command_result(result: CommandResult, output_format: OutputFormat) -> Self {
         match result.status {
-            CommandStatus::Exited(0) => PanelState::Ready {
-                output: result.stdout,
+            CommandStatus::Exited(0) => match PanelContent::parse(result.stdout, output_format) {
+                Ok(content) => PanelState::Ready { content },
+                Err(message) => PanelState::Error(PanelError {
+                    message: "invalid structured output".into(),
+                    detail: Some(message),
+                    kind: PanelErrorKind::InvalidOutput,
+                }),
             },
             CommandStatus::Exited(status) => PanelState::Error(PanelError {
                 message: format!("command exited with status {status}"),
@@ -244,6 +272,53 @@ impl PanelState {
             PanelState::Error(_) => "error",
         }
     }
+}
+
+impl PanelContent {
+    fn parse(stdout: String, output_format: OutputFormat) -> Result<Self, String> {
+        match output_format {
+            OutputFormat::Text => Ok(PanelContent::Text(stdout)),
+            OutputFormat::TableJson => parse_table_json(&stdout).map(PanelContent::Table),
+        }
+    }
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct RawTableContent {
+    #[serde(rename = "type")]
+    kind: String,
+    columns: Vec<String>,
+    rows: Vec<Vec<String>>,
+}
+
+fn parse_table_json(stdout: &str) -> Result<TableContent, String> {
+    let raw: RawTableContent = serde_json::from_str(stdout).map_err(|error| error.to_string())?;
+    if raw.kind != "table" {
+        return Err(format!("expected type 'table', got '{}'", raw.kind));
+    }
+    if raw.columns.is_empty() {
+        return Err("table columns must not be empty".into());
+    }
+    for (index, column) in raw.columns.iter().enumerate() {
+        if column.trim().is_empty() {
+            return Err(format!("columns[{index}] must not be empty"));
+        }
+    }
+    for (row_index, row) in raw.rows.iter().enumerate() {
+        if row.len() != raw.columns.len() {
+            return Err(format!(
+                "rows[{row_index}] has {} cells, expected {}",
+                row.len(),
+                raw.columns.len()
+            ));
+        }
+    }
+
+    Ok(TableContent {
+        columns: raw.columns,
+        rows: raw.rows,
+    })
 }
 
 fn non_empty_detail(primary: String, fallback: String) -> Option<String> {
@@ -386,7 +461,7 @@ mod tests {
         assert_eq!(
             state.panels[0].state,
             PanelState::Ready {
-                output: "done".into()
+                content: PanelContent::Text("done".into())
             }
         );
 
@@ -459,5 +534,76 @@ mod tests {
         state.select_focused_row_up();
         state.select_focused_row_up();
         assert_eq!(state.panels[0].selected_row, 0);
+    }
+
+    #[test]
+    fn parses_table_json_output_at_panel_boundary() {
+        let config = HudConfig::from_toml(
+            r#"
+            title = "Test"
+
+            [[panels]]
+            id = "repos"
+            title = "Repos"
+            command = "repos"
+            output = "table-json"
+            "#,
+        )
+        .expect("valid config");
+        let mut state = DashboardState::from_config(&config);
+
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: r#"{"type":"table","columns":["Repo","State"],"rows":[["hud","active"]]}"#
+                    .into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+
+        assert_eq!(
+            state.panels[0].state,
+            PanelState::Ready {
+                content: PanelContent::Table(TableContent {
+                    columns: vec!["Repo".into(), "State".into()],
+                    rows: vec![vec!["hud".into(), "active".into()]],
+                })
+            }
+        );
+    }
+
+    #[test]
+    fn malformed_table_json_is_panel_error() {
+        let config = HudConfig::from_toml(
+            r#"
+            title = "Test"
+
+            [[panels]]
+            id = "repos"
+            title = "Repos"
+            command = "repos"
+            output = "table-json"
+            "#,
+        )
+        .expect("valid config");
+        let mut state = DashboardState::from_config(&config);
+
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: r#"{"type":"table","columns":["Repo"],"rows":[["hud","extra"]]}"#.into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+
+        assert!(matches!(
+            state.panels[0].state,
+            PanelState::Error(PanelError {
+                kind: PanelErrorKind::InvalidOutput,
+                ..
+            })
+        ));
     }
 }

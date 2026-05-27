@@ -20,8 +20,9 @@ timeout_secs = 5
 
 [[panels]]
 id = "table"
-title = "Structured-Looking Data"
-command = "printf 'issue  title                    state\n#12    TUI design spike         open\n#13    Focused cockpit layout   next\n#14    Action overlay           idea\n#15    Structured output        later\n\nThis is still plain text. It shows which data may deserve a typed Table boundary later.\n'"
+title = "Structured Table"
+command = "printf '{\"type\":\"table\",\"columns\":[\"Issue\",\"Title\",\"State\"],\"rows\":[[\"#12\",\"TUI design spike\",\"done\"],[\"#14\",\"Row selection\",\"done\"],[\"#15\",\"Structured output\",\"active\"],[\"#16\",\"Row drill-in\",\"next\"]]}\n'"
+output = "table-json"
 timeout_secs = 5
 
 [[panels.actions]]
