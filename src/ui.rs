@@ -8,7 +8,7 @@ use ratatui::{
     style::{Color, Modifier, Style},
     text::{Line, Span},
     widgets::{
-        Block, Borders, Cell, Clear, LineGauge, Paragraph, Row, Scrollbar, ScrollbarOrientation,
+        Block, Borders, Cell, Clear, Gauge, Paragraph, Row, Scrollbar, ScrollbarOrientation,
         ScrollbarState, Table, TableState, Wrap,
     },
 };
@@ -236,10 +236,22 @@ fn draw_metrics_panel(
         return;
     }
 
+    let label_width = metrics
+        .metrics
+        .iter()
+        .map(|metric| metric_label(metric).chars().count() as u16)
+        .max()
+        .unwrap_or(12)
+        .clamp(12, 24);
+    let gauge_width = inner.width.saturating_sub(label_width + 2).min(32);
+    if gauge_width == 0 {
+        return;
+    }
+
     let constraints = metrics
         .metrics
         .iter()
-        .map(|_| Constraint::Length(1))
+        .map(|_| Constraint::Length(3))
         .collect::<Vec<_>>();
     let metric_areas = Layout::default()
         .direction(Direction::Vertical)
@@ -250,14 +262,6 @@ fn draw_metrics_panel(
         let Some(area) = metric_areas.get(index).copied() else {
             break;
         };
-        let label = format!(
-            "{} {} / {}",
-            metric.label,
-            format_metric_number(metric.value),
-            format_metric_number(metric.max)
-        );
-        let label_width = (label.chars().count() as u16).clamp(12, 24);
-        let gauge_width = area.width.saturating_sub(label_width + 2).min(32);
         let row_areas = Layout::default()
             .direction(Direction::Horizontal)
             .constraints([
@@ -267,15 +271,24 @@ fn draw_metrics_panel(
                 Constraint::Min(0),
             ])
             .split(area);
-        let label = Paragraph::new(label).style(Style::default().fg(Color::Gray));
-        let gauge = LineGauge::default()
+        let label = Paragraph::new(metric_label(metric)).style(Style::default().fg(Color::Gray));
+        let gauge = Gauge::default()
             .label("")
             .ratio(metric.value as f64 / metric.max as f64)
-            .filled_style(Style::default().fg(Color::Cyan))
-            .unfilled_style(Style::default().fg(Color::DarkGray));
+            .style(Style::default().bg(Color::DarkGray))
+            .gauge_style(Style::default().fg(Color::Yellow).bg(Color::DarkGray));
         frame.render_widget(label, row_areas[0]);
         frame.render_widget(gauge, row_areas[2]);
     }
+}
+
+fn metric_label(metric: &crate::panel::MetricContent) -> String {
+    format!(
+        "{} {} / {}",
+        metric.label,
+        format_metric_number(metric.value),
+        format_metric_number(metric.max)
+    )
 }
 
 fn draw_row_detail_with_scroll(frame: &mut Frame<'_>, area: Rect, row_detail: &RowDetailView) {
