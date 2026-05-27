@@ -256,12 +256,25 @@ fn draw_metrics_panel(
             format_metric_number(metric.value),
             format_metric_number(metric.max)
         );
+        let label_width = (label.chars().count() as u16).clamp(12, 24);
+        let gauge_width = area.width.saturating_sub(label_width + 2).min(32);
+        let row_areas = Layout::default()
+            .direction(Direction::Horizontal)
+            .constraints([
+                Constraint::Length(label_width),
+                Constraint::Length(2),
+                Constraint::Length(gauge_width),
+                Constraint::Min(0),
+            ])
+            .split(area);
+        let label = Paragraph::new(label).style(Style::default().fg(Color::Gray));
         let gauge = LineGauge::default()
-            .label(label)
+            .label("")
             .ratio(metric.value as f64 / metric.max as f64)
             .filled_style(Style::default().fg(Color::Cyan))
             .unfilled_style(Style::default().fg(Color::DarkGray));
-        frame.render_widget(gauge, area);
+        frame.render_widget(label, row_areas[0]);
+        frame.render_widget(gauge, row_areas[2]);
     }
 }
 
