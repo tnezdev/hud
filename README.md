@@ -112,16 +112,24 @@ Try the built-in demo:
 hud --demo
 ```
 
-Try the repository dogfood config:
+Try repository example configs:
 
 ```sh
 cargo run -- --config examples/dogfood.toml
+cargo run -- --config examples/kitchen-sink.toml
 ```
 
 Keybindings:
 
 - `q`, `Esc`, or `Ctrl-C`: quit.
-- `h`/`j`/`k`/`l`, arrow keys, or `Tab`: move focus.
+- `h`/`j`/`k`/`l` or arrow keys: move focus left/down/up/right through the card grid.
+- `Tab` / `Shift-Tab`: cycle focus through panels.
+- `Enter`: drill into the focused panel.
+- `?`: toggle help/actions overlay.
+- `q`, `x`, or `Esc`: return from detail view.
+- `q`, `x`, `Esc`, or `?`: close help/actions overlay.
+- `q` or `Esc`: quit from the grid.
+- In detail view, `j`/down and `k`/up scroll the focused panel.
 - `r`: refresh focused panel.
 - `R`: refresh all panels.
 - Focused-panel action keys are shown in the footer.

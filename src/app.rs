@@ -2,7 +2,7 @@ use crate::{
     action::resolve_action,
     command::{ActionRequest, CommandRequest, CommandResult, CommandRunner},
     config::HudConfig,
-    panel::{DashboardState, FocusMovement},
+    panel::{DashboardState, FocusMovement, View},
     ui,
 };
 use crossterm::{
@@ -93,21 +93,55 @@ impl<R: CommandRunner> HudApp<R> {
 
         match key.code {
             KeyCode::Char('c') if key.modifiers.contains(KeyModifiers::CONTROL) => Control::Quit,
+            KeyCode::Char('?') => {
+                self.state.toggle_help();
+                Control::Continue
+            }
+            KeyCode::Esc | KeyCode::Char('q') | KeyCode::Char('x') if self.state.help_open => {
+                self.state.close_help();
+                Control::Continue
+            }
+            KeyCode::Esc | KeyCode::Char('q') | KeyCode::Char('x')
+                if self.state.view == View::PanelDetail =>
+            {
+                self.state.return_to_dashboard();
+                Control::Continue
+            }
             KeyCode::Esc | KeyCode::Char('q') => Control::Quit,
-            KeyCode::Tab
-            | KeyCode::Right
-            | KeyCode::Down
-            | KeyCode::Char('j')
-            | KeyCode::Char('l') => {
+            KeyCode::Enter => {
+                self.state.enter_panel_detail();
+                Control::Continue
+            }
+            KeyCode::Tab => {
                 self.state.move_focus(FocusMovement::Next);
                 Control::Continue
             }
-            KeyCode::BackTab
-            | KeyCode::Left
-            | KeyCode::Up
-            | KeyCode::Char('h')
-            | KeyCode::Char('k') => {
+            KeyCode::BackTab => {
                 self.state.move_focus(FocusMovement::Previous);
+                Control::Continue
+            }
+            KeyCode::Left | KeyCode::Char('h') if self.state.view == View::Dashboard => {
+                self.state.move_focus(FocusMovement::Left);
+                Control::Continue
+            }
+            KeyCode::Right | KeyCode::Char('l') if self.state.view == View::Dashboard => {
+                self.state.move_focus(FocusMovement::Right);
+                Control::Continue
+            }
+            KeyCode::Up | KeyCode::Char('k') if self.state.view == View::PanelDetail => {
+                self.state.scroll_focused_up();
+                Control::Continue
+            }
+            KeyCode::Down | KeyCode::Char('j') if self.state.view == View::PanelDetail => {
+                self.state.scroll_focused_down();
+                Control::Continue
+            }
+            KeyCode::Up | KeyCode::Char('k') if self.state.view == View::Dashboard => {
+                self.state.move_focus(FocusMovement::Up);
+                Control::Continue
+            }
+            KeyCode::Down | KeyCode::Char('j') if self.state.view == View::Dashboard => {
+                self.state.move_focus(FocusMovement::Down);
                 Control::Continue
             }
             KeyCode::Char('r') => {
