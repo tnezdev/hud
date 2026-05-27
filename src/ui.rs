@@ -1,5 +1,6 @@
 use crate::panel::{
-    DashboardState, Panel, PanelContent, PanelState, RowDetailView, TableContent, View,
+    DashboardState, MetricsContent, Panel, PanelContent, PanelState, RowDetailView, TableContent,
+    View,
 };
 use ratatui::{
     Frame,
@@ -7,7 +8,7 @@ use ratatui::{
     style::{Color, Modifier, Style},
     text::{Line, Span},
     widgets::{
-        Block, Borders, Cell, Clear, Paragraph, Row, Scrollbar, ScrollbarOrientation,
+        Block, Borders, Cell, Clear, LineGauge, Paragraph, Row, Scrollbar, ScrollbarOrientation,
         ScrollbarState, Table, TableState, Wrap,
     },
 };
@@ -114,6 +115,14 @@ fn draw_panel(frame: &mut Frame<'_>, area: Rect, panel: &Panel, focused: bool) {
         .border_style(border_style)
         .title(title);
 
+    if let PanelState::Ready {
+        content: PanelContent::Metrics(metrics),
+    } = &panel.state
+    {
+        draw_metrics_panel(frame, area, block, metrics);
+        return;
+    }
+
     let text = panel_preview_text(panel);
 
     let paragraph = Paragraph::new(text).block(block).wrap(Wrap { trim: false });
@@ -136,6 +145,14 @@ fn draw_panel_with_scroll(frame: &mut Frame<'_>, area: Rect, panel: &Panel, focu
     } = &panel.state
     {
         draw_table_panel(frame, area, block, panel, table);
+        return;
+    }
+
+    if let PanelState::Ready {
+        content: PanelContent::Metrics(metrics),
+    } = &panel.state
+    {
+        draw_metrics_panel(frame, area, block, metrics);
         return;
     }
 
@@ -206,6 +223,48 @@ fn draw_table_panel(
     frame.render_stateful_widget(widget, area, &mut table_state);
 }
 
+fn draw_metrics_panel(
+    frame: &mut Frame<'_>,
+    area: Rect,
+    block: Block<'_>,
+    metrics: &MetricsContent,
+) {
+    let inner = block.inner(area);
+    frame.render_widget(block, area);
+
+    if metrics.metrics.is_empty() || inner.height == 0 {
+        return;
+    }
+
+    let constraints = metrics
+        .metrics
+        .iter()
+        .map(|_| Constraint::Length(1))
+        .collect::<Vec<_>>();
+    let metric_areas = Layout::default()
+        .direction(Direction::Vertical)
+        .constraints(constraints)
+        .split(inner);
+
+    for (index, metric) in metrics.metrics.iter().enumerate() {
+        let Some(area) = metric_areas.get(index).copied() else {
+            break;
+        };
+        let label = format!(
+            "{} {} / {}",
+            metric.label,
+            format_metric_number(metric.value),
+            format_metric_number(metric.max)
+        );
+        let gauge = LineGauge::default()
+            .label(label)
+            .ratio(metric.value as f64 / metric.max as f64)
+            .filled_style(Style::default().fg(Color::Cyan))
+            .unfilled_style(Style::default().fg(Color::DarkGray));
+        frame.render_widget(gauge, area);
+    }
+}
+
 fn draw_row_detail_with_scroll(frame: &mut Frame<'_>, area: Rect, row_detail: &RowDetailView) {
     let title = format!(" {} [{}] ", row_detail.title, row_detail.state.label());
     let block = Block::default()
@@ -263,6 +322,9 @@ fn panel_state_text(state: &PanelState) -> String {
         PanelState::Ready {
             content: PanelContent::Table(table),
         } => table_preview_text(table),
+        PanelState::Ready {
+            content: PanelContent::Metrics(metrics),
+        } => metrics_preview_text(metrics),
         PanelState::Error(error) => {
             let mut lines = vec![format!("error: {}", error.message)];
             if let Some(detail) = &error.detail {
@@ -279,6 +341,9 @@ fn panel_preview_text(panel: &Panel) -> String {
         PanelState::Ready {
             content: PanelContent::Table(table),
         } => table_preview_text(table),
+        PanelState::Ready {
+            content: PanelContent::Metrics(metrics),
+        } => metrics_preview_text(metrics),
         _ => panel_text(panel),
     }
 }
@@ -294,6 +359,26 @@ fn table_preview_text(table: &TableContent) -> String {
         lines.push(format!("... {} more rows", table.rows.len() - 4));
     }
     lines.join("\n")
+}
+
+fn metrics_preview_text(metrics: &MetricsContent) -> String {
+    metrics
+        .metrics
+        .iter()
+        .map(|metric| {
+            format!(
+                "{}  {} / {}",
+                metric.label,
+                format_metric_number(metric.value),
+                format_metric_number(metric.max)
+            )
+        })
+        .collect::<Vec<_>>()
+        .join("\n")
+}
+
+fn format_metric_number(value: u64) -> String {
+    value.to_string()
 }
 
 fn panel_detail_lines(panel: &Panel) -> Vec<Line<'static>> {
@@ -313,6 +398,12 @@ fn panel_detail_lines(panel: &Panel) -> Vec<Line<'static>> {
         PanelState::Ready {
             content: PanelContent::Table(table),
         } => table_preview_text(table)
+            .lines()
+            .map(|line| Line::raw(line.to_string()))
+            .collect(),
+        PanelState::Ready {
+            content: PanelContent::Metrics(metrics),
+        } => metrics_preview_text(metrics)
             .lines()
             .map(|line| Line::raw(line.to_string()))
             .collect(),

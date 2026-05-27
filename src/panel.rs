@@ -69,12 +69,25 @@ pub enum PanelState {
 pub enum PanelContent {
     Text(String),
     Table(TableContent),
+    Metrics(MetricsContent),
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct TableContent {
     pub columns: Vec<String>,
     pub rows: Vec<Vec<String>>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct MetricsContent {
+    pub metrics: Vec<MetricContent>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct MetricContent {
+    pub label: String,
+    pub value: u64,
+    pub max: u64,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -333,6 +346,9 @@ impl Panel {
             PanelState::Ready {
                 content: PanelContent::Table(table),
             } => table.rows.len().max(1),
+            PanelState::Ready {
+                content: PanelContent::Metrics(metrics),
+            } => metrics.metrics.len().max(1),
             _ => 1,
         }
     }
@@ -382,6 +398,7 @@ impl PanelContent {
         match output_format {
             OutputFormat::Text => Ok(PanelContent::Text(stdout)),
             OutputFormat::TableJson => parse_table_json(&stdout).map(PanelContent::Table),
+            OutputFormat::MetricsJson => parse_metrics_json(&stdout).map(PanelContent::Metrics),
         }
     }
 }
@@ -393,6 +410,22 @@ struct RawTableContent {
     kind: String,
     columns: Vec<String>,
     rows: Vec<Vec<String>>,
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct RawMetricsContent {
+    #[serde(rename = "type")]
+    kind: String,
+    metrics: Vec<RawMetricContent>,
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct RawMetricContent {
+    label: String,
+    value: u64,
+    max: u64,
 }
 
 fn parse_table_json(stdout: &str) -> Result<TableContent, String> {
@@ -422,6 +455,37 @@ fn parse_table_json(stdout: &str) -> Result<TableContent, String> {
         columns: raw.columns,
         rows: raw.rows,
     })
+}
+
+fn parse_metrics_json(stdout: &str) -> Result<MetricsContent, String> {
+    let raw: RawMetricsContent = serde_json::from_str(stdout).map_err(|error| error.to_string())?;
+    if raw.kind != "metrics" {
+        return Err(format!("expected type 'metrics', got '{}'", raw.kind));
+    }
+    if raw.metrics.is_empty() {
+        return Err("metrics must not be empty".into());
+    }
+
+    let mut metrics = Vec::new();
+    for (index, metric) in raw.metrics.into_iter().enumerate() {
+        let label = metric.label.trim().to_string();
+        if label.is_empty() {
+            return Err(format!("metrics[{index}].label must not be empty"));
+        }
+        if metric.max == 0 {
+            return Err(format!("metrics[{index}].max must be greater than zero"));
+        }
+        if metric.value > metric.max {
+            return Err(format!("metrics[{index}].value must be between 0 and max"));
+        }
+        metrics.push(MetricContent {
+            label,
+            value: metric.value,
+            max: metric.max,
+        });
+    }
+
+    Ok(MetricsContent { metrics })
 }
 
 fn build_row_detail_command(panel: &Panel) -> Result<String, String> {
@@ -769,6 +833,82 @@ mod tests {
             0,
             CommandResult {
                 stdout: r#"{"type":"table","columns":["Repo"],"rows":[["hud","extra"]]}"#.into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+
+        assert!(matches!(
+            state.panels[0].state,
+            PanelState::Error(PanelError {
+                kind: PanelErrorKind::InvalidOutput,
+                ..
+            })
+        ));
+    }
+
+    #[test]
+    fn parses_metrics_json_output_at_panel_boundary() {
+        let config = HudConfig::from_toml(
+            r#"
+            title = "Test"
+
+            [[panels]]
+            id = "metrics"
+            title = "Metrics"
+            command = "metrics"
+            output = "metrics-json"
+            "#,
+        )
+        .expect("valid config");
+        let mut state = DashboardState::from_config(&config);
+
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: r#"{"type":"metrics","metrics":[{"label":"Budget","value":72,"max":100}]}"#
+                    .into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+
+        assert_eq!(
+            state.panels[0].state,
+            PanelState::Ready {
+                content: PanelContent::Metrics(MetricsContent {
+                    metrics: vec![MetricContent {
+                        label: "Budget".into(),
+                        value: 72,
+                        max: 100,
+                    }],
+                })
+            }
+        );
+    }
+
+    #[test]
+    fn malformed_metrics_json_is_panel_error() {
+        let config = HudConfig::from_toml(
+            r#"
+            title = "Test"
+
+            [[panels]]
+            id = "metrics"
+            title = "Metrics"
+            command = "metrics"
+            output = "metrics-json"
+            "#,
+        )
+        .expect("valid config");
+        let mut state = DashboardState::from_config(&config);
+
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout:
+                    r#"{"type":"metrics","metrics":[{"label":"Budget","value":120,"max":100}]}"#
+                        .into(),
                 stderr: String::new(),
                 status: CommandStatus::Exited(0),
             },

@@ -36,6 +36,7 @@ pub struct RowDetailConfig {
 pub enum OutputFormat {
     Text,
     TableJson,
+    MetricsJson,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -218,6 +219,7 @@ struct RawActionConfig {
 enum RawOutputFormat {
     Text,
     TableJson,
+    MetricsJson,
 }
 
 impl RawHudConfig {
@@ -301,6 +303,7 @@ impl From<RawOutputFormat> for OutputFormat {
         match value {
             RawOutputFormat::Text => OutputFormat::Text,
             RawOutputFormat::TableJson => OutputFormat::TableJson,
+            RawOutputFormat::MetricsJson => OutputFormat::MetricsJson,
         }
     }
 }

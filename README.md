@@ -94,7 +94,7 @@ Config shape:
 - `panels.id`: unique panel id.
 - `panels.title`: panel title.
 - `panels.command`: shell command used to refresh the panel.
-- `panels.output`: optional output protocol, either `text` or `table-json`; default `text`.
+- `panels.output`: optional output protocol, either `text`, `table-json`, or `metrics-json`; default `text`.
 - `panels.timeout_secs`: optional panel timeout override.
 - `[panels.row_detail]`: optional selected-row drill-in command for `table-json` panels.
 - `panels.row_detail.title`: row detail view title.
@@ -111,6 +111,17 @@ Plain text stdout is the default V1 panel content protocol. Panels can opt into 
   "type": "table",
   "columns": ["Repo", "State"],
   "rows": [["hud", "active"]]
+}
+```
+
+Panels can opt into aggregate line gauges with `output = "metrics-json"` and stdout shaped as:
+
+```json
+{
+  "type": "metrics",
+  "metrics": [
+    { "label": "Budget", "value": 72, "max": 100 }
+  ]
 }
 ```
 

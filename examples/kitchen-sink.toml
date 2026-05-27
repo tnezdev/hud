@@ -14,8 +14,9 @@ command = "${EDITOR:-vi} README.md"
 
 [[panels]]
 id = "status"
-title = "Status Mix"
-command = "printf 'Budget     [###############-----] 72%%\nQuota      [########------------] 43%%\nCI         passing\nPRs        3 open\nTasks      8 active\n\nPhase 2 note: these ASCII gauges can become Gauge, LineGauge, Sparkline, or BarChart once structured panel output exists.\n'"
+title = "Status Metrics"
+command = "printf '{\"type\":\"metrics\",\"metrics\":[{\"label\":\"Budget\",\"value\":72,\"max\":100},{\"label\":\"Quota\",\"value\":43,\"max\":100},{\"label\":\"Open PRs\",\"value\":3,\"max\":10},{\"label\":\"Tasks\",\"value\":8,\"max\":20}]}\n'"
+output = "metrics-json"
 timeout_secs = 5
 
 [[panels]]

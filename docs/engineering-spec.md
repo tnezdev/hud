@@ -131,7 +131,21 @@ output = "table-json"
 
 The parser boundary is `panel`: command stdout is converted once into typed panel content. Rendering consumes typed text or typed table data and does not inspect raw JSON. Malformed structured stdout renders as a panel error instead of falling back to plain text.
 
-The first table protocol intentionally only supports string cells. Wider semantic widgets, richer cell types, charts, and nested row drill-ins are later slices.
+The first table protocol intentionally only supports string cells. Richer cell types are later work.
+
+Panels can also opt into the first aggregate widget protocol with `output = "metrics-json"`:
+
+```json
+{
+  "type": "metrics",
+  "metrics": [
+    { "label": "Budget", "value": 72, "max": 100 },
+    { "label": "Quota", "value": 43, "max": 100 }
+  ]
+}
+```
+
+`metrics-json` is parsed into typed metrics at the panel boundary and rendered as local line gauges. Values must be finite numbers between `0` and `max`, and `max` must be greater than zero. Chart families beyond line gauges, richer metric units, trends, and categorical bar charts are later slices.
 
 ## View Stack And Row Drill-In
 
