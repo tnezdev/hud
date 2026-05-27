@@ -1,0 +1,53 @@
+title = "hud kitchen sink"
+default_timeout_secs = 10
+
+[[panels]]
+id = "orientation"
+title = "Orientation"
+command = "printf 'hud kitchen sink\n\nThis is a valid hud config, not a special app mode.\nUse it to dogfood layout, focus, actions, and panel density.\n\nKeys:\nq quit\nhjkl/arrows move\nr refresh focused\nR refresh all\n'"
+timeout_secs = 5
+
+[[panels.actions]]
+key = "o"
+label = "open README"
+command = "${EDITOR:-vi} README.md"
+
+[[panels]]
+id = "status"
+title = "Status Mix"
+command = "printf 'Budget     [###############-----] 72%%\nQuota      [########------------] 43%%\nCI         passing\nPRs        3 open\nTasks      8 active\n\nPhase 2 note: these ASCII gauges can become Gauge, LineGauge, Sparkline, or BarChart once structured panel output exists.\n'"
+timeout_secs = 5
+
+[[panels]]
+id = "table"
+title = "Structured-Looking Data"
+command = "printf 'issue  title                    state\n#12    TUI design spike         open\n#13    Focused cockpit layout   next\n#14    Action overlay           idea\n#15    Structured output        later\n\nThis is still plain text. It shows which data may deserve a typed Table boundary later.\n'"
+timeout_secs = 5
+
+[[panels.actions]]
+key = "g"
+label = "open GitHub"
+command = "gh repo view tnezdev/hud --web"
+
+[[panels]]
+id = "long-output"
+title = "Long Output"
+command = "for n in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20; do printf 'line %s  scroll affordance candidate\n' \"$n\"; done"
+timeout_secs = 5
+
+[[panels]]
+id = "actions"
+title = "Actions"
+command = "printf 'Panel-specific actions should not make the footer dense forever.\n\nThis config has actions on some panels to test discoverability.\nA future design can move them into an overlay using Ratatui Clear + Paragraph/List.\n'"
+timeout_secs = 5
+
+[[panels.actions]]
+key = "e"
+label = "edit config"
+command = "${EDITOR:-vi} examples/kitchen-sink.toml"
+
+[[panels]]
+id = "density"
+title = "Density"
+command = "printf 'compact row A\ncompact row B\ncompact row C\n\nspacious block\n\n  more breathing room\n  clearer rhythm\n\nQuestion: should secondary panels be summaries, or should hud commit to one focused surface?\n'"
+timeout_secs = 5
