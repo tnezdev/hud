@@ -129,11 +129,11 @@ impl<R: CommandRunner> HudApp<R> {
                 Control::Continue
             }
             KeyCode::Up | KeyCode::Char('k') if self.state.view == View::PanelDetail => {
-                self.state.scroll_focused_up();
+                self.state.select_focused_row_up();
                 Control::Continue
             }
             KeyCode::Down | KeyCode::Char('j') if self.state.view == View::PanelDetail => {
-                self.state.scroll_focused_down();
+                self.state.select_focused_row_down();
                 Control::Continue
             }
             KeyCode::Up | KeyCode::Char('k') if self.state.view == View::Dashboard => {

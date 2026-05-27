@@ -134,13 +134,20 @@ fn draw_panel_with_scroll(frame: &mut Frame<'_>, area: Rect, panel: &Panel, focu
         .borders(Borders::ALL)
         .border_style(border_style)
         .title(title);
-    let text = panel_text(panel);
-    let content_lines = wrapped_line_count(&text, area.width.saturating_sub(2) as usize);
+    let text_width = area.width.saturating_sub(2) as usize;
+    let text = panel_detail_lines(panel);
+    let selected_visual_offset = row_visual_offset(&text, panel.selected_row, text_width);
+    let content_lines = wrapped_line_count(&text, text_width);
     let visible_lines = area.height.saturating_sub(2) as usize;
     let max_scroll = content_lines.saturating_sub(visible_lines);
-    let effective_offset = panel.scroll_offset.min(max_scroll);
+    let effective_offset = selection_following_scroll_offset(
+        panel.scroll_offset,
+        selected_visual_offset,
+        visible_lines,
+        max_scroll,
+    );
     let scroll_offset = effective_offset.min(u16::MAX as usize) as u16;
-    let paragraph = Paragraph::new(text.clone())
+    let paragraph = Paragraph::new(text)
         .block(block)
         .wrap(Wrap { trim: false })
         .scroll((scroll_offset, 0));
@@ -154,13 +161,14 @@ fn draw_panel_with_scroll(frame: &mut Frame<'_>, area: Rect, panel: &Panel, focu
     }
 }
 
-fn wrapped_line_count(text: &str, width: usize) -> usize {
+fn wrapped_line_count(lines: &[Line<'_>], width: usize) -> usize {
     if width == 0 {
-        return text.lines().count();
+        return lines.len();
     }
 
-    text.lines()
-        .map(|line| (line.chars().count().max(1)).div_ceil(width))
+    lines
+        .iter()
+        .map(|line| wrapped_line_height(line, width))
         .sum()
 }
 
@@ -178,6 +186,76 @@ fn panel_text(panel: &Panel) -> String {
             }
             lines.join("\n")
         }
+    }
+}
+
+fn panel_detail_lines(panel: &Panel) -> Vec<Line<'static>> {
+    match &panel.state {
+        PanelState::Ready { output } if output.is_empty() => {
+            vec![selected_line("(no output)", panel.selected_row == 0)]
+        }
+        PanelState::Ready { output } => output
+            .lines()
+            .enumerate()
+            .map(|(index, line)| selected_line(line, index == panel.selected_row))
+            .collect(),
+        _ => panel_text(panel)
+            .lines()
+            .map(|line| Line::raw(line.to_string()))
+            .collect(),
+    }
+}
+
+fn selected_line(text: &str, selected: bool) -> Line<'static> {
+    if selected {
+        Line::styled(
+            text.to_string(),
+            Style::default()
+                .fg(Color::Black)
+                .bg(Color::Yellow)
+                .add_modifier(Modifier::BOLD),
+        )
+    } else {
+        Line::raw(text.to_string())
+    }
+}
+
+fn selection_following_scroll_offset(
+    current_offset: usize,
+    selected_visual_offset: usize,
+    visible_lines: usize,
+    max_scroll: usize,
+) -> usize {
+    if visible_lines == 0 {
+        return 0;
+    }
+
+    let offset = current_offset.min(max_scroll);
+    if selected_visual_offset < offset {
+        selected_visual_offset.min(max_scroll)
+    } else if selected_visual_offset >= offset.saturating_add(visible_lines) {
+        selected_visual_offset
+            .saturating_add(1)
+            .saturating_sub(visible_lines)
+            .min(max_scroll)
+    } else {
+        offset
+    }
+}
+
+fn row_visual_offset(lines: &[Line<'_>], selected_row: usize, width: usize) -> usize {
+    lines
+        .iter()
+        .take(selected_row)
+        .map(|line| wrapped_line_height(line, width))
+        .sum()
+}
+
+fn wrapped_line_height(line: &Line<'_>, width: usize) -> usize {
+    if width == 0 {
+        1
+    } else {
+        line.width().max(1).div_ceil(width)
     }
 }
 
@@ -245,7 +323,7 @@ fn draw_help_overlay(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) 
             lines.push(Line::raw("q or Esc quit"));
         }
         View::PanelDetail => {
-            lines.push(Line::raw("j/k or down/up scroll panel output"));
+            lines.push(Line::raw("j/k or down/up select output row"));
             lines.push(Line::raw("q, x, or Esc return to dashboard"));
         }
     }
@@ -291,8 +369,11 @@ mod tests {
 
     #[test]
     fn wrapped_line_count_includes_visual_wraps() {
-        assert_eq!(wrapped_line_count("short", 10), 1);
-        assert_eq!(wrapped_line_count("12345678901", 10), 2);
-        assert_eq!(wrapped_line_count("12345678901\nshort", 10), 3);
+        assert_eq!(wrapped_line_count(&[Line::raw("short")], 10), 1);
+        assert_eq!(wrapped_line_count(&[Line::raw("12345678901")], 10), 2);
+        assert_eq!(
+            wrapped_line_count(&[Line::raw("12345678901"), Line::raw("short")], 10),
+            3
+        );
     }
 }

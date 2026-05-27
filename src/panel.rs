@@ -23,6 +23,7 @@ pub struct Panel {
     pub actions: Vec<Action>,
     pub state: PanelState,
     pub scroll_offset: usize,
+    pub selected_row: usize,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -95,6 +96,7 @@ impl DashboardState {
                         .collect(),
                     state: PanelState::Idle,
                     scroll_offset: 0,
+                    selected_row: 0,
                 })
                 .collect(),
             focused: 0,
@@ -142,6 +144,7 @@ impl DashboardState {
         if let Some(panel) = self.panels.get_mut(panel_index) {
             panel.state = PanelState::Loading;
             panel.scroll_offset = 0;
+            panel.selected_row = 0;
         }
     }
 
@@ -149,18 +152,22 @@ impl DashboardState {
         if let Some(panel) = self.panels.get_mut(panel_index) {
             panel.state = PanelState::from_command_result(result);
             panel.scroll_offset = 0;
+            panel.selected_row = 0;
         }
     }
 
-    pub fn scroll_focused_down(&mut self) {
+    pub fn select_focused_row_down(&mut self) {
         if let Some(panel) = self.panels.get_mut(self.focused) {
-            panel.scroll_offset = panel.scroll_offset.saturating_add(1);
+            let max_row = panel.selectable_row_count().saturating_sub(1);
+            panel.selected_row = panel.selected_row.saturating_add(1).min(max_row);
+            panel.scroll_offset = panel.selected_row;
         }
     }
 
-    pub fn scroll_focused_up(&mut self) {
+    pub fn select_focused_row_up(&mut self) {
         if let Some(panel) = self.panels.get_mut(self.focused) {
-            panel.scroll_offset = panel.scroll_offset.saturating_sub(1);
+            panel.selected_row = panel.selected_row.saturating_sub(1);
+            panel.scroll_offset = panel.scroll_offset.min(panel.selected_row);
         }
     }
 
@@ -192,6 +199,16 @@ impl DashboardState {
 
     pub fn clear_notice(&mut self) {
         self.notice = None;
+    }
+}
+
+impl Panel {
+    pub fn selectable_row_count(&self) -> usize {
+        match &self.state {
+            PanelState::Ready { output } if output.is_empty() => 1,
+            PanelState::Ready { output } => output.lines().count().max(1),
+            _ => 1,
+        }
     }
 }
 
@@ -391,14 +408,24 @@ mod tests {
     }
 
     #[test]
-    fn focused_panel_scroll_resets_when_output_changes() {
+    fn focused_panel_selection_resets_when_output_changes() {
         let mut state = sample_state();
 
-        state.scroll_focused_down();
-        state.scroll_focused_down();
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: "one\ntwo\nthree".into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+        state.select_focused_row_down();
+        state.select_focused_row_down();
+        assert_eq!(state.panels[0].selected_row, 2);
         assert_eq!(state.panels[0].scroll_offset, 2);
 
-        state.scroll_focused_up();
+        state.select_focused_row_up();
+        assert_eq!(state.panels[0].selected_row, 1);
         assert_eq!(state.panels[0].scroll_offset, 1);
 
         state.apply_result(
@@ -409,6 +436,28 @@ mod tests {
                 status: CommandStatus::Exited(0),
             },
         );
+        assert_eq!(state.panels[0].selected_row, 0);
         assert_eq!(state.panels[0].scroll_offset, 0);
+    }
+
+    #[test]
+    fn focused_panel_selection_clamps_to_output_rows() {
+        let mut state = sample_state();
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: "one\ntwo".into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+
+        state.select_focused_row_down();
+        state.select_focused_row_down();
+        assert_eq!(state.panels[0].selected_row, 1);
+
+        state.select_focused_row_up();
+        state.select_focused_row_up();
+        assert_eq!(state.panels[0].selected_row, 0);
     }
 }

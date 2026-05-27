@@ -129,7 +129,7 @@ Keybindings:
 - `q`, `x`, or `Esc`: return from detail view.
 - `q`, `x`, `Esc`, or `?`: close help/actions overlay.
 - `q` or `Esc`: quit from the grid.
-- In detail view, `j`/down and `k`/up scroll the focused panel.
+- In detail view, `j`/down and `k`/up select output rows; scrolling follows selection.
 - `r`: refresh focused panel.
 - `R`: refresh all panels.
 - Focused-panel action keys are shown in the footer.
