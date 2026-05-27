@@ -76,6 +76,10 @@ title = "Tasks"
 command = "task mine"
 timeout_secs = 10
 
+[panels.row_detail]
+title = "Task detail"
+command = "task {{ID}}"
+
 [[panels.actions]]
 key = "t"
 label = "Open tasks"
@@ -92,6 +96,9 @@ Config shape:
 - `panels.command`: shell command used to refresh the panel.
 - `panels.output`: optional output protocol, either `text` or `table-json`; default `text`.
 - `panels.timeout_secs`: optional panel timeout override.
+- `[panels.row_detail]`: optional selected-row drill-in command for `table-json` panels.
+- `panels.row_detail.title`: row detail view title.
+- `panels.row_detail.command`: shell command with `{{Column Name}}` placeholders from the selected row.
 - `[[panels.actions]]`: optional fire-and-forget action for the focused panel.
 - `panels.actions.key`: single-character keyboard shortcut.
 - `panels.actions.label`: footer label.
@@ -136,8 +143,9 @@ Keybindings:
 - `h`/`j`/`k`/`l` or arrow keys: move focus left/down/up/right through the card grid.
 - `Tab` / `Shift-Tab`: cycle focus through panels.
 - `Enter`: drill into the focused panel.
+- In detail view, `Enter`: open configured row detail for the selected row.
 - `?`: toggle help/actions overlay.
-- `q`, `x`, or `Esc`: return from detail view.
+- `q`, `x`, or `Esc`: step back from detail views.
 - `q`, `x`, `Esc`, or `?`: close help/actions overlay.
 - `q` or `Esc`: quit from the grid.
 - In detail view, `j`/down and `k`/up select output rows; scrolling follows selection.

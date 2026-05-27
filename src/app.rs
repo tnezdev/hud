@@ -21,13 +21,16 @@ use std::{
 pub struct HudApp<R: CommandRunner> {
     pub state: DashboardState,
     runner: R,
-    refresh_tx: Sender<RefreshMessage>,
-    refresh_rx: Receiver<RefreshMessage>,
+    refresh_tx: Sender<AppMessage>,
+    refresh_rx: Receiver<AppMessage>,
 }
 
-struct RefreshMessage {
-    panel_index: usize,
-    result: CommandResult,
+enum AppMessage {
+    PanelRefresh {
+        panel_index: usize,
+        result: CommandResult,
+    },
+    RowDetail(CommandResult),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -60,7 +63,13 @@ impl<R: CommandRunner> HudApp<R> {
 
     pub fn drain_refreshes(&mut self) {
         while let Ok(message) = self.refresh_rx.try_recv() {
-            self.state.apply_result(message.panel_index, message.result);
+            match message {
+                AppMessage::PanelRefresh {
+                    panel_index,
+                    result,
+                } => self.state.apply_result(panel_index, result),
+                AppMessage::RowDetail(result) => self.state.apply_row_detail_result(result),
+            }
         }
     }
 
@@ -79,10 +88,27 @@ impl<R: CommandRunner> HudApp<R> {
                 timeout: panel.timeout,
             });
 
-            let _ = tx.send(RefreshMessage {
+            let _ = tx.send(AppMessage::PanelRefresh {
                 panel_index,
                 result,
             });
+        });
+    }
+
+    fn enter_selected_row_detail(&mut self) {
+        let Some(request) = self.state.enter_selected_row_detail() else {
+            return;
+        };
+
+        let runner = self.runner.clone();
+        let tx = self.refresh_tx.clone();
+        thread::spawn(move || {
+            let result = runner.run(CommandRequest {
+                command: request.command,
+                timeout: request.timeout,
+            });
+
+            let _ = tx.send(AppMessage::RowDetail(result));
         });
     }
 
@@ -102,14 +128,18 @@ impl<R: CommandRunner> HudApp<R> {
                 Control::Continue
             }
             KeyCode::Esc | KeyCode::Char('q') | KeyCode::Char('x')
-                if self.state.view == View::PanelDetail =>
+                if self.state.active_view() != View::Dashboard =>
             {
-                self.state.return_to_dashboard();
+                self.state.pop_view();
                 Control::Continue
             }
             KeyCode::Esc | KeyCode::Char('q') => Control::Quit,
-            KeyCode::Enter => {
+            KeyCode::Enter if self.state.active_view() == View::Dashboard => {
                 self.state.enter_panel_detail();
+                Control::Continue
+            }
+            KeyCode::Enter if self.state.active_view() == View::PanelDetail => {
+                self.enter_selected_row_detail();
                 Control::Continue
             }
             KeyCode::Tab => {
@@ -120,27 +150,35 @@ impl<R: CommandRunner> HudApp<R> {
                 self.state.move_focus(FocusMovement::Previous);
                 Control::Continue
             }
-            KeyCode::Left | KeyCode::Char('h') if self.state.view == View::Dashboard => {
+            KeyCode::Left | KeyCode::Char('h') if self.state.active_view() == View::Dashboard => {
                 self.state.move_focus(FocusMovement::Left);
                 Control::Continue
             }
-            KeyCode::Right | KeyCode::Char('l') if self.state.view == View::Dashboard => {
+            KeyCode::Right | KeyCode::Char('l') if self.state.active_view() == View::Dashboard => {
                 self.state.move_focus(FocusMovement::Right);
                 Control::Continue
             }
-            KeyCode::Up | KeyCode::Char('k') if self.state.view == View::PanelDetail => {
+            KeyCode::Up | KeyCode::Char('k') if self.state.active_view() == View::PanelDetail => {
                 self.state.select_focused_row_up();
                 Control::Continue
             }
-            KeyCode::Down | KeyCode::Char('j') if self.state.view == View::PanelDetail => {
+            KeyCode::Down | KeyCode::Char('j') if self.state.active_view() == View::PanelDetail => {
                 self.state.select_focused_row_down();
                 Control::Continue
             }
-            KeyCode::Up | KeyCode::Char('k') if self.state.view == View::Dashboard => {
+            KeyCode::Up | KeyCode::Char('k') if self.state.active_view() == View::RowDetail => {
+                self.state.scroll_row_detail_up();
+                Control::Continue
+            }
+            KeyCode::Down | KeyCode::Char('j') if self.state.active_view() == View::RowDetail => {
+                self.state.scroll_row_detail_down();
+                Control::Continue
+            }
+            KeyCode::Up | KeyCode::Char('k') if self.state.active_view() == View::Dashboard => {
                 self.state.move_focus(FocusMovement::Up);
                 Control::Continue
             }
-            KeyCode::Down | KeyCode::Char('j') if self.state.view == View::Dashboard => {
+            KeyCode::Down | KeyCode::Char('j') if self.state.active_view() == View::Dashboard => {
                 self.state.move_focus(FocusMovement::Down);
                 Control::Continue
             }

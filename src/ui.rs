@@ -1,4 +1,6 @@
-use crate::panel::{DashboardState, Panel, PanelContent, PanelState, TableContent, View};
+use crate::panel::{
+    DashboardState, Panel, PanelContent, PanelState, RowDetailView, TableContent, View,
+};
 use ratatui::{
     Frame,
     layout::{Constraint, Direction, Layout, Rect},
@@ -22,13 +24,20 @@ pub fn draw(frame: &mut Frame<'_>, state: &DashboardState) {
         .split(area);
 
     draw_header(frame, sections[0], state);
-    match state.view {
+    match state.active_view() {
         View::Dashboard => draw_panel_grid(frame, sections[1], state),
         View::PanelDetail => draw_panel_detail(frame, sections[1], state),
+        View::RowDetail => draw_row_detail(frame, sections[1], state),
     }
     draw_footer(frame, sections[2], state);
     if state.help_open {
         draw_help_overlay(frame, area, state);
+    }
+}
+
+fn draw_row_detail(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
+    if let Some(row_detail) = &state.row_detail {
+        draw_row_detail_with_scroll(frame, area, row_detail);
     }
 }
 
@@ -197,6 +206,35 @@ fn draw_table_panel(
     frame.render_stateful_widget(widget, area, &mut table_state);
 }
 
+fn draw_row_detail_with_scroll(frame: &mut Frame<'_>, area: Rect, row_detail: &RowDetailView) {
+    let title = format!(" {} [{}] ", row_detail.title, row_detail.state.label());
+    let block = Block::default()
+        .borders(Borders::ALL)
+        .border_style(Style::default().fg(Color::Yellow))
+        .title(title);
+    let text = panel_state_text(&row_detail.state);
+    let lines = text
+        .lines()
+        .map(|line| Line::raw(line.to_string()))
+        .collect::<Vec<_>>();
+    let content_lines = wrapped_line_count(&lines, area.width.saturating_sub(2) as usize);
+    let visible_lines = area.height.saturating_sub(2) as usize;
+    let max_scroll = content_lines.saturating_sub(visible_lines);
+    let effective_offset = row_detail.scroll_offset.min(max_scroll);
+    let paragraph = Paragraph::new(lines)
+        .block(block)
+        .wrap(Wrap { trim: false })
+        .scroll((effective_offset.min(u16::MAX as usize) as u16, 0));
+    frame.render_widget(paragraph, area);
+
+    if content_lines > visible_lines {
+        let mut scrollbar_state = ScrollbarState::new(content_lines.saturating_sub(visible_lines))
+            .position(effective_offset);
+        let scrollbar = Scrollbar::default().orientation(ScrollbarOrientation::VerticalRight);
+        frame.render_stateful_widget(scrollbar, area, &mut scrollbar_state);
+    }
+}
+
 fn wrapped_line_count(lines: &[Line<'_>], width: usize) -> usize {
     if width == 0 {
         return lines.len();
@@ -209,7 +247,11 @@ fn wrapped_line_count(lines: &[Line<'_>], width: usize) -> usize {
 }
 
 fn panel_text(panel: &Panel) -> String {
-    match &panel.state {
+    panel_state_text(&panel.state)
+}
+
+fn panel_state_text(state: &PanelState) -> String {
+    match state {
         PanelState::Idle => "press r to refresh this panel or R for all panels".into(),
         PanelState::Loading => "loading...".into(),
         PanelState::Ready {
@@ -345,10 +387,18 @@ fn draw_footer(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
         Span::raw("R refresh all"),
     ];
 
-    if state.view == View::PanelDetail {
+    if state.active_view() == View::PanelDetail {
         footer.push(Span::raw("  "));
         footer.push(Span::styled(
             "q/x/Esc grid",
+            Style::default().fg(Color::Yellow),
+        ));
+    }
+
+    if state.active_view() == View::RowDetail {
+        footer.push(Span::raw("  "));
+        footer.push(Span::styled(
+            "q/x/Esc back",
             Style::default().fg(Color::Yellow),
         ));
     }
@@ -391,7 +441,7 @@ fn draw_help_overlay(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) 
         Line::raw("R refresh all panels"),
     ];
 
-    match state.view {
+    match state.active_view() {
         View::Dashboard => {
             lines.push(Line::raw("h/j/k/l or arrows move through cards"));
             lines.push(Line::raw("Enter drill into focused panel"));
@@ -399,7 +449,12 @@ fn draw_help_overlay(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) 
         }
         View::PanelDetail => {
             lines.push(Line::raw("j/k or down/up select output row"));
+            lines.push(Line::raw("Enter open configured row detail"));
             lines.push(Line::raw("q, x, or Esc return to dashboard"));
+        }
+        View::RowDetail => {
+            lines.push(Line::raw("j/k or down/up scroll row detail"));
+            lines.push(Line::raw("q, x, or Esc return to panel detail"));
         }
     }
 

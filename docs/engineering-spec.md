@@ -100,6 +100,8 @@ The V1 default command timeout is 120 seconds. Panels can override it with `time
 
 Action commands use the same injectable boundary but are fire-and-forget: `hud` verifies that the action launches, then returns to the dashboard without waiting for completion.
 
+Configured row-detail commands also use the panel refresh boundary. Entering a configured row detail view runs a bounded command and stores the result in typed app state; rendering never launches commands.
+
 ## Output Protocol
 
 Plain text stdout is valid V1 panel content and remains the default.
@@ -130,6 +132,36 @@ output = "table-json"
 The parser boundary is `panel`: command stdout is converted once into typed panel content. Rendering consumes typed text or typed table data and does not inspect raw JSON. Malformed structured stdout renders as a panel error instead of falling back to plain text.
 
 The first table protocol intentionally only supports string cells. Wider semantic widgets, richer cell types, charts, and nested row drill-ins are later slices.
+
+## View Stack And Row Drill-In
+
+The first explicit navigation stack is:
+
+```text
+Dashboard
+  -> Panel detail
+    -> Row detail
+```
+
+`q`, `x`, or `Esc` pops one view. `Enter` on a dashboard card pushes panel detail. `Enter` on a selected table row can push row detail when the panel has configured row drill-in.
+
+The first row drill-in config shape is intentionally small:
+
+```toml
+[[panels]]
+id = "issues"
+title = "Issues"
+command = "./scripts/issues-json"
+output = "table-json"
+
+[panels.row_detail]
+title = "Issue detail"
+command = "gh issue view {{Issue}}"
+```
+
+Row detail commands use `{{Column Name}}` placeholders. Placeholder values come from the selected typed table row, matched against table column names. Unknown placeholders fail closed and render a row-detail error. This is string substitution for local commands, not a general template language.
+
+Row detail output is plain text in this slice. Structured nested detail views, loading spinners beyond the existing panel states, and deeper configured stacks are later work.
 
 ## Refresh Model
 

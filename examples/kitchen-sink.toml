@@ -25,6 +25,10 @@ command = "printf '{\"type\":\"table\",\"columns\":[\"Issue\",\"Title\",\"State\
 output = "table-json"
 timeout_secs = 5
 
+[panels.row_detail]
+title = "Issue Detail"
+command = "printf 'Issue: %s\nTitle: %s\nState: %s\n\nThis row-detail view was fetched through a configured command.\n' '{{Issue}}' '{{Title}}' '{{State}}'"
+
 [[panels.actions]]
 key = "g"
 label = "open GitHub"

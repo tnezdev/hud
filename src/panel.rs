@@ -1,16 +1,17 @@
 use crate::{
     command::{CommandResult, CommandStatus},
-    config::{HudConfig, OutputFormat},
+    config::{HudConfig, OutputFormat, RowDetailConfig},
 };
 use serde::Deserialize;
-use std::time::Duration;
+use std::{collections::HashMap, time::Duration};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct DashboardState {
     pub title: String,
     pub panels: Vec<Panel>,
     pub focused: usize,
-    pub view: View,
+    pub view_stack: Vec<View>,
+    pub row_detail: Option<RowDetailView>,
     pub help_open: bool,
     pub notice: Option<String>,
 }
@@ -23,6 +24,7 @@ pub struct Panel {
     pub output_format: OutputFormat,
     pub timeout: Duration,
     pub actions: Vec<Action>,
+    pub row_detail: Option<RowDetail>,
     pub state: PanelState,
     pub scroll_offset: usize,
     pub selected_row: usize,
@@ -33,6 +35,26 @@ pub struct Action {
     pub key: char,
     pub label: String,
     pub command: String,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct RowDetail {
+    pub title: String,
+    pub command: String,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct RowDetailRequest {
+    pub title: String,
+    pub command: String,
+    pub timeout: Duration,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct RowDetailView {
+    pub title: String,
+    pub state: PanelState,
+    pub scroll_offset: usize,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -74,6 +96,7 @@ pub enum PanelErrorKind {
 pub enum View {
     Dashboard,
     PanelDetail,
+    RowDetail,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -110,13 +133,15 @@ impl DashboardState {
                             command: action.command.clone(),
                         })
                         .collect(),
+                    row_detail: panel.row_detail.clone().map(RowDetail::from),
                     state: PanelState::Idle,
                     scroll_offset: 0,
                     selected_row: 0,
                 })
                 .collect(),
             focused: 0,
-            view: View::Dashboard,
+            view_stack: vec![View::Dashboard],
+            row_detail: None,
             help_open: false,
             notice: None,
         }
@@ -124,6 +149,10 @@ impl DashboardState {
 
     pub fn focused_panel(&self) -> Option<&Panel> {
         self.panels.get(self.focused)
+    }
+
+    pub fn active_view(&self) -> View {
+        self.view_stack.last().copied().unwrap_or(View::Dashboard)
     }
 
     pub fn focus_next(&mut self) {
@@ -192,13 +221,78 @@ impl DashboardState {
     }
 
     pub fn enter_panel_detail(&mut self) {
-        if !self.panels.is_empty() {
-            self.view = View::PanelDetail;
+        if !self.panels.is_empty() && self.active_view() == View::Dashboard {
+            self.view_stack.push(View::PanelDetail);
+        }
+    }
+
+    pub fn enter_selected_row_detail(&mut self) -> Option<RowDetailRequest> {
+        if self.active_view() != View::PanelDetail {
+            return None;
+        }
+
+        let panel = self.focused_panel()?;
+        let Some(row_detail) = &panel.row_detail else {
+            self.set_notice("selected panel has no row detail command");
+            return None;
+        };
+
+        let title = row_detail.title.clone();
+        let timeout = panel.timeout;
+        let command = match build_row_detail_command(panel) {
+            Ok(command) => command,
+            Err(message) => {
+                self.push_row_detail_error(title, message);
+                return None;
+            }
+        };
+
+        self.row_detail = Some(RowDetailView {
+            title: title.clone(),
+            state: PanelState::Loading,
+            scroll_offset: 0,
+        });
+        self.push_view(View::RowDetail);
+
+        Some(RowDetailRequest {
+            title,
+            command,
+            timeout,
+        })
+    }
+
+    pub fn apply_row_detail_result(&mut self, result: CommandResult) {
+        if let Some(row_detail) = &mut self.row_detail {
+            row_detail.state = PanelState::from_command_result(result, OutputFormat::Text);
+            row_detail.scroll_offset = 0;
+        }
+    }
+
+    pub fn scroll_row_detail_down(&mut self) {
+        if let Some(row_detail) = &mut self.row_detail {
+            row_detail.scroll_offset = row_detail.scroll_offset.saturating_add(1);
+        }
+    }
+
+    pub fn scroll_row_detail_up(&mut self) {
+        if let Some(row_detail) = &mut self.row_detail {
+            row_detail.scroll_offset = row_detail.scroll_offset.saturating_sub(1);
+        }
+    }
+
+    pub fn pop_view(&mut self) {
+        if self.active_view() == View::Dashboard {
+            return;
+        }
+
+        if self.view_stack.pop() == Some(View::RowDetail) {
+            self.row_detail = None;
         }
     }
 
     pub fn return_to_dashboard(&mut self) {
-        self.view = View::Dashboard;
+        self.view_stack.truncate(1);
+        self.row_detail = None;
     }
 
     pub fn open_help(&mut self) {
@@ -215,6 +309,15 @@ impl DashboardState {
 
     pub fn clear_notice(&mut self) {
         self.notice = None;
+    }
+}
+
+impl From<RowDetailConfig> for RowDetail {
+    fn from(value: RowDetailConfig) -> Self {
+        Self {
+            title: value.title,
+            command: value.command,
+        }
     }
 }
 
@@ -319,6 +422,79 @@ fn parse_table_json(stdout: &str) -> Result<TableContent, String> {
         columns: raw.columns,
         rows: raw.rows,
     })
+}
+
+fn build_row_detail_command(panel: &Panel) -> Result<String, String> {
+    let Some(row_detail) = &panel.row_detail else {
+        return Err("selected panel has no row detail command".into());
+    };
+    let PanelState::Ready {
+        content: PanelContent::Table(table),
+    } = &panel.state
+    else {
+        return Err("row detail requires table-json panel output".into());
+    };
+    let Some(row) = table.rows.get(panel.selected_row) else {
+        return Err("selected table row is empty".into());
+    };
+
+    let values = table
+        .columns
+        .iter()
+        .cloned()
+        .zip(row.iter().cloned())
+        .collect::<HashMap<_, _>>();
+
+    substitute_row_placeholders(&row_detail.command, &values)
+}
+
+fn substitute_row_placeholders(
+    template: &str,
+    values: &HashMap<String, String>,
+) -> Result<String, String> {
+    let mut output = String::new();
+    let mut rest = template;
+
+    while let Some(start) = rest.find("{{") {
+        output.push_str(&rest[..start]);
+        let after_start = &rest[start + 2..];
+        let Some(end) = after_start.find("}}") else {
+            return Err("unterminated row detail placeholder".into());
+        };
+        let key = after_start[..end].trim();
+        if key.is_empty() {
+            return Err("empty row detail placeholder".into());
+        }
+        let Some(value) = values.get(key) else {
+            return Err(format!("unknown row detail placeholder '{{{{{key}}}}}'"));
+        };
+        output.push_str(value);
+        rest = &after_start[end + 2..];
+    }
+
+    output.push_str(rest);
+    Ok(output)
+}
+
+impl DashboardState {
+    fn push_view(&mut self, view: View) {
+        if self.active_view() != view {
+            self.view_stack.push(view);
+        }
+    }
+
+    fn push_row_detail_error(&mut self, title: String, message: String) {
+        self.row_detail = Some(RowDetailView {
+            title,
+            state: PanelState::Error(PanelError {
+                message: "could not build row detail command".into(),
+                detail: Some(message),
+                kind: PanelErrorKind::InvalidOutput,
+            }),
+            scroll_offset: 0,
+        });
+        self.push_view(View::RowDetail);
+    }
 }
 
 fn non_empty_detail(primary: String, fallback: String) -> Option<String> {
@@ -600,6 +776,89 @@ mod tests {
 
         assert!(matches!(
             state.panels[0].state,
+            PanelState::Error(PanelError {
+                kind: PanelErrorKind::InvalidOutput,
+                ..
+            })
+        ));
+    }
+
+    #[test]
+    fn selected_table_row_builds_row_detail_request_and_pushes_view() {
+        let config = HudConfig::from_toml(
+            r#"
+            title = "Test"
+
+            [[panels]]
+            id = "issues"
+            title = "Issues"
+            command = "issues"
+            output = "table-json"
+
+            [panels.row_detail]
+            title = "Issue detail"
+            command = "gh issue view {{Issue}} --repo {{Repo}}"
+            "#,
+        )
+        .expect("valid config");
+        let mut state = DashboardState::from_config(&config);
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: r#"{"type":"table","columns":["Issue","Repo"],"rows":[["12","hud"],["15","hud"]]}"#.into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+        state.enter_panel_detail();
+        state.select_focused_row_down();
+
+        let request = state
+            .enter_selected_row_detail()
+            .expect("row detail request");
+
+        assert_eq!(request.title, "Issue detail");
+        assert_eq!(request.command, "gh issue view 15 --repo hud");
+        assert_eq!(state.active_view(), View::RowDetail);
+        assert!(matches!(
+            state.row_detail.as_ref().expect("row detail").state,
+            PanelState::Loading
+        ));
+    }
+
+    #[test]
+    fn unknown_row_placeholder_pushes_row_detail_error() {
+        let config = HudConfig::from_toml(
+            r#"
+            title = "Test"
+
+            [[panels]]
+            id = "issues"
+            title = "Issues"
+            command = "issues"
+            output = "table-json"
+
+            [panels.row_detail]
+            title = "Issue detail"
+            command = "gh issue view {{Missing}}"
+            "#,
+        )
+        .expect("valid config");
+        let mut state = DashboardState::from_config(&config);
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: r#"{"type":"table","columns":["Issue"],"rows":[["12"]]}"#.into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+        state.enter_panel_detail();
+
+        assert!(state.enter_selected_row_detail().is_none());
+        assert_eq!(state.active_view(), View::RowDetail);
+        assert!(matches!(
+            state.row_detail.as_ref().expect("row detail").state,
             PanelState::Error(PanelError {
                 kind: PanelErrorKind::InvalidOutput,
                 ..

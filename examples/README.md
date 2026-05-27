@@ -11,4 +11,4 @@ cargo run -- --config examples/kitchen-sink.toml
 ## Configs
 
 - `dogfood.toml`: local working cockpit for real tools like `tmux`, `gh`, and `task`.
-- `kitchen-sink.toml`: static design fixture for panel density, action discovery, long output, typed table output, and future data widgets.
+- `kitchen-sink.toml`: static design fixture for panel density, action discovery, long output, typed table output, row drill-in, and future data widgets.

@@ -23,6 +23,13 @@ pub struct PanelConfig {
     pub output_format: OutputFormat,
     pub timeout: Duration,
     pub actions: Vec<ActionConfig>,
+    pub row_detail: Option<RowDetailConfig>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct RowDetailConfig {
+    pub title: String,
+    pub command: String,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -186,8 +193,16 @@ struct RawPanelConfig {
     command: Option<String>,
     output: Option<RawOutputFormat>,
     timeout_secs: Option<u64>,
+    row_detail: Option<RawRowDetailConfig>,
     #[serde(default)]
     actions: Vec<RawActionConfig>,
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct RawRowDetailConfig {
+    title: Option<String>,
+    command: Option<String>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -235,6 +250,7 @@ impl RawHudConfig {
             validate_timeout(&format!("{label}.timeout_secs"), timeout_secs, &mut errors);
 
             let actions = validate_actions(&label, panel.actions, &mut errors);
+            let row_detail = validate_row_detail(&label, panel.row_detail, &mut errors);
 
             if let (Some(id), Some(title), Some(command)) = (id, panel_title, command) {
                 panels.push(PanelConfig {
@@ -247,6 +263,7 @@ impl RawHudConfig {
                         .unwrap_or(OutputFormat::Text),
                     timeout: Duration::from_secs(timeout_secs),
                     actions,
+                    row_detail,
                 });
             }
         }
@@ -260,6 +277,22 @@ impl RawHudConfig {
             default_timeout: Duration::from_secs(default_timeout_secs),
             panels,
         })
+    }
+}
+
+fn validate_row_detail(
+    panel_label: &str,
+    row_detail: Option<RawRowDetailConfig>,
+    errors: &mut Vec<String>,
+) -> Option<RowDetailConfig> {
+    let row_detail = row_detail?;
+    let label = format!("{panel_label}.row_detail");
+    let title = required_text(&format!("{label}.title"), row_detail.title, errors);
+    let command = required_text(&format!("{label}.command"), row_detail.command, errors);
+
+    match (title, command) {
+        (Some(title), Some(command)) => Some(RowDetailConfig { title, command }),
+        _ => None,
     }
 }
 
@@ -347,6 +380,10 @@ mod tests {
             output = "table-json"
             timeout_secs = 5
 
+            [panels.row_detail]
+            title = "Task detail"
+            command = "task {{ID}}"
+
             [[panels.actions]]
             key = "t"
             label = "Open tasks"
@@ -359,6 +396,13 @@ mod tests {
         assert_eq!(config.default_timeout, Duration::from_secs(30));
         assert_eq!(config.panels[0].timeout, Duration::from_secs(5));
         assert_eq!(config.panels[0].output_format, OutputFormat::TableJson);
+        assert_eq!(
+            config.panels[0].row_detail,
+            Some(RowDetailConfig {
+                title: "Task detail".into(),
+                command: "task {{ID}}".into()
+            })
+        );
         assert_eq!(config.panels[0].actions[0].key, 't');
     }
 
