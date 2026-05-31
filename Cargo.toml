@@ -2,6 +2,10 @@
 name = "hud"
 version = "0.1.0"
 edition = "2024"
+description = "A programmable terminal cockpit for getting oriented and jumping into action"
+license = "MIT"
+repository = "https://github.com/tnezdev/hud"
+readme = "README.md"
 
 [dependencies]
 crossterm = "0.29.0"
@@ -9,3 +13,7 @@ ratatui = { version = "0.30.0", default-features = false, features = ["crossterm
 serde = { version = "1.0.228", features = ["derive"] }
 serde_json = "1.0.150"
 toml = "1.1.2"
+
+[dev-dependencies]
+assert_cmd = "2.2.2"
+predicates = "3.1.4"

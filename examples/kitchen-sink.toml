@@ -1,10 +1,13 @@
+# hud kitchen-sink config — demonstrates every feature
+# Run: hud --config examples/kitchen-sink.toml
+
 title = "hud kitchen sink"
 default_timeout_secs = 10
 
 [[panels]]
 id = "orientation"
 title = "Orientation"
-command = "printf 'hud kitchen sink\n\nThis is a valid hud config, not a special app mode.\nUse it to dogfood layout, focus, actions, and panel density.\n\nKeys:\nq quit\nhjkl/arrows move\nr refresh focused\nR refresh all\n'"
+command = "printf 'hud kitchen sink\n\nThis config demonstrates every feature:\nplain text, metrics, tables, row detail, and actions.\n\nKeys:\n  q quit\n  hjkl or arrows move focus\n  r refresh focused panel\n  R refresh all panels\n  Enter drill into focused panel\n'"
 timeout_secs = 5
 
 [[panels.actions]]
@@ -13,7 +16,7 @@ label = "open README"
 command = "${EDITOR:-vi} README.md"
 
 [[panels]]
-id = "status"
+id = "metrics"
 title = "Status Metrics"
 command = "printf '{\"type\":\"metrics\",\"metrics\":[{\"label\":\"Budget\",\"value\":72,\"max\":100},{\"label\":\"Quota\",\"value\":43,\"max\":100},{\"label\":\"Open PRs\",\"value\":3,\"max\":10},{\"label\":\"Tasks\",\"value\":8,\"max\":20}]}\n'"
 output = "metrics-json"
@@ -22,29 +25,24 @@ timeout_secs = 5
 [[panels]]
 id = "table"
 title = "Structured Table"
-command = "printf '{\"type\":\"table\",\"columns\":[\"Issue\",\"Title\",\"State\"],\"rows\":[[\"#12\",\"TUI design spike\",\"done\"],[\"#14\",\"Row selection\",\"done\"],[\"#15\",\"Structured output\",\"active\"],[\"#16\",\"Row drill-in\",\"next\"]]}\n'"
+command = "printf '{\"type\":\"table\",\"columns\":[\"Service\",\"Status\",\"Region\"],\"rows\":[[\"api-gateway\",\"healthy\",\"us-east-1\"],[\"worker\",\"healthy\",\"us-west-2\"],[\"db-primary\",\"degraded\",\"us-east-1\"]]}\n'"
 output = "table-json"
 timeout_secs = 5
 
 [panels.row_detail]
-title = "Issue Detail"
-command = "printf 'Issue: %s\nTitle: %s\nState: %s\n\nThis row-detail view was fetched through a configured command.\n' '{{Issue}}' '{{Title}}' '{{State}}'"
-
-[[panels.actions]]
-key = "g"
-label = "open GitHub"
-command = "gh repo view tnezdev/hud --web"
+title = "Service Detail"
+command = "printf 'Service: %s\nStatus: %s\nRegion: %s\n\nDrill-in detail loaded via row_detail command.\n' '{{Service}}' '{{Status}}' '{{Region}}'"
 
 [[panels]]
 id = "long-output"
 title = "Long Output"
-command = "for n in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20; do printf 'line %s  scroll affordance candidate\n' \"$n\"; done"
+command = "seq 1 20 | while read n; do printf 'line %02d  scroll affordance\n' \"$n\"; done"
 timeout_secs = 5
 
 [[panels]]
 id = "actions"
 title = "Actions"
-command = "printf 'Panel-specific actions should not make the footer dense forever.\n\nThis config has actions on some panels to test discoverability.\nA future design can move them into an overlay using Ratatui Clear + Paragraph/List.\n'"
+command = "printf 'Actions appear in the footer for panels that define them.\nThis panel has one: press e to edit this config.\n'"
 timeout_secs = 5
 
 [[panels.actions]]
@@ -55,5 +53,5 @@ command = "${EDITOR:-vi} examples/kitchen-sink.toml"
 [[panels]]
 id = "density"
 title = "Density"
-command = "printf 'compact row A\ncompact row B\ncompact row C\n\nspacious block\n\n  more breathing room\n  clearer rhythm\n\nQuestion: should secondary panels be summaries, or should hud commit to one focused surface?\n'"
+command = "printf 'compact row A\ncompact row B\ncompact row C\n\nspacious block\n\n  more breathing room\n  clearer rhythm\n'"
 timeout_secs = 5

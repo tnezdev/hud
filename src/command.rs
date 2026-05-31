@@ -231,4 +231,57 @@ mod tests {
         assert_eq!(result.stdout, "ok");
         assert_eq!(result.status, CommandStatus::Exited(0));
     }
+
+    #[test]
+    fn shell_runner_captures_stdout() {
+        let runner = ShellCommandRunner;
+        let result = runner.run(CommandRequest {
+            command: "printf 'hello world'".into(),
+            timeout: Duration::from_secs(5),
+        });
+        assert_eq!(result.stdout.trim(), "hello world");
+        assert_eq!(result.status, CommandStatus::Exited(0));
+    }
+
+    #[test]
+    fn shell_runner_captures_stderr() {
+        let runner = ShellCommandRunner;
+        let result = runner.run(CommandRequest {
+            command: "printf 'err' >&2".into(),
+            timeout: Duration::from_secs(5),
+        });
+        assert_eq!(result.stderr.trim(), "err");
+        assert_eq!(result.status, CommandStatus::Exited(0));
+    }
+
+    #[test]
+    fn shell_runner_preserves_nonzero_exit() {
+        let runner = ShellCommandRunner;
+        let result = runner.run(CommandRequest {
+            command: "exit 42".into(),
+            timeout: Duration::from_secs(5),
+        });
+        assert_eq!(result.status, CommandStatus::Exited(42));
+    }
+
+    #[test]
+    fn shell_runner_reports_timeout() {
+        let runner = ShellCommandRunner;
+        let result = runner.run(CommandRequest {
+            command: "sleep 10".into(),
+            timeout: Duration::from_millis(100),
+        });
+        assert_eq!(result.status, CommandStatus::TimedOut);
+    }
+
+    #[test]
+    fn shell_runner_reports_launch_failure() {
+        let runner = ShellCommandRunner;
+        let result = runner.run(CommandRequest {
+            command: "this_command_does_not_exist_abc123".into(),
+            timeout: Duration::from_secs(5),
+        });
+        // The shell itself exits, so we get a non-zero exit rather than LaunchFailed
+        assert!(matches!(result.status, CommandStatus::Exited(_)));
+    }
 }

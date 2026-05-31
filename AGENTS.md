@@ -14,6 +14,13 @@ Read `README.md` and `docs/engineering-spec.md` before making non-trivial change
 - Parse external data once at a boundary. Do not scatter defensive fallbacks through readers.
 - Tests must not depend on real sleeps, wall-clock timing, real shell commands, or a real terminal.
 
+## Quality Policy
+
+- `./scripts/check` is the local definition of done for code changes. Run it before calling work done.
+- Behavior changes should include automated coverage: a unit test, an integration test (e.g., `tests/cli.rs`), example-config validation (`tests/examples.rs`), or a documented reason why no automated test fits.
+- Docs-only changes must leave the repo green under `./scripts/check`.
+- Do not add new CI requirements or local-tool dependencies in this issue set — that belongs to future CI work.
+
 ## Current V1 Direction
 
 - Rust binary.
