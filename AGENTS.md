@@ -17,9 +17,9 @@ Read `README.md` and `docs/engineering-spec.md` before making non-trivial change
 ## Quality Policy
 
 - `./scripts/check` is the local definition of done for code changes. Run it before calling work done.
+- `./scripts/audit` checks for known vulnerable dependencies. It is a separate security gate, not part of `./scripts/check`. CI runs `cargo audit` automatically; locally, install `cargo-audit` and run `./scripts/audit` or `cargo audit` directly.
 - Behavior changes should include automated coverage: a unit test, an integration test (e.g., `tests/cli.rs`), example-config validation (`tests/examples.rs`), or a documented reason why no automated test fits.
 - Docs-only changes must leave the repo green under `./scripts/check`.
-- Do not add new CI requirements or local-tool dependencies in this issue set — that belongs to future CI work.
 
 ## Current V1 Direction
 
@@ -33,6 +33,7 @@ Read `README.md` and `docs/engineering-spec.md` before making non-trivial change
 ## Workflow
 
 - Run `./scripts/check` before calling work done.
+- Run `./scripts/audit` before release or when dependency security matters. CI runs it on every push.
 - Update `README.md`, `docs/engineering-spec.md`, or this file when behavior, structure, or workflow changes.
 - For non-trivial implementation, write or update the relevant spec before code.
 - Keep commits small and honest.

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Run cargo audit to check for known vulnerabilities in dependencies.
+# Requires cargo-audit: cargo install cargo-audit
+#
+# CI runs cargo audit automatically. This script is a convenience
+# for local use and provides a clear error if cargo-audit is not installed.
+
+if ! cargo audit --version &>/dev/null; then
+  echo "cargo-audit not installed. Install with: cargo install cargo-audit" >&2
+  echo "CI runs cargo audit automatically on every push." >&2
+  exit 1
+fi
+
+cargo audit
