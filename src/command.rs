@@ -285,3 +285,143 @@ mod tests {
         assert!(matches!(result.status, CommandStatus::Exited(_)));
     }
 }
+
+#[cfg(test)]
+mod shell_runner_edge_tests {
+    use super::*;
+    use std::thread;
+
+    /// Captures both stdout and stderr from a single command execution.
+    #[test]
+    fn run_captures_both_stdout_and_stderr_simultaneously() {
+        let runner = ShellCommandRunner;
+        let result = runner.run(CommandRequest {
+            command: "printf 'out'; printf 'err' >&2".into(),
+            timeout: Duration::from_secs(5),
+        });
+
+        assert_eq!(result.status, CommandStatus::Exited(0));
+        assert!(
+            result.stdout.contains("out"),
+            "stdout was: {:?}",
+            result.stdout
+        );
+        assert!(
+            result.stderr.contains("err"),
+            "stderr was: {:?}",
+            result.stderr
+        );
+    }
+
+    /// Captures stderr from a failing command (non-zero exit + stderr together).
+    #[test]
+    fn run_captures_stderr_alongside_nonzero_exit() {
+        let runner = ShellCommandRunner;
+        let result = runner.run(CommandRequest {
+            command: "printf 'oops' >&2; exit 1".into(),
+            timeout: Duration::from_secs(5),
+        });
+
+        assert_eq!(result.status, CommandStatus::Exited(1));
+        assert!(
+            result.stderr.contains("oops"),
+            "stderr was: {:?}",
+            result.stderr
+        );
+    }
+
+    /// A silent successful command yields empty stdout and stderr.
+    #[test]
+    fn run_silent_command_produces_empty_output() {
+        let runner = ShellCommandRunner;
+        let result = runner.run(CommandRequest {
+            command: "true".into(),
+            timeout: Duration::from_secs(5),
+        });
+
+        assert_eq!(result.status, CommandStatus::Exited(0));
+        assert_eq!(result.stdout, "");
+        assert_eq!(result.stderr, "");
+    }
+
+    /// Timed-out commands produce TimedOut status. Partial stdout
+    /// availability depends on OS file buffering and is not guaranteed,
+    /// so we verify only the status result here.
+    #[test]
+    fn run_timeout_status_is_timed_out() {
+        let runner = ShellCommandRunner;
+        let result = runner.run(CommandRequest {
+            command: "sleep 10".into(),
+            timeout: Duration::from_millis(100),
+        });
+
+        assert_eq!(result.status, CommandStatus::TimedOut);
+        // stdout/stderr may be empty or partial depending on OS buffering;
+        // the important invariant is the status, not the output presence.
+    }
+
+    /// Concurrent run() calls isolate their temp-file capture paths —
+    /// each thread reads only its own stdout.
+    #[test]
+    fn run_concurrent_calls_isolate_temp_files() {
+        let runner = ShellCommandRunner;
+        let handles: Vec<_> = (0..4)
+            .map(|i| {
+                let runner = runner.clone();
+                thread::spawn(move || {
+                    let result = runner.run(CommandRequest {
+                        command: format!("printf 'thread{i}'"),
+                        timeout: Duration::from_secs(5),
+                    });
+                    assert_eq!(result.status, CommandStatus::Exited(0));
+                    assert!(
+                        result.stdout.contains(&format!("thread{i}")),
+                        "stdout was: {:?}",
+                        result.stdout
+                    );
+                })
+            })
+            .collect();
+
+        for handle in handles {
+            handle.join().expect("thread panicked");
+        }
+    }
+
+    /// launch() returns Ok immediately without waiting for the process to exit.
+    #[test]
+    fn launch_returns_immediately_without_blocking() {
+        let runner = ShellCommandRunner;
+        let start = Instant::now();
+        let result = runner.launch(ActionRequest {
+            command: "sleep 5".into(),
+        });
+
+        assert!(result.is_ok());
+        assert!(
+            start.elapsed() < Duration::from_secs(2),
+            "launch took {:?}, expected near-instant return",
+            start.elapsed()
+        );
+    }
+
+    // Launch failure coverage note:
+    //
+    // ShellCommandRunner::run can produce LaunchFailed in four code paths:
+    //   1. CaptureFiles::new() fails (temp dir unavailable)
+    //   2. File::create fails for stdout/stderr capture files
+    //   3. Command::spawn fails (shell binary missing/unexecutable)
+    //   4. child.try_wait returns an error during polling
+    //
+    // Path 3 is the most interesting integration case, but testing it requires
+    // overriding $SHELL to a nonexistent binary. env::set_var is unsafe in
+    // Rust 2024+ and unsound in multi-threaded tests, and shell_command() is
+    // a private free function with no dependency injection point for the shell
+    // path. The existing shell_runner_reports_launch_failure test in the parent
+    // module verifies that a nonexistent *command* (not shell) produces
+    // Exited(nonzero) rather than LaunchFailed, which documents the actual
+    // behavior: $SHELL -lc <bad-command> exits with a shell error code.
+    //
+    // Full LaunchFailed integration coverage would require either injecting
+    // the shell path or serializing env mutation — out of scope for V1.
+}
