@@ -2,40 +2,64 @@
 
 A programmable terminal cockpit for getting oriented, finding the next thing that needs attention, and jumping into action from the keyboard.
 
-## Status
+![hud starter dashboard](docs/assets/hud-starter.svg)
 
-Early V1 implementation. The accepted product PRD lives in `tnezdev/proposals` at `proposals/hud.md`.
+`hud` turns a small TOML file into a local terminal dashboard. Each panel runs a shell command, renders the result, and gives you keyboard-first ways to refresh, inspect, and launch follow-up actions.
 
-V1 proves the cockpit loop:
+## What It Is
 
-```text
-open -> orient -> move focus -> refresh -> act
+- A single-user local TUI for command-backed dashboards.
+- A lightweight way to collect `task`, `gh`, `tmux`, scripts, and status checks in one place.
+- A static-config tool: edit TOML, run `hud`, iterate.
+- Manual refresh first: no background polling or plugin daemons in V1.
+
+## What It Is Not
+
+- Not a plugin host or remote agent runner.
+- Not a web dashboard.
+- Not a process supervisor for long-running jobs.
+- Not a multi-user service.
+
+## Install
+
+Download the latest archive for your platform from GitHub Releases, unpack it, and put `hud` somewhere on your `PATH`.
+
+```sh
+tar -xzf hud-aarch64-apple-darwin.tar.gz
+sudo install -m 0755 hud-aarch64-apple-darwin/hud /usr/local/bin/hud
+hud --version
 ```
 
-## Install From Source
+Release artifacts are built for:
 
-Prerequisites:
+- `x86_64-unknown-linux-gnu`
+- `x86_64-apple-darwin`
+- `aarch64-apple-darwin`
 
-- Rust toolchain with Cargo.
-- A terminal that supports alternate-screen TUIs.
-- Optional local tools used by your panel commands, such as `tmux`, `gh`, or `task`.
-
-Install the current GitHub source:
+Install from source when developing or testing unreleased changes:
 
 ```sh
 cargo install --git git@github.com:tnezdev/hud.git
 ```
 
-Update to the latest source:
+## 60-Second Demo
+
+Run the built-in demo:
 
 ```sh
-cargo install --git git@github.com:tnezdev/hud.git --force
+hud --demo
 ```
 
-Verify:
+Or run the starter config from a checkout:
 
 ```sh
-hud --version
+cargo run -- --config examples/starter.toml
+```
+
+Validate a config without opening the TUI:
+
+```sh
+hud --config examples/starter.toml --check-config
 ```
 
 ## Configuration
@@ -55,13 +79,7 @@ $HOME/.config/.hud/config.toml
 Use a specific file with:
 
 ```sh
-hud --config ./examples/dogfood.toml
-```
-
-Validate config without opening the TUI:
-
-```sh
-hud --config ./examples/dogfood.toml --check-config
+hud --config ./examples/starter.toml
 ```
 
 Minimal config:
@@ -86,7 +104,7 @@ label = "Open tasks"
 command = "taskwarrior-tui"
 ```
 
-Config shape:
+Config fields:
 
 - `title`: dashboard title.
 - `default_timeout_secs`: optional command timeout, default `120`.
@@ -94,7 +112,7 @@ Config shape:
 - `panels.id`: unique panel id.
 - `panels.title`: panel title.
 - `panels.command`: shell command used to refresh the panel.
-- `panels.output`: optional output protocol, either `text`, `table-json`, or `metrics-json`; default `text`.
+- `panels.output`: optional output protocol: `text`, `table-json`, or `metrics-json`; default `text`.
 - `panels.timeout_secs`: optional panel timeout override.
 - `[panels.row_detail]`: optional selected-row drill-in command for `table-json` panels.
 - `panels.row_detail.title`: row detail view title.
@@ -104,7 +122,11 @@ Config shape:
 - `panels.actions.label`: footer label.
 - `panels.actions.command`: shell command launched without waiting for completion.
 
-Plain text stdout is the default V1 panel content protocol. Panels can opt into typed table rendering with `output = "table-json"` and stdout shaped as:
+## Output Protocols
+
+Plain text stdout is the default panel content protocol.
+
+Use `output = "table-json"` for typed table rendering:
 
 ```json
 {
@@ -114,7 +136,7 @@ Plain text stdout is the default V1 panel content protocol. Panels can opt into 
 }
 ```
 
-Panels can opt into aggregate line gauges with `output = "metrics-json"` and stdout shaped as:
+Use `output = "metrics-json"` for aggregate line gauges:
 
 ```json
 {
@@ -127,42 +149,57 @@ Panels can opt into aggregate line gauges with `output = "metrics-json"` and std
 
 Malformed structured output, non-zero exits, timeouts, and launch failures render as panel error states instead of crashing the dashboard.
 
-## Usage
+## Row Drill-In And Actions
 
-Run with your default config:
+Press `Enter` on a dashboard card to open the panel detail view. For `table-json` panels, configure `[panels.row_detail]` to run a command for the selected row:
 
-```sh
-hud
+```toml
+[[panels]]
+id = "services"
+title = "Services"
+command = "./scripts/services-json"
+output = "table-json"
+
+[panels.row_detail]
+title = "Service Detail"
+command = "./scripts/service-detail '{{Service}}'"
 ```
 
-Try the built-in demo:
+Focused-panel actions are fire-and-forget commands. They appear in the footer and in the `?` overlay:
 
-```sh
-hud --demo
+```toml
+[[panels.actions]]
+key = "e"
+label = "edit config"
+command = "${EDITOR:-vi} ~/.config/.hud/config.toml"
 ```
 
-Try repository example configs:
-
-```sh
-cargo run -- --config examples/dogfood.toml
-cargo run -- --config examples/kitchen-sink.toml
-```
-
-Keybindings:
+## Keybindings
 
 - `q`, `Esc`, or `Ctrl-C`: quit.
-- `h`/`j`/`k`/`l` or arrow keys: move focus left/down/up/right through the card grid.
+- `h`/`j`/`k`/`l` or arrow keys: move focus through the card grid.
 - `Tab` / `Shift-Tab`: cycle focus through panels.
 - `Enter`: drill into the focused panel.
 - In detail view, `Enter`: open configured row detail for the selected row.
 - `?`: toggle help/actions overlay.
 - `q`, `x`, or `Esc`: step back from detail views.
 - `q`, `x`, `Esc`, or `?`: close help/actions overlay.
-- `q` or `Esc`: quit from the grid.
 - In detail view, `j`/down and `k`/up select output rows; scrolling follows selection.
 - `r`: refresh focused panel.
 - `R`: refresh all panels.
 - Focused-panel action keys are shown in the footer.
+
+## Examples
+
+- `examples/starter.toml`: safe first-run config with no external tool dependencies.
+- `examples/kitchen-sink.toml`: static showcase for text, metrics, tables, row drill-in, and actions.
+- `examples/dogfood.toml`: local working cockpit for tools like `tmux`, `gh`, and `task`.
+
+Run an example from a checkout:
+
+```sh
+cargo run -- --config examples/kitchen-sink.toml
+```
 
 ## tmux Popup
 
@@ -188,19 +225,26 @@ The dashboard is most comfortable at roughly 100 columns by 30 rows or larger. Q
 
 ## Development
 
+Run locally:
+
 ```sh
 cargo run
 ```
+
+Run the normal quality gate:
 
 ```sh
 ./scripts/check
 ```
 
-## Engineering Questions
+Run the separate dependency advisory gate when release/security posture matters:
 
-Before implementation, settle the first architecture slice:
+```sh
+./scripts/audit
+```
 
-- What is the minimal core loop for config, panel execution, rendering, input, and actions?
-- What should the v1 panel output protocol guarantee?
-- What test boundaries give fast confidence before every deploy?
-- What belongs in core now, and what should stay as shell scripts or examples?
+Release notes and tag steps live in `docs/release.md`.
+
+## License
+
+MIT

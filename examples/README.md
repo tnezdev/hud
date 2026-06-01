@@ -10,5 +10,6 @@ cargo run -- --config examples/kitchen-sink.toml
 
 ## Configs
 
+- `starter.toml`: safe first-run config with no external tool dependencies.
 - `dogfood.toml`: local working cockpit for real tools like `tmux`, `gh`, and `task`.
 - `kitchen-sink.toml`: static design fixture for panel density, action discovery, long output, typed table output, metrics widgets, and row drill-in.
