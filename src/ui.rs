@@ -17,6 +17,8 @@ use std::env;
 const CARD_PADDING_X: u16 = 1;
 const CARD_PADDING_TOP: u16 = 1;
 const METRIC_BAR_WIDTH: usize = 18;
+const CARD_GUTTER_X: u16 = 1;
+const CARD_GUTTER_Y: u16 = 1;
 
 pub fn draw(frame: &mut Frame<'_>, state: &DashboardState) {
     let area = frame.area();
@@ -49,9 +51,12 @@ fn draw_row_detail(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
 
 fn draw_header(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
     let header = Paragraph::new(Line::from(vec![
-        Span::styled(" hud ", Style::default().add_modifier(Modifier::BOLD)),
+        Span::styled(" HUD ", Style::default().add_modifier(Modifier::BOLD)),
         Span::raw("  "),
-        Span::styled(&state.title, Style::default().add_modifier(Modifier::BOLD)),
+        Span::styled(
+            state.title.to_uppercase(),
+            Style::default().add_modifier(Modifier::BOLD),
+        ),
         Span::raw("  "),
         Span::styled(
             "open -> orient -> refresh -> act",
@@ -95,7 +100,7 @@ fn draw_panel_grid(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
             if let Some(panel) = state.panels.get(panel_index) {
                 draw_panel(
                     frame,
-                    column_areas[column_index],
+                    inset(column_areas[column_index], CARD_GUTTER_X, CARD_GUTTER_Y),
                     panel,
                     state.focused == panel_index,
                 );
@@ -231,12 +236,7 @@ fn draw_metrics_panel(
     let available_bar_width = inner.width.saturating_sub(label_width as u16 + 8).max(8) as usize;
     let bar_width = available_bar_width.min(METRIC_BAR_WIDTH);
 
-    let lines = metrics
-        .metrics
-        .iter()
-        .take(inner.height as usize)
-        .map(|metric| metric_line(metric, label_width, bar_width))
-        .collect::<Vec<_>>();
+    let lines = metric_lines(metrics, label_width, bar_width, inner.height as usize);
 
     let paragraph = Paragraph::new(lines).wrap(Wrap { trim: false });
     frame.render_widget(paragraph, inner);
@@ -353,12 +353,36 @@ fn table_preview_text(table: &TableContent) -> String {
 }
 
 fn metrics_preview_text(metrics: &MetricsContent) -> String {
-    metrics
-        .metrics
-        .iter()
-        .map(|metric| metric_line(metric, 10, 12).to_string())
+    metric_lines(metrics, 10, 12, metrics.metrics.len().saturating_mul(2))
+        .into_iter()
+        .map(|line| line.to_string())
         .collect::<Vec<_>>()
         .join("\n")
+}
+
+fn metric_lines(
+    metrics: &MetricsContent,
+    label_width: usize,
+    bar_width: usize,
+    visible_height: usize,
+) -> Vec<Line<'static>> {
+    let spaced = visible_height >= metrics.metrics.len().saturating_mul(2).saturating_sub(1);
+    let mut lines = Vec::new();
+
+    for metric in &metrics.metrics {
+        if lines.len() >= visible_height {
+            break;
+        }
+        if spaced && !lines.is_empty() {
+            lines.push(Line::raw(""));
+        }
+        if lines.len() >= visible_height {
+            break;
+        }
+        lines.push(metric_line(metric, label_width, bar_width));
+    }
+
+    lines
 }
 
 fn metric_line(
@@ -598,7 +622,16 @@ fn draw_help_overlay(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) 
 }
 
 fn panel_block(panel: &Panel, focused: bool) -> Block<'static> {
-    let title = format!(" {} {} ", panel.title, state_badge(&panel.state));
+    let title = Line::from(vec![
+        Span::styled(
+            format!(" {} ", panel.title),
+            Style::default().add_modifier(Modifier::BOLD),
+        ),
+        Span::styled(
+            format!("{} ", state_badge(&panel.state)),
+            status_style(&panel.state),
+        ),
+    ]);
     let border_style = if focused {
         Style::default().add_modifier(Modifier::BOLD)
     } else {
@@ -616,6 +649,17 @@ fn panel_block(panel: &Panel, focused: bool) -> Block<'static> {
             0,
         ))
         .title(title)
+}
+
+fn status_style(state: &PanelState) -> Style {
+    match state {
+        PanelState::Idle => Style::default().fg(Color::DarkGray),
+        PanelState::Loading => Style::default().add_modifier(Modifier::ITALIC),
+        PanelState::Ready { .. } => Style::default().add_modifier(Modifier::BOLD),
+        PanelState::Error(_) => Style::default()
+            .add_modifier(Modifier::BOLD)
+            .add_modifier(Modifier::REVERSED),
+    }
 }
 
 fn state_badge(state: &PanelState) -> &'static str {

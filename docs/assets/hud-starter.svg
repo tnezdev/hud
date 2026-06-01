@@ -5,8 +5,8 @@
   <rect x="28" y="28" width="1064" height="644" rx="14" fill="#171717" stroke="#555555" stroke-width="2"/>
 
   <g font-family="Menlo, Consolas, monospace">
-    <text x="56" y="76" fill="#f3f3f3" font-size="24" font-weight="700">hud</text>
-    <text x="118" y="76" fill="#f3f3f3" font-size="24" font-weight="700">Getting started</text>
+    <text x="56" y="76" fill="#f3f3f3" font-size="24" font-weight="700">HUD</text>
+    <text x="118" y="76" fill="#f3f3f3" font-size="24" font-weight="700">GETTING STARTED</text>
     <text x="356" y="76" fill="#8d8d8d" font-size="17">open -&gt; orient -&gt; refresh -&gt; act</text>
     <line x1="48" y1="100" x2="1072" y2="100" stroke="#3f3f3f" stroke-width="2"/>
 
