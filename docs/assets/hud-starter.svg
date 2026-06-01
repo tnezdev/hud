@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="700" viewBox="0 0 1120 700" role="img" aria-labelledby="title desc">
+  <title id="title">hud terminal cockpit screenshot</title>
+  <desc id="desc">A stylized hud dashboard showing welcome text, a clock panel, sample metrics, a table, and a working directory panel.</desc>
+  <rect width="1120" height="700" rx="22" fill="#0b1020"/>
+  <rect x="28" y="28" width="1064" height="644" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="56" y="76" fill="#e5e7eb" font-family="Menlo, Consolas, monospace" font-size="26" font-weight="700">Getting started</text>
+  <text x="922" y="76" fill="#94a3b8" font-family="Menlo, Consolas, monospace" font-size="16">hud 0.1.0</text>
+
+  <g font-family="Menlo, Consolas, monospace">
+    <rect x="56" y="112" width="484" height="250" rx="12" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+    <text x="82" y="152" fill="#7dd3fc" font-size="19" font-weight="700">Welcome</text>
+    <text x="82" y="194" fill="#e2e8f0" font-size="17">Welcome to hud!</text>
+    <text x="82" y="226" fill="#cbd5e1" font-size="17">This starter config shows the basics.</text>
+    <text x="82" y="258" fill="#cbd5e1" font-size="17">No external tools or authentication needed.</text>
+    <text x="82" y="306" fill="#94a3b8" font-size="16">q quit   hjkl/arrows move   r refresh</text>
+
+    <rect x="580" y="112" width="484" height="250" rx="12" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+    <text x="606" y="152" fill="#e5e7eb" font-size="19" font-weight="700">Sample Metrics</text>
+    <text x="606" y="202" fill="#cbd5e1" font-size="16">CPU</text>
+    <rect x="720" y="187" width="260" height="18" rx="9" fill="#1e293b"/>
+    <rect x="720" y="187" width="88" height="18" rx="9" fill="#22c55e"/>
+    <text x="1000" y="202" fill="#94a3b8" font-size="16">34%</text>
+    <text x="606" y="244" fill="#cbd5e1" font-size="16">Disk</text>
+    <rect x="720" y="229" width="260" height="18" rx="9" fill="#1e293b"/>
+    <rect x="720" y="229" width="161" height="18" rx="9" fill="#38bdf8"/>
+    <text x="1000" y="244" fill="#94a3b8" font-size="16">62%</text>
+    <text x="606" y="286" fill="#cbd5e1" font-size="16">Memory</text>
+    <rect x="720" y="271" width="260" height="18" rx="9" fill="#1e293b"/>
+    <rect x="720" y="271" width="203" height="18" rx="9" fill="#f59e0b"/>
+    <text x="1000" y="286" fill="#94a3b8" font-size="16">78%</text>
+
+    <rect x="56" y="394" width="484" height="210" rx="12" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+    <text x="82" y="434" fill="#e5e7eb" font-size="19" font-weight="700">Sample Table</text>
+    <text x="82" y="480" fill="#94a3b8" font-size="15">Service      Status      Latency</text>
+    <line x1="82" y1="495" x2="508" y2="495" stroke="#334155" stroke-width="1"/>
+    <text x="82" y="530" fill="#e2e8f0" font-size="16">api          healthy     12ms</text>
+    <text x="82" y="562" fill="#e2e8f0" font-size="16">worker       healthy     8ms</text>
+    <text x="82" y="594" fill="#fbbf24" font-size="16">db           degraded    45ms</text>
+
+    <rect x="580" y="394" width="484" height="210" rx="12" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+    <text x="606" y="434" fill="#e5e7eb" font-size="19" font-weight="700">Working directory</text>
+    <text x="606" y="486" fill="#cbd5e1" font-size="16">/Users/you/Code/hud</text>
+    <text x="606" y="554" fill="#94a3b8" font-size="15">Enter drill in   R refresh all   ? actions</text>
+  </g>
+
+  <text x="56" y="644" fill="#64748b" font-family="Menlo, Consolas, monospace" font-size="15">q quit  |  arrows/hjkl focus  |  Enter detail  |  r refresh  |  e edit config</text>
+</svg>
