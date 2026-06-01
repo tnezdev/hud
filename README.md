@@ -147,6 +147,8 @@ Use `output = "metrics-json"` for aggregate line gauges:
 }
 ```
 
+Metrics use Unicode block characters by default. If your terminal font renders those poorly, set `HUD_ASCII_BARS=1` to use ASCII bars.
+
 Malformed structured output, non-zero exits, timeouts, and launch failures render as panel error states instead of crashing the dashboard.
 
 ## Row Drill-In And Actions

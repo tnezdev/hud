@@ -8,10 +8,15 @@ use ratatui::{
     style::{Color, Modifier, Style},
     text::{Line, Span},
     widgets::{
-        Block, Borders, Cell, Clear, Gauge, Paragraph, Row, Scrollbar, ScrollbarOrientation,
-        ScrollbarState, Table, TableState, Wrap,
+        Block, BorderType, Borders, Cell, Clear, Padding, Paragraph, Row, Scrollbar,
+        ScrollbarOrientation, ScrollbarState, Table, TableState, Wrap,
     },
 };
+use std::env;
+
+const CARD_PADDING_X: u16 = 1;
+const CARD_PADDING_TOP: u16 = 1;
+const METRIC_BAR_WIDTH: usize = 18;
 
 pub fn draw(frame: &mut Frame<'_>, state: &DashboardState) {
     let area = frame.area();
@@ -26,9 +31,9 @@ pub fn draw(frame: &mut Frame<'_>, state: &DashboardState) {
 
     draw_header(frame, sections[0], state);
     match state.active_view() {
-        View::Dashboard => draw_panel_grid(frame, sections[1], state),
-        View::PanelDetail => draw_panel_detail(frame, sections[1], state),
-        View::RowDetail => draw_row_detail(frame, sections[1], state),
+        View::Dashboard => draw_panel_grid(frame, inset(sections[1], 1, 0), state),
+        View::PanelDetail => draw_panel_detail(frame, inset(sections[1], 1, 0), state),
+        View::RowDetail => draw_row_detail(frame, inset(sections[1], 1, 0), state),
     }
     draw_footer(frame, sections[2], state);
     if state.help_open {
@@ -44,6 +49,8 @@ fn draw_row_detail(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
 
 fn draw_header(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
     let header = Paragraph::new(Line::from(vec![
+        Span::styled(" hud ", Style::default().add_modifier(Modifier::BOLD)),
+        Span::raw("  "),
         Span::styled(&state.title, Style::default().add_modifier(Modifier::BOLD)),
         Span::raw("  "),
         Span::styled(
@@ -104,16 +111,7 @@ fn draw_panel_detail(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) 
 }
 
 fn draw_panel(frame: &mut Frame<'_>, area: Rect, panel: &Panel, focused: bool) {
-    let border_style = if focused {
-        Style::default().fg(Color::Yellow)
-    } else {
-        Style::default().fg(Color::DarkGray)
-    };
-    let title = format!(" {} [{}] ", panel.title, panel.state.label());
-    let block = Block::default()
-        .borders(Borders::ALL)
-        .border_style(border_style)
-        .title(title);
+    let block = panel_block(panel, focused);
 
     if let PanelState::Ready {
         content: PanelContent::Metrics(metrics),
@@ -130,16 +128,7 @@ fn draw_panel(frame: &mut Frame<'_>, area: Rect, panel: &Panel, focused: bool) {
 }
 
 fn draw_panel_with_scroll(frame: &mut Frame<'_>, area: Rect, panel: &Panel, focused: bool) {
-    let border_style = if focused {
-        Style::default().fg(Color::Yellow)
-    } else {
-        Style::default().fg(Color::DarkGray)
-    };
-    let title = format!(" {} [{}] ", panel.title, panel.state.label());
-    let block = Block::default()
-        .borders(Borders::ALL)
-        .border_style(border_style)
-        .title(title);
+    let block = panel_block(panel, focused);
     if let PanelState::Ready {
         content: PanelContent::Table(table),
     } = &panel.state
@@ -156,7 +145,7 @@ fn draw_panel_with_scroll(frame: &mut Frame<'_>, area: Rect, panel: &Panel, focu
         return;
     }
 
-    let text_width = area.width.saturating_sub(2) as usize;
+    let text_width = area.width.saturating_sub(2 + (CARD_PADDING_X * 2)) as usize;
     let text = panel_detail_lines(panel);
     let selected_visual_offset = row_visual_offset(&text, panel.selected_row, text_width);
     let content_lines = wrapped_line_count(&text, text_width);
@@ -195,12 +184,9 @@ fn draw_table_panel(
         .iter()
         .map(|_| Constraint::Min(8))
         .collect::<Vec<_>>();
-    let header = Row::new(
-        table
-            .columns
-            .iter()
-            .map(|column| Cell::from(column.clone()).style(Style::default().fg(Color::Yellow))),
-    )
+    let header = Row::new(table.columns.iter().map(|column| {
+        Cell::from(column.clone()).style(Style::default().add_modifier(Modifier::BOLD))
+    }))
     .bottom_margin(1);
     let rows = table.rows.iter().map(|row| {
         Row::new(
@@ -216,8 +202,7 @@ fn draw_table_panel(
         .block(block)
         .row_highlight_style(
             Style::default()
-                .fg(Color::Black)
-                .bg(Color::Yellow)
+                .add_modifier(Modifier::REVERSED)
                 .add_modifier(Modifier::BOLD),
         );
     frame.render_stateful_widget(widget, area, &mut table_state);
@@ -239,63 +224,36 @@ fn draw_metrics_panel(
     let label_width = metrics
         .metrics
         .iter()
-        .map(|metric| metric_label(metric).chars().count() as u16)
+        .map(|metric| metric.label.chars().count())
         .max()
-        .unwrap_or(12)
-        .clamp(12, 24);
-    let gauge_width = inner.width.saturating_sub(label_width + 2).min(32);
-    if gauge_width == 0 {
-        return;
-    }
+        .unwrap_or(10)
+        .clamp(10, 22);
+    let available_bar_width = inner.width.saturating_sub(label_width as u16 + 8).max(8) as usize;
+    let bar_width = available_bar_width.min(METRIC_BAR_WIDTH);
 
-    let constraints = metrics
+    let lines = metrics
         .metrics
         .iter()
-        .map(|_| Constraint::Length(3))
+        .take(inner.height as usize)
+        .map(|metric| metric_line(metric, label_width, bar_width))
         .collect::<Vec<_>>();
-    let metric_areas = Layout::default()
-        .direction(Direction::Vertical)
-        .constraints(constraints)
-        .split(inner);
 
-    for (index, metric) in metrics.metrics.iter().enumerate() {
-        let Some(area) = metric_areas.get(index).copied() else {
-            break;
-        };
-        let row_areas = Layout::default()
-            .direction(Direction::Horizontal)
-            .constraints([
-                Constraint::Length(label_width),
-                Constraint::Length(2),
-                Constraint::Length(gauge_width),
-                Constraint::Min(0),
-            ])
-            .split(area);
-        let label = Paragraph::new(metric_label(metric)).style(Style::default().fg(Color::Gray));
-        let gauge = Gauge::default()
-            .label("")
-            .ratio(metric.value as f64 / metric.max as f64)
-            .style(Style::default().bg(Color::DarkGray))
-            .gauge_style(Style::default().fg(Color::Yellow).bg(Color::DarkGray));
-        frame.render_widget(label, row_areas[0]);
-        frame.render_widget(gauge, row_areas[2]);
-    }
-}
-
-fn metric_label(metric: &crate::panel::MetricContent) -> String {
-    format!(
-        "{} {} / {}",
-        metric.label,
-        format_metric_number(metric.value),
-        format_metric_number(metric.max)
-    )
+    let paragraph = Paragraph::new(lines).wrap(Wrap { trim: false });
+    frame.render_widget(paragraph, inner);
 }
 
 fn draw_row_detail_with_scroll(frame: &mut Frame<'_>, area: Rect, row_detail: &RowDetailView) {
     let title = format!(" {} [{}] ", row_detail.title, row_detail.state.label());
     let block = Block::default()
         .borders(Borders::ALL)
-        .border_style(Style::default().fg(Color::Yellow))
+        .border_type(BorderType::Rounded)
+        .border_style(Style::default().add_modifier(Modifier::BOLD))
+        .padding(Padding::new(
+            CARD_PADDING_X,
+            CARD_PADDING_X,
+            CARD_PADDING_TOP,
+            0,
+        ))
         .title(title);
     let text = panel_state_text(&row_detail.state);
     let lines = text
@@ -379,8 +337,15 @@ fn table_preview_text(table: &TableContent) -> String {
         return format!("{} columns, no rows", table.columns.len());
     }
 
-    let mut lines = vec![table.columns.join("  ")];
-    lines.extend(table.rows.iter().take(4).map(|row| row.join("  ")));
+    let widths = table_column_widths(table);
+    let mut lines = vec![format_table_row(&table.columns, &widths)];
+    lines.extend(
+        table
+            .rows
+            .iter()
+            .take(4)
+            .map(|row| format_table_row(row, &widths)),
+    );
     if table.rows.len() > 4 {
         lines.push(format!("... {} more rows", table.rows.len() - 4));
     }
@@ -391,20 +356,47 @@ fn metrics_preview_text(metrics: &MetricsContent) -> String {
     metrics
         .metrics
         .iter()
-        .map(|metric| {
-            format!(
-                "{}  {} / {}",
-                metric.label,
-                format_metric_number(metric.value),
-                format_metric_number(metric.max)
-            )
-        })
+        .map(|metric| metric_line(metric, 10, 12).to_string())
         .collect::<Vec<_>>()
         .join("\n")
 }
 
-fn format_metric_number(value: u64) -> String {
-    value.to_string()
+fn metric_line(
+    metric: &crate::panel::MetricContent,
+    label_width: usize,
+    bar_width: usize,
+) -> Line<'static> {
+    let percent = metric.value.saturating_mul(100) / metric.max;
+    let filled = ((metric.value as f64 / metric.max as f64) * bar_width as f64).round() as usize;
+    let filled = filled.min(bar_width);
+    let (fill, empty) = bar_symbols();
+    let bar = format!(
+        "{}{}",
+        fill.repeat(filled),
+        empty.repeat(bar_width.saturating_sub(filled))
+    );
+
+    Line::from(vec![
+        Span::styled(
+            format!("{:<label_width$}", metric.label),
+            Style::default().add_modifier(Modifier::BOLD),
+        ),
+        Span::raw("  "),
+        Span::raw(bar),
+        Span::raw("  "),
+        Span::styled(
+            format!("{:>3}%", percent),
+            Style::default().fg(Color::DarkGray),
+        ),
+    ])
+}
+
+fn bar_symbols() -> (&'static str, &'static str) {
+    if env::var_os("HUD_ASCII_BARS").is_some() {
+        ("#", "-")
+    } else {
+        ("█", "░")
+    }
 }
 
 fn panel_detail_lines(panel: &Panel) -> Vec<Line<'static>> {
@@ -445,8 +437,7 @@ fn selected_line(text: &str, selected: bool) -> Line<'static> {
         Line::styled(
             text.to_string(),
             Style::default()
-                .fg(Color::Black)
-                .bg(Color::Yellow)
+                .add_modifier(Modifier::REVERSED)
                 .add_modifier(Modifier::BOLD),
         )
     } else {
@@ -508,7 +499,7 @@ fn draw_footer(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
         footer.push(Span::raw("  "));
         footer.push(Span::styled(
             "q/x/Esc grid",
-            Style::default().fg(Color::Yellow),
+            Style::default().add_modifier(Modifier::BOLD),
         ));
     }
 
@@ -516,13 +507,16 @@ fn draw_footer(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
         footer.push(Span::raw("  "));
         footer.push(Span::styled(
             "q/x/Esc back",
-            Style::default().fg(Color::Yellow),
+            Style::default().add_modifier(Modifier::BOLD),
         ));
     }
 
     if let Some(notice) = &state.notice {
         footer.push(Span::raw("  "));
-        footer.push(Span::styled(notice, Style::default().fg(Color::Green)));
+        footer.push(Span::styled(
+            notice,
+            Style::default().add_modifier(Modifier::ITALIC),
+        ));
     }
 
     let paragraph = Paragraph::new(Line::from(footer))
@@ -549,10 +543,13 @@ fn draw_help_overlay(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) 
             Span::styled("Panel: ", Style::default().fg(Color::DarkGray)),
             Span::raw(&panel.title),
             Span::raw("  "),
-            Span::styled(panel.state.label(), Style::default().fg(Color::Green)),
+            Span::styled(
+                panel.state.label(),
+                Style::default().add_modifier(Modifier::BOLD),
+            ),
         ]),
         Line::raw(""),
-        Line::styled("Global", Style::default().fg(Color::Yellow)),
+        Line::styled("Global", Style::default().add_modifier(Modifier::BOLD)),
         Line::raw("? toggle this overlay"),
         Line::raw("r refresh focused panel"),
         Line::raw("R refresh all panels"),
@@ -578,7 +575,7 @@ fn draw_help_overlay(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) 
     lines.push(Line::raw(""));
     lines.push(Line::styled(
         "Panel Actions",
-        Style::default().fg(Color::Cyan),
+        Style::default().add_modifier(Modifier::BOLD),
     ));
     if panel.actions.is_empty() {
         lines.push(Line::styled("none", Style::default().fg(Color::DarkGray)));
@@ -592,11 +589,78 @@ fn draw_help_overlay(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) 
         .block(
             Block::default()
                 .borders(Borders::ALL)
-                .border_style(Style::default().fg(Color::Cyan))
+                .border_type(BorderType::Rounded)
+                .border_style(Style::default().add_modifier(Modifier::BOLD))
                 .title(" ? help/actions "),
         )
         .wrap(Wrap { trim: false });
     frame.render_widget(overlay, popup);
+}
+
+fn panel_block(panel: &Panel, focused: bool) -> Block<'static> {
+    let title = format!(" {} {} ", panel.title, state_badge(&panel.state));
+    let border_style = if focused {
+        Style::default().add_modifier(Modifier::BOLD)
+    } else {
+        Style::default().fg(Color::DarkGray)
+    };
+
+    Block::default()
+        .borders(Borders::ALL)
+        .border_type(BorderType::Rounded)
+        .border_style(border_style)
+        .padding(Padding::new(
+            CARD_PADDING_X,
+            CARD_PADDING_X,
+            CARD_PADDING_TOP,
+            0,
+        ))
+        .title(title)
+}
+
+fn state_badge(state: &PanelState) -> &'static str {
+    match state {
+        PanelState::Idle => "idle",
+        PanelState::Loading => "loading",
+        PanelState::Ready { .. } => "ready",
+        PanelState::Error(_) => "error",
+    }
+}
+
+fn table_column_widths(table: &TableContent) -> Vec<usize> {
+    table
+        .columns
+        .iter()
+        .enumerate()
+        .map(|(index, column)| {
+            table
+                .rows
+                .iter()
+                .filter_map(|row| row.get(index))
+                .map(|cell| cell.chars().count())
+                .chain(std::iter::once(column.chars().count()))
+                .max()
+                .unwrap_or(0)
+                .min(18)
+        })
+        .collect()
+}
+
+fn format_table_row(row: &[String], widths: &[usize]) -> String {
+    row.iter()
+        .zip(widths.iter())
+        .map(|(cell, width)| format!("{cell:<width$}"))
+        .collect::<Vec<_>>()
+        .join("  ")
+}
+
+fn inset(area: Rect, horizontal: u16, vertical: u16) -> Rect {
+    Rect::new(
+        area.x.saturating_add(horizontal),
+        area.y.saturating_add(vertical),
+        area.width.saturating_sub(horizontal.saturating_mul(2)),
+        area.height.saturating_sub(vertical.saturating_mul(2)),
+    )
 }
 
 fn centered_rect(area: Rect, width: u16, height: u16) -> Rect {
