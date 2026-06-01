@@ -25,7 +25,7 @@ pub fn draw(frame: &mut Frame<'_>, state: &DashboardState) {
     let sections = Layout::default()
         .direction(Direction::Vertical)
         .constraints([
-            Constraint::Length(3),
+            Constraint::Length(4),
             Constraint::Min(8),
             Constraint::Length(2),
         ])
@@ -50,19 +50,22 @@ fn draw_row_detail(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
 }
 
 fn draw_header(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
-    let header = Paragraph::new(Line::from(vec![
-        Span::styled(" HUD ", Style::default().add_modifier(Modifier::BOLD)),
-        Span::raw("  "),
-        Span::styled(
-            state.title.to_uppercase(),
-            Style::default().add_modifier(Modifier::BOLD),
-        ),
-        Span::raw("  "),
-        Span::styled(
-            "open -> orient -> refresh -> act",
-            Style::default().fg(Color::DarkGray),
-        ),
-    ]))
+    let header = Paragraph::new(vec![
+        Line::raw(""),
+        Line::from(vec![
+            Span::styled(" HUD ", Style::default().add_modifier(Modifier::BOLD)),
+            Span::raw("  "),
+            Span::styled(
+                state.title.to_uppercase(),
+                Style::default().add_modifier(Modifier::BOLD),
+            ),
+            Span::raw("  "),
+            Span::styled(
+                "open -> orient -> refresh -> act",
+                Style::default().fg(Color::DarkGray),
+            ),
+        ]),
+    ])
     .block(Block::default().borders(Borders::BOTTOM));
 
     frame.render_widget(header, area);
