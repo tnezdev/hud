@@ -79,6 +79,11 @@ fn draw_panel_grid(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
         return;
     }
 
+    if state.panels.len() == 4 {
+        draw_four_panel_grid(frame, area, state);
+        return;
+    }
+
     let rows = state.panels.len().div_ceil(2);
     let row_constraints = vec![Constraint::Ratio(1, rows as u32); rows];
     let row_areas = Layout::default()
@@ -109,6 +114,41 @@ fn draw_panel_grid(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
                 );
             }
         }
+    }
+}
+
+fn draw_four_panel_grid(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
+    let row_areas = Layout::default()
+        .direction(Direction::Vertical)
+        .constraints([Constraint::Ratio(1, 2), Constraint::Ratio(1, 2)])
+        .split(area);
+    let top_areas = Layout::default()
+        .direction(Direction::Horizontal)
+        .constraints([
+            Constraint::Ratio(1, 3),
+            Constraint::Ratio(1, 3),
+            Constraint::Ratio(1, 3),
+        ])
+        .split(row_areas[0]);
+
+    for index in 0..3 {
+        if let Some(panel) = state.panels.get(index) {
+            draw_panel(
+                frame,
+                inset(top_areas[index], CARD_GUTTER_X, CARD_GUTTER_Y),
+                panel,
+                state.focused == index,
+            );
+        }
+    }
+
+    if let Some(panel) = state.panels.get(3) {
+        draw_panel(
+            frame,
+            inset(row_areas[1], CARD_GUTTER_X, CARD_GUTTER_Y),
+            panel,
+            state.focused == 3,
+        );
     }
 }
 
@@ -187,11 +227,7 @@ fn draw_table_panel(
     panel: &Panel,
     table: &TableContent,
 ) {
-    let widths = table
-        .columns
-        .iter()
-        .map(|_| Constraint::Min(8))
-        .collect::<Vec<_>>();
+    let widths = table_render_widths(table);
     let header = Row::new(table.columns.iter().map(|column| {
         Cell::from(column.clone()).style(Style::default().add_modifier(Modifier::BOLD))
     }))
@@ -625,16 +661,17 @@ fn draw_help_overlay(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) 
 }
 
 fn panel_block(panel: &Panel, focused: bool) -> Block<'static> {
-    let title = Line::from(vec![
-        Span::styled(
-            format!(" {} ", panel.title),
-            Style::default().add_modifier(Modifier::BOLD),
-        ),
-        Span::styled(
+    let mut title = vec![Span::styled(
+        format!(" {} ", panel.title),
+        Style::default().add_modifier(Modifier::BOLD),
+    )];
+    if !matches!(panel.state, PanelState::Ready { .. }) {
+        title.push(Span::styled(
             format!("{} ", state_badge(&panel.state)),
             status_style(&panel.state),
-        ),
-    ]);
+        ));
+    }
+    let title = Line::from(title);
     let border_style = if focused {
         Style::default().add_modifier(Modifier::BOLD)
     } else {
@@ -693,6 +730,36 @@ fn table_column_widths(table: &TableContent) -> Vec<usize> {
         .collect()
 }
 
+fn table_render_widths(table: &TableContent) -> Vec<Constraint> {
+    let expandable_column = table
+        .columns
+        .iter()
+        .position(|column| column.eq_ignore_ascii_case("description"))
+        .unwrap_or_else(|| table.columns.len().saturating_sub(1));
+
+    table
+        .columns
+        .iter()
+        .enumerate()
+        .map(|(index, column)| {
+            if index == expandable_column {
+                return Constraint::Min(column.chars().count().max(20) as u16);
+            }
+
+            let width = table
+                .rows
+                .iter()
+                .filter_map(|row| row.get(index))
+                .map(|cell| cell.chars().count())
+                .chain(std::iter::once(column.chars().count()))
+                .max()
+                .unwrap_or(8)
+                .clamp(4, 18) as u16;
+            Constraint::Length(width)
+        })
+        .collect()
+}
+
 fn format_table_row(row: &[String], widths: &[usize]) -> String {
     row.iter()
         .zip(widths.iter())
@@ -724,6 +791,7 @@ fn centered_rect(area: Rect, width: u16, height: u16) -> Rect {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use ratatui::layout::Constraint;
 
     #[test]
     fn wrapped_line_count_includes_visual_wraps() {
@@ -732,6 +800,34 @@ mod tests {
         assert_eq!(
             wrapped_line_count(&[Line::raw("12345678901"), Line::raw("short")], 10),
             3
+        );
+    }
+
+    #[test]
+    fn table_render_widths_expand_description_column() {
+        let table = TableContent {
+            columns: vec![
+                "ID".into(),
+                "Project".into(),
+                "Pri".into(),
+                "Description".into(),
+            ],
+            rows: vec![vec![
+                "114".into(),
+                "daemon".into(),
+                "H".into(),
+                "Long task description should get remaining width".into(),
+            ]],
+        };
+
+        assert_eq!(
+            table_render_widths(&table),
+            vec![
+                Constraint::Length(4),
+                Constraint::Length(7),
+                Constraint::Length(4),
+                Constraint::Min(20),
+            ]
         );
     }
 }

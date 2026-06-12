@@ -122,8 +122,6 @@ pub enum FocusMovement {
     Down,
 }
 
-const FOCUS_COLUMNS: usize = 2;
-
 impl DashboardState {
     pub fn from_config(config: &HudConfig) -> Self {
         Self {
@@ -182,20 +180,7 @@ impl DashboardState {
             return;
         }
 
-        self.focused = match movement {
-            FocusMovement::Next => (self.focused + 1) % self.panels.len(),
-            FocusMovement::Previous if self.focused == 0 => self.panels.len() - 1,
-            FocusMovement::Previous => self.focused - 1,
-            FocusMovement::Left if !self.focused.is_multiple_of(FOCUS_COLUMNS) => self.focused - 1,
-            FocusMovement::Left => self.focused,
-            FocusMovement::Right if self.focused % FOCUS_COLUMNS < FOCUS_COLUMNS - 1 => {
-                (self.focused + 1).min(self.panels.len() - 1)
-            }
-            FocusMovement::Right => self.focused,
-            FocusMovement::Up if self.focused >= FOCUS_COLUMNS => self.focused - FOCUS_COLUMNS,
-            FocusMovement::Up => self.focused,
-            FocusMovement::Down => focus_down(self.focused, self.panels.len()),
-        };
+        self.focused = move_focus(self.focused, self.panels.len(), movement);
     }
 
     pub fn mark_loading(&mut self, panel_index: usize) {
@@ -575,7 +560,58 @@ fn non_empty_detail(primary: String, fallback: String) -> Option<String> {
     }
 }
 
-fn focus_down(focused: usize, panel_count: usize) -> usize {
+fn move_focus(focused: usize, panel_count: usize, movement: FocusMovement) -> usize {
+    if panel_count == 4 {
+        return move_focus_four_panel_grid(focused, movement);
+    }
+
+    move_focus_two_column_grid(focused, panel_count, movement)
+}
+
+fn move_focus_four_panel_grid(focused: usize, movement: FocusMovement) -> usize {
+    match movement {
+        FocusMovement::Next => (focused + 1) % 4,
+        FocusMovement::Previous if focused == 0 => 3,
+        FocusMovement::Previous => focused - 1,
+        FocusMovement::Left if focused == 3 => 0,
+        FocusMovement::Left if focused > 0 => focused - 1,
+        FocusMovement::Left => focused,
+        FocusMovement::Right if focused < 2 => focused + 1,
+        FocusMovement::Right if focused == 3 => 2,
+        FocusMovement::Right => focused,
+        FocusMovement::Up if focused == 3 => 1,
+        FocusMovement::Up => focused,
+        FocusMovement::Down if focused < 3 => 3,
+        FocusMovement::Down => focused,
+    }
+}
+
+fn move_focus_two_column_grid(
+    focused: usize,
+    panel_count: usize,
+    movement: FocusMovement,
+) -> usize {
+    const FOCUS_COLUMNS: usize = 2;
+
+    match movement {
+        FocusMovement::Next => (focused + 1) % panel_count,
+        FocusMovement::Previous if focused == 0 => panel_count - 1,
+        FocusMovement::Previous => focused - 1,
+        FocusMovement::Left if !focused.is_multiple_of(FOCUS_COLUMNS) => focused - 1,
+        FocusMovement::Left => focused,
+        FocusMovement::Right if focused % FOCUS_COLUMNS < FOCUS_COLUMNS - 1 => {
+            (focused + 1).min(panel_count - 1)
+        }
+        FocusMovement::Right => focused,
+        FocusMovement::Up if focused >= FOCUS_COLUMNS => focused - FOCUS_COLUMNS,
+        FocusMovement::Up => focused,
+        FocusMovement::Down => focus_down_two_column_grid(focused, panel_count),
+    }
+}
+
+fn focus_down_two_column_grid(focused: usize, panel_count: usize) -> usize {
+    const FOCUS_COLUMNS: usize = 2;
+
     let target = focused + FOCUS_COLUMNS;
     if target < panel_count {
         return target;
@@ -680,6 +716,52 @@ mod tests {
         assert_eq!(state.focused, 3);
         state.move_focus(FocusMovement::Down);
         assert_eq!(state.focused, 4);
+    }
+
+    #[test]
+    fn directional_focus_matches_four_panel_mission_control_map() {
+        let config = HudConfig::from_toml(
+            r#"
+            title = "Test"
+
+            [[panels]]
+            id = "one"
+            title = "One"
+            command = "one"
+
+            [[panels]]
+            id = "two"
+            title = "Two"
+            command = "two"
+
+            [[panels]]
+            id = "three"
+            title = "Three"
+            command = "three"
+
+            [[panels]]
+            id = "four"
+            title = "Four"
+            command = "four"
+            "#,
+        )
+        .expect("valid config");
+        let mut state = DashboardState::from_config(&config);
+
+        state.move_focus(FocusMovement::Right);
+        assert_eq!(state.focused, 1);
+        state.move_focus(FocusMovement::Right);
+        assert_eq!(state.focused, 2);
+        state.move_focus(FocusMovement::Down);
+        assert_eq!(state.focused, 3);
+        state.move_focus(FocusMovement::Up);
+        assert_eq!(state.focused, 1);
+        state.move_focus(FocusMovement::Left);
+        assert_eq!(state.focused, 0);
+        state.move_focus(FocusMovement::Down);
+        assert_eq!(state.focused, 3);
+        state.move_focus(FocusMovement::Right);
+        assert_eq!(state.focused, 2);
     }
 
     #[test]
