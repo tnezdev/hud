@@ -6,6 +6,22 @@ Issue: `tnezdev/hud#12`
 
 `hud` should feel less like a generic terminal dashboard and more like a compact cockpit: one clear place to orient, one obvious focus target, and fast keyboard paths into action.
 
+## Aesthetic Lab Experiment
+
+`examples/aesthetic-lab.toml` is the visual pressure fixture for the next spike. It uses the existing four-panel mission-control composition, typed metrics and tables, row drill-in, and actions to explore a more authored terminal identity without adding a theme or component framework.
+
+The experimental treatment should remain terminal-native:
+
+- Inherit the terminal background instead of painting a web-style surface.
+- Use one restrained ANSI accent for orientation and focus, with text, symbols, border weight, or reverse video carrying the same meaning when color is unavailable.
+- Give focused panels stronger geometry and keep ready panels visually quiet.
+- Use compact geometric symbols with an ASCII fallback; do not require emoji, Nerd Fonts, or private-use glyphs.
+- Preserve labels and numeric values in metrics instead of encoding meaning in bar color alone.
+- Fall back from the three-up / one-wide composition when the terminal is too narrow for three legible instruments.
+- Respect `NO_COLOR`; use `HUD_ASCII_UI=1` to exercise the portable glyph treatment.
+
+The spike is successful when the fixture feels intentional at the documented 100×30 comfort size, remains usable at 80×24, and its dashboard, panel detail, row detail, loading, ready, and action-help states remain legible without color.
+
 For the next implementation slice, prefer a focused home surface over tabs, modes, or a component framework. The useful experiment is not "more widgets"; it is whether a small set of Ratatui primitives can make command-backed panels feel spatial, calm, and actionable.
 
 ## Phase 1: Cockpit Surface

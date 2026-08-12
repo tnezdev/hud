@@ -196,6 +196,7 @@ command = "${EDITOR:-vi} ~/.config/.hud/config.toml"
 - `examples/starter.toml`: safe first-run config with no external tool dependencies.
 - `examples/kitchen-sink.toml`: static showcase for text, metrics, tables, row drill-in, and actions.
 - `examples/dogfood.toml`: local working cockpit for tools like `tmux`, `gh`, and `task`.
+- `examples/aesthetic-lab.toml`: dependency-free visual spike that pushes typography, symbols, spacing, and the four-panel mission-control layout.
 
 Run an example from a checkout:
 

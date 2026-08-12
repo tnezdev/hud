@@ -6,10 +6,11 @@ use ratatui::{
     Frame,
     layout::{Constraint, Direction, Layout, Rect},
     style::{Color, Modifier, Style},
+    symbols,
     text::{Line, Span},
     widgets::{
-        Block, BorderType, Borders, Cell, Clear, Padding, Paragraph, Row, Scrollbar,
-        ScrollbarOrientation, ScrollbarState, Table, TableState, Wrap,
+        Block, Borders, Cell, Clear, Padding, Paragraph, Row, Scrollbar, ScrollbarOrientation,
+        ScrollbarState, Table, TableState, Wrap,
     },
 };
 use std::env;
@@ -50,10 +51,11 @@ fn draw_row_detail(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
 }
 
 fn draw_header(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
+    let separator = if enhanced_symbols() { "›" } else { ">" };
     let header = Paragraph::new(vec![
         Line::raw(""),
         Line::from(vec![
-            Span::styled(" HUD ", Style::default().add_modifier(Modifier::BOLD)),
+            Span::styled(" HUD ", key_style()),
             Span::raw("  "),
             Span::styled(
                 state.title.to_uppercase(),
@@ -61,8 +63,8 @@ fn draw_header(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
             ),
             Span::raw("  "),
             Span::styled(
-                "open -> orient -> refresh -> act",
-                Style::default().fg(Color::DarkGray),
+                format!("{separator} {}", active_context(state)),
+                accent_style().add_modifier(Modifier::BOLD),
             ),
         ]),
     ])
@@ -79,7 +81,7 @@ fn draw_panel_grid(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
         return;
     }
 
-    if state.panels.len() == 4 {
+    if state.panels.len() == 4 && use_mission_control_layout(area) {
         draw_four_panel_grid(frame, area, state);
         return;
     }
@@ -244,11 +246,7 @@ fn draw_table_panel(
     let widget = Table::new(rows, widths)
         .header(header)
         .block(block)
-        .row_highlight_style(
-            Style::default()
-                .add_modifier(Modifier::REVERSED)
-                .add_modifier(Modifier::BOLD),
-        );
+        .row_highlight_style(selection_style());
     frame.render_stateful_widget(widget, area, &mut table_state);
 }
 
@@ -285,8 +283,8 @@ fn draw_row_detail_with_scroll(frame: &mut Frame<'_>, area: Rect, row_detail: &R
     let title = format!(" {} [{}] ", row_detail.title, row_detail.state.label());
     let block = Block::default()
         .borders(Borders::ALL)
-        .border_type(BorderType::Rounded)
-        .border_style(Style::default().add_modifier(Modifier::BOLD))
+        .border_set(panel_border(true))
+        .border_style(accent_style().add_modifier(Modifier::BOLD))
         .padding(Padding::new(
             CARD_PADDING_X,
             CARD_PADDING_X,
@@ -433,11 +431,8 @@ fn metric_line(
     let filled = ((metric.value as f64 / metric.max as f64) * bar_width as f64).round() as usize;
     let filled = filled.min(bar_width);
     let (fill, empty) = bar_symbols();
-    let bar = format!(
-        "{}{}",
-        fill.repeat(filled),
-        empty.repeat(bar_width.saturating_sub(filled))
-    );
+    let filled_bar = fill.repeat(filled);
+    let empty_bar = empty.repeat(bar_width.saturating_sub(filled));
 
     Line::from(vec![
         Span::styled(
@@ -445,17 +440,15 @@ fn metric_line(
             Style::default().add_modifier(Modifier::BOLD),
         ),
         Span::raw("  "),
-        Span::raw(bar),
+        Span::styled(filled_bar, accent_style().add_modifier(Modifier::BOLD)),
+        Span::styled(empty_bar, muted_style()),
         Span::raw("  "),
-        Span::styled(
-            format!("{:>3}%", percent),
-            Style::default().fg(Color::DarkGray),
-        ),
+        Span::styled(format!("{:>3}%", percent), muted_style()),
     ])
 }
 
 fn bar_symbols() -> (&'static str, &'static str) {
-    if env::var_os("HUD_ASCII_BARS").is_some() {
+    if env::var_os("HUD_ASCII_BARS").is_some() || !enhanced_symbols() {
         ("#", "-")
     } else {
         ("█", "░")
@@ -497,12 +490,7 @@ fn panel_detail_lines(panel: &Panel) -> Vec<Line<'static>> {
 
 fn selected_line(text: &str, selected: bool) -> Line<'static> {
     if selected {
-        Line::styled(
-            text.to_string(),
-            Style::default()
-                .add_modifier(Modifier::REVERSED)
-                .add_modifier(Modifier::BOLD),
-        )
+        Line::styled(text.to_string(), selection_style())
     } else {
         Line::raw(text.to_string())
     }
@@ -548,37 +536,25 @@ fn wrapped_line_height(line: &Line<'_>, width: usize) -> usize {
 }
 
 fn draw_footer(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) {
-    let mut footer = vec![
-        Span::raw("q quit"),
-        Span::raw("  "),
-        Span::raw("? help/actions"),
-        Span::raw("  "),
-        Span::raw("r refresh"),
-        Span::raw("  "),
-        Span::raw("R refresh all"),
-    ];
+    let mut footer = Vec::new();
+    push_key_hint(&mut footer, "q", "quit");
+    push_key_hint(&mut footer, "?", "help/actions");
+    push_key_hint(&mut footer, "r", "refresh");
+    push_key_hint(&mut footer, "R", "refresh all");
 
     if state.active_view() == View::PanelDetail {
-        footer.push(Span::raw("  "));
-        footer.push(Span::styled(
-            "q/x/Esc grid",
-            Style::default().add_modifier(Modifier::BOLD),
-        ));
+        push_key_hint(&mut footer, "Esc", "grid");
     }
 
     if state.active_view() == View::RowDetail {
-        footer.push(Span::raw("  "));
-        footer.push(Span::styled(
-            "q/x/Esc back",
-            Style::default().add_modifier(Modifier::BOLD),
-        ));
+        push_key_hint(&mut footer, "Esc", "back");
     }
 
     if let Some(notice) = &state.notice {
         footer.push(Span::raw("  "));
         footer.push(Span::styled(
-            notice,
-            Style::default().add_modifier(Modifier::ITALIC),
+            notice.clone(),
+            accent_style().add_modifier(Modifier::BOLD),
         ));
     }
 
@@ -599,11 +575,11 @@ fn draw_help_overlay(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) 
     let mut lines = vec![
         Line::styled(
             "Help / Actions",
-            Style::default().add_modifier(Modifier::BOLD),
+            accent_style().add_modifier(Modifier::BOLD),
         ),
         Line::raw(""),
         Line::from(vec![
-            Span::styled("Panel: ", Style::default().fg(Color::DarkGray)),
+            Span::styled("Panel: ", muted_style()),
             Span::raw(&panel.title),
             Span::raw("  "),
             Span::styled(
@@ -612,7 +588,7 @@ fn draw_help_overlay(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) 
             ),
         ]),
         Line::raw(""),
-        Line::styled("Global", Style::default().add_modifier(Modifier::BOLD)),
+        Line::styled("Global", accent_style().add_modifier(Modifier::BOLD)),
         Line::raw("? toggle this overlay"),
         Line::raw("r refresh focused panel"),
         Line::raw("R refresh all panels"),
@@ -638,13 +614,16 @@ fn draw_help_overlay(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) 
     lines.push(Line::raw(""));
     lines.push(Line::styled(
         "Panel Actions",
-        Style::default().add_modifier(Modifier::BOLD),
+        accent_style().add_modifier(Modifier::BOLD),
     ));
     if panel.actions.is_empty() {
-        lines.push(Line::styled("none", Style::default().fg(Color::DarkGray)));
+        lines.push(Line::styled("none", muted_style()));
     } else {
         for action in &panel.actions {
-            lines.push(Line::raw(format!("{} {}", action.key, action.label)));
+            lines.push(Line::from(vec![
+                Span::styled(format!(" {} ", action.key), key_style()),
+                Span::raw(format!(" {}", action.label)),
+            ]));
         }
     }
 
@@ -652,8 +631,8 @@ fn draw_help_overlay(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) 
         .block(
             Block::default()
                 .borders(Borders::ALL)
-                .border_type(BorderType::Rounded)
-                .border_style(Style::default().add_modifier(Modifier::BOLD))
+                .border_set(panel_border(true))
+                .border_style(accent_style().add_modifier(Modifier::BOLD))
                 .title(" ? help/actions "),
         )
         .wrap(Wrap { trim: false });
@@ -661,26 +640,31 @@ fn draw_help_overlay(frame: &mut Frame<'_>, area: Rect, state: &DashboardState) 
 }
 
 fn panel_block(panel: &Panel, focused: bool) -> Block<'static> {
-    let mut title = vec![Span::styled(
-        format!(" {} ", panel.title),
-        Style::default().add_modifier(Modifier::BOLD),
-    )];
-    if !matches!(panel.state, PanelState::Ready { .. }) {
+    let mut title = Vec::new();
+    if focused {
         title.push(Span::styled(
-            format!("{} ", state_badge(&panel.state)),
-            status_style(&panel.state),
+            format!(" {} ", focus_mark()),
+            accent_style().add_modifier(Modifier::BOLD),
         ));
     }
+    title.push(Span::styled(
+        format!("{} ", panel.title),
+        Style::default().add_modifier(Modifier::BOLD),
+    ));
+    title.push(Span::styled(
+        format!("{} ", state_badge(&panel.state)),
+        status_style(&panel.state),
+    ));
     let title = Line::from(title);
     let border_style = if focused {
-        Style::default().add_modifier(Modifier::BOLD)
+        accent_style().add_modifier(Modifier::BOLD)
     } else {
-        Style::default().fg(Color::DarkGray)
+        muted_style()
     };
 
     Block::default()
         .borders(Borders::ALL)
-        .border_type(BorderType::Rounded)
+        .border_set(panel_border(focused))
         .border_style(border_style)
         .padding(Padding::new(
             CARD_PADDING_X,
@@ -693,22 +677,116 @@ fn panel_block(panel: &Panel, focused: bool) -> Block<'static> {
 
 fn status_style(state: &PanelState) -> Style {
     match state {
-        PanelState::Idle => Style::default().fg(Color::DarkGray),
-        PanelState::Loading => Style::default().add_modifier(Modifier::ITALIC),
-        PanelState::Ready { .. } => Style::default().add_modifier(Modifier::BOLD),
+        PanelState::Idle | PanelState::Ready { .. } => muted_style(),
+        PanelState::Loading => accent_style().add_modifier(Modifier::BOLD),
+        PanelState::Error(_) if colors_enabled() => {
+            Style::default().fg(Color::Red).add_modifier(Modifier::BOLD)
+        }
         PanelState::Error(_) => Style::default()
             .add_modifier(Modifier::BOLD)
             .add_modifier(Modifier::REVERSED),
     }
 }
 
-fn state_badge(state: &PanelState) -> &'static str {
+fn state_badge(state: &PanelState) -> String {
+    let enhanced = enhanced_symbols();
     match state {
-        PanelState::Idle => "idle",
-        PanelState::Loading => "loading",
-        PanelState::Ready { .. } => "ready",
-        PanelState::Error(_) => "error",
+        PanelState::Idle => format!("{} idle", if enhanced { "○" } else { "o" }),
+        PanelState::Loading => format!("{} loading", if enhanced { "◌" } else { "~" }),
+        PanelState::Ready { .. } => format!("{} ready", if enhanced { "✓" } else { "+" }),
+        PanelState::Error(_) => "! error".into(),
     }
+}
+
+fn active_context(state: &DashboardState) -> String {
+    match state.active_view() {
+        View::Dashboard => "DASHBOARD".into(),
+        View::PanelDetail => state
+            .focused_panel()
+            .map(|panel| format!("DETAIL / {}", panel.title.to_uppercase()))
+            .unwrap_or_else(|| "DETAIL".into()),
+        View::RowDetail => state
+            .row_detail
+            .as_ref()
+            .map(|detail| format!("ROW / {}", detail.title.to_uppercase()))
+            .unwrap_or_else(|| "ROW DETAIL".into()),
+    }
+}
+
+fn use_mission_control_layout(area: Rect) -> bool {
+    area.width >= 96
+}
+
+fn colors_enabled() -> bool {
+    env::var_os("NO_COLOR").is_none_or(|value| value.is_empty())
+}
+
+fn enhanced_symbols() -> bool {
+    env::var_os("HUD_ASCII_UI").is_none()
+}
+
+fn accent_style() -> Style {
+    if colors_enabled() {
+        Style::default().fg(Color::Cyan)
+    } else {
+        Style::default()
+    }
+}
+
+fn muted_style() -> Style {
+    if colors_enabled() {
+        Style::default().fg(Color::DarkGray)
+    } else {
+        Style::default().add_modifier(Modifier::DIM)
+    }
+}
+
+fn key_style() -> Style {
+    if colors_enabled() {
+        Style::default()
+            .fg(Color::Black)
+            .bg(Color::Cyan)
+            .add_modifier(Modifier::BOLD)
+    } else {
+        Style::default()
+            .add_modifier(Modifier::REVERSED)
+            .add_modifier(Modifier::BOLD)
+    }
+}
+
+fn selection_style() -> Style {
+    key_style().add_modifier(Modifier::BOLD)
+}
+
+fn focus_mark() -> &'static str {
+    if enhanced_symbols() { "◆" } else { ">" }
+}
+
+fn panel_border(focused: bool) -> symbols::border::Set<'static> {
+    if !enhanced_symbols() {
+        symbols::border::Set {
+            top_left: "+",
+            top_right: "+",
+            bottom_left: "+",
+            bottom_right: "+",
+            vertical_left: "|",
+            vertical_right: "|",
+            horizontal_top: "-",
+            horizontal_bottom: "-",
+        }
+    } else if focused {
+        symbols::border::THICK
+    } else {
+        symbols::border::ROUNDED
+    }
+}
+
+fn push_key_hint(footer: &mut Vec<Span<'static>>, key: &str, label: &str) {
+    if !footer.is_empty() {
+        footer.push(Span::raw("  "));
+    }
+    footer.push(Span::styled(format!(" {key} "), key_style()));
+    footer.push(Span::raw(format!(" {label}")));
 }
 
 fn table_column_widths(table: &TableContent) -> Vec<usize> {
@@ -829,5 +907,11 @@ mod tests {
                 Constraint::Min(20),
             ]
         );
+    }
+
+    #[test]
+    fn mission_control_layout_requires_room_for_three_instruments() {
+        assert!(!use_mission_control_layout(Rect::new(0, 0, 95, 24)));
+        assert!(use_mission_control_layout(Rect::new(0, 0, 96, 24)));
     }
 }
