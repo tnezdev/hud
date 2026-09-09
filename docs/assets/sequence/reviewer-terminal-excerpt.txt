@@ -1,0 +1,178 @@
+
+ $ cargo fmt --all -- --check && cargo clippy --all-targets
+ --all-features -- -D warnings (timeout 120s)
+
+ Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.07s
+
+ Took 0.2s
+
+
+
+ $ git status --short --branch (timeout 10s)
+
+ ... (5 earlier lines, ctrl+o to expand)
+ ?? docs/assets/sequence/
+ ?? docs/sequence-reference.md
+ ?? examples/sequence-journey.json
+ ?? examples/sequence.rs
+ ?? skills/hud/sequence.md
+
+ Took 0.0s
+
+
+
+ $ grep -R "Sequence\|sequence" -n README.md docs skills examples |
+ head -200 (timeout 10s)
+
+ ... (228 earlier lines, ctrl+o to expand)
+ 0).unwrap().contains("Resize"));
+ examples/sequence.rs:604:        assert!(preview(&sequence, 0, 24,
+ 0).is_err());
+ examples/sequence.rs:605:        assert!(preview(&sequence, 80, 101,
+ 0).is_err());
+
+ Took 0.0s
+
+
+ Reviewing Sequence reference experiment correctness
+
+ Analyzing buffer symbol width and JSON parsing limits
+
+ Confirming file size read behavior over 64KiB
+
+ Planning output comparison with assets
+
+
+ $ set -e
+ cargo run --quiet --example sequence -- examples/sequence-journey.json
+ --preview 72 35 > /tmp/sequence-72x35.actual
+ cargo run --quiet --example sequence -- examples/sequence-journey.json
+ --preview 80 24 > /tmp/sequence-80x24.actual
+ cargo run --quiet --example sequence -- examples/sequence-journey.json
+ --preview 72 35 8 > /tmp/sequence-end-72x35.actual
+ cargo run --quiet --example sequence -- examples/sequence-journey.json
+ --preview 80 24 8 > /tmp/sequence-end-80x24.actual
+ cmp docs/assets/sequence/journey/sequence-72x35.txt
+ /tmp/sequence-72x35.actual
+ cmp docs/assets/sequence/journey/sequence-80x24.txt
+ /tmp/sequence-80x24.actual
+ cmp docs/assets/sequence/journey/sequence-end-72x35.txt
+ /tmp/sequence-end-72x35.actual
+ cmp docs/assets/sequence/journey/sequence-end-80x24.txt
+ /tmp/sequence-end-80x24.actual
+ echo captures-match (timeout 120s)
+
+ captures-match
+
+ Took 0.3s
+
+
+
+ $ cargo run --quiet --example sequence --
+ examples/sequence-journey.json --check && cargo run --quiet --example
+ sequence -- examples/sequence-journey.json --preview 240 100 65535
+ >/tmp/sequence-large.actual && tail -5 /tmp/sequence-large.actual
+ (timeout 120s)
+
+ ... (1 earlier lines, ctrl+o to expand)
+
+
+
+
+   END | line 1/18 | j/k PgDn Home/End | q quit
+
+ Took 0.2s
+
+
+
+ $ grep -R "sequence-72x35\|legacy-72x35\|sequence-end" -n .
+ --exclude-dir=target --exclude='*.lock' (timeout 10s)
+
+ (no output)
+
+ Command exited with code 1
+
+ Took 0.0s
+
+
+ Inspecting footer line offset behavior
+
+ Analyzing scroll marker and gutter alignment
+
+ Confirming no actionable defects found
+
+ Assessing procedure validation limits
+
+ Verifying input size and rendering limits
+
+ Confirming terminal event handling
+
+ Confirming terminal input and resize handling
+
+ Identifying offset parsing doc mismatch
+
+ Clarifying preview dimension constraints
+
+ Verifying label wrapping and styling
+
+ Confirming timeline marker semantics
+
+ Identifying text offset and marker alignment issue
+
+ Deciding defect reporting criteria
+
+ Verifying offset and size boundary handling
+
+ Confirming semantic provenance as arbitrary string
+
+ Verifying CLI flag parsing and visual width constraints
+
+ Assessing Unicode width and build dependencies
+
+ Correcting test resizing to prevent overflow
+
+ Verifying terminal resize behavior
+
+ Confirming test pass and documenting findings
+
+ Evaluating potential high-offset contract gap
+
+ Verifying Paragraph line_count behavior
+
+ Assessing rendering bugs and layout offsets
+
+ Deciding on note classification approach
+
+ Confirming test results and repository status
+
+ Review result
+
+ No actionable defects found. The Sequence parser, inert data boundary,
+ semantic guidance, narrow rendering, persistent header, wrapping,
+ gutter identity, and scrolling behavior are consistent with the
+ reference contract.
+
+ Verification
+
+ - Frozen hashes match skills/hud/sequence.md and examples/sequence.rs.
+ - ./scripts/check: passed all 67 tests.
+ - cargo test --example sequence: 7 passed.
+ - cargo fmt --check and Clippy: passed.
+ - All four generated Sequence captures match
+   docs/assets/sequence/journey/.
+ - Narrow, mid-scroll, end-scroll, resize-message, and oversized-offset
+   previews inspected.
+
+ No repository files were changed.
+
+ Limits
+
+ I did not run the live TTY interaction or assess human-perceived
+ visual quality. I did not read or influence /tmp/hud-sequence-author,
+ consult Dottie, or provide PO/release approval.
+
+────────────────────────────────────────────────────────────────────────
+
+────────────────────────────────────────────────────────────────────────
+~/Work/tnezdev/hud (feat/sequence-reference)
+↑42k ↓11k R164k CH94.8% $0.024 (sub) 15.3%/272k (auto)  gpt-5.6-luna • h

@@ -1,0 +1,24 @@
+
+  Choose a workshop access format
+
+  Fictional options / not live / not independently verified
+  One workshop / access details supplied for this decision
+
+  Help an organizer judge two access alternatives without turning missing
+  accessibility details into reassurance.
+
+
+  ──── Compare · same questions · no ranking
+
+  ──── Interaction
+  What interaction format is supplied?
+  Live room          Questions during the session
+  Recorded replay    Questions are not part of the supplied format
+
+  ──── Access window
+  When can a participant access the material?
+  Live room          One scheduled session
+  Recorded replay    UNKNOWN · not supplied
+  │                  Replay access window is not specified.
+
+  MORE below | line 1/23 | j/k PgDn Home/End | q quit

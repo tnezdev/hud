@@ -1,0 +1,35 @@
+
+  Community workshop venue notes
+
+  Fictional; not live or independently verified.
+  12 Jun 2026; 18 Jun 18:00–20:00; USD; no preference.
+
+  Inspect capacity/booking/projector/access; other terms unknown.
+
+
+  ──── Compare · same questions · no ranking
+
+  ──── Capacity
+  What seat capacity is supplied?
+  North Hall       48 seats
+  South Library    42 seats
+
+  ──── Room booking
+  What room-booking amount is supplied?
+  North Hall       180 USD
+  South Library    150 USD
+
+  ──── Projector
+  What projector status is supplied?
+  North Hall       included
+  South Library    UNKNOWN · not supplied
+  │                not supplied
+
+  ──── Step-free entrance
+  What step-free-entrance status is supplied?
+  North Hall       UNKNOWN · not supplied
+  │                not confirmed in the supplied notes
+  South Library    UNAVAILABLE · not available
+  │                unavailable for this booking
+
+  END | line 1/27 | j/k PgDn Home/End | q quit

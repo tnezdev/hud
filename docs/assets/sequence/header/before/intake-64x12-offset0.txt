@@ -1,0 +1,12 @@
+  Today's donated photograph intake
+  Fictional supplied procedure / not executed
+  Complete supplied intake procedure / today's batch only
+  Procedure / supplied action order / not execution status
+
+  Help a volunteer follow the supplied intake order without
+  assuming permission to scan.
+
+
+  ────────────
+  01 ●  Take the batch identifier from the intake sheet and
+  MORE below: paragraph continues | line 1/31 | j/k | q

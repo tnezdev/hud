@@ -1,0 +1,35 @@
+  Observatory selected events
+
+  Fictional supplied log entries / not independently verified
+  12 Apr 2026 selected; local times; not complete incident log
+
+  Help the incoming shift lead distinguish what these entries
+  establish from what remains unknown.
+
+
+  ──── Chronology · not causation
+  01 ●  18:10 — Roof sensor reported open
+     │  The console's camera view was unavailable.
+     │
+  02 ●  Approximately 18:25 — Technician note reported roof physically
+     │  closed
+     │  This time is an estimate, not an exact timestamp.
+     │
+  03 ●  18:40 — Roof sensor reported closed
+
+
+  ──── Background and sources
+  The supplied entries do not say whether anyone adjusted the sensor
+  or the roof.
+
+  The warning's cause and whether the camera view was restored are
+  unknown.
+
+  No current roof state, safety clearance, or causal explanation is
+  supplied.
+
+
+
+
+
+  END | line 1/24 | j/k PgDn Home/End | q quit

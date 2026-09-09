@@ -1,0 +1,12 @@
+  Observatory selected events
+  Fictional supplied log entries / not independently verified
+  12 Apr 2026 selected; local times; not complete incident log
+  Chronology / supplied event order / not causation
+
+
+  The warning's cause and whether the camera view was restored
+  are unknown.
+
+  No current roof state, safety clearance, or causal
+  explanation is supplied.
+  END | line 19/24 | j/k PgDn Home/End | q quit

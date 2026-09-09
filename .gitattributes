@@ -1,0 +1,2 @@
+# Captured test output is evidence; preserve its tool-emitted final blank line.
+docs/assets/**/check*.log whitespace=-blank-at-eof

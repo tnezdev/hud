@@ -1,0 +1,24 @@
+  Today's donated photograph intake
+  Fictional supplied procedure / not executed
+  Complete supplied intake procedure / today's batch only
+  Procedure / supplied action order / not execution status
+
+  Help a volunteer follow the supplied intake order without assuming
+  permission to scan.
+
+  01 ●  Take the batch identifier from the intake sheet and copy it onto the
+     │  batch sleeve
+     │  The identifier links the photographs to the donor's paperwork; no
+     │  actual identifier is supplied for this fictional example.
+     │
+  02 ●  Count the photographs and record the count
+     │  Record it on the same intake sheet. Keep existing annotations attached
+     │  to their original photographs; do not silently interpret uncertain
+     │  handwriting as verified dates.
+     │
+  03 ●  Only after donor permission is recorded, place the batch in the
+     │  scanning queue
+     │  This prerequisite is mandatory; the supplied facts do not establish
+     │  that permission exists.
+
+  MORE below | line 1/24 | j/k PgDn Home/End | q quit

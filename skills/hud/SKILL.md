@@ -9,9 +9,12 @@ description: Compose an intentional terminal-native visual story with HUD. Use w
 palette. The agent chooses communicative idioms; HUD handles visual presentation.
 Discovery should teach meaning, why/when, counterexamples, and semantic examples,
 not only invocation. See the [product decision](../../docs/semantic-visual-language.md).
-Sequence is the next reference idiom to develop; no new contract is implemented
-here yet. The recipes below preserve the earlier experiments and remain runnable,
-but their pattern names and schemas are not the chosen language architecture.
+Start with the experimental [Sequence reference](sequence.md) for supplied
+procedures and chronologies, and the bounded [Compare reference](compare.md) for
+alternatives answering common named questions. Both teach why/when to decline;
+their syntax is experimental, not a chosen production architecture. The recipes
+below preserve earlier experiments and remain runnable, but their pattern names
+and schemas are not the chosen language architecture.
 
 Start with what you want someone to understand—not with a list of widgets to fill.
 HUD can keep a recommendation, its evidence, and its alternatives visible together.
@@ -42,7 +45,7 @@ when relationships, simultaneous context, or a view worth returning to matter.
 | Pattern | Reach for it when… | Current implementation |
 | --- | --- | --- |
 | **Lead** | One conclusion or destination should frame everything else. | `output = "text"`; put the essential sentence first. |
-| **Compare** | Someone needs to understand alternatives against the same criteria. | `output = "table-json"`; string columns and cells. Not a choice control. |
+| **Compare** | Someone needs to judge alternatives against the same named questions. | Isolated data-only `examples/compare.rs`; not a choice control, scorecard, or production API. See [Compare](compare.md). |
 | **Explain** | The conclusion needs reasons, provenance, or uncertainty. | `output = "text"`; Enter opens the same content in a larger, scrollable view. |
 | **Direct** | Someone needs a next step or a short route, not more deliberation. | `output = "text"`; ordered instructions, not executable actions. |
 | **Measure** | A bounded quantity genuinely helps understanding. | `output = "metrics-json"`; integer `value`/`max`, shown as a percentage gauge. |
@@ -66,7 +69,15 @@ output = "text"
 command = "cat examples/film-night/organizer-lead.txt"
 ```
 
-For Compare, set `output = "table-json"` and have the command emit one JSON document:
+The isolated Compare reference is invoked with a data-only JSON file, not the
+command-backed table protocol:
+
+```sh
+cargo run --quiet --example compare -- examples/compare-suppliers.json --preview 80 24
+```
+
+For historical command-backed panels, `output = "table-json"` still emits one
+JSON document:
 
 ```json
 {"type":"table","columns":["Place","Rain cover"],"rows":[["Courtyard","No"],["Hall","Yes"]]}

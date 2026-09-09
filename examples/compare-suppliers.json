@@ -1,0 +1,51 @@
+{
+  "title": "Choose a printer for 100 handouts",
+  "provenance": "Fictional quotes / not live / not independently verified",
+  "scope": "One batch of 100 handouts / quotes 6 May 2026 / USD",
+  "intent": "Judge three independent alternatives; listed in ascending quoted price, not preference. No supplier is selected yet; no quality ratings, opening hours, or budget ceiling are supplied. This does not establish a winner or a requirement to buy from all three.",
+  "criteria": [
+    {
+      "name": "Quoted amount",
+      "question": "What amount was quoted for this one batch?"
+    },
+    {
+      "name": "Fulfillment terms",
+      "question": "What pickup or delivery term was supplied?"
+    },
+    {
+      "name": "Recycled paper",
+      "question": "Is recycled paper available?"
+    }
+  ],
+  "alternatives": [
+    {
+      "name": "Alder",
+      "answers": [
+        {"criterion": "Quoted amount", "state": "known", "value": "40 USD"},
+        {"criterion": "Fulfillment terms", "state": "known", "value": "pickup Friday"},
+        {"criterion": "Recycled paper", "state": "unavailable", "qualification": "Recycled paper unavailable."}
+      ]
+    },
+    {
+      "name": "Birch",
+      "answers": [
+        {"criterion": "Quoted amount", "state": "known", "value": "55 USD"},
+        {"criterion": "Fulfillment terms", "state": "known", "value": "pickup Thursday"},
+        {"criterion": "Recycled paper", "state": "known", "value": "available"}
+      ]
+    },
+    {
+      "name": "Cedar",
+      "answers": [
+        {
+          "criterion": "Quoted amount",
+          "state": "known",
+          "value": "70 USD",
+          "qualification": "Delivery charge is not supplied; final delivered total is unknown."
+        },
+        {"criterion": "Fulfillment terms", "state": "known", "value": "delivery Thursday"},
+        {"criterion": "Recycled paper", "state": "known", "value": "available"}
+      ]
+    }
+  ]
+}

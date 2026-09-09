@@ -75,7 +75,39 @@ hud --config examples/starter.toml --check-config
 
 These experiments informed the [current direction](docs/semantic-visual-language.md).
 Their patterns and JSON format are useful evidence, not the new language contract.
-The Sequence reference brief and discovery trial are next; they are not implemented.
+The new [Sequence reference brief](docs/sequence-reference.md) and
+[discovery entrypoint](skills/hud/sequence.md) test one idiom: supplied procedures
+and chronologies, including when to decline it. The isolated example keeps the
+connected timeline and groups wrapped text within each item:
+
+```sh
+cargo run --example sequence -- examples/sequence-observatory.json
+cargo run --example sequence -- examples/sequence-intake.json --preview 80 24
+```
+
+The [trial and review corrections](docs/sequence-trial.md) separate appropriate
+selection from factual fidelity and scrolling failures. The
+[section-rhythm follow-up](docs/sequence-rhythm.md) compares identical story wording
+with clearer section boundaries; the [opening-hierarchy pass](docs/sequence-header.md)
+addresses the busy header without changing author text. This remains experimental,
+data-only syntax, not the installed HUD API.
+
+The bounded [Compare reference](docs/compare-reference.md) is the next isolated
+semantic experiment: it groups independent alternatives by common named criteria
+without inventing ranking, totals, preference, or recommendation. Its supplier
+anchor preserves the prose baseline and explicit unknown delivery facts:
+
+```sh
+cargo run --quiet --example compare -- examples/compare-suppliers.json --check
+cargo run --quiet --example compare -- examples/compare-suppliers.json --preview 80 24
+```
+
+This data-only example shares its live/headless renderer and is not the production
+CLI or a generic table API. The [Compare authoring entrypoint](skills/hud/compare.md)
+teaches when to choose Compare, Sequence, or prose. The
+[trial and independent review](docs/compare-trial.md) record appropriate Compare
+selection, real fidelity omissions, and post-trial discovery corrections; none
+of these alone establish Product Owner acceptance or author reliability.
 
 Start with the draft [HUD authoring skill](skills/hud/SKILL.md), then try a
 fictional film-night story for two different audiences:

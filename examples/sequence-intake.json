@@ -1,0 +1,26 @@
+{
+  "title": "Today's donated photograph intake",
+  "provenance": "Fictional supplied procedure / not executed",
+  "scope": "Complete supplied intake procedure / today's batch only",
+  "intent": "Help a volunteer follow the supplied intake order without assuming permission to scan.",
+  "relationship": "procedure",
+  "items": [
+    {
+      "label": "Take the batch identifier from the intake sheet and copy it onto the batch sleeve",
+      "detail": ["The identifier links the photographs to the donor's paperwork; no actual identifier is supplied for this fictional example."]
+    },
+    {
+      "label": "Count the photographs and record the count",
+      "detail": ["Record it on the same intake sheet. Keep existing annotations attached to their original photographs; do not silently interpret uncertain handwriting as verified dates."]
+    },
+    {
+      "label": "Only after donor permission is recorded, place the batch in the scanning queue",
+      "detail": ["This prerequisite is mandatory; the supplied facts do not establish that permission exists."]
+    }
+  ],
+  "notes": [
+    "This procedure ends at queue placement; it does not include scanning.",
+    "Donor permission status, photograph count and scanning date are unknown.",
+    "No action has been executed by this guide."
+  ]
+}

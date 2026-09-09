@@ -1,0 +1,37 @@
+{
+  "title": "Print studio choice",
+  "provenance": "Fictional supplied quote comparison; not live or independently verified.",
+  "scope": "Quotes supplied on 6 May 2026, for this one batch of 100 only. Listed in ascending quoted price, not preference. No quality ratings, opening hours, or budget ceiling are supplied. The material does not establish a winner, a requirement to buy from all three, or a final choice.",
+  "intent": "For a workshop organizer, help them judge Alder, Birch, and Cedar for choosing one supplier for 100 handouts using quoted amount, pickup or delivery timing, and recycled-paper availability, while preserving Cedar’s unsupplied delivery charges and the supplied order. No supplier is selected yet.",
+  "criteria": [
+    {"name": "Quoted amount", "question": "What amount is quoted for this batch of 100?"},
+    {"name": "Pickup or delivery", "question": "What pickup or delivery timing is supplied?"},
+    {"name": "Recycled paper", "question": "What recycled-paper availability is supplied?"}
+  ],
+  "alternatives": [
+    {
+      "name": "Alder",
+      "answers": [
+        {"criterion": "Quoted amount", "state": "known", "value": "40 USD"},
+        {"criterion": "Pickup or delivery", "state": "known", "value": "pickup Friday"},
+        {"criterion": "Recycled paper", "state": "unavailable"}
+      ]
+    },
+    {
+      "name": "Birch",
+      "answers": [
+        {"criterion": "Quoted amount", "state": "known", "value": "55 USD"},
+        {"criterion": "Pickup or delivery", "state": "known", "value": "pickup Thursday"},
+        {"criterion": "Recycled paper", "state": "known", "value": "available"}
+      ]
+    },
+    {
+      "name": "Cedar",
+      "answers": [
+        {"criterion": "Quoted amount", "state": "known", "value": "70 USD", "qualification": "Cedar’s delivery charges are not supplied, so its final delivered total is unknown."},
+        {"criterion": "Pickup or delivery", "state": "known", "value": "delivery Thursday"},
+        {"criterion": "Recycled paper", "state": "known", "value": "available"}
+      ]
+    }
+  ]
+}

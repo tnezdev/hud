@@ -1,0 +1,498 @@
+
+hud feat/sequence-reference ? ❯ pi
+Model scope: gpt-6-astra:high, gpt-5.6-luna:high (Ctrl+P to cycle)
+
+ pi v0.84.4
+ escape interrupt · ctrl+c/ctrl+d clear/exit · / commands · ! bash ·
+ ctrl+o more
+ Press ctrl+o to show full startup help and loaded resources.
+
+ Pi can explain its own features and look up its docs. Ask it how to
+ use or extend Pi.
+
+
+[Context]
+  AGENTS.md
+
+[Skills]
+  diagnose-crash, dottie, omarchy
+
+[Extensions]
+  src
+
+[Themes]
+  omarchy-system
+
+
+───────────────────────────────────────────────────────────────────────
+ Update Available
+ New version 0.85.1 is available. Run pi update
+ Changelog: https://pi.dev/changelog
+───────────────────────────────────────────────────────────────────────
+
+
+ You are a fresh HUD author, not its implementer or evaluator. Work
+ independently from this prompt and the frozen discovery entrypoint
+ /home/tnez/Work/tnezdev/hud/skills/hud/sequence.md only. Do not read
+ evaluation briefs, existing story fixtures, other agent artifacts or
+ source code; do not consult other agents. No repository/code/skill
+ changes, installs, publication, terminal panes, or live commands.
+ Headless Cargo check/preview commands from the checkout are
+ authorized. All new author artifacts belong under
+ /tmp/hud-sequence-author/.
+
+ For each of the three cases below, decide how best to communicate the
+ supplied material using the discovery reference where appropriate.
+ State the audience/intent and your choice with reason. Preserve facts
+ and qualifications; do not invent missing ones. Keep the original
+ draft of each composition before refinement. For any rendered
+ composition, validate and inspect at 72x35 and 80x24, including all
+ scrolled content, then refine only if warranted and preserve captures
+ of what you inspected. Record commands, validation/repair attempts,
+ observations and any revisions in your final response. For an
+ ordinary prose response, preserve it as a text artifact. There is no
+ required number of rendered outputs and no forced revision. Do not
+ ask the Product Owner about routine authoring decisions. Reply when
+ all three are complete; be honest about limits.
+
+ All facts below are fictional supplied material, not live or
+ independently verified.
+
+ Case A — Observatory briefing
+
+ Audience: the incoming shift lead wants to understand what the
+ selected log entries do and do not establish.
+ Scope: selected entries on 12 April 2026 only; local times, not a
+ complete incident log.
+ At 18:10 a roof sensor reported an open state while the console's
+ camera view was unavailable.
+ At approximately 18:25 a technician's written note reported the roof
+ physically closed; this time is an estimate, not an exact timestamp.
+ At 18:40 the sensor reported a closed state. The supplied entries do
+ not say whether anyone adjusted the sensor or the roof.
+ The warning's cause and whether the camera view was restored are
+ unknown. No current roof state, safety clearance, or causal
+ explanation is supplied.
+
+ Case B — Print studio choice
+
+ Audience: a workshop organizer needs to choose one supplier for 100
+ handouts; no supplier is selected yet.
+ The quotes are numbered in ascending quoted price, not preference: 1.
+ Alder, 40 USD, pickup Friday, recycled paper unavailable; 2. Birch,
+ 55 USD, pickup Thursday, recycled paper available; 3. Cedar, 70 USD,
+ delivery Thursday, recycled paper available.
+ All quotes were supplied on 6 May 2026 and apply to this one batch of
+ 100 only. Delivery charges for Cedar are not supplied, so its final
+ delivered total is unknown. No quality ratings, opening hours, or
+ budget ceiling are supplied. Do not invent a winner or a requirement
+ to buy from all three.
+
+ Case C — Archive volunteer handoff
+
+ Audience: a volunteer should follow the complete supplied intake
+ procedure for today's donated photograph batch, without assuming
+ permission to scan.
+ The supplied order is:
+ First assign the batch identifier from the intake sheet and copy it
+ onto the batch sleeve. The identifier links the photographs to the
+ donor's paperwork; no actual identifier is supplied for this
+ fictional example.
+ Next count the photographs and record that count on the same intake
+ sheet. Keep any existing annotations attached to their original
+ photographs; do not silently interpret uncertain handwriting as
+ verified dates.
+ Finally, only after donor permission is recorded, place the batch in
+ the scanning queue. This prerequisite is mandatory; the supplied
+ facts do not establish that permission exists.
+ This procedure ends at queue placement; it does not include scanning.
+ Donor permission status, photograph count and scanning date are all
+ unknown. No action has been executed by this guide.
+
+
+ Planning artifact authoring using sequence.md
+
+
+ read ~/Work/tnezdev/hud/skills/hud/sequence.md
+
+
+ Planning artifact rendering and validation
+
+ Drafting JSON metadata for log entries
+
+ Outlining photographic intake procedure
+
+ Planning draft preservation workflow
+
+ Defining draft and final file structure
+
+
+ write /tmp/hud-sequence-author/case-a-draft.json
+
+ {
+   "title": "Observatory selected events",
+   "provenance": "Fictional supplied log entries / not independently
+ verified",
+   "scope": "Selected entries on 12 April 2026 / local times / not a
+ complete incident log",
+   "intent": "Help the incoming shift lead distinguish what these
+ entries establish from what remains unknown.",
+   "relationship": "chronology",
+   "items": [
+     {
+       "label": "18:10 — Roof sensor reported open",
+       "detail": ["The console's camera view was unavailable."]
+ ... (15 more lines, 25 total, ctrl+o to expand)
+
+
+
+ write /tmp/hud-sequence-author/case-b-draft.txt
+
+ Print studio choice — supplied quote comparison
+
+ Audience and intent
+ A workshop organizer needs to choose one supplier for 100 handouts.
+ No supplier is selected yet. This is a comparison of independent
+ alternatives, not a ranked journey through the suppliers.
+
+ Quotes supplied on 6 May 2026, for this one batch of 100 only. The
+ numbers below are in ascending quoted price, not preference:
+
+ • Alder — $40; pickup Friday; recycled paper unavailable.
+ • Birch — $55; pickup Thursday; recycled paper available.
+ • Cedar — $70; delivery Thursday; recycled paper available. Cedar's
+ delivery charges are not supplied, so its final delivered total is
+ unknown.
+ ... (2 more lines, 12 total, ctrl+o to expand)
+
+
+
+ write /tmp/hud-sequence-author/case-c-draft.json
+
+ {
+   "title": "Today's donated photograph intake",
+   "provenance": "Fictional supplied procedure / not executed",
+   "scope": "Complete supplied intake procedure / today's batch only",
+   "intent": "Help a volunteer follow the supplied intake order
+ without assuming permission to scan.",
+   "relationship": "procedure",
+   "items": [
+     {
+       "label": "Assign the batch identifier and copy it onto the
+ batch sleeve",
+       "detail": ["The identifier links the photographs to the donor's
+ paperwork; no actual identifier is supplied for this fictional
+ example."]
+ ... (16 more lines, 26 total, ctrl+o to expand)
+
+
+ Planning sequential check and preview runs
+
+ Configuring robust bash command execution
+
+
+ $ set -e
+ mkdir -p /tmp/hud-sequence-author/captures
+ cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-a-draft.json --check >
+ /tmp/hud-sequence-author/case-a-check.txt
+ cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-c-draft.json --check >
+ /tmp/hud-sequence-author/case-c-check.txt
+ cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-a-draft.json --preview 72 35 >
+ /tmp/hud-sequence-author/captures/case-a-72x35-offset0.txt
+ cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-a-draft.json --preview 80 24 >
+ /tmp/hud-sequence-author/captures/case-a-80x24-offset0.txt
+ cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-a-draft.json --preview 80 24 65535 >
+ /tmp/hud-sequence-author/captures/case-a-80x24-end.txt
+ cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-c-draft.json --preview 72 35 >
+ /tmp/hud-sequence-author/captures/case-c-72x35-offset0.txt
+ cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-c-draft.json --preview 80 24 >
+ /tmp/hud-sequence-author/captures/case-c-80x24-offset0.txt
+ cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-c-draft.json --preview 80 24 65535 >
+ /tmp/hud-sequence-author/captures/case-c-80x24-end.txt
+ printf 'done\n' (timeout 120s)
+
+ title, provenance and scope are limited to 60 display cells each
+
+
+ Command exited with code 1
+
+ Took 0.2s
+
+
+ Inspecting and shortening scope fields for validation
+
+ Planning draft preservation and manual scope edits
+
+ Counting field lengths with Python
+
+
+ $ python3 - <<'PY'
+ for s in [
+ '12 Apr 2026 selected entries / local times / incomplete incident
+ log',
+ '12 Apr 2026 selected entries / local time / incomplete incident
+ log',
+ '12 Apr 2026 selected entries; local times; not complete log',
+ 'Complete supplied intake procedure / today\'s batch only',
+ 'Fictional supplied log entries / not independently verified',
+ ]: print(len(s), s)
+ PY
+
+ ... (2 earlier lines, ctrl+o to expand)
+ 67 12 Apr 2026 selected entries / local time / incomplete incident
+ log
+ 59 12 Apr 2026 selected entries; local times; not complete log
+ 55 Complete supplied intake procedure / today's batch only
+ 59 Fictional supplied log entries / not independently verified
+
+ Took 0.0s
+
+
+ Refining incident log label
+
+
+ $ python3 - <<'PY'
+ for s in ['12 Apr 2026 selected entries; local; not complete incident
+ log','12 Apr 2026 selected; local times; not complete incident
+ log','12 Apr 2026 / selected entries / local / incomplete
+ log','Selected 12 Apr 2026 entries / local / incomplete incident
+ log']:
+  print(len(s),s)
+ PY
+
+ 62 12 Apr 2026 selected entries; local; not complete incident log
+ 60 12 Apr 2026 selected; local times; not complete incident log
+ 55 12 Apr 2026 / selected entries / local / incomplete log
+ 62 Selected 12 Apr 2026 entries / local / incomplete incident log
+
+ Took 0.0s
+
+
+ Finalizing selected entries scope
+
+
+ $ cp /tmp/hud-sequence-author/case-a-draft.json
+ /tmp/hud-sequence-author/case-a-final.json
+ cp /tmp/hud-sequence-author/case-c-draft.json
+ /tmp/hud-sequence-author/case-c-final.json
+ cp /tmp/hud-sequence-author/case-b-draft.txt
+ /tmp/hud-sequence-author/case-b-final.txt
+
+ (no output)
+
+ Took 0.0s
+
+
+
+ edit /tmp/hud-sequence-author/case-a-final.json
+
+   1 {
+   2   "title": "Observatory selected events",
+   3   "provenance": "Fictional supplied log entries / not
+ independently verified",
+ - 4   "scope": "Selected entries on 12 April 2026 / local times / not
+ a complete incident log",
+ + 4   "scope": "12 Apr 2026 selected; local times; not complete
+ incident log",
+   5   "intent": "Help the incoming shift lead distinguish what these
+ entries establish from what remains unknown.",
+   6   "relationship": "chronology",
+   7   "items": [
+   8     {
+     ...
+
+
+ Planning output validation with offsets
+
+ Extending output offset tests at 80x24
+
+
+ $ set -e
+ cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-a-final.json --check >
+ /tmp/hud-sequence-author/case-a-check.txt
+ cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-c-final.json --check >
+ /tmp/hud-sequence-author/case-c-check.txt
+ for case in a c; do
+   cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-${case}-final.json --preview 72 35 >
+ /tmp/hud-sequence-author/captures/case-${case}-72x35-offset0.txt
+   cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-${case}-final.json --preview 72 35 12 >
+ /tmp/hud-sequence-author/captures/case-${case}-72x35-offset12.txt
+   cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-${case}-final.json --preview 80 24 >
+ /tmp/hud-sequence-author/captures/case-${case}-80x24-offset0.txt
+   cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-${case}-final.json --preview 80 24 8 >
+ /tmp/hud-sequence-author/captures/case-${case}-80x24-offset8.txt
+   cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-${case}-final.json --preview 80 24 16 >
+ /tmp/hud-sequence-author/captures/case-${case}-80x24-offset16.txt
+   cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-${case}-final.json --preview 80 24
+ 65535 > /tmp/hud-sequence-author/captures/case-${case}-80x24-end.txt
+ done
+ printf 'all checks and previews passed\n' (timeout 120s)
+
+ all checks and previews passed
+
+ Took 0.7s
+
+
+ Planning parallel reads for captures
+
+
+ read /tmp/hud-sequence-author/captures/case-a-72x35-offset0.txt
+
+
+
+ read /tmp/hud-sequence-author/captures/case-a-72x35-offset12.txt
+
+
+
+ read /tmp/hud-sequence-author/captures/case-a-80x24-offset0.txt
+
+
+
+ read /tmp/hud-sequence-author/captures/case-a-80x24-offset8.txt
+
+
+
+ read /tmp/hud-sequence-author/captures/case-a-80x24-offset16.txt
+
+
+
+ read /tmp/hud-sequence-author/captures/case-a-80x24-end.txt
+
+
+ Inspecting variable C usage
+
+
+ read /tmp/hud-sequence-author/captures/case-c-72x35-offset0.txt
+
+
+
+ read /tmp/hud-sequence-author/captures/case-c-72x35-offset12.txt
+
+
+
+ read /tmp/hud-sequence-author/captures/case-c-80x24-offset0.txt
+
+
+
+ read /tmp/hud-sequence-author/captures/case-c-80x24-offset8.txt
+
+
+
+ read /tmp/hud-sequence-author/captures/case-c-80x24-offset16.txt
+
+
+
+ read /tmp/hud-sequence-author/captures/case-c-80x24-end.txt
+
+
+ Analyzing viewport scroll offset behavior
+
+ Verifying content completeness at multiple offsets
+
+
+ read /tmp/hud-sequence-author/case-a-check.txt
+
+
+
+ read /tmp/hud-sequence-author/case-c-check.txt
+
+
+
+ read /tmp/hud-sequence-author/case-b-final.txt
+
+
+
+ read /tmp/hud-sequence-author/case-a-final.json
+
+
+
+ read /tmp/hud-sequence-author/case-c-final.json
+
+
+ Planning authoring record creation
+
+ Detailing command records and validation outputs
+
+ Preparing initial error and draft artifacts
+
+
+ write /tmp/hud-sequence-author/case-a-initial-check-error.txt
+
+ title, provenance and scope are limited to 60 display cells
+
+
+
+ write /tmp/hud-sequence-author/authoring-record.md
+
+ # HUD sequence authoring record
+
+ ## Case A — Observatory briefing
+
+ - **Audience/intent:** The incoming shift lead needs to distinguish
+ what the selected entries establish from what remains unknown.
+ - **Choice:** `chronology` Sequence. The entries have a supplied
+ temporal order, while the reference says chronology must not imply
+ cause, duration, completeness or current status.
+ - **Draft:** `case-a-draft.json`.
+ - **Repair:** The first check of the draft failed because its scope
+ exceeded the 60-display-cell field limit. The draft is preserved. The
+ final scope was shortened without dropping the date, local-time
+ qualification or incomplete-log qualification.
+ - **Final:** `case-a-final.json`.
+ - **Validation command:** `cargo run --quiet --example sequence --
+ /tmp/hud-sequence-author/case-a-final.json --check`
+ ... (40 more lines, 50 total, ctrl+o to expand)
+
+
+ Verifying command syntax and file comparison
+
+ Summarizing validation steps and command records
+
+ Confirming viewport capture completeness
+
+ Confirming initial and subsequent line inspections
+
+ Summarizing recorded cargo run commands and checks
+
+ Preparing final command template presentation
+
+ Completed all three under /tmp/hud-sequence-author/.
+
+ - Case A: chronology Sequence; selected events need temporal context
+   without implying causation. Initial validation failed because scope
+   exceeded 60 cells; shortened only that field. Final validation
+   passed.
+ - Case B: Plain prose comparison; Sequence would falsely imply
+   ranking or a path through suppliers. Draft and final are unchanged.
+ - Case C: procedure Sequence; supplied order and permission
+   prerequisite matter, but no action is executed. Final validation
+   passed.
+
+ Rendered captures for A and C were inspected at 72×35 and 80×24,
+ including offset/end views. No further revisions were warranted.
+ Commands, observations, failure output, drafts, finals, and captures
+ are recorded in:
+
+ /tmp/hud-sequence-author/authoring-record.md
+
+───────────────────────────────────────────────────────────────────────
+
+───────────────────────────────────────────────────────────────────────
+~/Work/tnezdev/hud (feat/sequence-reference)
+↑30k ↓7.9k R93k CH85.8% $0.017 (sub) 5.9%/272k (auto)  gpt-5.6-luna • h

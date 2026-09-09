@@ -1,0 +1,3 @@
+eeae84278cce3cd6b1ac505c04ab345eda1d850bf9d96b88a0d650ec214672da  docs/assets/compare/trial/demo/README.md
+af9ca9298fec4cbb71bb916c81a9cf8aa034a4ad245640bddcf276e131b6c6b9  docs/assets/compare/trial/demo/compare-suppliers-live-71x35.txt
+c0d885e401b36631df81209d456bc95dea8fb2f56a54f02cb517b6cb380dec64  docs/assets/compare/trial/demo/supplier-prose-live-71x35.txt

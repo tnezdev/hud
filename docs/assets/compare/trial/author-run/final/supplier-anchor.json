@@ -1,0 +1,37 @@
+{
+  "title": "Print studio choice",
+  "provenance": "Fictional; not live or independently verified.",
+  "scope": "6 May 2026; batch of 100; ascending order, not preference.",
+  "intent": "Judge amount/timing/paper; no winner or final choice.",
+  "criteria": [
+    {"name": "Quoted amount", "question": "What amount is quoted for this batch of 100?"},
+    {"name": "Pickup or delivery", "question": "What pickup or delivery timing is supplied?"},
+    {"name": "Recycled paper", "question": "What recycled-paper availability is supplied?"}
+  ],
+  "alternatives": [
+    {
+      "name": "Alder",
+      "answers": [
+        {"criterion": "Quoted amount", "state": "known", "value": "40 USD"},
+        {"criterion": "Pickup or delivery", "state": "known", "value": "pickup Friday"},
+        {"criterion": "Recycled paper", "state": "unavailable"}
+      ]
+    },
+    {
+      "name": "Birch",
+      "answers": [
+        {"criterion": "Quoted amount", "state": "known", "value": "55 USD"},
+        {"criterion": "Pickup or delivery", "state": "known", "value": "pickup Thursday"},
+        {"criterion": "Recycled paper", "state": "known", "value": "available"}
+      ]
+    },
+    {
+      "name": "Cedar",
+      "answers": [
+        {"criterion": "Quoted amount", "state": "known", "value": "70 USD", "qualification": "Cedar’s delivery charges are not supplied, so its final delivered total is unknown."},
+        {"criterion": "Pickup or delivery", "state": "known", "value": "delivery Thursday"},
+        {"criterion": "Recycled paper", "state": "known", "value": "available"}
+      ]
+    }
+  ]
+}

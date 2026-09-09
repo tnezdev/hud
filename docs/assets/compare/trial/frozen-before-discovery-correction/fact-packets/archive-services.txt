@@ -1,0 +1,13 @@
+Archive transfer service notes — fictional supplied facts
+Not live or independently verified.
+
+Audience and intent
+A small museum is reviewing two services for moving one 2.0 TB collection. The coordinator needs to see what each supplied offer actually says before asking follow-up questions. No service has been selected.
+
+Scope and source
+Offers supplied 2 July 2026 for one collection transfer. Storage prices are recurring monthly amounts in USD; setup amounts are one-time USD charges. Dates are in 2026. The offers do not establish a recommendation, equal service scope, or a combined final price.
+
+• Lantern Cloud — transfer begins: 12 July; collection available to museum: 15 July; one-time setup: 90 USD; recurring storage: 12 USD/month for the first 6 months; checksum report: included.
+• Meadow Vault — transfer begins: 10 July; collection available to museum: 20 July; one-time setup: 0 USD; recurring storage: 18 USD/month for the first 6 months; checksum report: not supplied.
+
+Network egress charges, retention after month 6, and the meaning of “available” beyond the wording above are not supplied. Do not add one-time and recurring amounts into a total, infer that an earlier transfer start means earlier museum access, or treat an unsupplied checksum report as absent.

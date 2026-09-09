@@ -1,0 +1,21 @@
+# Exhibit installation run sheet
+
+Fictional supplied facts; not live or independently verified.
+
+## Audience and intent
+
+A museum coordinator is briefing a volunteer on the supplied order of work for one exhibit installation. This is one run sheet, not a choice among vendors or plans.
+
+## Scope and source
+
+Run sheet supplied 8 August 2026 for the west-gallery installation. Times are local time. The listed order is the operational order supplied by the coordinator.
+
+## Supplied order
+
+1. **8 August, 09:00** — receive the 3 crates from Northline Archive and record their seals.
+2. **8 August, 10:30** — photograph the crate labels before opening them.
+3. **8 August, 13:00** — place the two display cases on the marked plinths.
+4. **9 August, 09:30** — install the object mounts and record the mount IDs.
+5. **9 August, 15:00** — request the final fire-inspection slot; the inspection time is not yet supplied.
+
+The sheet does not say that the inspection has passed, that the crates are undamaged, or that the exhibit may open before inspection. No alternative sequence or completion estimate is supplied.

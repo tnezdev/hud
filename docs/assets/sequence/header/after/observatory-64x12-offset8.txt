@@ -1,0 +1,12 @@
+  Observatory selected events
+
+  Fictional supplied log entries / not independently verified
+  12 Apr 2026 selected; local times; not complete incident log
+
+  02 ●  Approximately 18:25 — Technician note reported roof
+     │  physically closed
+     │  This time is an estimate, not an exact timestamp.
+     │
+  03 ●  18:40 — Roof sensor reported closed
+
+  MORE below | line 9/24 | j/k PgDn Home/End | q quit

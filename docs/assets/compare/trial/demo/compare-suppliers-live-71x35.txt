@@ -1,0 +1,35 @@
+
+  Choose a printer for 100 handouts
+
+  Fictional quotes / not live / not independently verified
+  One batch of 100 handouts / quotes 6 May 2026 / USD
+
+  Judge three independent alternatives; listed in ascending quoted
+  price, not preference. No supplier is selected yet; no quality
+  ratings, opening hours, or budget ceiling are supplied. This does
+  not establish a winner or a requirement to buy from all three.
+
+
+  ──── Compare · same questions · no ranking
+
+  ──── Quoted amount
+  What amount was quoted for this one batch?
+  Alder    40 USD
+  Birch    55 USD
+  Cedar    70 USD
+  │        Delivery charge is not supplied; final delivered total is
+  │        unknown.
+
+  ──── Fulfillment terms
+  What pickup or delivery term was supplied?
+  Alder    pickup Friday
+  Birch    pickup Thursday
+  Cedar    delivery Thursday
+
+  ──── Recycled paper
+  Is recycled paper available?
+  Alder    UNAVAILABLE · not available
+  │        Recycled paper unavailable.
+  Birch    available
+  Cedar    available
+  END | line 1/28 | j/k PgDn Home/End | q quit
