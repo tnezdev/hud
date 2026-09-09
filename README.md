@@ -78,7 +78,8 @@ cargo run -- --config examples/film-night-guests.toml
 ```
 
 The [design brief](docs/agent-canvas.md) separates the confirmed direction from
-experimental authoring patterns. This is not yet a free-position canvas or an
+experimental authoring patterns. See the [trial and rendered evidence](docs/agent-canvas-trial.md)
+for what we inspected and changed. This is not yet a free-position canvas or an
 automated agent-to-screen publishing API.
 
 ## Configuration

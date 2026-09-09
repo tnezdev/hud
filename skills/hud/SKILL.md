@@ -155,6 +155,7 @@ local invocation. No arbitrary canvas placement, image primitives, remote publis
 conversation listener, or automatic agent feedback loop is provided. The separate
 interval/document experiment is not required or claimed by this skill.
 
-The [design brief](../../docs/agent-canvas.md) separates confirmed direction from
-this vocabulary experiment. The [engineering spec](../../docs/engineering-spec.md)
+The [trial record](../../docs/agent-canvas-trial.md) shows what we actually inspected
+and refined. The [design brief](../../docs/agent-canvas.md) separates confirmed
+direction from this vocabulary experiment. The [engineering spec](../../docs/engineering-spec.md)
 and [README](../../README.md) describe the actual runtime contracts.

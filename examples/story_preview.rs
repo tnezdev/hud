@@ -133,6 +133,8 @@ mod tests {
             assert!(organizer.contains("Hall"));
             assert!(organizer.contains("Rain cover"));
             assert!(organizer.contains("19:00"));
+            assert!(organizer.contains("Forecast: supplied, not live."));
+            assert!(organizer.contains("Fictional planning exercise."));
 
             let guests = preview("guests", width, height, None).unwrap();
             assert_eq!(guests.lines().count(), height as usize);

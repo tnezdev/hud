@@ -1,0 +1,24 @@
+
+ HUD   FILM NIGHT / GUESTS / FICTIONAL DEMO  › DASHBOARD
+
+────────────────────────────────────────────────────────────────────────────────
+
+  ┏ ◆ Welcome / come inside ✓ ready ━━┓  ╭Your way in ✓ ready ───────────────╮
+  ┃                                   ┃  │                                   │
+  ┃ Film night is in the hall.        ┃  │ 1. Use the main entrance.         │
+  ┃                                   ┃  │ 2. Turn left for the hall.        │
+  ┃ Same film. Same 19:00 start.      ┃  │ 3. Show your ticket at the door.  │
+  ┃ Your ticket is still valid.       ┃  │                                   │
+  ┃                                   ┃  │ No need to wait in the courtyard. │
+  ┃ Fictional arrival guide.          ┃  │                                   │
+  ┃                                   ┃  │                                   │
+  ┃                                   ┃  │                                   │
+  ┃                                   ┃  │                                   │
+  ┃                                   ┃  │                                   │
+  ┃                                   ┃  │                                   │
+  ┃                                   ┃  │                                   │
+  ┃                                   ┃  │                                   │
+  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛  ╰───────────────────────────────────╯
+
+────────────────────────────────────────────────────────────────────────────────
+ q  quit   ?  help/actions   r  refresh   R  refresh all
