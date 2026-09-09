@@ -13,6 +13,12 @@ This is an **experimental authoring skill over today's HUD**, not a new canvas
 API. The vocabulary below names communicative purposes; HUD currently implements
 those purposes with command-backed panels and automatic layout.
 
+For the newer **example-only** flowing story experiment, see
+[expressive-probe.md](expressive-probe.md): a genuinely emphasized lead, connected
+steps, supporting notes, and one data-only JSON document with a general preview
+within that example. Its disposable syntax is not the production HUD API; the
+command-backed patterns below remain available for tables and gauges.
+
 ## Before composing
 
 Write one sentence:
@@ -137,8 +143,10 @@ It uses the production renderer with fixed file contents and an in-memory backen
 it does not run shell commands or show an actual terminal screenshot. It accepts
 only the two film-night fixtures, not arbitrary compositions. Inspect its output
 as text when image/terminal observation isn't available, and say so. For other
-compositions, current HUD has no general headless preview API: use an authorized
-terminal observation mechanism or report that visual inspection is blocked.
+command-backed compositions, current HUD has no general headless preview API:
+use an authorized terminal observation mechanism or report that visual inspection
+is blocked. The separate expressive example can preview its own data-only
+format; it does not preview arbitrary HUD configs.
 
 Record the intent, fixture/revision, dimensions, what you actually inspected, and
 one change made after inspection. Rerender under the same conditions. Never claim

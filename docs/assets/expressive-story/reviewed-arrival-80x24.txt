@@ -1,0 +1,24 @@
+  Arrival at Northbridge Museum
+  Fictional supplied facts / static guide / not live
+
+  Your arrival
+  Arrive at Northbridge Museum east gate at 10:15
+  No additional walk from the east gate to the museum entrance.
+  Times are local; one fictional day only; not live.
+
+  Journey to that arrival
+  01 ● Board the coach at Cedar Quay bay C at 09:05.
+     │
+  02 ● Take the direct journey with zero transfers.
+     │
+  03 ● Arrive at Northbridge Museum east gate at 10:15.
+
+  ──── Fare and what is unknown
+  Fare: 14 USD.
+  Not supplied: live clock, delays, seat availability, or accessibility.
+  Also not supplied: ticket validity, boarding deadline, or service number.
+
+
+
+
+  END | line 1/16 | j/k PgDn Home/End | q quit

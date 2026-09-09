@@ -1,4 +1,4 @@
-//! Fixed film-night inspection fixture, not a general export or command runner.
+//! Fixed story inspection fixtures, not a general export or command runner.
 use hud::{
     command::{CommandResult, CommandStatus},
     config::HudConfig,
@@ -8,7 +8,19 @@ use hud::{
 use ratatui::{Terminal, backend::TestBackend};
 use std::{env, process::ExitCode};
 
-const PAYLOADS: [(&str, &str); 5] = [
+const PAYLOADS: [(&str, &str); 8] = [
+    (
+        "cat examples/coach-baseline/coach-lead.txt",
+        include_str!("coach-baseline/coach-lead.txt"),
+    ),
+    (
+        "cat examples/coach-baseline/coach-route.txt",
+        include_str!("coach-baseline/coach-route.txt"),
+    ),
+    (
+        "cat examples/coach-baseline/coach-facts.txt",
+        include_str!("coach-baseline/coach-facts.txt"),
+    ),
     (
         "cat examples/film-night/organizer-lead.txt",
         include_str!("film-night/organizer-lead.txt"),
@@ -35,7 +47,8 @@ fn story(audience: &str) -> Result<DashboardState, String> {
     let source = match audience {
         "organizer" => include_str!("film-night-organizer.toml"),
         "guests" => include_str!("film-night-guests.toml"),
-        _ => return Err("audience must be organizer or guests".into()),
+        "journey" => include_str!("coach-baseline.toml"),
+        _ => return Err("audience must be organizer, guests, or journey".into()),
     };
     let config = HudConfig::from_toml(source).map_err(|error| error.to_string())?;
     let mut state = DashboardState::from_config(&config);
@@ -93,7 +106,7 @@ fn preview(
 
 fn run(args: &[String]) -> Result<String, String> {
     if !(3..=4).contains(&args.len()) {
-        return Err("usage: story_preview organizer|guests WIDTH HEIGHT [PANEL_ID]".into());
+        return Err("usage: story_preview organizer|guests|journey WIDTH HEIGHT [PANEL_ID]".into());
     }
     let width = args[1].parse().map_err(|_| "invalid width")?;
     let height = args[2].parse().map_err(|_| "invalid height")?;
@@ -129,6 +142,8 @@ mod tests {
     fn fixtures_parse_the_same_payloads_used_by_the_terminal_configs() {
         assert_eq!(story("organizer").unwrap().panels.len(), 3);
         assert_eq!(story("guests").unwrap().panels.len(), 2);
+        assert_eq!(story("journey").unwrap().panels.len(), 3);
+        assert!(preview("journey", 93, 35, None).unwrap().contains("09:05"));
     }
 
     #[test]

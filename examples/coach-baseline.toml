@@ -1,0 +1,21 @@
+# Frozen journey from the fresh-author trial, with portable fixture paths only.
+title = "Cedar Quay → Northbridge Museum / coach journey"
+default_timeout_secs = 5
+
+[[panels]]
+id = "lead"
+title = "The chosen journey"
+output = "text"
+command = "cat examples/coach-baseline/coach-lead.txt"
+
+[[panels]]
+id = "route"
+title = "Your way there"
+output = "text"
+command = "cat examples/coach-baseline/coach-route.txt"
+
+[[panels]]
+id = "facts"
+title = "Journey facts and limits"
+output = "text"
+command = "cat examples/coach-baseline/coach-facts.txt"

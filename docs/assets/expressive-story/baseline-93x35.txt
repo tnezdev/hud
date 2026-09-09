@@ -1,0 +1,35 @@
+
+ HUD   CEDAR QUAY → NORTHBRIDGE MUSEUM / COACH JOURNEY  › DASHBOARD
+
+─────────────────────────────────────────────────────────────────────────────────────────────
+
+  ┏ ◆ The chosen journey ✓ ready ━━━━━━━━━━━━┓  ╭Your way there ✓ ready ──────────────────╮
+  ┃                                          ┃  │                                         │
+  ┃ Coach is the chosen route.               ┃  │ 1. At Cedar Quay, go to bay C.          │
+  ┃                                          ┃  │ 2. Board the coach departing at 09:05.  │
+  ┃ 09:05  Cedar Quay, bay C                 ┃  │ 3. Ride directly to Northbridge         │
+  ┃ 10:15  Northbridge Museum, east gate     ┃  │ Museum's east gate.                     │
+  ┃                                          ┃  │ 4. Arrive at 10:15. The museum entrance │
+  ┃ $14  |  0 transfers  |  no additional    ┃  │ is at that gate; no additional walk is  │
+  ┃ walk                                     ┃  │ required.                               │
+  ┃                                          ┃  │                                         │
+  ┃ One direct journey from the quay to the  ┃  │                                         │
+  ┃ museum entrance.                         ┃  │                                         │
+  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛  ╰─────────────────────────────────────────╯
+
+
+  ╭Journey facts and limits ✓ ready ──────────────────────────────────────────────────────╮
+  │                                                                                       │
+  │ JOURNEY FACTS                                                                         │
+  │ The coach departs Cedar Quay at 09:05 and arrives at Northbridge Museum's east gate   │
+  │ at 10:15. Fare: $14. Transfers: 0.                                                    │
+  │                                                                                       │
+  │ All departures are from Cedar Quay on the same fictional day. Times are local; fares  │
+  │ are USD.                                                                              │
+  │                                                                                       │
+  │ Not supplied: live clock, delays, seat availability, accessibility information, or    │
+  │ ticket-validity rules. Nothing here verifies current service.                         │
+  ╰───────────────────────────────────────────────────────────────────────────────────────╯
+
+─────────────────────────────────────────────────────────────────────────────────────────────
+ q  quit   ?  help/actions   r  refresh   R  refresh all
