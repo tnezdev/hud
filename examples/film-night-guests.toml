@@ -1,0 +1,17 @@
+# Fictional, fixed facts. Run from the HUD checkout root.
+# Scripted correction: the move is decided; the audience is arriving guests.
+# Intent: put destination, route, and reassurance together. Remove deliberation.
+title = "Film night / guests / fictional demo"
+default_timeout_secs = 5
+
+[[panels]]
+id = "lead"
+title = "Welcome / come inside"
+output = "text"
+command = "cat examples/film-night/guests-lead.txt"
+
+[[panels]]
+id = "direct"
+title = "Your way in"
+output = "text"
+command = "cat examples/film-night/guests-direct.txt"

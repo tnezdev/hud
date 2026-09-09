@@ -1,0 +1,24 @@
+
+ HUD   FILM NIGHT / ORGANIZER / FICTIONAL DEMO  › DASHBOARD
+
+────────────────────────────────────────────────────────────────────────────────
+
+  ┏ ◆ The recommendation ✓ ready ━━━━━┓  ╭Why move? ✓ ready ─────────────────╮
+  ┃                                   ┃  │                                   │
+  ┃ Move tonight's screening indoors. ┃  │ Rain is expected.                 │
+  ┃                                   ┃  │ The hall is available.            │
+  ┃ Keep the film; change the room.   ┃  │                                   │
+  ┃ Start stays at 19:00.             ┃  │ Forecast is supplied, not live.   │
+  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛  ╰───────────────────────────────────╯
+
+
+  ╭The alternatives / Enter for detail ✓ ready ──────────────────────────────╮
+  │                                                                          │
+  │ Place      Rain cover  Start                                             │
+  │ Courtyard  No          19:00                                             │
+  │ Hall       Yes         19:00                                             │
+  │                                                                          │
+  ╰──────────────────────────────────────────────────────────────────────────╯
+
+────────────────────────────────────────────────────────────────────────────────
+ q  quit   ?  help/actions   r  refresh   R  refresh all

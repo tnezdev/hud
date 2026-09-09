@@ -62,6 +62,25 @@ Validate a config without opening the TUI:
 hud --config examples/starter.toml --check-config
 ```
 
+## Agent Authoring Experiment
+
+The emerging direction is a terminal-native visual vocabulary and canvas for
+agents to communicate intentionally alongside conversation—not only status panels.
+The current runtime is still the command-backed TUI described below.
+
+Start with the draft [HUD authoring skill](skills/hud/SKILL.md), then try a
+fictional film-night story for two different audiences:
+
+```sh
+# Run from the checkout root. Quit one view before launching the other.
+cargo run -- --config examples/film-night-organizer.toml
+cargo run -- --config examples/film-night-guests.toml
+```
+
+The [design brief](docs/agent-canvas.md) separates the confirmed direction from
+experimental authoring patterns. This is not yet a free-position canvas or an
+automated agent-to-screen publishing API.
+
 ## Configuration
 
 By default, `hud` reads:
@@ -197,6 +216,7 @@ command = "${EDITOR:-vi} ~/.config/.hud/config.toml"
 - `examples/kitchen-sink.toml`: static showcase for text, metrics, tables, row drill-in, and actions.
 - `examples/dogfood.toml`: local working cockpit for tools like `tmux`, `gh`, and `task`.
 - `examples/aesthetic-lab.toml`: dependency-free visual spike that pushes typography, symbols, spacing, and the four-panel mission-control layout.
+- `examples/film-night-organizer.toml` and `examples/film-night-guests.toml`: fictional decision brief recomposed as an arrival guide; offline fixture commands, no actions or live data.
 
 Run an example from a checkout:
 

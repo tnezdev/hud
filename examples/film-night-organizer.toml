@@ -1,0 +1,23 @@
+# Fictional, fixed facts. Run from the HUD checkout root.
+# Intent: help the organizer choose a rain-safe venue by showing a recommendation,
+# its reasons, and the two alternatives together.
+title = "Film night / organizer / fictional demo"
+default_timeout_secs = 5
+
+[[panels]]
+id = "lead"
+title = "The recommendation"
+output = "text"
+command = "cat examples/film-night/organizer-lead.txt"
+
+[[panels]]
+id = "explain"
+title = "Why move?"
+output = "text"
+command = "cat examples/film-night/organizer-explain.txt"
+
+[[panels]]
+id = "compare"
+title = "The alternatives / Enter for detail"
+output = "table-json"
+command = "cat examples/film-night/alternatives.json"

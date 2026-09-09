@@ -6,6 +6,15 @@
 
 The core should make local scripts and commands feel coherent, spacious, and action-oriented. It should not begin life as a full extension platform with complex process supervision, version negotiation, or remote lifecycle management.
 
+## Agent Authoring Direction
+
+HUD is moving toward a terminal-native visual vocabulary and canvas for agents
+communicating intentionally with people. The first [authoring experiment](agent-canvas.md)
+adds a draft skill and fictional compositions over the existing runtime, not a
+new semantic schema, remote publication mechanism, or layout engine. Its Lead,
+Compare, Explain, Direct, and Measure patterns are experimental guidance, not
+protocol types. The existing simplicity and command-boundary invariants still apply.
+
 ## Fat-Marker Architecture
 
 ```text
