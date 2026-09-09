@@ -15,6 +15,14 @@ new semantic schema, remote publication mechanism, or layout engine. Its Lead,
 Compare, Explain, Direct, and Measure patterns are experimental guidance, not
 protocol types. The existing simplicity and command-boundary invariants still apply.
 
+The follow-up [expressive story probe](expressive-story-probe.md) is isolated in a
+Cargo example: a bounded data-only JSON input, flowing semantic hierarchy, and
+shared live/headless rendering. It does not change the production CLI, panel
+model, or renderer and does not incorporate the interval/document WIP. Its parser,
+rendering, and scrolling are in-memory testable; filesystem and terminal I/O remain
+explicit edges. The disposable syntax and ratatui wrapped-line measurement feature
+(dev dependency only) are experimental, not chosen production architecture.
+
 ## Fat-Marker Architecture
 
 ```text

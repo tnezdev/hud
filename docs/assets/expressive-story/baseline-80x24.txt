@@ -1,0 +1,24 @@
+
+ HUD   CEDAR QUAY → NORTHBRIDGE MUSEUM / COACH JOURNEY  › DASHBOARD
+
+────────────────────────────────────────────────────────────────────────────────
+
+  ┏ ◆ The chosen journey ✓ ready ━━━━━┓  ╭Your way there ✓ ready ────────────╮
+  ┃                                   ┃  │                                   │
+  ┃ Coach is the chosen route.        ┃  │ 1. At Cedar Quay, go to bay C.    │
+  ┃                                   ┃  │ 2. Board the coach departing at   │
+  ┃ 09:05  Cedar Quay, bay C          ┃  │ 09:05.                            │
+  ┃ 10:15  Northbridge Museum, east   ┃  │ 3. Ride directly to Northbridge   │
+  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛  ╰───────────────────────────────────╯
+
+
+  ╭Journey facts and limits ✓ ready ─────────────────────────────────────────╮
+  │                                                                          │
+  │ JOURNEY FACTS                                                            │
+  │ The coach departs Cedar Quay at 09:05 and arrives at Northbridge         │
+  │ Museum's east gate at 10:15. Fare: $14. Transfers: 0.                    │
+  │                                                                          │
+  ╰──────────────────────────────────────────────────────────────────────────╯
+
+────────────────────────────────────────────────────────────────────────────────
+ q  quit   ?  help/actions   r  refresh   R  refresh all

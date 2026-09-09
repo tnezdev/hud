@@ -1,0 +1,32 @@
+{
+  "title": "Cedar Quay → Northbridge Museum / coach journey",
+  "provenance": "Fictional supplied day / not live departures",
+  "lead": {
+    "label": "Coach is the chosen route.",
+    "headline": "09:05  Cedar Quay, bay C",
+    "lines": [
+      "10:15  Northbridge Museum, east gate",
+      "$14  |  0 transfers  |  no additional walk",
+      "One direct journey from the quay to the museum entrance.",
+      "Fixed fictional facts for one day, not live departures."
+    ]
+  },
+  "route": {
+    "label": "Your way there",
+    "steps": [
+      "At Cedar Quay, go to bay C.",
+      "Board the coach departing at 09:05.",
+      "Ride directly to Northbridge Museum's east gate.",
+      "Arrive at 10:15. The museum entrance is at that gate; no additional walk is required."
+    ]
+  },
+  "support": {
+    "label": "Journey facts and limits",
+    "lines": [
+      "JOURNEY FACTS",
+      "The coach departs Cedar Quay at 09:05 and arrives at Northbridge Museum's east gate at 10:15. Fare: $14. Transfers: 0.",
+      "All departures are from Cedar Quay on the same fictional day. Times are local; fares are USD.",
+      "Not supplied: live clock, delays, seat availability, accessibility information, or ticket-validity rules. Nothing here verifies current service."
+    ]
+  }
+}

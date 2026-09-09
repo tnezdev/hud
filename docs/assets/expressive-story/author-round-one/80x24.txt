@@ -1,0 +1,24 @@
+  Cedar Quay to Northbridge Museum
+  Fictional supplied facts / static guide / not live
+
+  Your departure
+  Leave Cedar Quay bay C at 09:05
+  Arrive at Northbridge Museum east gate at 10:15.
+  Times are local; this guide covers the chosen coach journey for one day.
+
+  Follow this journey
+  01 ● At Cedar Quay, go to bay C for the 09:05 departure.
+     │
+  02 ● Ride directly: zero transfers.
+     │
+  03 ● At 10:15, leave at the east gate.
+
+  ──── Trip details and limits
+  Fare: 14 USD.
+  No additional walk from the east gate to museum entrance.
+  Not supplied: live clock, delays, seat availability, or accessibility.
+  Also not supplied: ticket validity, boarding deadline, or service number.
+  This is a static fictional guide, not live travel information.
+
+
+  END | line 1/18 | j/k PgDn Home/End | q quit

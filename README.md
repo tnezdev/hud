@@ -82,6 +82,22 @@ experimental authoring patterns. See the [trial and rendered evidence](docs/agen
 for what we inspected and changed. This is not yet a free-position canvas or an
 automated agent-to-screen publishing API.
 
+A second, **example-only** [expressiveness probe](docs/expressive-story-probe.md)
+tries a flowing lead → steps → notes composition and one display-only JSON file:
+
+```sh
+cargo run --example expressive_story -- examples/coach-story.json
+cargo run --example expressive_story -- examples/coach-story.json --preview 80 24
+```
+
+The [experimental authoring entrypoint](skills/hud/expressive-probe.md) documents
+validation, plain-reference mode, scrolling, and inspection of your own document.
+This disposable syntax is not a production HUD API; the installed binary and
+command-backed dashboard are unchanged. Higher-resolution graphics remain open.
+The [trial and demo](docs/expressive-story-trial.md) compare the original journey,
+flowing treatments, and a fresh author's departure → arrival revision; run
+`examples/coach-departure.json` or `examples/coach-arrival.json` with the same example.
+
 ## Configuration
 
 By default, `hud` reads:

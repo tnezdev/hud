@@ -15,5 +15,6 @@ serde_json = "1.0.150"
 toml = "1.1.2"
 
 [dev-dependencies]
+ratatui = { version = "0.30.0", default-features = false, features = ["crossterm", "unstable-rendered-line-info"] }
 assert_cmd = "2.2.2"
 predicates = "3.1.4"
