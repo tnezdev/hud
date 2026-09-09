@@ -1,6 +1,13 @@
 # Expressive story: demonstration and evidence
 
-## Bounded recommendation
+**Subsequent Product Owner feedback and decision:** intent orientation and timeline
+scanability were praised; busy wrapped prose remains unresolved. The agreed next
+move is the [semantic language contract](semantic-visual-language.md), beginning
+with Sequence, not palette expansion or connector removal. The trial below is
+preserved historical evidence; its original open questions are not the current
+work queue. See the [next-session handoff](sequence-next-session.md).
+
+## Bounded recommendation at the time of the trial
 
 Continue exploring **semantic emphasis plus a data-only author/inspect loop**.
 This probe makes a journey's departure or arrival genuinely primary and replaces

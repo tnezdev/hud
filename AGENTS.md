@@ -2,9 +2,18 @@
 
 ## Project Shape
 
-`hud` is a single-user local terminal cockpit. Simplicity and legibility win over general plugin-host architecture.
+HUD is moving toward a single-user, local-first semantic visual language for
+agent communication; dashboards are one application. The agent selects meaningful
+visual idioms, and HUD resolves their presentation. The current runtime remains a
+command-backed terminal cockpit. Simplicity and legibility win over general
+plugin-host architecture.
 
-Read `README.md` and `docs/engineering-spec.md` before making non-trivial changes.
+Read `README.md`, `docs/engineering-spec.md`, and
+`docs/semantic-visual-language.md` before making non-trivial changes. Establish the
+Sequence reference contract (including why/when and counterexamples) before
+expanding the palette. Preserve the demonstrated timeline; busy prose wrapping is
+not a mandate to remove its connectors. Prior example schemas are evidence, not
+approved production architecture.
 
 ## Engineering Principles
 
@@ -21,14 +30,13 @@ Read `README.md` and `docs/engineering-spec.md` before making non-trivial change
 - Behavior changes should include automated coverage: a unit test, an integration test (e.g., `tests/cli.rs`), example-config validation (`tests/examples.rs`), or a documented reason why no automated test fits.
 - Docs-only changes must leave the repo green under `./scripts/check`.
 
-## Current V1 Direction
+## Existing V1 Runtime (Not the Full Product Boundary)
 
-- Rust binary.
-- Local-first TUI, likely `ratatui` + `crossterm` when UI implementation starts.
-- Static config, likely TOML.
-- Command-backed panels.
-- Plain text panel output first, with a structured-output boundary defined early.
-- Manual refresh only in the first implementation slice.
+- Rust binary with `ratatui` + `crossterm`.
+- Static TOML config and command-backed panels.
+- Text, table JSON, and metrics JSON outputs parsed at an explicit boundary.
+- Manual refresh; the interval/document experiment remains separate WIP.
+- The example-only flowing-story JSON and preview are not the new semantic contract.
 
 ## Workflow
 

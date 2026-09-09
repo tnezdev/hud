@@ -1,4 +1,10 @@
-# Expressive story probe (unaccepted experiment)
+# Expressive story probe (preserved experiment, not a production contract)
+
+**Status after Product Owner feedback:** intent orientation and timeline scanability
+received positive feedback; busy wrapped prose remains a problem. Preserve the
+timeline, including connectors. The next work is the [semantic language contract](semantic-visual-language.md),
+not a calmer-treatment detour or palette expansion. The scope below is historical;
+its required lead/route/support JSON is not the upcoming Sequence contract.
 
 Implementation, fresh-author results, independent review, and demonstration:
 [trial and evidence](expressive-story-trial.md).

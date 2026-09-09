@@ -5,6 +5,14 @@ description: Compose an intentional terminal-native visual story with HUD. Use w
 
 # Paint a story in the terminal
 
+**Current direction:** establish a semantic visual language before expanding the
+palette. The agent chooses communicative idioms; HUD handles visual presentation.
+Discovery should teach meaning, why/when, counterexamples, and semantic examples,
+not only invocation. See the [product decision](../../docs/semantic-visual-language.md).
+Sequence is the next reference idiom to develop; no new contract is implemented
+here yet. The recipes below preserve the earlier experiments and remain runnable,
+but their pattern names and schemas are not the chosen language architecture.
+
 Start with what you want someone to understand—not with a list of widgets to fill.
 HUD can keep a recommendation, its evidence, and its alternatives visible together.
 It can also remove the deliberation once your audience needs directions instead.
@@ -141,7 +149,8 @@ cargo run --quiet --example story_preview -- guests 80 24
 
 It uses the production renderer with fixed file contents and an in-memory backend;
 it does not run shell commands or show an actual terminal screenshot. It accepts
-only the two film-night fixtures, not arbitrary compositions. Inspect its output
+the two film-night fixtures and the frozen `journey` baseline, not arbitrary
+compositions. Inspect its output
 as text when image/terminal observation isn't available, and say so. For other
 command-backed compositions, current HUD has no general headless preview API:
 use an authorized terminal observation mechanism or report that visual inspection
