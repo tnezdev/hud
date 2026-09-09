@@ -21,8 +21,11 @@ cargo run -- --config examples/kitchen-sink.toml
 
 Read [the HUD skill](../skills/hud/SKILL.md) for purpose-first composition guidance.
 Run the film-night configs from the checkout root: their fixed commands read files
-under `examples/film-night/`. They need a POSIX shell and `cat`, but no network,
-live clock, credentials, or user configuration. The data is entirely fictional.
+under `examples/film-night/`. The fixture commands themselves need only `cat`, not
+network access, a live clock, credentials, or user configuration. They assume a
+trusted shell environment: HUD invokes the selected shell with `-lc`, whose
+startup files may have unrelated effects. This is not sandboxed execution.
+The data is entirely fictional.
 
 For a fixture-only text inspection of the production renderer, without starting
 a terminal or executing commands:
