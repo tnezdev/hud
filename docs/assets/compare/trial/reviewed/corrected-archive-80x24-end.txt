@@ -1,0 +1,24 @@
+
+  Archive transfer service notes — reviewer correction
+
+  Fictional; not live or independently verified.
+  2 Jul 2026; 2.0 TB; USD; egress/retention unknown.
+
+  ──── One-time setup
+  What one-time setup amount is supplied?
+  Lantern Cloud    90 USD
+  Meadow Vault     0 USD
+
+  ──── Recurring storage
+  What recurring storage amount is supplied for the first 6 months?
+  Lantern Cloud    12 USD/month
+  │                for the first 6 months
+  Meadow Vault     18 USD/month
+  │                for the first 6 months
+
+  ──── Checksum report
+  What checksum-report status is supplied?
+  Lantern Cloud    included
+  Meadow Vault     UNKNOWN · not supplied
+  │                not supplied
+  END | line 22/38 | j/k PgDn Home/End | q quit

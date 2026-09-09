@@ -1,0 +1,17 @@
+  Today's donated photograph intake
+  Fictional supplied procedure / not executed
+  Complete supplied intake procedure / today's batch only
+  Procedure / supplied action order / not execution status
+
+  02 │
+  03 ●  Only after donor permission is recorded, place the batch in the scanning queue
+     │  This prerequisite is mandatory; the supplied facts do not establish that
+     │  permission exists.
+
+  Background and sources
+  This procedure ends at queue placement; it does not include scanning.
+
+  Donor permission status, photograph count and scanning date are unknown.
+
+  No action has been executed by this guide.
+  END | line 12/22 | j/k PgDn Home/End | q quit

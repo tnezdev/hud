@@ -1,0 +1,1 @@
+expected `,` or `}` at line 6 column 3

@@ -1,0 +1,3 @@
+cargo run --quiet --example compare -- /tmp/hud-compare-fresh-author/drafts/archive-services.json --check
+cargo run --quiet --example compare -- /tmp/hud-compare-fresh-author/drafts/supplier-anchor.json --check
+cargo run --quiet --example compare -- /tmp/hud-compare-fresh-author/drafts/venue-options.json --check

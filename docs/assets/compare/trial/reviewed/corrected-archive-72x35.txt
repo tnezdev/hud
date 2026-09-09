@@ -1,0 +1,35 @@
+
+  Archive transfer service notes — reviewer correction
+
+  Fictional; not live or independently verified.
+  2 Jul 2026; 2.0 TB; USD; egress/retention unknown.
+
+  For a small museum, review one 2.0 TB collection transfer; no
+  choice/equal scope/total. Egress charges and retention after month 6
+  are not supplied; meaning of ‘available’ beyond the supplied wording
+  is not supplied.
+
+
+  ──── Compare · same questions · no ranking
+
+  ──── Transfer begins
+  When does the transfer begin?
+  Lantern Cloud    12 July 2026
+  Meadow Vault     10 July 2026
+
+  ──── Collection available to museum
+  When is the collection available to the museum?
+  Lantern Cloud    15 July 2026
+  │                Date as supplied; meaning of ‘available’ beyond the
+  │                supplied wording is not supplied.
+  Meadow Vault     20 July 2026
+  │                Date as supplied; meaning of ‘available’ beyond the
+  │                supplied wording is not supplied.
+
+  ──── One-time setup
+  What one-time setup amount is supplied?
+  Lantern Cloud    90 USD
+  Meadow Vault     0 USD
+
+
+  MORE below | line 1/39 | j/k PgDn Home/End | q quit

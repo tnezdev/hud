@@ -1,0 +1,9 @@
+cargo run --quiet --example compare -- /tmp/hud-compare-fresh-author/final/archive-services.json --preview 72 35
+cargo run --quiet --example compare -- /tmp/hud-compare-fresh-author/final/archive-services.json --preview 80 24
+cargo run --quiet --example compare -- /tmp/hud-compare-fresh-author/final/archive-services.json --preview 80 24 65535
+cargo run --quiet --example compare -- /tmp/hud-compare-fresh-author/final/supplier-anchor.json --preview 72 35
+cargo run --quiet --example compare -- /tmp/hud-compare-fresh-author/final/supplier-anchor.json --preview 80 24
+cargo run --quiet --example compare -- /tmp/hud-compare-fresh-author/final/supplier-anchor.json --preview 80 24 65535
+cargo run --quiet --example compare -- /tmp/hud-compare-fresh-author/final/venue-options.json --preview 72 35
+cargo run --quiet --example compare -- /tmp/hud-compare-fresh-author/final/venue-options.json --preview 80 24
+cargo run --quiet --example compare -- /tmp/hud-compare-fresh-author/final/venue-options.json --preview 80 24 65535

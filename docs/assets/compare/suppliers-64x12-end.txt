@@ -1,0 +1,12 @@
+
+  Choose a printer for 100 handouts
+
+  Fictional quotes / not live / not independently verified
+  One batch of 100 handouts / quotes 6 May 2026 / USD
+
+  … Recycled paper: not standalone
+  Alder    UNAVAILABLE · not available
+  │        Recycled paper unavailable.
+  Birch    available
+  Cedar    available
+  END | line 26/29 | j/k PgDn Home/End | q quit

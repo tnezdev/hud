@@ -1,0 +1,35 @@
+{
+  "title": "Archive transfer service notes — reviewer correction",
+  "provenance": "Fictional; not live or independently verified.",
+  "scope": "2 Jul 2026; 2.0 TB; USD; egress/retention unknown.",
+  "intent": "For a small museum, review one 2.0 TB collection transfer; no choice/equal scope/total. Egress charges and retention after month 6 are not supplied; meaning of ‘available’ beyond the supplied wording is not supplied.",
+  "criteria": [
+    {"name": "Transfer begins", "question": "When does the transfer begin?"},
+    {"name": "Collection available to museum", "question": "When is the collection available to the museum?"},
+    {"name": "One-time setup", "question": "What one-time setup amount is supplied?"},
+    {"name": "Recurring storage", "question": "What recurring storage amount is supplied for the first 6 months?"},
+    {"name": "Checksum report", "question": "What checksum-report status is supplied?"}
+  ],
+  "alternatives": [
+    {
+      "name": "Lantern Cloud",
+      "answers": [
+        {"criterion": "Transfer begins", "state": "known", "value": "12 July 2026"},
+        {"criterion": "Collection available to museum", "state": "known", "value": "15 July 2026", "qualification": "Date as supplied; meaning of ‘available’ beyond the supplied wording is not supplied."},
+        {"criterion": "One-time setup", "state": "known", "value": "90 USD"},
+        {"criterion": "Recurring storage", "state": "known", "value": "12 USD/month", "qualification": "for the first 6 months"},
+        {"criterion": "Checksum report", "state": "known", "value": "included"}
+      ]
+    },
+    {
+      "name": "Meadow Vault",
+      "answers": [
+        {"criterion": "Transfer begins", "state": "known", "value": "10 July 2026"},
+        {"criterion": "Collection available to museum", "state": "known", "value": "20 July 2026", "qualification": "Date as supplied; meaning of ‘available’ beyond the supplied wording is not supplied."},
+        {"criterion": "One-time setup", "state": "known", "value": "0 USD"},
+        {"criterion": "Recurring storage", "state": "known", "value": "18 USD/month", "qualification": "for the first 6 months"},
+        {"criterion": "Checksum report", "state": "unknown", "qualification": "not supplied"}
+      ]
+    }
+  ]
+}

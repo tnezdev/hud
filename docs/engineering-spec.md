@@ -20,6 +20,32 @@ Establish Sequence as one reference idiom before expanding the palette. Concrete
 syntax and presentation changes need a bounded spec before implementation; no
 separate AI resolver or new production schema is currently chosen.
 
+The [Sequence reference brief](sequence-reference.md) bounds a new isolated
+`examples/sequence.rs`: explicit procedure/chronology semantics, optional item
+detail and shared notes, persistent scope, and a numbered relationship gutter.
+Ratatui wraps/measures individual paragraphs within their text column. A shared
+legal-position rule snaps fitted paragraph tops, marks oversized fragments and
+bottom cuts, and keeps item identity while scrolling. The
+[section-rhythm refinement](sequence-rhythm.md) uses larger major-section gaps and
+open-rule landmarks attached to their first paragraph; item interiors stay compact.
+The [opening-hierarchy refinement](sequence-header.md) separates title from its
+persistent source/scope pair and moves the relationship/caveat to the sequence
+landmark. That cue now scrolls; author text and body height are unchanged.
+Following PO acceptance, one outer blank row above the title supplies top padding;
+it consumes one viewport row without adding boxes or changing internal spacing.
+Parsing and effects remain at the edge; the production runtime, old expressive
+example and dependencies are unchanged. The
+[author entrypoint](../skills/hud/sequence.md) teaches selection before syntax.
+The approved next bounded [Compare reference](compare-reference.md) adds an
+isolated data-only example for alternatives answering common named questions; it
+preserves unknown/unavailable answers and declines unsupported normalization,
+ranking, totals, and recommendations. Its [author entrypoint](../skills/hud/compare.md)
+teaches Compare versus Sequence and plain prose. It does not change production
+`src/`, the table protocol, or the old experiments. The [Compare trial](compare-trial.md)
+separates semantic selection from actual invocation, factual fidelity, and
+post-trial teaching corrections. The [Sequence trial](sequence-trial.md)
+distinguishes its frozen author run from factual and scroll-boundary corrections.
+
 ### Preserved experiments, not the language contract
 
 HUD's earlier work explored a terminal-native visual vocabulary and canvas for agents
@@ -220,9 +246,11 @@ V1 starts with manual refresh only.
 
 ## Current Priority and Deferred Runtime Questions
 
-The immediate priority is the Sequence semantic reference contract and its
-selection/presentation trial, as bounded in [the product decision](semantic-visual-language.md).
-Do not expand a component catalogue first.
+The immediate priority is the bounded semantic-reference work approved in [the
+product decision](semantic-visual-language.md): Sequence is accepted as the first
+reference, and Compare is the one next reference. Compare's local brief bounds
+common-question correspondence rather than a generic table API. Do not expand a
+component catalogue first.
 
 Older runtime questions remain deferred, not the next work queue:
 

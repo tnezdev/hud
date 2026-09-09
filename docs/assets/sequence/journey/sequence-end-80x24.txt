@@ -1,0 +1,24 @@
+  Cedar Quay → Northbridge Museum / coach journey
+  Fictional supplied day / not live departures
+  Fixed fictional facts for one day, not live departures.
+  Procedure / supplied action order / not execution status
+
+  02 │
+  03 ●  Ride directly to Northbridge Museum's east gate.
+     │
+  04 ●  Arrive at 10:15. The museum entrance is at that gate; no additional
+     │  walk is required.
+
+  Background and sources
+  JOURNEY FACTS
+
+  The coach departs Cedar Quay at 09:05 and arrives at Northbridge Museum's
+  east gate at 10:15. Fare: $14. Transfers: 0.
+
+  All departures are from Cedar Quay on the same fictional day. Times are
+  local; fares are USD.
+
+  Not supplied: live clock, delays, seat availability, accessibility
+  information, or ticket-validity rules. Nothing here verifies current
+  service.
+  END | line 8/25 | j/k PgDn Home/End | q quit

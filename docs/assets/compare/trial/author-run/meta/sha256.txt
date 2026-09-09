@@ -1,0 +1,10 @@
+949b76ece4f274fc82ab687b47e4825faf0546d1fcce7a62313c424a14c83663  /tmp/hud-compare-fresh-author/drafts/archive-services.json
+956de29977bf4e8b52dfa672834194aa8e83e187977f7b2ff0586cba7ed6cf2a  /tmp/hud-compare-fresh-author/drafts/exhibit-run-sheet.md
+ef72fb61d9da432074253129fd6afa84ebf41f0b2dab36e60ba170dad7c8d9ac  /tmp/hud-compare-fresh-author/drafts/reimbursement-note.md
+204e61f7b599803dd15e7338b96a423813608c8a80c3dfed1a6e154f031d4105  /tmp/hud-compare-fresh-author/drafts/supplier-anchor.json
+ae16939862e9b09f57c7f26a37d12d6d4d79fa0e33259d9b57b404b4e3a76f05  /tmp/hud-compare-fresh-author/drafts/venue-options.json
+5c8fac6f82d95b4020626558d1da39870a8ed263e500d402a38b5dde6046ea04  /tmp/hud-compare-fresh-author/final/archive-services.json
+956de29977bf4e8b52dfa672834194aa8e83e187977f7b2ff0586cba7ed6cf2a  /tmp/hud-compare-fresh-author/final/exhibit-run-sheet.md
+ef72fb61d9da432074253129fd6afa84ebf41f0b2dab36e60ba170dad7c8d9ac  /tmp/hud-compare-fresh-author/final/reimbursement-note.md
+e62457655e2ddc878199d6560a228a02a168fd4713bfc4a953eb52c9de792d2d  /tmp/hud-compare-fresh-author/final/supplier-anchor.json
+c78b1a6ffc59e0f5bf24448d9b9db4b24e0e4d008f7ffc7683972ff4ae80fde1  /tmp/hud-compare-fresh-author/final/venue-options.json

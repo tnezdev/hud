@@ -1,5 +1,37 @@
 # Semantic visual language: current product direction
 
+## Current next slice: Compare (approved)
+
+After accepting the demonstrated Sequence visual reference and its top padding,
+Travis explicitly approved **Compare** as the next bounded semantic reference.
+This supersedes the completed Sequence slice's no-expansion boundary for this one
+idiom only; it does not authorize a component catalogue or production API overhaul.
+
+Establish Compare's meaning, why/when, counterexamples, semantic inputs and
+presentation obligations with Dottie before code. Use the supplier alternatives
+that correctly did not fit Sequence as an anchor, retaining the prose baseline,
+plus genuinely new material. A separate fresh author should choose among Sequence,
+Compare and ordinary prose without selection/layout coaching. Evaluate factual
+fidelity independently of valid syntax, correct selection and visual polish.
+
+Product checkpoint: **Does Compare make alternatives easier to judge than prose
+without losing important facts or forcing an inappropriate visual form?**
+
+Travis remains Product Owner. Substantial work is delegated to fresh agents because
+the coordinator session is near compaction; repository-local briefs and evidence
+must survive a reset. Preserve accepted Sequence code, fixtures, discovery and
+visual treatment. No merge, publication, release, installation, remote-memory
+write, or wider palette expansion is authorized by this approval.
+
+The [Compare brief](compare-reference.md) and [trial record](compare-trial.md) now
+capture the delegated implementation, uncoached selections, fidelity failures and
+post-trial discovery corrections. In the paired supplier/prose demonstration, Travis said the Compare view was
+**“way easier to visually parse.”** This confirms a strong visual-parsing benefit
+for the demonstrated case. Preserve this treatment as the demonstrated Compare
+reference rather than continuing unsolicited visual changes. That feedback does
+not establish better decisions, factual fidelity, dependable independent
+authorship, a production API, or publication approval; those remain separate.
+
 ## Decision and ownership
 
 Following the expressive-story demonstration, Travis approved pivoting toward the
@@ -89,6 +121,40 @@ When comparing visual treatments, hold the story/wording constant. Comparing the
 departure and arrival stories demonstrates changed intent, not a controlled visual
 comparison.
 
+## Subsequent Sequence feedback: section navigation
+
+After the reference trial and scroll-boundary correction, Travis said:
+
+> “Almost. What looks off to me is what in Web UX world I think we would call
+> vertical rythym. My eyes have trouble navigating because they don't know how to
+> break-up the sections. I think that's what it is.”
+
+The difficulty locating sections is product feedback; vertical rhythm is a
+working diagnosis, not approval of a specific layout. The bounded
+[section-rhythm comparison](sequence-rhythm.md) holds story wording and the
+connected timeline constant while strengthening section boundaries. Do not shift
+that presentation work onto the author or interpret this as palette expansion.
+
+Travis subsequently said “They are much better. But it is still busy at the top,”
+with a screenshot highlighting the opening title/metadata/purpose region. This
+accepts the improved section boundaries, not the entire presentation. The bounded
+[opening-hierarchy refinement](sequence-header.md) keeps the improved body while
+separating the title and its qualifications from renderer-owned sequence labeling.
+
+After seeing that refinement, Travis called it “much easier to read” and said it
+was looking like what he hoped for. He requested one blank row before the first
+line, comparing the effect to web padding or margins. Preserve that hierarchy and
+add the single outer top-padding row; do not translate “boxes” into a requirement
+for enclosing borders. This is acceptance of the demonstrated reading direction,
+not production API or publication approval.
+
+After the single-row top-padding adjustment, Travis said **“That looks great!”**
+The demonstrated Sequence presentation is now the accepted visual reference:
+clear title/context hierarchy, one outer top-padding row, distinct section spacing,
+compact label/detail grouping, and the numbered connected spine. Preserve this
+checkpoint rather than continuing unsolicited visual iteration. This accepts the
+shown experience, not a production schema, broader palette, merge or publication.
+
 ## Agreed next slice: Sequence as a reference idiom
 
 1. Write a small repository-local Sequence brief with Dottie before implementation:
@@ -116,7 +182,10 @@ Proposed acceptance question, agreed as the next checkpoint:
 Selection quality, semantic fidelity, and legible presentation are separate
 observations. A valid document or one successful invocation is insufficient.
 Specific stories, syntax, tests, and rendering changes remain engineering work to
-resolve together, not settled Product Owner requirements.
+resolve together, not settled Product Owner requirements. The subsequent
+[Sequence reference brief](sequence-reference.md) records the bounded engineering
+hypothesis and implementation plan; its [entrypoint](../skills/hud/sequence.md)
+teaches supplied procedure/chronology selection without committing a production API.
 
 ## Scope guardrails and preserved evidence
 

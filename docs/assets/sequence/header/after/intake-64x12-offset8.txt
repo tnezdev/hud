@@ -1,0 +1,12 @@
+  Today's donated photograph intake
+
+  Fictional supplied procedure / not executed
+  Complete supplied intake procedure / today's batch only
+
+  01 │  The identifier links the photographs to the donor's
+     │  paperwork; no actual identifier is supplied for this
+     │  fictional example.
+     │
+  02 ●  Count the photographs and record the count
+     │  Record it on the same intake sheet. Keep existing
+  MORE below: paragraph continues | line 8/31 | j/k | q

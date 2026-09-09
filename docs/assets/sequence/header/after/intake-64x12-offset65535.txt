@@ -1,0 +1,12 @@
+  Today's donated photograph intake
+
+  Fictional supplied procedure / not executed
+  Complete supplied intake procedure / today's batch only
+
+
+  Donor permission status, photograph count and scanning date
+  are unknown.
+
+  No action has been executed by this guide.
+
+  END | line 27/31 | j/k PgDn Home/End | q quit

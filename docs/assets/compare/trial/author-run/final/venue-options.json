@@ -1,0 +1,32 @@
+{
+  "title": "Community workshop venue notes",
+  "provenance": "Fictional; not live or independently verified.",
+  "scope": "12 Jun 2026; 18 Jun 18:00–20:00; USD; no preference.",
+  "intent": "Inspect capacity/booking/projector/access; other terms unknown.",
+  "criteria": [
+    {"name": "Capacity", "question": "What seat capacity is supplied?"},
+    {"name": "Room booking", "question": "What room-booking amount is supplied?"},
+    {"name": "Projector", "question": "What projector status is supplied?"},
+    {"name": "Step-free entrance", "question": "What step-free-entrance status is supplied?"}
+  ],
+  "alternatives": [
+    {
+      "name": "North Hall",
+      "answers": [
+        {"criterion": "Capacity", "state": "known", "value": "48 seats"},
+        {"criterion": "Room booking", "state": "known", "value": "180 USD"},
+        {"criterion": "Projector", "state": "known", "value": "included"},
+        {"criterion": "Step-free entrance", "state": "unknown", "qualification": "not confirmed in the supplied notes"}
+      ]
+    },
+    {
+      "name": "South Library",
+      "answers": [
+        {"criterion": "Capacity", "state": "known", "value": "42 seats"},
+        {"criterion": "Room booking", "state": "known", "value": "150 USD"},
+        {"criterion": "Projector", "state": "unknown", "qualification": "not supplied"},
+        {"criterion": "Step-free entrance", "state": "unavailable", "qualification": "unavailable for this booking"}
+      ]
+    }
+  ]
+}

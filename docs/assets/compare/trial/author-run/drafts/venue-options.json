@@ -1,0 +1,32 @@
+{
+  "title": "Community workshop venue notes",
+  "provenance": "Fictional supplied facts; not live or independently verified.",
+  "scope": "Notes supplied 12 June 2026 for one workshop on 18 June 2026, 18:00–20:00 local time. Amounts are in USD and cover the stated room booking only. The notes do not establish a preference, ranking, final booking, or that every detail is comparable beyond its stated meaning. Cancellation terms, microphone availability, and final taxes are not supplied.",
+  "intent": "For a neighborhood organizer, help them inspect North Hall and South Library for one two-hour workshop using capacity, room booking, projector, and step-free entrance, while preserving the supplied unknown and unavailable details. No venue has been selected.",
+  "criteria": [
+    {"name": "Capacity", "question": "What seat capacity is supplied?"},
+    {"name": "Room booking", "question": "What room-booking amount is supplied?"},
+    {"name": "Projector", "question": "What projector status is supplied?"},
+    {"name": "Step-free entrance", "question": "What step-free-entrance status is supplied?"}
+  ],
+  "alternatives": [
+    {
+      "name": "North Hall",
+      "answers": [
+        {"criterion": "Capacity", "state": "known", "value": "48 seats"},
+        {"criterion": "Room booking", "state": "known", "value": "180 USD"},
+        {"criterion": "Projector", "state": "known", "value": "included"},
+        {"criterion": "Step-free entrance", "state": "unknown", "qualification": "not confirmed in the supplied notes"}
+      ]
+    },
+    {
+      "name": "South Library",
+      "answers": [
+        {"criterion": "Capacity", "state": "known", "value": "42 seats"},
+        {"criterion": "Room booking", "state": "known", "value": "150 USD"},
+        {"criterion": "Projector", "state": "unknown", "qualification": "not supplied"},
+        {"criterion": "Step-free entrance", "state": "unavailable", "qualification": "unavailable for this booking"}
+      ]
+    }
+  ]
+}

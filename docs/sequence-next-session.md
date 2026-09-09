@@ -1,5 +1,10 @@
 # Next session: Sequence reference contract
 
+**Historical entry handoff:** the subsequent session implemented the bounded
+reference and ran its trial. Read [Sequence trial and corrections](sequence-trial.md)
+and [the reference brief](sequence-reference.md) for the newer state. The original
+handoff below is preserved, not the current implementation queue.
+
 ## Start here
 
 The Product Owner approved a pivot to **the semantic language contract before

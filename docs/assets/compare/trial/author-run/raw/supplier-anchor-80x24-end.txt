@@ -1,0 +1,24 @@
+
+  Print studio choice
+
+  Fictional; not live or independently verified.
+  6 May 2026; batch of 100; ascending order, not preference.
+
+  ──── Pickup or delivery
+  What pickup or delivery timing is supplied?
+  Alder    pickup Friday
+  Birch    pickup Thursday
+  Cedar    delivery Thursday
+
+  ──── Recycled paper
+  What recycled-paper availability is supplied?
+  Alder    UNAVAILABLE · not available
+  Birch    available
+  Cedar    available
+
+
+
+
+
+
+  END | line 14/24 | j/k PgDn Home/End | q quit
