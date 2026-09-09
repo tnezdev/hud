@@ -1,5 +1,4 @@
 Rain is expected.
 The hall is available.
-
-Forecast is supplied, not live.
+Forecast: supplied, not live.
 Fictional planning exercise.

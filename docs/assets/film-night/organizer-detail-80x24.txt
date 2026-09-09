@@ -1,0 +1,24 @@
+
+ HUD   FILM NIGHT / ORGANIZER / FICTIONAL DEMO  › DETAIL / THE ALTERNATIVES / EN
+
+────────────────────────────────────────────────────────────────────────────────
+ ┏ ◆ The alternatives / Enter for detail ✓ ready ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+ ┃                                                                            ┃
+ ┃ Place     Rain cover Start                                                 ┃
+ ┃                                                                            ┃
+ ┃ Courtyard No         19:00                                                 ┃
+ ┃ Hall      Yes        19:00                                                 ┃
+ ┃                                                                            ┃
+ ┃                                                                            ┃
+ ┃                                                                            ┃
+ ┃                                                                            ┃
+ ┃                                                                            ┃
+ ┃                                                                            ┃
+ ┃                                                                            ┃
+ ┃                                                                            ┃
+ ┃                                                                            ┃
+ ┃                                                                            ┃
+ ┃                                                                            ┃
+ ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+────────────────────────────────────────────────────────────────────────────────
+ q  quit   ?  help/actions   r  refresh   R  refresh all   Esc  grid

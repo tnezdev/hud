@@ -75,6 +75,9 @@ Product acceptance remains open: **Does the changed screen communicate clearly
 to its new audience, and does the vocabulary invite another story?** Engineering
 checks or an agent review cannot answer that on the Product Owner's behalf.
 
+The [trial record](agent-canvas-trial.md) contains the actual inspection, revision,
+verification levels, and remaining limitations.
+
 ## Collaboration and delivery
 
 One writer owns this feature branch; Dottie supplies product/continuity scrutiny
