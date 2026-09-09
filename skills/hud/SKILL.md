@@ -91,7 +91,8 @@ This skill lives at `<hud-checkout>/skills/hud/SKILL.md`. Resolve `../..` from i
 folder to the checkout root and run the following commands **there**. If copied
 elsewhere, first locate a checkout containing these examples; they aren't bundled
 inside the skill. No global skill or HUD installation is required. Cargo/Rust and
-a POSIX shell with `cat` are needed; after building, the fixture commands are offline.
+a trusted shell environment with `cat` are needed. After building, the fixture
+commands themselves require no network; shell startup files may have other effects.
 
 ```sh
 cargo run -- --config examples/film-night-organizer.toml --check-config
@@ -147,7 +148,9 @@ human acceptance, keyboard verification, colors, or live updates from buffer tex
 
 HUD executes configured shell commands. Treat a composition as executable config:
 review it before running it, use authorized local paths, and keep story content in
-data files. Never splice untrusted prose or table cells into shell commands. This
+data files. The current runner invokes the selected shell with `-lc`, so its startup
+files may run too: fixed file-reading commands are not a sandbox. Never splice
+untrusted prose or table cells into shell commands. This
 story needs neither configured actions nor row-detail command templates.
 
 Current scope here: text, tables, gauges, automatic layout, manual refresh, and

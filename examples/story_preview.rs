@@ -117,6 +117,14 @@ fn main() -> ExitCode {
 mod tests {
     use super::*;
 
+    fn assert_venue_rows(text: &str) {
+        for (place, cover) in [("Courtyard", "No"), ("Hall", "Yes")] {
+            let row = text.lines().find(|line| line.contains(place)).unwrap();
+            assert!(row.split_whitespace().any(|cell| cell == cover));
+            assert!(row.split_whitespace().any(|cell| cell == "19:00"));
+        }
+    }
+
     #[test]
     fn fixtures_parse_the_same_payloads_used_by_the_terminal_configs() {
         assert_eq!(story("organizer").unwrap().panels.len(), 3);
@@ -128,19 +136,25 @@ mod tests {
         for (width, height) in [(120, 40), (80, 24)] {
             let organizer = preview("organizer", width, height, None).unwrap();
             assert_eq!(organizer.lines().count(), height as usize);
-            assert!(organizer.contains("Move tonight's"));
-            assert!(organizer.contains("Courtyard"));
-            assert!(organizer.contains("Hall"));
+            assert!(organizer.contains("Move tonight's screening indoors."));
+            assert_venue_rows(&organizer);
             assert!(organizer.contains("Rain cover"));
-            assert!(organizer.contains("19:00"));
             assert!(organizer.contains("Forecast: supplied, not live."));
             assert!(organizer.contains("Fictional planning exercise."));
 
             let guests = preview("guests", width, height, None).unwrap();
             assert_eq!(guests.lines().count(), height as usize);
             assert!(guests.contains("Film night is in the hall."));
-            assert!(guests.contains("main entrance"));
-            assert!(guests.contains("Same 19:00 start."));
+            for message in [
+                "1. Use the main entrance.",
+                "2. Turn left for the hall.",
+                "3. Show your ticket at the door.",
+                "Your ticket is still valid.",
+                "Fictional arrival guide.",
+                "Same film. Same 19:00 start.",
+            ] {
+                assert!(guests.contains(message), "missing {message}");
+            }
             assert!(!guests.contains("The alternatives"));
             assert!(!guests.contains("Rain cover"));
         }
@@ -153,6 +167,7 @@ mod tests {
         for value in ["Place", "Rain cover", "Start", "Courtyard", "Hall", "19:00"] {
             assert!(detail.contains(value), "missing {value}");
         }
+        assert_venue_rows(&detail);
         assert!(!detail.contains("Why move?"));
     }
 
