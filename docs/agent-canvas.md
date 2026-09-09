@@ -1,6 +1,12 @@
-# Agent canvas: first authoring experiment
+# Agent canvas: first authoring experiment (historical)
 
-## Confirmed direction
+This record describes the film-night slice and its then-current acceptance scope.
+The [current product decision](semantic-visual-language.md) now establishes the
+semantic-language direction and Sequence-first next slice. Preserve this record
+as evidence, not a new backlog or standing publication authorization. Film-night
+acceptance and later trials are summarized in the [next-session handoff](sequence-next-session.md).
+
+## Direction established in that experiment
 
 HUD gives agents a terminal-native visual vocabulary and canvas for communicating
 intentionally with people. An agent should discover useful, semantically named

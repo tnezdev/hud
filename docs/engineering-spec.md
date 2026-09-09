@@ -2,13 +2,27 @@
 
 ## Product Constraint
 
-`hud` is a single-user local cockpit. Simplicity and legibility win over general plugin-host architecture.
+HUD's current product direction is a single-user, local-first **semantic visual
+language for agent communication**. A dashboard is one application, not the product
+boundary. Simplicity and legibility win over general plugin-host architecture.
 
-The core should make local scripts and commands feel coherent, spacious, and action-oriented. It should not begin life as a full extension platform with complex process supervision, version negotiation, or remote lifecycle management.
+The current runtime is still a command-backed terminal cockpit. Preserve its
+explicit effect boundaries; the pivot does not authorize a full extension platform,
+complex process supervision, version negotiation, or remote lifecycle management.
 
 ## Agent Authoring Direction
 
-HUD is moving toward a terminal-native visual vocabulary and canvas for agents
+The [current product decision](semantic-visual-language.md) takes precedence over
+historical experiment assumptions: the agent selects communicative idioms; HUD
+resolves their visual presentation. Discovery must teach meaning, why/when,
+counterexamples, semantic inputs, and examples—not only invocation syntax.
+Establish Sequence as one reference idiom before expanding the palette. Concrete
+syntax and presentation changes need a bounded spec before implementation; no
+separate AI resolver or new production schema is currently chosen.
+
+### Preserved experiments, not the language contract
+
+HUD's earlier work explored a terminal-native visual vocabulary and canvas for agents
 communicating intentionally with people. The first [authoring experiment](agent-canvas.md)
 adds a draft skill and fictional compositions over the existing runtime, not a
 new semantic schema, remote publication mechanism, or layout engine. Its Lead,
@@ -23,7 +37,7 @@ rendering, and scrolling are in-memory testable; filesystem and terminal I/O rem
 explicit edges. The disposable syntax and ratatui wrapped-line measurement feature
 (dev dependency only) are experimental, not chosen production architecture.
 
-## Fat-Marker Architecture
+## Current Runtime Architecture
 
 ```text
 static config
@@ -204,8 +218,15 @@ V1 starts with manual refresh only.
 - Long-running panel processes are out of scope for v1; each refresh is a bounded command invocation.
 - Per-panel interval refresh remains a likely later extension. When added, time must enter through an injectable clock or tick source so tests can advance time deterministically.
 
-## Open Decisions
+## Current Priority and Deferred Runtime Questions
+
+The immediate priority is the Sequence semantic reference contract and its
+selection/presentation trial, as bounded in [the product decision](semantic-visual-language.md).
+Do not expand a component catalogue first.
+
+Older runtime questions remain deferred, not the next work queue:
 
 1. When should per-panel interval refresh be introduced?
-2. What is the minimum semantic component set after plain text?
-3. Should structured panel output be newline-delimited JSON, a single JSON document per refresh, or both behind explicit protocol markers?
+2. What additional panel output types are useful?
+3. Should structured panel output support newline-delimited JSON as well as a
+   single JSON document per refresh?

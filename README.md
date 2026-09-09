@@ -1,12 +1,21 @@
 # hud
 
-A programmable terminal cockpit for getting oriented, finding the next thing that needs attention, and jumping into action from the keyboard.
+Toward a semantic visual language agents can speak to communicate intentionally
+with people. Agents choose meaning and visual idioms; HUD makes them legible.
 
 ![hud starter dashboard](docs/assets/hud-starter.svg)
 
-`hud` turns a small TOML file into a local terminal dashboard. Each panel runs a shell command, renders the result, and gives you keyboard-first ways to refresh, inspect, and launch follow-up actions.
+**Current runtime:** `hud` turns a small TOML file into a local terminal dashboard.
+Each panel runs a shell command, renders the result, and gives you keyboard-first
+ways to refresh, inspect, and launch follow-up actions.
 
-## What It Is
+**Next direction:** establish the [semantic language contract](docs/semantic-visual-language.md)
+before expanding the palette. Start with Sequence as one complete reference idiom,
+teaching why/when to use it as well as how. This is a product direction, not a
+claim that a new production authoring API already exists. A dashboard is one
+possible expression; the current name is provisional, with no rename underway.
+
+## What the Current Runtime Is
 
 - A single-user local TUI for command-backed dashboards.
 - A lightweight way to collect `task`, `gh`, `tmux`, scripts, and status checks in one place.
@@ -62,11 +71,11 @@ Validate a config without opening the TUI:
 hud --config examples/starter.toml --check-config
 ```
 
-## Agent Authoring Experiment
+## Preserved Agent Authoring Experiments
 
-The emerging direction is a terminal-native visual vocabulary and canvas for
-agents to communicate intentionally alongside conversation—not only status panels.
-The current runtime is still the command-backed TUI described below.
+These experiments informed the [current direction](docs/semantic-visual-language.md).
+Their patterns and JSON format are useful evidence, not the new language contract.
+The Sequence reference brief and discovery trial are next; they are not implemented.
 
 Start with the draft [HUD authoring skill](skills/hud/SKILL.md), then try a
 fictional film-night story for two different audiences:
