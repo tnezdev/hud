@@ -1,0 +1,14 @@
+a.check exit=0
+a.72x35.0 exit=0
+a.72x35.65535 exit=0
+a.80x24.0 exit=0
+a.80x24.65535 exit=0
+c.check exit=0
+c.72x35.0 exit=0
+c.72x35.65535 exit=0
+c.80x24.0 exit=0
+c.80x24.65535 exit=0
+b.72x35.10 exit=0
+b.80x24.10 exit=0
+d.72x35.10 exit=0
+d.80x24.10 exit=0

@@ -1,0 +1,9 @@
+# Original command recordings, collations and diff/row-accounting output retain
+# tool-emitted trailing spaces. Exempt only these evidence paths, not source code.
+author/evidence/**/*.command whitespace=-blank-at-eol
+author/evidence/inspection/*.txt whitespace=-blank-at-eol
+review/body-*.txt whitespace=-blank-at-eol
+# The concatenated diff stream also has a tool-emitted final blank line.
+review/history-diffs.txt whitespace=-blank-at-eol,-blank-at-eof
+review/trace-actions.txt whitespace=-blank-at-eol
+review/*.diff whitespace=-blank-at-eol

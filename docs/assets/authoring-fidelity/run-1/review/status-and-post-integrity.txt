@@ -1,0 +1,12 @@
+/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author.exit '0\n'
+/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author-stderr.log ''
+/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/check-pretrial.exit '0\n'
+/tmp/hud-fidelity-run1-rS7MUp/review/audit.exit '0\n'
+/tmp/hud-fidelity-run1-rS7MUp/review/audit.stderr ''
+/tmp/hud-fidelity-run1-rS7MUp/review/execute.exit '0\n'
+/tmp/hud-fidelity-run1-rS7MUp/review/coverage.exit '0\n'
+/tmp/hud-fidelity-run1-rS7MUp/review/coverage.stderr ''
+POST frozen-inputs.sha256 exit 0 OK 29 stderr b''
+POST author-submission.sha256 exit 0 OK 412 stderr b''
+POST protected 375 mismatches []
+POST frozen checkout mismatches []

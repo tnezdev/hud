@@ -1,6 +1,42 @@
 # Semantic visual language: current product direction
 
-## Current next slice: Compare (approved)
+## Current checkpoint: bounded authoring fidelity trial completed
+
+Travis approved pushing the existing Sequence/Compare checkpoint and proceeding
+with the bounded fidelity trial, retaining his Product Owner role. The branch
+checkpoint `6f5e9c5` is now on GitHub; merge remains on hold.
+
+The [trial record](authoring-fidelity-trial.md) separates the frozen design,
+one fresh author's self-repairs and a fresh independent review. Five new final
+compositions preserved all 49 predeclared material obligations: two Compare,
+two actual Sequence invocations and one prose decline. This is success through
+an inspect/refine path, not first-draft perfection or broad author reliability.
+Initial header failures, unsupported absence claims and an inspection gap remain
+preserved. No coordinator content/layout repair occurred.
+
+Accepted visuals, both discovery files, production and prior evidence remain
+unchanged. After viewing the reading-collection case beside its original prose
+and paging to the readiness/carriage groups, Travis said:
+
+> “The grouping is definitely easier to follow for me. The scrolling is not much
+> of a detriment IMO. Well worth the tradeoff of being easier to scan and parse
+> the information.”
+
+This accepts the demonstrated grouping/scrolling tradeoff for him on this case.
+Preserve the treatment; scrolling alone is not a reason to redesign it or shorten
+away qualifications. The demo had reached readiness/carriage, not yet renewal;
+full-content fidelity and coverage remain separate trial/review evidence. This
+is PO-reported reading benefit, not measured comprehension, better decisions,
+general author reliability, production-API or merge approval.
+
+Travis subsequently authorized committing the trial and acceptance evidence,
+pushing `feat/sequence-reference` and opening one PR against `main` for the
+complete branch, including the earlier expressive-story exploration. Preserve
+existing history and scope the PR as experimental references, not production
+promotion. Full-diff review and CI/audit must pass before merge; merge, release,
+installation and a further product slice are not authorized by this decision.
+
+## Previous slice: Compare (approved)
 
 After accepting the demonstrated Sequence visual reference and its top padding,
 Travis explicitly approved **Compare** as the next bounded semantic reference.

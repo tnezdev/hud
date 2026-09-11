@@ -1,0 +1,454 @@
+initial/a.72x35.0.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/a.compare.json --preview 72 35 0 
+exit=1; stdout bytes=0; stderr bytes=42
+stderr verbatim:
+provenance is limited to 60 display cells
+
+initial/a.72x35.65535.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/a.compare.json --preview 72 35 65535 
+exit=1; stdout bytes=0; stderr bytes=42
+stderr verbatim:
+provenance is limited to 60 display cells
+
+initial/a.80x24.0.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/a.compare.json --preview 80 24 0 
+exit=1; stdout bytes=0; stderr bytes=42
+stderr verbatim:
+provenance is limited to 60 display cells
+
+initial/a.80x24.65535.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/a.compare.json --preview 80 24 65535 
+exit=1; stdout bytes=0; stderr bytes=42
+stderr verbatim:
+provenance is limited to 60 display cells
+
+initial/a.check.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/a.compare.json --check 
+exit=1; stdout bytes=0; stderr bytes=42
+stderr verbatim:
+provenance is limited to 60 display cells
+
+initial/b.72x35.0.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/b.sequence.json --preview 72 35 0 
+exit=0; stdout bytes=1444; stderr bytes=0
+stderr verbatim:
+
+initial/b.72x35.65535.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/b.sequence.json --preview 72 35 65535 
+exit=0; stdout bytes=1485; stderr bytes=0
+stderr verbatim:
+
+initial/b.80x24.0.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/b.sequence.json --preview 80 24 0 
+exit=0; stdout bytes=938; stderr bytes=0
+stderr verbatim:
+
+initial/b.80x24.65535.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/b.sequence.json --preview 80 24 65535 
+exit=0; stdout bytes=1005; stderr bytes=0
+stderr verbatim:
+
+initial/b.check.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/b.sequence.json --check 
+exit=0; stdout bytes=44; stderr bytes=0
+stderr verbatim:
+
+initial/c.72x35.0.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/c.compare.json --preview 72 35 0 
+exit=1; stdout bytes=0; stderr bytes=42
+stderr verbatim:
+provenance is limited to 60 display cells
+
+initial/c.72x35.65535.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/c.compare.json --preview 72 35 65535 
+exit=1; stdout bytes=0; stderr bytes=42
+stderr verbatim:
+provenance is limited to 60 display cells
+
+initial/c.80x24.0.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/c.compare.json --preview 80 24 0 
+exit=1; stdout bytes=0; stderr bytes=42
+stderr verbatim:
+provenance is limited to 60 display cells
+
+initial/c.80x24.65535.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/c.compare.json --preview 80 24 65535 
+exit=1; stdout bytes=0; stderr bytes=42
+stderr verbatim:
+provenance is limited to 60 display cells
+
+initial/c.check.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/c.compare.json --check 
+exit=1; stdout bytes=0; stderr bytes=42
+stderr verbatim:
+provenance is limited to 60 display cells
+
+initial/d.72x35.0.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/d.sequence.json --preview 72 35 0 
+exit=0; stdout bytes=1387; stderr bytes=0
+stderr verbatim:
+
+initial/d.72x35.65535.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/d.sequence.json --preview 72 35 65535 
+exit=0; stdout bytes=1335; stderr bytes=0
+stderr verbatim:
+
+initial/d.80x24.0.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/d.sequence.json --preview 80 24 0 
+exit=0; stdout bytes=984; stderr bytes=0
+stderr verbatim:
+
+initial/d.80x24.65535.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/d.sequence.json --preview 80 24 65535 
+exit=0; stdout bytes=954; stderr bytes=0
+stderr verbatim:
+
+initial/d.check.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/d.sequence.json --check 
+exit=0; stdout bytes=44; stderr bytes=0
+stderr verbatim:
+
+r1/a.72x35.0.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json --preview 72 35 0 
+exit=0; stdout bytes=1383; stderr bytes=0
+stderr verbatim:
+
+r1/a.72x35.65535.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json --preview 72 35 65535 
+exit=0; stdout bytes=1016; stderr bytes=0
+stderr verbatim:
+
+r1/a.80x24.0.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json --preview 80 24 0 
+exit=0; stdout bytes=843; stderr bytes=0
+stderr verbatim:
+
+r1/a.80x24.65535.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json --preview 80 24 65535 
+exit=0; stdout bytes=794; stderr bytes=0
+stderr verbatim:
+
+r1/a.check.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json --check 
+exit=0; stdout bytes=46; stderr bytes=0
+stderr verbatim:
+
+r1/b.72x35.10.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/b.sequence.json --preview 72 35 10 
+exit=0; stdout bytes=1485; stderr bytes=0
+stderr verbatim:
+
+r1/b.80x24.10.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/b.sequence.json --preview 80 24 10 
+exit=0; stdout bytes=1028; stderr bytes=0
+stderr verbatim:
+
+r1/c.72x35.0.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json --preview 72 35 0 
+exit=0; stdout bytes=1559; stderr bytes=0
+stderr verbatim:
+
+r1/c.72x35.65535.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json --preview 72 35 65535 
+exit=0; stdout bytes=1196; stderr bytes=0
+stderr verbatim:
+
+r1/c.80x24.0.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json --preview 80 24 0 
+exit=0; stdout bytes=1098; stderr bytes=0
+stderr verbatim:
+
+r1/c.80x24.65535.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json --preview 80 24 65535 
+exit=0; stdout bytes=668; stderr bytes=0
+stderr verbatim:
+
+r1/c.check.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json --check 
+exit=0; stdout bytes=46; stderr bytes=0
+stderr verbatim:
+
+r1/d.72x35.10.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/d.sequence.json --preview 72 35 10 
+exit=0; stdout bytes=1335; stderr bytes=0
+stderr verbatim:
+
+r1/d.80x24.10.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/drafts/d.sequence.json --preview 80 24 10 
+exit=0; stdout bytes=981; stderr bytes=0
+stderr verbatim:
+
+middle/a.72x35.20.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json --preview 72 35 20 
+exit=0; stdout bytes=1447; stderr bytes=0
+stderr verbatim:
+
+middle/a.72x35.30.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json --preview 72 35 30 
+exit=0; stdout bytes=1406; stderr bytes=0
+stderr verbatim:
+
+middle/a.80x24.15.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json --preview 80 24 15 
+exit=0; stdout bytes=963; stderr bytes=0
+stderr verbatim:
+
+middle/a.80x24.25.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json --preview 80 24 25 
+exit=0; stdout bytes=1106; stderr bytes=0
+stderr verbatim:
+
+middle/a.80x24.35.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json --preview 80 24 35 
+exit=0; stdout bytes=939; stderr bytes=0
+stderr verbatim:
+
+middle/c.72x35.20.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json --preview 72 35 20 
+exit=0; stdout bytes=1571; stderr bytes=0
+stderr verbatim:
+
+middle/c.72x35.35.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json --preview 72 35 35 
+exit=0; stdout bytes=1500; stderr bytes=0
+stderr verbatim:
+
+middle/c.72x35.45.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json --preview 72 35 45 
+exit=0; stdout bytes=1536; stderr bytes=0
+stderr verbatim:
+
+middle/c.80x24.15.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json --preview 80 24 15 
+exit=0; stdout bytes=1144; stderr bytes=0
+stderr verbatim:
+
+middle/c.80x24.25.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json --preview 80 24 25 
+exit=0; stdout bytes=965; stderr bytes=0
+stderr verbatim:
+
+middle/c.80x24.35.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json --preview 80 24 35 
+exit=0; stdout bytes=1172; stderr bytes=0
+stderr verbatim:
+
+middle/c.80x24.45.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json --preview 80 24 45 
+exit=0; stdout bytes=1172; stderr bytes=0
+stderr verbatim:
+
+final/a.72x35.0.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 72 35 0 
+exit=0; stdout bytes=1381; stderr bytes=0
+stderr verbatim:
+
+final/a.72x35.20.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 72 35 20 
+exit=0; stdout bytes=1447; stderr bytes=0
+stderr verbatim:
+
+final/a.72x35.30.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 72 35 30 
+exit=0; stdout bytes=1406; stderr bytes=0
+stderr verbatim:
+
+final/a.72x35.65535.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 72 35 65535 
+exit=0; stdout bytes=1016; stderr bytes=0
+stderr verbatim:
+
+final/a.80x24.0.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 80 24 0 
+exit=0; stdout bytes=862; stderr bytes=0
+stderr verbatim:
+
+final/a.80x24.15.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 80 24 15 
+exit=0; stdout bytes=963; stderr bytes=0
+stderr verbatim:
+
+final/a.80x24.25.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 80 24 25 
+exit=0; stdout bytes=1106; stderr bytes=0
+stderr verbatim:
+
+final/a.80x24.35.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 80 24 35 
+exit=0; stdout bytes=939; stderr bytes=0
+stderr verbatim:
+
+final/a.80x24.65535.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 80 24 65535 
+exit=0; stdout bytes=794; stderr bytes=0
+stderr verbatim:
+
+final/a.check.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --check 
+exit=0; stdout bytes=46; stderr bytes=0
+stderr verbatim:
+
+final/a.copy.command
+cp /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/a.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json 
+exit=0; stdout bytes=0; stderr bytes=0
+stderr verbatim:
+
+final/b.72x35.0.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/final/b.sequence.json --preview 72 35 0 
+exit=0; stdout bytes=1444; stderr bytes=0
+stderr verbatim:
+
+final/b.72x35.10.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/final/b.sequence.json --preview 72 35 10 
+exit=0; stdout bytes=1485; stderr bytes=0
+stderr verbatim:
+
+final/b.72x35.65535.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/final/b.sequence.json --preview 72 35 65535 
+exit=0; stdout bytes=1485; stderr bytes=0
+stderr verbatim:
+
+final/b.80x24.0.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/final/b.sequence.json --preview 80 24 0 
+exit=0; stdout bytes=938; stderr bytes=0
+stderr verbatim:
+
+final/b.80x24.10.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/final/b.sequence.json --preview 80 24 10 
+exit=0; stdout bytes=1028; stderr bytes=0
+stderr verbatim:
+
+final/b.80x24.65535.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/final/b.sequence.json --preview 80 24 65535 
+exit=0; stdout bytes=1005; stderr bytes=0
+stderr verbatim:
+
+final/b.check.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/final/b.sequence.json --check 
+exit=0; stdout bytes=44; stderr bytes=0
+stderr verbatim:
+
+final/b.copy.command
+cp /tmp/hud-fidelity-run1-rS7MUp/author/drafts/b.sequence.json /tmp/hud-fidelity-run1-rS7MUp/author/final/b.sequence.json 
+exit=0; stdout bytes=0; stderr bytes=0
+stderr verbatim:
+
+final/c.72x35.0.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/c.compare.json --preview 72 35 0 
+exit=0; stdout bytes=1574; stderr bytes=0
+stderr verbatim:
+
+final/c.72x35.20.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/c.compare.json --preview 72 35 20 
+exit=0; stdout bytes=1571; stderr bytes=0
+stderr verbatim:
+
+final/c.72x35.35.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/c.compare.json --preview 72 35 35 
+exit=0; stdout bytes=1500; stderr bytes=0
+stderr verbatim:
+
+final/c.72x35.45.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/c.compare.json --preview 72 35 45 
+exit=0; stdout bytes=1536; stderr bytes=0
+stderr verbatim:
+
+final/c.72x35.65535.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/c.compare.json --preview 72 35 65535 
+exit=0; stdout bytes=1196; stderr bytes=0
+stderr verbatim:
+
+final/c.80x24.0.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/c.compare.json --preview 80 24 0 
+exit=0; stdout bytes=1113; stderr bytes=0
+stderr verbatim:
+
+final/c.80x24.15.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/c.compare.json --preview 80 24 15 
+exit=0; stdout bytes=1144; stderr bytes=0
+stderr verbatim:
+
+final/c.80x24.25.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/c.compare.json --preview 80 24 25 
+exit=0; stdout bytes=965; stderr bytes=0
+stderr verbatim:
+
+final/c.80x24.35.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/c.compare.json --preview 80 24 35 
+exit=0; stdout bytes=1172; stderr bytes=0
+stderr verbatim:
+
+final/c.80x24.45.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/c.compare.json --preview 80 24 45 
+exit=0; stdout bytes=1172; stderr bytes=0
+stderr verbatim:
+
+final/c.80x24.50.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/c.compare.json --preview 80 24 50 
+exit=0; stdout bytes=1102; stderr bytes=0
+stderr verbatim:
+
+final/c.80x24.65535.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/c.compare.json --preview 80 24 65535 
+exit=0; stdout bytes=668; stderr bytes=0
+stderr verbatim:
+
+final/c.check.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/c.compare.json --check 
+exit=0; stdout bytes=46; stderr bytes=0
+stderr verbatim:
+
+final/c.copy.command
+cp /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/c.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/final/c.compare.json 
+exit=0; stdout bytes=0; stderr bytes=0
+stderr verbatim:
+
+final/d.72x35.0.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/final/d.sequence.json --preview 72 35 0 
+exit=0; stdout bytes=1387; stderr bytes=0
+stderr verbatim:
+
+final/d.72x35.10.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/final/d.sequence.json --preview 72 35 10 
+exit=0; stdout bytes=1335; stderr bytes=0
+stderr verbatim:
+
+final/d.72x35.65535.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/final/d.sequence.json --preview 72 35 65535 
+exit=0; stdout bytes=1335; stderr bytes=0
+stderr verbatim:
+
+final/d.80x24.0.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/final/d.sequence.json --preview 80 24 0 
+exit=0; stdout bytes=984; stderr bytes=0
+stderr verbatim:
+
+final/d.80x24.10.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/final/d.sequence.json --preview 80 24 10 
+exit=0; stdout bytes=981; stderr bytes=0
+stderr verbatim:
+
+final/d.80x24.65535.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/final/d.sequence.json --preview 80 24 65535 
+exit=0; stdout bytes=954; stderr bytes=0
+stderr verbatim:
+
+final/d.check.command
+cargo run --quiet --example sequence -- /tmp/hud-fidelity-run1-rS7MUp/author/final/d.sequence.json --check 
+exit=0; stdout bytes=44; stderr bytes=0
+stderr verbatim:
+
+final/d.copy.command
+cp /tmp/hud-fidelity-run1-rS7MUp/author/drafts/d.sequence.json /tmp/hud-fidelity-run1-rS7MUp/author/final/d.sequence.json 
+exit=0; stdout bytes=0; stderr bytes=0
+stderr verbatim:
+
+final/e.copy.command
+cp /tmp/hud-fidelity-run1-rS7MUp/author/drafts/e.prose.md /tmp/hud-fidelity-run1-rS7MUp/author/final/e.prose.md 
+exit=0; stdout bytes=0; stderr bytes=0
+stderr verbatim:
+
+final/file-hashes.command
+sha256sum /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/final/b.sequence.json /tmp/hud-fidelity-run1-rS7MUp/author/final/c.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/final/d.sequence.json /tmp/hud-fidelity-run1-rS7MUp/author/final/e.prose.md /tmp/hud-fidelity-run1-rS7MUp/author/drafts/a.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/drafts/b.sequence.json /tmp/hud-fidelity-run1-rS7MUp/author/drafts/c.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/drafts/d.sequence.json /tmp/hud-fidelity-run1-rS7MUp/author/drafts/e.prose.md /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/a.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/c.compare.json 
+exit=0; stdout bytes=1765; stderr bytes=0
+stderr verbatim:

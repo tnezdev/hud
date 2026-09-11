@@ -1,0 +1,38 @@
+{
+  "title": "Choose a workshop access format",
+  "provenance": "Fictional options / not live / not independently verified",
+  "scope": "One workshop / access details supplied for this decision",
+  "intent": "Help an organizer judge two access alternatives without turning missing accessibility details into reassurance.",
+  "criteria": [
+    {
+      "name": "Interaction",
+      "question": "What interaction format is supplied?"
+    },
+    {
+      "name": "Access window",
+      "question": "When can a participant access the material?"
+    },
+    {
+      "name": "Captioning",
+      "question": "What captioning support is supplied?"
+    }
+  ],
+  "alternatives": [
+    {
+      "name": "Live room",
+      "answers": [
+        {"criterion": "Interaction", "state": "known", "value": "Questions during the session"},
+        {"criterion": "Access window", "state": "known", "value": "One scheduled session"},
+        {"criterion": "Captioning", "state": "unknown", "qualification": "Captioning arrangements are not supplied."}
+      ]
+    },
+    {
+      "name": "Recorded replay",
+      "answers": [
+        {"criterion": "Interaction", "state": "known", "value": "Questions are not part of the supplied format"},
+        {"criterion": "Access window", "state": "unknown", "qualification": "Replay access window is not specified."},
+        {"criterion": "Captioning", "state": "unavailable", "qualification": "Captioning is not available in the supplied replay."}
+      ]
+    }
+  ]
+}

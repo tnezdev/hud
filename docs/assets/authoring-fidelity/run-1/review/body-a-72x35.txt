@@ -1,0 +1,61 @@
+01   Help the community workshop organizer inspect price, fulfillment and
+02   power access. Source order is not preference; no option is selected.
+03   No order is established as placed. No power-outlet survey or
+04   brightness measurements are supplied: do not infer equal light
+05   output or a cheapest usable setup. Collection is not established as
+06   free.
+07 
+08 
+09   ──── Compare · same questions · no ranking
+10 
+11   ──── Quoted hire
+12   What is quoted for the four-lamp set for one day?
+13   Larch Hire    48 GBP
+14   Moss Hire     62 GBP
+15   Reed Hire     75 GBP
+16   │             Delivery charge is not supplied; final delivered total
+17   │             is unknown.
+18 
+19   ──── Fulfillment
+20   When and on what terms is collection or delivery offered?
+21   Larch Hire    Collection from its depot on the morning of 18
+22   │             October.
+23   Moss Hire     Collection from its depot on the evening of 17
+24   │             October.
+25   │             Hire covers 18 October only.
+26   Reed Hire     Delivery on 18 October only if the organizer confirms
+27   │             by 12:00 local time on 15 October.
+28   │             Delivery charge is not supplied; final delivered total
+29   │             is unknown.
+30 
+31   ──── Battery operation
+32   Is battery operation supported, and with what runtime limits?
+33   Larch Hire    UNAVAILABLE · not available
+34   │             Battery operation is explicitly unavailable for this
+35   │             set; mains power is required.
+36   Moss Hire     Available; quoted runtime up to 3 hours at half
+37   │             brightness.
+38   │             This is not a full-brightness runtime.
+39   Reed Hire     UNKNOWN · not supplied
+40   │             Whether this set supports battery operation is not
+41   │             supplied.
+42 
+43   ──── Cable length
+44   What cable length is supplied?
+45   Larch Hire    UNKNOWN · not supplied
+46   │             Cable length is not supplied.
+47   Moss Hire     5 metres per lamp
+48   Reed Hire     4 metres per lamp
+49 
+50   ──── Other hire terms
+51   What deposits, damage excesses and replacement-lamp availability are
+52   supplied?
+53   Larch Hire    UNKNOWN · not supplied
+54   │             Deposit amount, damage excess and replacement-lamp
+55   │             availability are not supplied.
+56   Moss Hire     UNKNOWN · not supplied
+57   │             Deposit amount, damage excess and replacement-lamp
+58   │             availability are not supplied.
+59   Reed Hire     UNKNOWN · not supplied
+60   │             Deposit amount, damage excess and replacement-lamp
+61   │             availability are not supplied.

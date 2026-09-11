@@ -1,0 +1,16 @@
+sha256sum -c /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/frozen-inputs.sha256; cwd=/home/tnez/Work/tnezdev/hud; exit=0; OK=29
+sha256sum -c /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author-submission.sha256; cwd=/home/tnez/Work/tnezdev/hud; exit=0; OK=412
+Protected checkpoint: 375 checked; mismatches=[]
+frozen-checkout: 20 files compared, differences=[]
+archived-author: 407 files compared, differences=[]
+packets: 5 files compared, differences=[]
+prompt copy identical: True
+a.compare.json final vs drafts: identical=False
+a.compare.json final vs revisions/r1: identical=False
+a.compare.json final vs revisions/r2: identical=True
+b.sequence.json final vs drafts: identical=True
+c.compare.json final vs drafts: identical=False
+c.compare.json final vs revisions/r1: identical=False
+c.compare.json final vs revisions/r2: identical=True
+d.sequence.json final vs drafts: identical=True
+e.prose.md final vs drafts: identical=True

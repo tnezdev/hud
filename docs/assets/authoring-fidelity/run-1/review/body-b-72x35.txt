@@ -1,0 +1,32 @@
+01   Help the print-room volunteer follow the mandatory supplied order
+02   for one paper proof envelope, not a production print run. No
+03   alternate route is supplied.
+04 
+05 
+06   ──── Procedure · not execution status
+07   01 ●  Copy the job identifier from the blue job card onto the
+08      │  envelope
+09      │  Copy it exactly; do not substitute the client's name. No
+10      │  actual identifier is supplied in this fictional packet.
+11      │
+12   02 ●  Count the enclosed proof sheets and write the count on that
+13      │  same envelope
+14      │  Count blank sheets as well as printed ones. No expected sheet
+15      │  count is supplied.
+16      │
+17   03 ●  Obtain the supervisor's initials in the release box on the
+18      │  blue job card
+19      │  Initials in the comments box do not constitute release
+20      │  permission. The packet does not say approval has been granted.
+21      │
+22   04 ●  Only after the release-box initials are present, place the
+23      │  envelope in the collection tray
+24      │  Do not place it there before that permission is recorded. The
+25      │  collection tray is inside the print room, not the public
+26      │  counter.
+27      │
+28   05 ●  Enter the actual placement time in the paper handover log,
+29      │  using local 24-hour time
+30      │  This log entry reports placement in the tray, not client
+31      │  collection. No placement time or client collection time is
+32      │  supplied; do not invent either.

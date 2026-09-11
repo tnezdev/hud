@@ -1,0 +1,18 @@
+2026-09-09T21-40-03-277Z_01a0881d-184d-7311-ba68-24395e807b4a.jsonl.gz 137 91 Counter({'message': 133, 'session': 1, 'session_info': 1, 'model_change': 1, 'thinking_level_change': 1})
+author-events.jsonl.gz 12693 91 Counter({'message_update': 12146, 'message_start': 133, 'message_end': 133, 'tool_execution_start': 91, 'tool_execution_end': 91, 'turn_start': 41, 'turn_end': 41, 'tool_execution_update': 13, 'session': 1, 'agent_start': 1, 'agent_end': 1, 'agent_settled': 1})
+sha256sum -c /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/frozen-inputs.sha256; cwd=/home/tnez/Work/tnezdev/hud; exit=0; OK=29
+sha256sum -c /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author-submission.sha256; cwd=/home/tnez/Work/tnezdev/hud; exit=0; OK=412
+Protected checkpoint: 375 checked; mismatches=[]
+frozen-checkout: 20 files compared, differences=[]
+archived-author: 407 files compared, differences=[]
+packets: 5 files compared, differences=[]
+prompt copy identical: True
+a.compare.json final vs drafts: identical=False
+a.compare.json final vs revisions/r1: identical=False
+a.compare.json final vs revisions/r2: identical=True
+b.sequence.json final vs drafts: identical=True
+c.compare.json final vs drafts: identical=False
+c.compare.json final vs revisions/r1: identical=False
+c.compare.json final vs revisions/r2: identical=True
+d.sequence.json final vs drafts: identical=True
+e.prose.md final vs drafts: identical=True
