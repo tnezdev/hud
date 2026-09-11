@@ -1,0 +1,6 @@
+frozen-inputs.sha256: exit 0, 29 entries OK
+author-submission.sha256: exit 0, 412 entries OK
+review-submission.sha256: exit 0, 236 entries OK
+Protected checkpoint: 372/375 identical; intentional current docs: README.md, docs/reference-next-session.md, docs/semantic-visual-language.md
+20/20 archived runnable/discovery files match current working sources
+Remote verified: 6f5e9c5a124fcb00ce209dcad870085e06af917a	refs/heads/feat/sequence-reference

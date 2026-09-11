@@ -1,0 +1,2 @@
+cwd=/tmp/hud-fidelity-run1-rS7MUp/checkout
+CARGO_NET_OFFLINE=true

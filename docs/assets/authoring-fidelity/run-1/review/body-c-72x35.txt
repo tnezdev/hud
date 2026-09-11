@@ -1,0 +1,70 @@
+01   Help the school librarian inspect these written offers: quoted loan,
+02   readiness wording, carriage and renewal terms, not choose or book.
+03   Both offers cover the same 60 named books delivered to the same
+04   school. Source order is not ranking. No final all-in total is
+05   established; conditional renewal or carriage is not established as
+06   secured. Do not convert working days to calendar days or infer pupil
+07   availability on a quoted ready date.
+08 
+09 
+10   ──── Compare · same questions · no ranking
+11 
+12   ──── Quoted loan
+13   What loan charge and period are quoted?
+14   Bracken Library    90 EUR for the first 28 calendar days only.
+15   │                  The date on which the 28-day loan period starts
+16   │                  is not supplied.
+17   Willow Library     110 EUR for the first 28 calendar days only.
+18   │                  The date on which the 28-day loan period starts
+19   │                  is not supplied.
+20 
+21   ──── Readiness wording
+22   What does the offer say about readiness, and what does that
+23   establish?
+24   Bracken Library    Offer wording: "ready on 9 November".
+25   │                  The source does not define "ready". This date
+26   │                  does not establish school receipt or permission
+27   │                  to put the books into circulation.
+28   Willow Library     Offer wording: "ready on 10 November".
+29   │                  The source does not define "ready". This date
+30   │                  does not establish school receipt or permission
+31   │                  to put the books into circulation.
+32 
+33   ──── Outbound delivery
+34   Is outbound delivery included?
+35   Bracken Library    Included.
+36   Willow Library     Included.
+37 
+38   ──── Return carriage
+39   Is return carriage offered, at what charge and under what
+40   conditions?
+41   Bracken Library    UNAVAILABLE · not available
+42   │                  Explicitly not offered by Bracken. The school
+43   │                  must arrange return carriage separately; its cost
+44   │                  is not supplied.
+45   Willow Library     Offered for 18 EUR only when booked at least 2
+46   │                  working days before the loan ends.
+47   │                  Whether that condition can be met is not
+48   │                  supplied; return carriage is not established as
+49   │                  secured.
+50 
+51   ──── Renewal
+52   Is renewal permitted, with what limits and charge?
+53   Bracken Library    One renewal of up to 7 calendar days permitted
+54   │                  only if no other school has reserved the
+55   │                  collection.
+56   │                  Renewal charge is not supplied; the conditional
+57   │                  renewal is not established as secured.
+58   Willow Library     UNAVAILABLE · not available
+59   │                  Renewal is explicitly unavailable for this
+60   │                  collection.
+61 
+62   ──── Other terms
+63   What lost-book charges, late fees and weekend contact arrangements
+64   are supplied?
+65   Bracken Library    UNKNOWN · not supplied
+66   │                  Lost-book charges, late fees and weekend contact
+67   │                  arrangements are not supplied.
+68   Willow Library     UNKNOWN · not supplied
+69   │                  Lost-book charges, late fees and weekend contact
+70   │                  arrangements are not supplied.

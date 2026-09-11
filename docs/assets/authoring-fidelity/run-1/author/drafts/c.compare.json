@@ -1,0 +1,38 @@
+{
+  "title": "Temporary reading-collection offers",
+  "provenance": "Fictional written offers; not live or independently verified.",
+  "scope": "2 Nov 2026 offers / same 60 named books, same school / EUR",
+  "intent": "Help the school librarian inspect the quoted loan, readiness wording, carriage and renewal terms, not choose or book. Both offers cover the same 60 named books delivered to the same school. Source order is not ranking. No final all-in total is established; conditional renewal or carriage is not secured. Do not convert working days to calendar days or infer pupil availability on a quoted ready date.",
+  "criteria": [
+    {"name": "Quoted loan", "question": "What loan charge and period are quoted?"},
+    {"name": "Readiness wording", "question": "What does the offer say about readiness, and what does that establish?"},
+    {"name": "Outbound delivery", "question": "Is outbound delivery included?"},
+    {"name": "Return carriage", "question": "Is return carriage offered, at what charge and under what conditions?"},
+    {"name": "Renewal", "question": "Is renewal permitted, with what limits and charge?"},
+    {"name": "Other terms", "question": "What lost-book charges, late fees and weekend contact arrangements are supplied?"}
+  ],
+  "alternatives": [
+    {
+      "name": "Bracken Library",
+      "answers": [
+        {"criterion": "Quoted loan", "state": "known", "value": "90 EUR for the first 28 calendar days only.", "qualification": "The date on which the 28-day loan period starts is not supplied."},
+        {"criterion": "Readiness wording", "state": "known", "value": "Offer wording: \"ready on 9 November\".", "qualification": "The source does not define \"ready\". This date does not establish school receipt or permission to put the books into circulation."},
+        {"criterion": "Outbound delivery", "state": "known", "value": "Included."},
+        {"criterion": "Return carriage", "state": "unavailable", "qualification": "Explicitly not offered by Bracken. The school must arrange return carriage separately; its cost is not supplied."},
+        {"criterion": "Renewal", "state": "known", "value": "One renewal of up to 7 calendar days permitted only if no other school has reserved the collection.", "qualification": "Renewal charge is not supplied; the conditional renewal is not established as secured."},
+        {"criterion": "Other terms", "state": "unknown", "qualification": "Lost-book charges, late fees and weekend contact arrangements are not supplied."}
+      ]
+    },
+    {
+      "name": "Willow Library",
+      "answers": [
+        {"criterion": "Quoted loan", "state": "known", "value": "110 EUR for the first 28 calendar days only.", "qualification": "The date on which the 28-day loan period starts is not supplied."},
+        {"criterion": "Readiness wording", "state": "known", "value": "Offer wording: \"ready on 10 November\".", "qualification": "The source does not define \"ready\". This date does not establish school receipt or permission to put the books into circulation."},
+        {"criterion": "Outbound delivery", "state": "known", "value": "Included."},
+        {"criterion": "Return carriage", "state": "known", "value": "Offered for 18 EUR only when booked at least 2 working days before the loan ends.", "qualification": "Whether that condition can be met is not supplied; return carriage is not established as secured."},
+        {"criterion": "Renewal", "state": "unavailable", "qualification": "Renewal is explicitly unavailable for this collection."},
+        {"criterion": "Other terms", "state": "unknown", "qualification": "Lost-book charges, late fees and weekend contact arrangements are not supplied."}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+Read results byte-equivalent text: 64 of 64; other: []
+trace-authored artifact author/intent-and-plan.md MATCH
+trace-authored artifact author/drafts/a.compare.json MATCH
+trace-authored artifact author/drafts/b.sequence.json MATCH
+trace-authored artifact author/drafts/c.compare.json MATCH
+trace-authored artifact author/drafts/d.sequence.json MATCH
+trace-authored artifact author/drafts/e.prose.md MATCH
+trace-authored artifact author/evidence/run-initial.sh MATCH
+trace-authored artifact author/revisions/r1/a.compare.json MATCH
+trace-authored artifact author/revisions/r1/c.compare.json MATCH
+trace-authored artifact author/evidence/run-r1.sh MATCH
+trace-authored artifact author/evidence/run-middle.sh MATCH
+trace-authored artifact author/inspection-and-repairs.md MATCH
+trace-authored artifact author/revisions/r2/a.compare.json MATCH
+trace-authored artifact author/revisions/r2/c.compare.json MATCH
+trace-authored artifact author/evidence/submit-and-preview.sh MATCH
+trace-authored artifact author/evidence/build-inspection-bundles.py MATCH
+trace-authored artifact author/evidence/execution-ledger.md MATCH
+trace-authored artifact author/report.md MATCH
+ACTUAL provenance a 62 'Fictional supplier emails; not live or independently verified.'
+ACTUAL provenance c 61 'Fictional written offers; not live or independently verified.'
+Original command streams:
+('initial', 'a.72x35.0.command', '1', 0, 'provenance is limited to 60 display cells\n')
+('initial', 'a.72x35.65535.command', '1', 0, 'provenance is limited to 60 display cells\n')
+('initial', 'a.80x24.0.command', '1', 0, 'provenance is limited to 60 display cells\n')
+('initial', 'a.80x24.65535.command', '1', 0, 'provenance is limited to 60 display cells\n')
+('initial', 'a.check.command', '1', 0, 'provenance is limited to 60 display cells\n')
+('initial', 'b.72x35.0.command', '0', 1391, '')
+('initial', 'b.72x35.65535.command', '0', 1424, '')
+('initial', 'b.80x24.0.command', '0', 907, '')
+('initial', 'b.80x24.65535.command', '0', 973, '')
+('initial', 'b.check.command', '0', 44, '')
+('initial', 'c.72x35.0.command', '1', 0, 'provenance is limited to 60 display cells\n')
+('initial', 'c.72x35.65535.command', '1', 0, 'provenance is limited to 60 display cells\n')
+('initial', 'c.80x24.0.command', '1', 0, 'provenance is limited to 60 display cells\n')
+('initial', 'c.80x24.65535.command', '1', 0, 'provenance is limited to 60 display cells\n')
+('initial', 'c.check.command', '1', 0, 'provenance is limited to 60 display cells\n')
+('initial', 'd.72x35.0.command', '0', 1326, '')
+('initial', 'd.72x35.65535.command', '0', 1289, '')
+('initial', 'd.80x24.0.command', '0', 945, '')
+('initial', 'd.80x24.65535.command', '0', 926, '')
+('initial', 'd.check.command', '0', 44, '')
+('r1', 'a.72x35.0.command', '0', 1341, '')
+('r1', 'a.72x35.65535.command', '0', 982, '')
+('r1', 'a.80x24.0.command', '0', 821, '')
+('r1', 'a.80x24.65535.command', '0', 771, '')
+('r1', 'a.check.command', '0', 46, '')
+('r1', 'b.72x35.10.command', '0', 1424, '')
+('r1', 'b.80x24.10.command', '0', 994, '')
+('r1', 'c.72x35.0.command', '0', 1519, '')
+('r1', 'c.72x35.65535.command', '0', 1157, '')
+('r1', 'c.80x24.0.command', '0', 1074, '')
+('r1', 'c.80x24.65535.command', '0', 650, '')
+('r1', 'c.check.command', '0', 46, '')
+('r1', 'd.72x35.10.command', '0', 1289, '')
+('r1', 'd.80x24.10.command', '0', 941, '')
+('middle', 'a.72x35.20.command', '0', 1394, '')
+('middle', 'a.72x35.30.command', '0', 1355, '')
+('middle', 'a.80x24.15.command', '0', 935, '')
+('middle', 'a.80x24.25.command', '0', 1075, '')
+('middle', 'a.80x24.35.command', '0', 910, '')
+('middle', 'c.72x35.20.command', '0', 1522, '')
+('middle', 'c.72x35.35.command', '0', 1448, '')
+('middle', 'c.72x35.45.command', '0', 1483, '')
+('middle', 'c.80x24.15.command', '0', 1112, '')
+('middle', 'c.80x24.25.command', '0', 937, '')
+('middle', 'c.80x24.35.command', '0', 1137, '')
+('middle', 'c.80x24.45.command', '0', 1137, '')
+('final', 'a.72x35.0.command', '0', 1341, '')
+('final', 'a.72x35.20.command', '0', 1394, '')
+('final', 'a.72x35.30.command', '0', 1355, '')
+('final', 'a.72x35.65535.command', '0', 982, '')
+('final', 'a.80x24.0.command', '0', 840, '')
+('final', 'a.80x24.15.command', '0', 935, '')
+('final', 'a.80x24.25.command', '0', 1075, '')
+('final', 'a.80x24.35.command', '0', 910, '')
+('final', 'a.80x24.65535.command', '0', 771, '')
+('final', 'a.check.command', '0', 46, '')
+('final', 'a.copy.command', '0', 0, '')
+('final', 'b.72x35.0.command', '0', 1391, '')
+('final', 'b.72x35.10.command', '0', 1424, '')
+('final', 'b.72x35.65535.command', '0', 1424, '')
+('final', 'b.80x24.0.command', '0', 907, '')
+('final', 'b.80x24.10.command', '0', 994, '')
+('final', 'b.80x24.65535.command', '0', 973, '')
+('final', 'b.check.command', '0', 44, '')
+('final', 'b.copy.command', '0', 0, '')
+('final', 'c.72x35.0.command', '0', 1534, '')
+('final', 'c.72x35.20.command', '0', 1522, '')
+('final', 'c.72x35.35.command', '0', 1448, '')
+('final', 'c.72x35.45.command', '0', 1483, '')
+('final', 'c.72x35.65535.command', '0', 1157, '')
+('final', 'c.80x24.0.command', '0', 1089, '')
+('final', 'c.80x24.15.command', '0', 1112, '')
+('final', 'c.80x24.25.command', '0', 937, '')
+('final', 'c.80x24.35.command', '0', 1137, '')
+('final', 'c.80x24.45.command', '0', 1137, '')
+('final', 'c.80x24.50.command', '0', 1069, '')
+('final', 'c.80x24.65535.command', '0', 650, '')
+('final', 'c.check.command', '0', 46, '')
+('final', 'c.copy.command', '0', 0, '')
+('final', 'd.72x35.0.command', '0', 1326, '')
+('final', 'd.72x35.10.command', '0', 1289, '')
+('final', 'd.72x35.65535.command', '0', 1289, '')
+('final', 'd.80x24.0.command', '0', 945, '')
+('final', 'd.80x24.10.command', '0', 941, '')
+('final', 'd.80x24.65535.command', '0', 926, '')
+('final', 'd.check.command', '0', 44, '')
+('final', 'd.copy.command', '0', 0, '')
+('final', 'e.copy.command', '0', 0, '')
+('final', 'file-hashes.command', '0', 1765, '')
+total 89 status counts Counter({'0': 79, '1': 10})

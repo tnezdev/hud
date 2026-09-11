@@ -1,0 +1,13 @@
+--- /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/drafts/c.compare.json
++++ /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json
+@@ -1,8 +1,8 @@
+ {
+   "title": "Temporary reading-collection offers",
+-  "provenance": "Fictional written offers; not live or independently verified.",
++  "provenance": "Fictional offers; not live or independently verified.",
+   "scope": "2 Nov 2026 offers / same 60 named books, same school / EUR",
+-  "intent": "Help the school librarian inspect the quoted loan, readiness wording, carriage and renewal terms, not choose or book. Both offers cover the same 60 named books delivered to the same school. Source order is not ranking. No final all-in total is established; conditional renewal or carriage is not secured. Do not convert working days to calendar days or infer pupil availability on a quoted ready date.",
++  "intent": "Help the school librarian inspect these written offers: quoted loan, readiness wording, carriage and renewal terms, not choose or book. Both offers cover the same 60 named books delivered to the same school. Source order is not ranking. No final all-in total is established; conditional renewal or carriage is not established as secured. Do not convert working days to calendar days or infer pupil availability on a quoted ready date.",
+   "criteria": [
+     {"name": "Quoted loan", "question": "What loan charge and period are quoted?"},
+     {"name": "Readiness wording", "question": "What does the offer say about readiness, and what does that establish?"},

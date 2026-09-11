@@ -1,0 +1,1 @@
+cd /tmp/hud-fidelity-run1-rS7MUp/checkout && CARGO_NET_OFFLINE=true CARGO_TARGET_DIR=/tmp/hud-fidelity-run1-rS7MUp/review/target TMPDIR=/tmp/hud-fidelity-run1-rS7MUp/review cargo run --locked --quiet --example compare -- /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json --preview 80 24 65535

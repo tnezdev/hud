@@ -1,0 +1,11 @@
+--- /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/revisions/r1/a.compare.json
++++ /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/a.compare.json
+@@ -2,7 +2,7 @@
+   "title": "Work-lamp hire for the indoor repair day",
+   "provenance": "Fictional emails; not live or independently verified.",
+   "scope": "18 October 2026 / one day / four-lamp set / GBP",
+-  "intent": "Help the community workshop organizer inspect price, fulfillment and power access. Source order is not preference; no option is selected or order placed. No power-outlet survey or brightness measurements are supplied: do not infer equal light output or a cheapest usable setup. Collection is not established as free.",
++  "intent": "Help the community workshop organizer inspect price, fulfillment and power access. Source order is not preference; no option is selected. No order is established as placed. No power-outlet survey or brightness measurements are supplied: do not infer equal light output or a cheapest usable setup. Collection is not established as free.",
+   "criteria": [
+     {"name": "Quoted hire", "question": "What is quoted for the four-lamp set for one day?"},
+     {"name": "Fulfillment", "question": "When and on what terms is collection or delivery offered?"},

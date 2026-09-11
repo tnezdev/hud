@@ -1,5 +1,50 @@
 # Next session: semantic references checkpoint
 
+## Publication decision — one PR for the complete branch
+
+Travis subsequently authorized committing the trial/PO feedback, pushing the same
+`feat/sequence-reference` branch and opening one PR against `main`. Its scope
+includes the expressive-story exploration, semantic-language pivot, Sequence and
+Compare references, and fidelity evidence. No prerequisite PR remains open:
+PR #41 (the earlier authoring-skill prototype) is already merged. Keep the
+existing commits and failed-trial evidence; do not imply this is production API
+promotion. Full-diff review and passing CI/audit are required before merge.
+This authorizes publication of this work, not merging, releasing, installing,
+a third idiom or a broader product slice. Discover exact commit/PR/check status
+with Git and GitHub rather than treating older operational notes as current.
+
+## Latest update — bounded fidelity trial completed
+
+Travis authorized pushing `6f5e9c5` on `feat/sequence-reference` and proceeding
+with the bounded fidelity trial, retaining his PO role. The remote branch hash
+was verified after push. No merge was performed.
+
+Read [authoring-fidelity-trial.md](authoring-fidelity-trial.md) for the new
+checkpoint. One fresh author submitted two Compare documents, two actual
+Sequence documents and one prose decline on five new packets. An independent
+review found all five finals faithful to the 49 predeclared obligations, after
+recorded self-repairs; no coordinator content/layout coaching or repair occurred.
+Both processes exited. No live panes were created or controlled in this trial.
+
+All accepted renderers, fixtures, discovery and old evidence are unchanged.
+The new trial evidence/docs were local and uncommitted at trial completion;
+the subsequent publication decision above includes them. Its frozen pre-run
+brief, raw artifacts and review live under
+`docs/assets/authoring-fidelity/run-1/`. See `primary-verification.md` there for
+final checks and the intentional current-document changes versus the baseline.
+
+Subsequently Travis requested a live paired reading-collection demo. After the
+opening and readiness/carriage view he said the grouping was “definitely easier
+to follow” and the scrolling “well worth the tradeoff” for easier scanning and
+parsing. This accepts the demonstrated tradeoff for this case. Preserve the
+visuals; do not reopen scrolling as an unsolicited redesign task. Renewal had
+not yet been shown live; full-content coverage is separate reviewer evidence.
+See the trial's `po-demo/` record and `/tmp/hud-next-session.md` for owned demo
+panes; rediscover before control. Merge and the next product slice remain
+separate decisions beyond the authorized branch push/PR. No measured comprehension or general reliability claim.
+Historical “not started” recommendations and no-push status below describe the
+preceding checkpoint and are superseded only by this explicit authorization/run.
+
 ## Start here
 
 Read `AGENTS.md`, `README.md`, `engineering-spec.md` and

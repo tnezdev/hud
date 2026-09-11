@@ -1,0 +1,11 @@
+Help a greenhouse coordinator understand the order of selected notes from 6 December 2026. These are fictional copied notebook entries, not live readings or independently verified. Times are local to the greenhouse. They are selected observations, not a complete incident record or a procedure for changing equipment.
+
+At 08:05, attendant Nia recorded that the west-bench display read 12 degrees Celsius. This was the display reading, not an independently checked air temperature.
+
+At approximately 08:20, caretaker Omar wrote that he closed the west vent. The exact closure time and the vent's prior opening width were not supplied. This is a report of an action, not proof of its effect.
+
+At 08:50, Nia recorded that the same west-bench display read 15 degrees Celsius. No comparison reading from another bench was supplied.
+
+At 09:10, coordinator Eli recorded that he requested a sensor check for the next day, 7 December. The notes do not establish that a check was scheduled, performed or completed.
+
+The notes do not establish why the display reading changed, whether closing the vent caused any change, whether the sensor was accurate, or the current greenhouse temperature or vent position. There is no supplied target temperature, alarm threshold or instruction to repeat the vent action. Retain the reported-versus-verified distinction and the limits on causality and current state.

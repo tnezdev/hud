@@ -1,0 +1,184 @@
+tool counts Counter({'read': 64, 'write': 14, 'bash': 8, 'edit': 5})
+session and events tool calls match: True
+SESSION LINE 6 read skills/hud/compare.md
+{"path": "skills/hud/compare.md"}
+SESSION LINE 8 read skills/hud/sequence.md
+{"path": "skills/hud/sequence.md"}
+SESSION LINE 8 read /tmp/hud-fidelity-run1-rS7MUp/packets/a.txt
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/packets/a.txt"}
+SESSION LINE 8 read /tmp/hud-fidelity-run1-rS7MUp/packets/b.txt
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/packets/b.txt"}
+SESSION LINE 8 read /tmp/hud-fidelity-run1-rS7MUp/packets/c.txt
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/packets/c.txt"}
+SESSION LINE 8 read /tmp/hud-fidelity-run1-rS7MUp/packets/d.txt
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/packets/d.txt"}
+SESSION LINE 8 read /tmp/hud-fidelity-run1-rS7MUp/packets/e.txt
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/packets/e.txt"}
+SESSION LINE 15 write /tmp/hud-fidelity-run1-rS7MUp/author/intent-and-plan.md
+content chars 3553
+SESSION LINE 17 write /tmp/hud-fidelity-run1-rS7MUp/author/drafts/a.compare.json
+content chars 3429
+SESSION LINE 19 write /tmp/hud-fidelity-run1-rS7MUp/author/drafts/b.sequence.json
+content chars 1647
+SESSION LINE 21 write /tmp/hud-fidelity-run1-rS7MUp/author/drafts/c.compare.json
+content chars 3716
+SESSION LINE 23 write /tmp/hud-fidelity-run1-rS7MUp/author/drafts/d.sequence.json
+content chars 1633
+SESSION LINE 25 write /tmp/hud-fidelity-run1-rS7MUp/author/drafts/e.prose.md
+content chars 1276
+SESSION LINE 27 write /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.sh
+content chars 1124
+SESSION LINE 29 bash 
+{"command": "bash /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.sh > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.stderr; status=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.exit; printf 'Evidence script exit=%s\\n' \"$status\"", "timeout": 200}
+SESSION LINE 31 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.stdout"}
+SESSION LINE 33 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/a.check.stderr
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/a.check.stderr"}
+SESSION LINE 33 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/c.check.stderr
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/c.check.stderr"}
+SESSION LINE 33 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/b.check.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/b.check.stdout"}
+SESSION LINE 33 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/d.check.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/d.check.stdout"}
+SESSION LINE 33 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/b.72x35.0.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/b.72x35.0.stdout"}
+SESSION LINE 33 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/b.72x35.65535.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/b.72x35.65535.stdout"}
+SESSION LINE 33 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/b.80x24.0.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/b.80x24.0.stdout"}
+SESSION LINE 33 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/b.80x24.65535.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/b.80x24.65535.stdout"}
+SESSION LINE 42 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/d.72x35.0.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/d.72x35.0.stdout"}
+SESSION LINE 42 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/d.72x35.65535.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/d.72x35.65535.stdout"}
+SESSION LINE 42 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/d.80x24.0.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/d.80x24.0.stdout"}
+SESSION LINE 42 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/d.80x24.65535.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/d.80x24.65535.stdout"}
+SESSION LINE 42 read /tmp/hud-fidelity-run1-rS7MUp/author/drafts/e.prose.md
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/drafts/e.prose.md"}
+SESSION LINE 48 bash 
+{"command": "python3 - <<'PY' > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/provenance-lengths.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/provenance-lengths.stderr\nimport json\nfrom pathlib import Path\nroot=Path('/tmp/hud-fidelity-run1-rS7MUp/author')\nfor key in ('a','c'):\n    value=json.loads((root/'drafts'/f'{key}.compare.json').read_text())['provenance']\n    print(key, len(value), repr(value))\nPY\nstatus=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/provenance-lengths.exit", "timeout": 20}
+SESSION LINE 50 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/provenance-lengths.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/provenance-lengths.stdout"}
+SESSION LINE 52 bash 
+{"command": "mkdir -p /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1; cp /tmp/hud-fidelity-run1-rS7MUp/author/drafts/a.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json; cp /tmp/hud-fidelity-run1-rS7MUp/author/drafts/c.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json", "timeout": 20}
+SESSION LINE 54 edit /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json", "edits": [{"oldText": "Fictional supplier emails; not live or independently verified.", "newText": "Fictional emails; not live or independently verified."}]}
+SESSION LINE 54 edit /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json", "edits": [{"oldText": "Fictional written offers; not live or independently verified.", "newText": "Fictional offers; not live or independently verified."}, {"oldText": "Help the school librarian inspect the quoted loan, readiness wording, carriage and renewal terms, not choose or book.", "newText": "Help the school librarian inspect these written offers: quoted loan, readiness wording, carriage and renewal terms, not choose or book."}]}
+SESSION LINE 57 write /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.sh
+content chars 1215
+SESSION LINE 59 bash 
+{"command": "bash /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.sh > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.stderr; status=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.exit; printf 'Evidence script exit=%s\\n' \"$status\"", "timeout": 200}
+SESSION LINE 61 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.stdout"}
+SESSION LINE 61 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/a.check.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/a.check.stdout"}
+SESSION LINE 61 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/c.check.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/c.check.stdout"}
+SESSION LINE 61 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/a.72x35.0.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/a.72x35.0.stdout"}
+SESSION LINE 61 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/a.72x35.65535.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/a.72x35.65535.stdout"}
+SESSION LINE 61 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/a.80x24.0.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/a.80x24.0.stdout"}
+SESSION LINE 61 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/a.80x24.65535.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/a.80x24.65535.stdout"}
+SESSION LINE 69 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/c.72x35.0.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/c.72x35.0.stdout"}
+SESSION LINE 69 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/c.72x35.65535.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/c.72x35.65535.stdout"}
+SESSION LINE 69 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/c.80x24.0.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/c.80x24.0.stdout"}
+SESSION LINE 69 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/c.80x24.65535.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/c.80x24.65535.stdout"}
+SESSION LINE 69 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/b.72x35.10.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/b.72x35.10.stdout"}
+SESSION LINE 69 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/b.80x24.10.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/b.80x24.10.stdout"}
+SESSION LINE 69 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/d.72x35.10.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/d.72x35.10.stdout"}
+SESSION LINE 69 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/d.80x24.10.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/d.80x24.10.stdout"}
+SESSION LINE 78 write /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.sh
+content chars 920
+SESSION LINE 80 bash 
+{"command": "bash /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.sh > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.stderr; status=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.exit; printf 'Evidence script exit=%s\\n' \"$status\"", "timeout": 200}
+SESSION LINE 82 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.stdout"}
+SESSION LINE 82 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/a.72x35.20.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/a.72x35.20.stdout"}
+SESSION LINE 82 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/a.72x35.30.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/a.72x35.30.stdout"}
+SESSION LINE 82 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/a.80x24.15.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/a.80x24.15.stdout"}
+SESSION LINE 82 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/a.80x24.25.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/a.80x24.25.stdout"}
+SESSION LINE 82 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/a.80x24.35.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/a.80x24.35.stdout"}
+SESSION LINE 89 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.72x35.20.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.72x35.20.stdout"}
+SESSION LINE 89 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.72x35.35.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.72x35.35.stdout"}
+SESSION LINE 89 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.72x35.45.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.72x35.45.stdout"}
+SESSION LINE 89 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.80x24.15.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.80x24.15.stdout"}
+SESSION LINE 89 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.80x24.25.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.80x24.25.stdout"}
+SESSION LINE 89 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.80x24.35.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.80x24.35.stdout"}
+SESSION LINE 89 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.80x24.45.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.80x24.45.stdout"}
+SESSION LINE 97 write /tmp/hud-fidelity-run1-rS7MUp/author/inspection-and-repairs.md
+content chars 4143
+SESSION LINE 99 bash 
+{"command": "mkdir -p /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2; cp /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/a.compare.json; cp /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/c.compare.json", "timeout": 20}
+SESSION LINE 101 edit /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/a.compare.json
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/a.compare.json", "edits": [{"oldText": "Source order is not preference; no option is selected or order placed.", "newText": "Source order is not preference; no option is selected. No order is established as placed."}]}
+SESSION LINE 101 edit /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/c.compare.json
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/c.compare.json", "edits": [{"oldText": "conditional renewal or carriage is not secured.", "newText": "conditional renewal or carriage is not established as secured."}]}
+SESSION LINE 104 write /tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.sh
+content chars 1763
+SESSION LINE 106 bash 
+{"command": "bash /tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.sh > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.stderr; status=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.exit; printf 'Evidence script exit=%s\\n' \"$status\"", "timeout": 200}
+SESSION LINE 108 write /tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.py
+content chars 1792
+SESSION LINE 110 bash 
+{"command": "python3 /tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.py > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.stderr; status=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.exit; printf 'Collation exit=%s\\n' \"$status\"", "timeout": 20}
+SESSION LINE 112 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/a.txt
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/a.txt"}
+SESSION LINE 114 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/c.txt
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/c.txt"}
+SESSION LINE 116 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/b.txt
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/b.txt"}
+SESSION LINE 116 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/d.txt
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/d.txt"}
+SESSION LINE 116 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/e.txt
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/e.txt"}
+SESSION LINE 120 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/stream-audit.txt
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/stream-audit.txt"}
+SESSION LINE 122 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/final/file-hashes.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/final/file-hashes.stdout"}
+SESSION LINE 122 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.stdout"}
+SESSION LINE 122 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.stderr
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.stderr"}
+SESSION LINE 122 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.stderr
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.stderr"}
+SESSION LINE 122 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.stderr
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.stderr"}
+SESSION LINE 122 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.stderr
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.stderr"}
+SESSION LINE 122 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.stdout
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.stdout"}
+SESSION LINE 122 read /tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.stderr
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.stderr"}
+SESSION LINE 131 edit /tmp/hud-fidelity-run1-rS7MUp/author/inspection-and-repairs.md
+{"path": "/tmp/hud-fidelity-run1-rS7MUp/author/inspection-and-repairs.md", "edits": [{"oldText": "The original R1 previews and original failure diagnostics remain unchanged.\n", "newText": "The original R1 previews and original failure diagnostics remain unchanged.\n\n## Final inspection completed\nRead evidence/inspection/a.txt through e.txt completely. These are explicitly collated copies of the final source files and the actual final command/exit/stderr/stdout files, not reconstructed renderings. Read evidence/inspection/stream-audit.txt completely to inspect all saved per-command exit statuses and stderr, including all ten original failures. Also read final/file-hashes.stdout, submit-and-preview.stdout and its empty stderr, the three earlier collectors' empty stderr, and the bundle collector's stdout/empty stderr. The hashes match A/C finals to R2 and B/D/E finals to their preserved drafts.\n\nAll 33 final previews and all four final checks exited 0 with empty stderr. Both Compare checks say `comparison OK (shape only; display data only)`; both Sequence checks say `sequence OK (shape only; display data only)`. All successful earlier previews were read in full too; failed previews had no stdout to inspect.\n\nFinal requested offsets and observed footer starts (in matching order):\n\n| Packet | Size | Requested offsets | Observed first body line / total |\n|---|---|---|---|\n| A | 72x35 | 0,20,30,65535 | 1,19,31,43 / 61 |\n| A | 80x24 | 0,15,25,35,65535 | 1,10,18,28,45 / 56 |\n| B | 72x35 | 0,10,65535 | 1,5,5 / 32 |\n| B | 80x24 | 0,10,65535 | 1,11,15 / 30 |\n| C | 72x35 | 0,20,35,45,65535 | 1,21,33,38,51 / 70 |\n| C | 80x24 | 0,15,25,35,45,50,65535 | 1,11,20,36,36,47,56 / 64 |\n| D | 72x35 | 0,10,65535 | 1,9,9 / 34 |\n| D | 80x24 | 0,10,65535 | 1,11,16 / 32 |\n\nThe combined final views cover every body line, not merely opening/end. C's added 80x24 offset 50 shows the complete Renewal group, including Willow's explicit UNAVAILABLE and its qualification; the end view completes the other-terms tail. A's revised 72x35 opening now cuts Reed's fulfillment qualification at the bottom with an answer/section continuation warning; offset 20 shows that answer and unknown delivered total in full. R2's absence-of-evidence wording is visible in both sizes' opening views. Full source data and E's prose were also read in the final bundles.\n\nNo further refinement was warranted by this inspection: known, unknown and unavailable remain distinct; conditions remain attached to affected claims; no derived totals, recommendations, invented execution or causal conclusion appear. Overflow and snapping remain practical friction. Some end views leave blank rows, and some openings cut qualifications with an explicit footer. These are not standalone complete views; retain the data and overlapping previews rather than shortening away qualifications. This is headless textual inspection, not a live-terminal, color-perception or human-comprehension test.\n"}]}
+SESSION LINE 133 write /tmp/hud-fidelity-run1-rS7MUp/author/evidence/execution-ledger.md
+content chars 4399
+SESSION LINE 135 write /tmp/hud-fidelity-run1-rS7MUp/author/report.md
+content chars 4560

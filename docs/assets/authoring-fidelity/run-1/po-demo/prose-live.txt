@@ -1,0 +1,35 @@
+
+Help a school librarian inspect two offers for a temporary reading
+collection, not choose or book one. These are fictional written
+offers dated 2 November 2026, not live or independently verified.
+Both cover the same 60 named books delivered to the same school,
+with charges in EUR. Keep the source order: Bracken Library,
+Willow Library; it is not a ranking.
+
+Bracken Library quotes a 90 EUR loan charge for the first 28
+calendar days only. The offer calls the collection "ready on 9
+November". Outbound delivery is included. Return carriage is
+explicitly not offered by Bracken; the school must arrange it
+separately and its cost is not supplied. One renewal of up to 7
+calendar days is permitted only if no other school has reserved
+the collection; the renewal charge is not supplied.
+
+Willow Library quotes a 110 EUR loan charge for the first 28
+calendar days only. Its offer calls the collection "ready on 10
+November". Outbound delivery is included. Return carriage is
+offered for 18 EUR only when booked at least 2 working days before
+the loan ends; whether that condition can be met is not supplied.
+Renewal is explicitly unavailable for this collection.
+
+Neither source defines "ready": these dates do not establish
+school receipt or permission to put the books into circulation.
+The date on which the 28-day loan period starts is not supplied
+for either offer. Lost-book charges, late fees and weekend contact
+arrangements are also not supplied for either offer. No final
+all-in total is established. Do not convert working days to
+calendar days, add a total, assume the conditional renewal or
+carriage is secured, or conclude either collection is available to
+pupils on its quoted ready date. The librarian needs to inspect
+the quoted loan, readiness wording, carriage and renewal terms
+with their limits intact.
+(END)

@@ -1,0 +1,32 @@
+01   Help the greenhouse coordinator understand the supplied order of selected
+02   notes, not a complete incident record or a procedure for changing equipment.
+03 
+04 
+05   ──── Chronology · not causation
+06   01 ●  08:05 — Nia recorded a west-bench display reading of 12 degrees
+07      │  Celsius
+08      │  Attendant Nia recorded the display reading, not an independently
+09      │  checked air temperature.
+10      │
+11   02 ●  Approximately 08:20 — Omar wrote that he closed the west vent
+12      │  Caretaker Omar's exact closure time and the vent's prior opening width
+13      │  were not supplied. This is a report of an action, not proof of its
+14      │  effect.
+15      │
+16   03 ●  08:50 — Nia recorded the same west-bench display reading 15 degrees
+17      │  Celsius
+18      │  No comparison reading from another bench was supplied.
+19      │
+20   04 ●  09:10 — Eli recorded requesting a sensor check for 7 December, the
+21      │  next day
+22      │  Coordinator Eli's request does not establish that a check was
+23      │  scheduled, performed or completed.
+24 
+25 
+26   ──── Background and sources
+27   The notes do not establish why the display reading changed, whether closing
+28   the vent caused any change, or whether the sensor was accurate.
+29 
+30   They do not establish the current greenhouse temperature or vent position.
+31   No target temperature, alarm threshold or instruction to repeat the vent
+32   action is supplied.

@@ -1,0 +1,1090 @@
+use crate::{
+    command::{CommandResult, CommandStatus},
+    config::{HudConfig, OutputFormat, RowDetailConfig},
+};
+use serde::Deserialize;
+use std::{collections::HashMap, time::Duration};
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct DashboardState {
+    pub title: String,
+    pub panels: Vec<Panel>,
+    pub focused: usize,
+    pub view_stack: Vec<View>,
+    pub row_detail: Option<RowDetailView>,
+    pub help_open: bool,
+    pub notice: Option<String>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct Panel {
+    pub id: String,
+    pub title: String,
+    pub command: String,
+    pub output_format: OutputFormat,
+    pub timeout: Duration,
+    pub actions: Vec<Action>,
+    pub row_detail: Option<RowDetail>,
+    pub state: PanelState,
+    pub scroll_offset: usize,
+    pub selected_row: usize,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct Action {
+    pub key: char,
+    pub label: String,
+    pub command: String,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct RowDetail {
+    pub title: String,
+    pub command: String,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct RowDetailRequest {
+    pub title: String,
+    pub command: String,
+    pub timeout: Duration,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct RowDetailView {
+    pub title: String,
+    pub state: PanelState,
+    pub scroll_offset: usize,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum PanelState {
+    Idle,
+    Loading,
+    Ready { content: PanelContent },
+    Error(PanelError),
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum PanelContent {
+    Text(String),
+    Table(TableContent),
+    Metrics(MetricsContent),
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct TableContent {
+    pub columns: Vec<String>,
+    pub rows: Vec<Vec<String>>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct MetricsContent {
+    pub metrics: Vec<MetricContent>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct MetricContent {
+    pub label: String,
+    pub value: u64,
+    pub max: u64,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct PanelError {
+    pub message: String,
+    pub detail: Option<String>,
+    pub kind: PanelErrorKind,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum PanelErrorKind {
+    ExitStatus(i32),
+    TimedOut,
+    LaunchFailed,
+    InvalidOutput,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum View {
+    Dashboard,
+    PanelDetail,
+    RowDetail,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum FocusMovement {
+    Next,
+    Previous,
+    Left,
+    Right,
+    Up,
+    Down,
+}
+
+impl DashboardState {
+    pub fn from_config(config: &HudConfig) -> Self {
+        Self {
+            title: config.title.clone(),
+            panels: config
+                .panels
+                .iter()
+                .map(|panel| Panel {
+                    id: panel.id.clone(),
+                    title: panel.title.clone(),
+                    command: panel.command.clone(),
+                    output_format: panel.output_format,
+                    timeout: panel.timeout,
+                    actions: panel
+                        .actions
+                        .iter()
+                        .map(|action| Action {
+                            key: action.key,
+                            label: action.label.clone(),
+                            command: action.command.clone(),
+                        })
+                        .collect(),
+                    row_detail: panel.row_detail.clone().map(RowDetail::from),
+                    state: PanelState::Idle,
+                    scroll_offset: 0,
+                    selected_row: 0,
+                })
+                .collect(),
+            focused: 0,
+            view_stack: vec![View::Dashboard],
+            row_detail: None,
+            help_open: false,
+            notice: None,
+        }
+    }
+
+    pub fn focused_panel(&self) -> Option<&Panel> {
+        self.panels.get(self.focused)
+    }
+
+    pub fn active_view(&self) -> View {
+        self.view_stack.last().copied().unwrap_or(View::Dashboard)
+    }
+
+    pub fn focus_next(&mut self) {
+        self.move_focus(FocusMovement::Next);
+    }
+
+    pub fn focus_previous(&mut self) {
+        self.move_focus(FocusMovement::Previous);
+    }
+
+    pub fn move_focus(&mut self, movement: FocusMovement) {
+        if self.panels.is_empty() {
+            self.focused = 0;
+            return;
+        }
+
+        self.focused = move_focus(self.focused, self.panels.len(), movement);
+    }
+
+    pub fn mark_loading(&mut self, panel_index: usize) {
+        if let Some(panel) = self.panels.get_mut(panel_index) {
+            panel.state = PanelState::Loading;
+            panel.scroll_offset = 0;
+            panel.selected_row = 0;
+        }
+    }
+
+    pub fn apply_result(&mut self, panel_index: usize, result: CommandResult) {
+        if let Some(panel) = self.panels.get_mut(panel_index) {
+            panel.state = PanelState::from_command_result(result, panel.output_format);
+            panel.scroll_offset = 0;
+            panel.selected_row = 0;
+        }
+    }
+
+    pub fn select_focused_row_down(&mut self) {
+        if let Some(panel) = self.panels.get_mut(self.focused) {
+            let max_row = panel.selectable_row_count().saturating_sub(1);
+            panel.selected_row = panel.selected_row.saturating_add(1).min(max_row);
+            panel.scroll_offset = panel.selected_row;
+        }
+    }
+
+    pub fn select_focused_row_up(&mut self) {
+        if let Some(panel) = self.panels.get_mut(self.focused) {
+            panel.selected_row = panel.selected_row.saturating_sub(1);
+            panel.scroll_offset = panel.scroll_offset.min(panel.selected_row);
+        }
+    }
+
+    pub fn set_notice(&mut self, notice: impl Into<String>) {
+        self.notice = Some(notice.into());
+    }
+
+    pub fn enter_panel_detail(&mut self) {
+        if !self.panels.is_empty() && self.active_view() == View::Dashboard {
+            self.view_stack.push(View::PanelDetail);
+        }
+    }
+
+    pub fn enter_selected_row_detail(&mut self) -> Option<RowDetailRequest> {
+        if self.active_view() != View::PanelDetail {
+            return None;
+        }
+
+        let panel = self.focused_panel()?;
+        let Some(row_detail) = &panel.row_detail else {
+            self.set_notice("selected panel has no row detail command");
+            return None;
+        };
+
+        let title = row_detail.title.clone();
+        let timeout = panel.timeout;
+        let command = match build_row_detail_command(panel) {
+            Ok(command) => command,
+            Err(message) => {
+                self.push_row_detail_error(title, message);
+                return None;
+            }
+        };
+
+        self.row_detail = Some(RowDetailView {
+            title: title.clone(),
+            state: PanelState::Loading,
+            scroll_offset: 0,
+        });
+        self.push_view(View::RowDetail);
+
+        Some(RowDetailRequest {
+            title,
+            command,
+            timeout,
+        })
+    }
+
+    pub fn apply_row_detail_result(&mut self, result: CommandResult) {
+        if let Some(row_detail) = &mut self.row_detail {
+            row_detail.state = PanelState::from_command_result(result, OutputFormat::Text);
+            row_detail.scroll_offset = 0;
+        }
+    }
+
+    pub fn scroll_row_detail_down(&mut self) {
+        if let Some(row_detail) = &mut self.row_detail {
+            row_detail.scroll_offset = row_detail.scroll_offset.saturating_add(1);
+        }
+    }
+
+    pub fn scroll_row_detail_up(&mut self) {
+        if let Some(row_detail) = &mut self.row_detail {
+            row_detail.scroll_offset = row_detail.scroll_offset.saturating_sub(1);
+        }
+    }
+
+    pub fn pop_view(&mut self) {
+        if self.active_view() == View::Dashboard {
+            return;
+        }
+
+        if self.view_stack.pop() == Some(View::RowDetail) {
+            self.row_detail = None;
+        }
+    }
+
+    pub fn return_to_dashboard(&mut self) {
+        self.view_stack.truncate(1);
+        self.row_detail = None;
+    }
+
+    pub fn open_help(&mut self) {
+        self.help_open = true;
+    }
+
+    pub fn close_help(&mut self) {
+        self.help_open = false;
+    }
+
+    pub fn toggle_help(&mut self) {
+        self.help_open = !self.help_open;
+    }
+
+    pub fn clear_notice(&mut self) {
+        self.notice = None;
+    }
+}
+
+impl From<RowDetailConfig> for RowDetail {
+    fn from(value: RowDetailConfig) -> Self {
+        Self {
+            title: value.title,
+            command: value.command,
+        }
+    }
+}
+
+impl Panel {
+    pub fn selectable_row_count(&self) -> usize {
+        match &self.state {
+            PanelState::Ready {
+                content: PanelContent::Text(output),
+            } if output.is_empty() => 1,
+            PanelState::Ready {
+                content: PanelContent::Text(output),
+            } => output.lines().count().max(1),
+            PanelState::Ready {
+                content: PanelContent::Table(table),
+            } => table.rows.len().max(1),
+            PanelState::Ready {
+                content: PanelContent::Metrics(metrics),
+            } => metrics.metrics.len().max(1),
+            _ => 1,
+        }
+    }
+}
+
+impl PanelState {
+    pub fn from_command_result(result: CommandResult, output_format: OutputFormat) -> Self {
+        match result.status {
+            CommandStatus::Exited(0) => match PanelContent::parse(result.stdout, output_format) {
+                Ok(content) => PanelState::Ready { content },
+                Err(message) => PanelState::Error(PanelError {
+                    message: "invalid structured output".into(),
+                    detail: Some(message),
+                    kind: PanelErrorKind::InvalidOutput,
+                }),
+            },
+            CommandStatus::Exited(status) => PanelState::Error(PanelError {
+                message: format!("command exited with status {status}"),
+                detail: non_empty_detail(result.stderr, result.stdout),
+                kind: PanelErrorKind::ExitStatus(status),
+            }),
+            CommandStatus::TimedOut => PanelState::Error(PanelError {
+                message: "command timed out".into(),
+                detail: non_empty_detail(result.stderr, result.stdout),
+                kind: PanelErrorKind::TimedOut,
+            }),
+            CommandStatus::LaunchFailed(message) => PanelState::Error(PanelError {
+                message,
+                detail: non_empty_detail(result.stderr, result.stdout),
+                kind: PanelErrorKind::LaunchFailed,
+            }),
+        }
+    }
+
+    pub fn label(&self) -> &'static str {
+        match self {
+            PanelState::Idle => "idle",
+            PanelState::Loading => "loading",
+            PanelState::Ready { .. } => "ready",
+            PanelState::Error(_) => "error",
+        }
+    }
+}
+
+impl PanelContent {
+    fn parse(stdout: String, output_format: OutputFormat) -> Result<Self, String> {
+        match output_format {
+            OutputFormat::Text => Ok(PanelContent::Text(stdout)),
+            OutputFormat::TableJson => parse_table_json(&stdout).map(PanelContent::Table),
+            OutputFormat::MetricsJson => parse_metrics_json(&stdout).map(PanelContent::Metrics),
+        }
+    }
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct RawTableContent {
+    #[serde(rename = "type")]
+    kind: String,
+    columns: Vec<String>,
+    rows: Vec<Vec<String>>,
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct RawMetricsContent {
+    #[serde(rename = "type")]
+    kind: String,
+    metrics: Vec<RawMetricContent>,
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct RawMetricContent {
+    label: String,
+    value: u64,
+    max: u64,
+}
+
+fn parse_table_json(stdout: &str) -> Result<TableContent, String> {
+    let raw: RawTableContent = serde_json::from_str(stdout).map_err(|error| error.to_string())?;
+    if raw.kind != "table" {
+        return Err(format!("expected type 'table', got '{}'", raw.kind));
+    }
+    if raw.columns.is_empty() {
+        return Err("table columns must not be empty".into());
+    }
+    for (index, column) in raw.columns.iter().enumerate() {
+        if column.trim().is_empty() {
+            return Err(format!("columns[{index}] must not be empty"));
+        }
+    }
+    for (row_index, row) in raw.rows.iter().enumerate() {
+        if row.len() != raw.columns.len() {
+            return Err(format!(
+                "rows[{row_index}] has {} cells, expected {}",
+                row.len(),
+                raw.columns.len()
+            ));
+        }
+    }
+
+    Ok(TableContent {
+        columns: raw.columns,
+        rows: raw.rows,
+    })
+}
+
+fn parse_metrics_json(stdout: &str) -> Result<MetricsContent, String> {
+    let raw: RawMetricsContent = serde_json::from_str(stdout).map_err(|error| error.to_string())?;
+    if raw.kind != "metrics" {
+        return Err(format!("expected type 'metrics', got '{}'", raw.kind));
+    }
+    if raw.metrics.is_empty() {
+        return Err("metrics must not be empty".into());
+    }
+
+    let mut metrics = Vec::new();
+    for (index, metric) in raw.metrics.into_iter().enumerate() {
+        let label = metric.label.trim().to_string();
+        if label.is_empty() {
+            return Err(format!("metrics[{index}].label must not be empty"));
+        }
+        if metric.max == 0 {
+            return Err(format!("metrics[{index}].max must be greater than zero"));
+        }
+        if metric.value > metric.max {
+            return Err(format!("metrics[{index}].value must be between 0 and max"));
+        }
+        metrics.push(MetricContent {
+            label,
+            value: metric.value,
+            max: metric.max,
+        });
+    }
+
+    Ok(MetricsContent { metrics })
+}
+
+fn build_row_detail_command(panel: &Panel) -> Result<String, String> {
+    let Some(row_detail) = &panel.row_detail else {
+        return Err("selected panel has no row detail command".into());
+    };
+    let PanelState::Ready {
+        content: PanelContent::Table(table),
+    } = &panel.state
+    else {
+        return Err("row detail requires table-json panel output".into());
+    };
+    let Some(row) = table.rows.get(panel.selected_row) else {
+        return Err("selected table row is empty".into());
+    };
+
+    let values = table
+        .columns
+        .iter()
+        .cloned()
+        .zip(row.iter().cloned())
+        .collect::<HashMap<_, _>>();
+
+    substitute_row_placeholders(&row_detail.command, &values)
+}
+
+fn substitute_row_placeholders(
+    template: &str,
+    values: &HashMap<String, String>,
+) -> Result<String, String> {
+    let mut output = String::new();
+    let mut rest = template;
+
+    while let Some(start) = rest.find("{{") {
+        output.push_str(&rest[..start]);
+        let after_start = &rest[start + 2..];
+        let Some(end) = after_start.find("}}") else {
+            return Err("unterminated row detail placeholder".into());
+        };
+        let key = after_start[..end].trim();
+        if key.is_empty() {
+            return Err("empty row detail placeholder".into());
+        }
+        let Some(value) = values.get(key) else {
+            return Err(format!("unknown row detail placeholder '{{{{{key}}}}}'"));
+        };
+        output.push_str(value);
+        rest = &after_start[end + 2..];
+    }
+
+    output.push_str(rest);
+    Ok(output)
+}
+
+impl DashboardState {
+    fn push_view(&mut self, view: View) {
+        if self.active_view() != view {
+            self.view_stack.push(view);
+        }
+    }
+
+    fn push_row_detail_error(&mut self, title: String, message: String) {
+        self.row_detail = Some(RowDetailView {
+            title,
+            state: PanelState::Error(PanelError {
+                message: "could not build row detail command".into(),
+                detail: Some(message),
+                kind: PanelErrorKind::InvalidOutput,
+            }),
+            scroll_offset: 0,
+        });
+        self.push_view(View::RowDetail);
+    }
+}
+
+fn non_empty_detail(primary: String, fallback: String) -> Option<String> {
+    let primary = primary.trim().to_string();
+    if !primary.is_empty() {
+        return Some(primary);
+    }
+
+    let fallback = fallback.trim().to_string();
+    if !fallback.is_empty() {
+        Some(fallback)
+    } else {
+        None
+    }
+}
+
+fn move_focus(focused: usize, panel_count: usize, movement: FocusMovement) -> usize {
+    if panel_count == 4 {
+        return move_focus_four_panel_grid(focused, movement);
+    }
+
+    move_focus_two_column_grid(focused, panel_count, movement)
+}
+
+fn move_focus_four_panel_grid(focused: usize, movement: FocusMovement) -> usize {
+    match movement {
+        FocusMovement::Next => (focused + 1) % 4,
+        FocusMovement::Previous if focused == 0 => 3,
+        FocusMovement::Previous => focused - 1,
+        FocusMovement::Left if focused == 3 => 0,
+        FocusMovement::Left if focused > 0 => focused - 1,
+        FocusMovement::Left => focused,
+        FocusMovement::Right if focused < 2 => focused + 1,
+        FocusMovement::Right if focused == 3 => 2,
+        FocusMovement::Right => focused,
+        FocusMovement::Up if focused == 3 => 1,
+        FocusMovement::Up => focused,
+        FocusMovement::Down if focused < 3 => 3,
+        FocusMovement::Down => focused,
+    }
+}
+
+fn move_focus_two_column_grid(
+    focused: usize,
+    panel_count: usize,
+    movement: FocusMovement,
+) -> usize {
+    const FOCUS_COLUMNS: usize = 2;
+
+    match movement {
+        FocusMovement::Next => (focused + 1) % panel_count,
+        FocusMovement::Previous if focused == 0 => panel_count - 1,
+        FocusMovement::Previous => focused - 1,
+        FocusMovement::Left if !focused.is_multiple_of(FOCUS_COLUMNS) => focused - 1,
+        FocusMovement::Left => focused,
+        FocusMovement::Right if focused % FOCUS_COLUMNS < FOCUS_COLUMNS - 1 => {
+            (focused + 1).min(panel_count - 1)
+        }
+        FocusMovement::Right => focused,
+        FocusMovement::Up if focused >= FOCUS_COLUMNS => focused - FOCUS_COLUMNS,
+        FocusMovement::Up => focused,
+        FocusMovement::Down => focus_down_two_column_grid(focused, panel_count),
+    }
+}
+
+fn focus_down_two_column_grid(focused: usize, panel_count: usize) -> usize {
+    const FOCUS_COLUMNS: usize = 2;
+
+    let target = focused + FOCUS_COLUMNS;
+    if target < panel_count {
+        return target;
+    }
+
+    let next_row_start = ((focused / FOCUS_COLUMNS) + 1) * FOCUS_COLUMNS;
+    if next_row_start < panel_count {
+        next_row_start
+    } else {
+        focused
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::config::HudConfig;
+
+    fn sample_state() -> DashboardState {
+        let config = HudConfig::from_toml(
+            r#"
+            title = "Test"
+
+            [[panels]]
+            id = "one"
+            title = "One"
+            command = "one"
+
+            [[panels]]
+            id = "two"
+            title = "Two"
+            command = "two"
+            "#,
+        )
+        .expect("valid config");
+
+        DashboardState::from_config(&config)
+    }
+
+    #[test]
+    fn focus_movement_wraps_deterministically() {
+        let mut state = sample_state();
+
+        assert_eq!(state.focused, 0);
+        state.focus_next();
+        assert_eq!(state.focused, 1);
+        state.focus_next();
+        assert_eq!(state.focused, 0);
+        state.focus_previous();
+        assert_eq!(state.focused, 1);
+    }
+
+    #[test]
+    fn directional_focus_matches_two_column_panel_map() {
+        let config = HudConfig::from_toml(
+            r#"
+            title = "Test"
+
+            [[panels]]
+            id = "one"
+            title = "One"
+            command = "one"
+
+            [[panels]]
+            id = "two"
+            title = "Two"
+            command = "two"
+
+            [[panels]]
+            id = "three"
+            title = "Three"
+            command = "three"
+
+            [[panels]]
+            id = "four"
+            title = "Four"
+            command = "four"
+
+            [[panels]]
+            id = "five"
+            title = "Five"
+            command = "five"
+            "#,
+        )
+        .expect("valid config");
+        let mut state = DashboardState::from_config(&config);
+
+        state.move_focus(FocusMovement::Right);
+        assert_eq!(state.focused, 1);
+        state.move_focus(FocusMovement::Down);
+        assert_eq!(state.focused, 3);
+        state.move_focus(FocusMovement::Left);
+        assert_eq!(state.focused, 2);
+        state.move_focus(FocusMovement::Down);
+        assert_eq!(state.focused, 4);
+        state.move_focus(FocusMovement::Right);
+        assert_eq!(state.focused, 4);
+        state.move_focus(FocusMovement::Up);
+        assert_eq!(state.focused, 2);
+
+        state.move_focus(FocusMovement::Right);
+        assert_eq!(state.focused, 3);
+        state.move_focus(FocusMovement::Down);
+        assert_eq!(state.focused, 4);
+    }
+
+    #[test]
+    fn directional_focus_matches_four_panel_mission_control_map() {
+        let config = HudConfig::from_toml(
+            r#"
+            title = "Test"
+
+            [[panels]]
+            id = "one"
+            title = "One"
+            command = "one"
+
+            [[panels]]
+            id = "two"
+            title = "Two"
+            command = "two"
+
+            [[panels]]
+            id = "three"
+            title = "Three"
+            command = "three"
+
+            [[panels]]
+            id = "four"
+            title = "Four"
+            command = "four"
+            "#,
+        )
+        .expect("valid config");
+        let mut state = DashboardState::from_config(&config);
+
+        state.move_focus(FocusMovement::Right);
+        assert_eq!(state.focused, 1);
+        state.move_focus(FocusMovement::Right);
+        assert_eq!(state.focused, 2);
+        state.move_focus(FocusMovement::Down);
+        assert_eq!(state.focused, 3);
+        state.move_focus(FocusMovement::Up);
+        assert_eq!(state.focused, 1);
+        state.move_focus(FocusMovement::Left);
+        assert_eq!(state.focused, 0);
+        state.move_focus(FocusMovement::Down);
+        assert_eq!(state.focused, 3);
+        state.move_focus(FocusMovement::Right);
+        assert_eq!(state.focused, 2);
+    }
+
+    #[test]
+    fn panel_state_tracks_loading_ready_and_error() {
+        let mut state = sample_state();
+
+        assert_eq!(state.panels[0].state, PanelState::Idle);
+        state.mark_loading(0);
+        assert_eq!(state.panels[0].state, PanelState::Loading);
+
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: "done".into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+        assert_eq!(
+            state.panels[0].state,
+            PanelState::Ready {
+                content: PanelContent::Text("done".into())
+            }
+        );
+
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: String::new(),
+                stderr: "nope".into(),
+                status: CommandStatus::Exited(2),
+            },
+        );
+        assert!(matches!(
+            state.panels[0].state,
+            PanelState::Error(PanelError {
+                kind: PanelErrorKind::ExitStatus(2),
+                ..
+            })
+        ));
+    }
+
+    #[test]
+    fn focused_panel_selection_resets_when_output_changes() {
+        let mut state = sample_state();
+
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: "one\ntwo\nthree".into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+        state.select_focused_row_down();
+        state.select_focused_row_down();
+        assert_eq!(state.panels[0].selected_row, 2);
+        assert_eq!(state.panels[0].scroll_offset, 2);
+
+        state.select_focused_row_up();
+        assert_eq!(state.panels[0].selected_row, 1);
+        assert_eq!(state.panels[0].scroll_offset, 1);
+
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: "new output".into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+        assert_eq!(state.panels[0].selected_row, 0);
+        assert_eq!(state.panels[0].scroll_offset, 0);
+    }
+
+    #[test]
+    fn focused_panel_selection_clamps_to_output_rows() {
+        let mut state = sample_state();
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: "one\ntwo".into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+
+        state.select_focused_row_down();
+        state.select_focused_row_down();
+        assert_eq!(state.panels[0].selected_row, 1);
+
+        state.select_focused_row_up();
+        state.select_focused_row_up();
+        assert_eq!(state.panels[0].selected_row, 0);
+    }
+
+    #[test]
+    fn parses_table_json_output_at_panel_boundary() {
+        let config = HudConfig::from_toml(
+            r#"
+            title = "Test"
+
+            [[panels]]
+            id = "repos"
+            title = "Repos"
+            command = "repos"
+            output = "table-json"
+            "#,
+        )
+        .expect("valid config");
+        let mut state = DashboardState::from_config(&config);
+
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: r#"{"type":"table","columns":["Repo","State"],"rows":[["hud","active"]]}"#
+                    .into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+
+        assert_eq!(
+            state.panels[0].state,
+            PanelState::Ready {
+                content: PanelContent::Table(TableContent {
+                    columns: vec!["Repo".into(), "State".into()],
+                    rows: vec![vec!["hud".into(), "active".into()]],
+                })
+            }
+        );
+    }
+
+    #[test]
+    fn malformed_table_json_is_panel_error() {
+        let config = HudConfig::from_toml(
+            r#"
+            title = "Test"
+
+            [[panels]]
+            id = "repos"
+            title = "Repos"
+            command = "repos"
+            output = "table-json"
+            "#,
+        )
+        .expect("valid config");
+        let mut state = DashboardState::from_config(&config);
+
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: r#"{"type":"table","columns":["Repo"],"rows":[["hud","extra"]]}"#.into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+
+        assert!(matches!(
+            state.panels[0].state,
+            PanelState::Error(PanelError {
+                kind: PanelErrorKind::InvalidOutput,
+                ..
+            })
+        ));
+    }
+
+    #[test]
+    fn parses_metrics_json_output_at_panel_boundary() {
+        let config = HudConfig::from_toml(
+            r#"
+            title = "Test"
+
+            [[panels]]
+            id = "metrics"
+            title = "Metrics"
+            command = "metrics"
+            output = "metrics-json"
+            "#,
+        )
+        .expect("valid config");
+        let mut state = DashboardState::from_config(&config);
+
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: r#"{"type":"metrics","metrics":[{"label":"Budget","value":72,"max":100}]}"#
+                    .into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+
+        assert_eq!(
+            state.panels[0].state,
+            PanelState::Ready {
+                content: PanelContent::Metrics(MetricsContent {
+                    metrics: vec![MetricContent {
+                        label: "Budget".into(),
+                        value: 72,
+                        max: 100,
+                    }],
+                })
+            }
+        );
+    }
+
+    #[test]
+    fn malformed_metrics_json_is_panel_error() {
+        let config = HudConfig::from_toml(
+            r#"
+            title = "Test"
+
+            [[panels]]
+            id = "metrics"
+            title = "Metrics"
+            command = "metrics"
+            output = "metrics-json"
+            "#,
+        )
+        .expect("valid config");
+        let mut state = DashboardState::from_config(&config);
+
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout:
+                    r#"{"type":"metrics","metrics":[{"label":"Budget","value":120,"max":100}]}"#
+                        .into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+
+        assert!(matches!(
+            state.panels[0].state,
+            PanelState::Error(PanelError {
+                kind: PanelErrorKind::InvalidOutput,
+                ..
+            })
+        ));
+    }
+
+    #[test]
+    fn selected_table_row_builds_row_detail_request_and_pushes_view() {
+        let config = HudConfig::from_toml(
+            r#"
+            title = "Test"
+
+            [[panels]]
+            id = "issues"
+            title = "Issues"
+            command = "issues"
+            output = "table-json"
+
+            [panels.row_detail]
+            title = "Issue detail"
+            command = "gh issue view {{Issue}} --repo {{Repo}}"
+            "#,
+        )
+        .expect("valid config");
+        let mut state = DashboardState::from_config(&config);
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: r#"{"type":"table","columns":["Issue","Repo"],"rows":[["12","hud"],["15","hud"]]}"#.into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+        state.enter_panel_detail();
+        state.select_focused_row_down();
+
+        let request = state
+            .enter_selected_row_detail()
+            .expect("row detail request");
+
+        assert_eq!(request.title, "Issue detail");
+        assert_eq!(request.command, "gh issue view 15 --repo hud");
+        assert_eq!(state.active_view(), View::RowDetail);
+        assert!(matches!(
+            state.row_detail.as_ref().expect("row detail").state,
+            PanelState::Loading
+        ));
+    }
+
+    #[test]
+    fn unknown_row_placeholder_pushes_row_detail_error() {
+        let config = HudConfig::from_toml(
+            r#"
+            title = "Test"
+
+            [[panels]]
+            id = "issues"
+            title = "Issues"
+            command = "issues"
+            output = "table-json"
+
+            [panels.row_detail]
+            title = "Issue detail"
+            command = "gh issue view {{Missing}}"
+            "#,
+        )
+        .expect("valid config");
+        let mut state = DashboardState::from_config(&config);
+        state.apply_result(
+            0,
+            CommandResult {
+                stdout: r#"{"type":"table","columns":["Issue"],"rows":[["12"]]}"#.into(),
+                stderr: String::new(),
+                status: CommandStatus::Exited(0),
+            },
+        );
+        state.enter_panel_detail();
+
+        assert!(state.enter_selected_row_detail().is_none());
+        assert_eq!(state.active_view(), View::RowDetail);
+        assert!(matches!(
+            state.row_detail.as_ref().expect("row detail").state,
+            PanelState::Error(PanelError {
+                kind: PanelErrorKind::InvalidOutput,
+                ..
+            })
+        ));
+    }
+}

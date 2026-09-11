@@ -1,0 +1,25 @@
+{
+  "title": "Observatory selected events",
+  "provenance": "Fictional supplied log entries / not independently verified",
+  "scope": "12 Apr 2026 selected; local times; not complete incident log",
+  "intent": "Help the incoming shift lead distinguish what these entries establish from what remains unknown.",
+  "relationship": "chronology",
+  "items": [
+    {
+      "label": "18:10 — Roof sensor reported open",
+      "detail": ["The console's camera view was unavailable."]
+    },
+    {
+      "label": "Approximately 18:25 — Technician note reported roof physically closed",
+      "detail": ["This time is an estimate, not an exact timestamp."]
+    },
+    {
+      "label": "18:40 — Roof sensor reported closed"
+    }
+  ],
+  "notes": [
+    "The supplied entries do not say whether anyone adjusted the sensor or the roof.",
+    "The warning's cause and whether the camera view was restored are unknown.",
+    "No current roof state, safety clearance, or causal explanation is supplied."
+  ]
+}

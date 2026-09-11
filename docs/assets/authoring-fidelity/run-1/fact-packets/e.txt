@@ -1,0 +1,9 @@
+A youth-group treasurer asks whether the supplied transport budget notes establish which offer costs less for the group's outing. Explain what can and cannot be concluded from these notes; do not seek live quotes or invent missing inputs.
+
+The notes are fictional, copied on 4 January 2027, not live or independently verified. They describe two independent offers, listed as copied rather than ranked. No booking has been made and no travel date is supplied.
+
+Copper Coaches quotes 420 GBP per coach for a return trip from East Quay to Hill Camp, including the driver but excluding tolls. Coach capacity, number of coaches required and toll amounts are not supplied.
+
+Silver Rail quotes 19 EUR per passenger for a one-way ticket from Central Station to Valley Halt. No return fare, group size, group discount, transfer between these stops and the coach endpoints, or applicable exchange rate is supplied.
+
+The notes provide no common currency, passenger count, route scope or return-journey basis. Do not double the rail fare, convert currencies, divide coach cost per person, invent a complete route, or rank the offers by their numerals. Neither an all-in outing total nor a lower-cost option is established. These notes supply no booking procedure or temporal order connecting the two offers.

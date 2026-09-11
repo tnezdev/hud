@@ -1,0 +1,175 @@
+
+FILE a.compare.json.drafts.diff 
+--- /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/drafts/a.compare.json
++++ /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/a.compare.json
+@@ -1,8 +1,8 @@
+ {
+   "title": "Work-lamp hire for the indoor repair day",
+-  "provenance": "Fictional supplier emails; not live or independently verified.",
++  "provenance": "Fictional emails; not live or independently verified.",
+   "scope": "18 October 2026 / one day / four-lamp set / GBP",
+-  "intent": "Help the community workshop organizer inspect price, fulfillment and power access. Source order is not preference; no option is selected or order placed. No power-outlet survey or brightness measurements are supplied: do not infer equal light output or a cheapest usable setup. Collection is not established as free.",
++  "intent": "Help the community workshop organizer inspect price, fulfillment and power access. Source order is not preference; no option is selected. No order is established as placed. No power-outlet survey or brightness measurements are supplied: do not infer equal light output or a cheapest usable setup. Collection is not established as free.",
+   "criteria": [
+     {"name": "Quoted hire", "question": "What is quoted for the four-lamp set for one day?"},
+     {"name": "Fulfillment", "question": "When and on what terms is collection or delivery offered?"},
+
+
+FILE a.compare.json.revisions-r1.diff 
+--- /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/revisions/r1/a.compare.json
++++ /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/a.compare.json
+@@ -2,7 +2,7 @@
+   "title": "Work-lamp hire for the indoor repair day",
+   "provenance": "Fictional emails; not live or independently verified.",
+   "scope": "18 October 2026 / one day / four-lamp set / GBP",
+-  "intent": "Help the community workshop organizer inspect price, fulfillment and power access. Source order is not preference; no option is selected or order placed. No power-outlet survey or brightness measurements are supplied: do not infer equal light output or a cheapest usable setup. Collection is not established as free.",
++  "intent": "Help the community workshop organizer inspect price, fulfillment and power access. Source order is not preference; no option is selected. No order is established as placed. No power-outlet survey or brightness measurements are supplied: do not infer equal light output or a cheapest usable setup. Collection is not established as free.",
+   "criteria": [
+     {"name": "Quoted hire", "question": "What is quoted for the four-lamp set for one day?"},
+     {"name": "Fulfillment", "question": "When and on what terms is collection or delivery offered?"},
+
+
+FILE c.compare.json.drafts.diff 
+--- /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/drafts/c.compare.json
++++ /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json
+@@ -1,8 +1,8 @@
+ {
+   "title": "Temporary reading-collection offers",
+-  "provenance": "Fictional written offers; not live or independently verified.",
++  "provenance": "Fictional offers; not live or independently verified.",
+   "scope": "2 Nov 2026 offers / same 60 named books, same school / EUR",
+-  "intent": "Help the school librarian inspect the quoted loan, readiness wording, carriage and renewal terms, not choose or book. Both offers cover the same 60 named books delivered to the same school. Source order is not ranking. No final all-in total is established; conditional renewal or carriage is not secured. Do not convert working days to calendar days or infer pupil availability on a quoted ready date.",
++  "intent": "Help the school librarian inspect these written offers: quoted loan, readiness wording, carriage and renewal terms, not choose or book. Both offers cover the same 60 named books delivered to the same school. Source order is not ranking. No final all-in total is established; conditional renewal or carriage is not established as secured. Do not convert working days to calendar days or infer pupil availability on a quoted ready date.",
+   "criteria": [
+     {"name": "Quoted loan", "question": "What loan charge and period are quoted?"},
+     {"name": "Readiness wording", "question": "What does the offer say about readiness, and what does that establish?"},
+
+
+FILE c.compare.json.revisions-r1.diff 
+--- /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/revisions/r1/c.compare.json
++++ /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json
+@@ -2,7 +2,7 @@
+   "title": "Temporary reading-collection offers",
+   "provenance": "Fictional offers; not live or independently verified.",
+   "scope": "2 Nov 2026 offers / same 60 named books, same school / EUR",
+-  "intent": "Help the school librarian inspect these written offers: quoted loan, readiness wording, carriage and renewal terms, not choose or book. Both offers cover the same 60 named books delivered to the same school. Source order is not ranking. No final all-in total is established; conditional renewal or carriage is not secured. Do not convert working days to calendar days or infer pupil availability on a quoted ready date.",
++  "intent": "Help the school librarian inspect these written offers: quoted loan, readiness wording, carriage and renewal terms, not choose or book. Both offers cover the same 60 named books delivered to the same school. Source order is not ranking. No final all-in total is established; conditional renewal or carriage is not established as secured. Do not convert working days to calendar days or infer pupil availability on a quoted ready date.",
+   "criteria": [
+     {"name": "Quoted loan", "question": "What loan charge and period are quoted?"},
+     {"name": "Readiness wording", "question": "What does the offer say about readiness, and what does that establish?"},
+
+
+FILE middle-a.72x35.20.stdout.diff 
+--- /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/middle/a.72x35.20.stdout
++++ /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/a.72x35.20.stdout
+@@ -32,4 +32,4 @@
+   What cable length is supplied?
+   Larch Hire    UNKNOWN · not supplied
+   │             Cable length is not supplied.
+-  MORE below | line 18/60 | j/k PgDn Home/End | q quit
++  MORE below | line 19/61 | j/k PgDn Home/End | q quit
+
+
+FILE middle-a.72x35.30.stdout.diff 
+--- /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/middle/a.72x35.30.stdout
++++ /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/a.72x35.30.stdout
+@@ -32,4 +32,4 @@
+   Moss Hire     UNKNOWN · not supplied
+   │             Deposit amount, damage excess and replacement-lamp
+   │             availability are not supplied.
+-  MORE below | line 30/60 | j/k PgDn Home/End | q quit
++  MORE below | line 31/61 | j/k PgDn Home/End | q quit
+
+
+FILE r1-a.72x35.0.stdout.diff 
+--- /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/r1/a.72x35.0.stdout
++++ /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/a.72x35.0.stdout
+@@ -5,10 +5,11 @@
+   18 October 2026 / one day / four-lamp set / GBP
+ 
+   Help the community workshop organizer inspect price, fulfillment and
+-  power access. Source order is not preference; no option is selected
+-  or order placed. No power-outlet survey or brightness measurements
+-  are supplied: do not infer equal light output or a cheapest usable
+-  setup. Collection is not established as free.
++  power access. Source order is not preference; no option is selected.
++  No order is established as placed. No power-outlet survey or
++  brightness measurements are supplied: do not infer equal light
++  output or a cheapest usable setup. Collection is not established as
++  free.
+ 
+ 
+   ──── Compare · same questions · no ranking
+@@ -31,5 +32,4 @@
+   Reed Hire     Delivery on 18 October only if the organizer confirms
+   │             by 12:00 local time on 15 October.
+   │             Delivery charge is not supplied; final delivered total
+-  │             is unknown.
+-  MORE below | line 1/60 | j/k PgDn Home/End | q quit
++  MORE below: answer/section continues | line 1/61 | j/k | q
+
+
+FILE r1-a.72x35.65535.stdout.diff 
+--- /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/r1/a.72x35.65535.stdout
++++ /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/a.72x35.65535.stdout
+@@ -32,4 +32,4 @@
+ 
+ 
+ 
+-  END | line 42/60 | j/k PgDn Home/End | q quit
++  END | line 43/61 | j/k PgDn Home/End | q quit
+
+
+FILE r1-a.80x24.0.stdout.diff 
+--- /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/r1/a.80x24.0.stdout
++++ /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/a.80x24.0.stdout
+@@ -5,10 +5,10 @@
+   18 October 2026 / one day / four-lamp set / GBP
+ 
+   Help the community workshop organizer inspect price, fulfillment and power
+-  access. Source order is not preference; no option is selected or order
+-  placed. No power-outlet survey or brightness measurements are supplied: do
+-  not infer equal light output or a cheapest usable setup. Collection is not
+-  established as free.
++  access. Source order is not preference; no option is selected. No order is
++  established as placed. No power-outlet survey or brightness measurements are
++  supplied: do not infer equal light output or a cheapest usable setup.
++  Collection is not established as free.
+ 
+ 
+   ──── Compare · same questions · no ranking
+
+
+FILE r1-c.72x35.0.stdout.diff 
+--- /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/r1/c.72x35.0.stdout
++++ /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/c.72x35.0.stdout
+@@ -8,9 +8,9 @@
+   readiness wording, carriage and renewal terms, not choose or book.
+   Both offers cover the same 60 named books delivered to the same
+   school. Source order is not ranking. No final all-in total is
+-  established; conditional renewal or carriage is not secured. Do not
+-  convert working days to calendar days or infer pupil availability on
+-  a quoted ready date.
++  established; conditional renewal or carriage is not established as
++  secured. Do not convert working days to calendar days or infer pupil
++  availability on a quoted ready date.
+ 
+ 
+   ──── Compare · same questions · no ranking
+
+
+FILE r1-c.80x24.0.stdout.diff 
+--- /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/r1/c.80x24.0.stdout
++++ /home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/c.80x24.0.stdout
+@@ -8,8 +8,8 @@
+   readiness wording, carriage and renewal terms, not choose or book. Both
+   offers cover the same 60 named books delivered to the same school. Source
+   order is not ranking. No final all-in total is established; conditional
+-  renewal or carriage is not secured. Do not convert working days to calendar
+-  days or infer pupil availability on a quoted ready date.
++  renewal or carriage is not established as secured. Do not convert working
++  days to calendar days or infer pupil availability on a quoted ready date.
+ 
+ 
+   ──── Compare · same questions · no ranking
+

@@ -107,7 +107,13 @@ CLI or a generic table API. The [Compare authoring entrypoint](skills/hud/compar
 teaches when to choose Compare, Sequence, or prose. The
 [trial and independent review](docs/compare-trial.md) record appropriate Compare
 selection, real fidelity omissions, and post-trial discovery corrections; none
-of these alone establish Product Owner acceptance or author reliability.
+of these alone establish Product Owner acceptance or author reliability. The
+[bounded fidelity trial](docs/authoring-fidelity-trial.md) subsequently exercised
+the corrected discovery path on five new packets: all final compositions passed
+independent factual review after recorded self-repairs, including actual Sequence
+invocation. In the subsequent reading-collection demo, the Product Owner found
+the grouping easier to follow and its scanning benefit well worth the scrolling.
+Preserve that demonstrated treatment; general reliability remains unestablished.
 
 Start with the draft [HUD authoring skill](skills/hud/SKILL.md), then try a
 fictional film-night story for two different audiences:

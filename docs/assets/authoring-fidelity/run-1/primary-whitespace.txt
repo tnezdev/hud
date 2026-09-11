@@ -1,0 +1,6 @@
+git diff --check: exit 0
+New-file git diff --no-index --check: 688 files, no diagnostics; exit counts {1: 688} (before this result file).
+No-index exit 1 indicates differing/new files, not a whitespace diagnostic.
+The first primary wrapper incorrectly rejected normal exit 1 with empty output; its assertion failed. The second identified the raw concatenated history-diffs.txt final blank line. A file-specific attribute preserves that EOF byte rather than rewriting evidence. Third pass above succeeded.
+Actual Git index unchanged; no stage/commit.
+Final gate: exit 0; 80 tests passed.

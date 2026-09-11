@@ -1,0 +1,451 @@
+FINAL SOURCE: /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json
+{
+  "title": "Work-lamp hire for the indoor repair day",
+  "provenance": "Fictional emails; not live or independently verified.",
+  "scope": "18 October 2026 / one day / four-lamp set / GBP",
+  "intent": "Help the community workshop organizer inspect price, fulfillment and power access. Source order is not preference; no option is selected. No order is established as placed. No power-outlet survey or brightness measurements are supplied: do not infer equal light output or a cheapest usable setup. Collection is not established as free.",
+  "criteria": [
+    {"name": "Quoted hire", "question": "What is quoted for the four-lamp set for one day?"},
+    {"name": "Fulfillment", "question": "When and on what terms is collection or delivery offered?"},
+    {"name": "Battery operation", "question": "Is battery operation supported, and with what runtime limits?"},
+    {"name": "Cable length", "question": "What cable length is supplied?"},
+    {"name": "Other hire terms", "question": "What deposits, damage excesses and replacement-lamp availability are supplied?"}
+  ],
+  "alternatives": [
+    {
+      "name": "Larch Hire",
+      "answers": [
+        {"criterion": "Quoted hire", "state": "known", "value": "48 GBP"},
+        {"criterion": "Fulfillment", "state": "known", "value": "Collection from its depot on the morning of 18 October."},
+        {"criterion": "Battery operation", "state": "unavailable", "qualification": "Battery operation is explicitly unavailable for this set; mains power is required."},
+        {"criterion": "Cable length", "state": "unknown", "qualification": "Cable length is not supplied."},
+        {"criterion": "Other hire terms", "state": "unknown", "qualification": "Deposit amount, damage excess and replacement-lamp availability are not supplied."}
+      ]
+    },
+    {
+      "name": "Moss Hire",
+      "answers": [
+        {"criterion": "Quoted hire", "state": "known", "value": "62 GBP"},
+        {"criterion": "Fulfillment", "state": "known", "value": "Collection from its depot on the evening of 17 October.", "qualification": "Hire covers 18 October only."},
+        {"criterion": "Battery operation", "state": "known", "value": "Available; quoted runtime up to 3 hours at half brightness.", "qualification": "This is not a full-brightness runtime."},
+        {"criterion": "Cable length", "state": "known", "value": "5 metres per lamp"},
+        {"criterion": "Other hire terms", "state": "unknown", "qualification": "Deposit amount, damage excess and replacement-lamp availability are not supplied."}
+      ]
+    },
+    {
+      "name": "Reed Hire",
+      "answers": [
+        {"criterion": "Quoted hire", "state": "known", "value": "75 GBP", "qualification": "Delivery charge is not supplied; final delivered total is unknown."},
+        {"criterion": "Fulfillment", "state": "known", "value": "Delivery on 18 October only if the organizer confirms by 12:00 local time on 15 October.", "qualification": "Delivery charge is not supplied; final delivered total is unknown."},
+        {"criterion": "Battery operation", "state": "unknown", "qualification": "Whether this set supports battery operation is not supplied."},
+        {"criterion": "Cable length", "state": "known", "value": "4 metres per lamp"},
+        {"criterion": "Other hire terms", "state": "unknown", "qualification": "Deposit amount, damage excess and replacement-lamp availability are not supplied."}
+      ]
+    }
+  ]
+}
+
+
+COMMAND FILE: /tmp/hud-fidelity-run1-rS7MUp/author/evidence/final/a.72x35.0.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 72 35 0 
+
+EXIT (2 bytes):
+0
+
+
+STDERR (0 bytes):
+(empty)
+
+STDOUT (1381 bytes):
+
+  Work-lamp hire for the indoor repair day
+
+  Fictional emails; not live or independently verified.
+  18 October 2026 / one day / four-lamp set / GBP
+
+  Help the community workshop organizer inspect price, fulfillment and
+  power access. Source order is not preference; no option is selected.
+  No order is established as placed. No power-outlet survey or
+  brightness measurements are supplied: do not infer equal light
+  output or a cheapest usable setup. Collection is not established as
+  free.
+
+
+  ──── Compare · same questions · no ranking
+
+  ──── Quoted hire
+  What is quoted for the four-lamp set for one day?
+  Larch Hire    48 GBP
+  Moss Hire     62 GBP
+  Reed Hire     75 GBP
+  │             Delivery charge is not supplied; final delivered total
+  │             is unknown.
+
+  ──── Fulfillment
+  When and on what terms is collection or delivery offered?
+  Larch Hire    Collection from its depot on the morning of 18
+  │             October.
+  Moss Hire     Collection from its depot on the evening of 17
+  │             October.
+  │             Hire covers 18 October only.
+  Reed Hire     Delivery on 18 October only if the organizer confirms
+  │             by 12:00 local time on 15 October.
+  │             Delivery charge is not supplied; final delivered total
+  MORE below: answer/section continues | line 1/61 | j/k | q
+
+
+COMMAND FILE: /tmp/hud-fidelity-run1-rS7MUp/author/evidence/final/a.72x35.20.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 72 35 20 
+
+EXIT (2 bytes):
+0
+
+
+STDERR (0 bytes):
+(empty)
+
+STDOUT (1447 bytes):
+
+  Work-lamp hire for the indoor repair day
+
+  Fictional emails; not live or independently verified.
+  18 October 2026 / one day / four-lamp set / GBP
+
+  ──── Fulfillment
+  When and on what terms is collection or delivery offered?
+  Larch Hire    Collection from its depot on the morning of 18
+  │             October.
+  Moss Hire     Collection from its depot on the evening of 17
+  │             October.
+  │             Hire covers 18 October only.
+  Reed Hire     Delivery on 18 October only if the organizer confirms
+  │             by 12:00 local time on 15 October.
+  │             Delivery charge is not supplied; final delivered total
+  │             is unknown.
+
+  ──── Battery operation
+  Is battery operation supported, and with what runtime limits?
+  Larch Hire    UNAVAILABLE · not available
+  │             Battery operation is explicitly unavailable for this
+  │             set; mains power is required.
+  Moss Hire     Available; quoted runtime up to 3 hours at half
+  │             brightness.
+  │             This is not a full-brightness runtime.
+  Reed Hire     UNKNOWN · not supplied
+  │             Whether this set supports battery operation is not
+  │             supplied.
+
+  ──── Cable length
+  What cable length is supplied?
+  Larch Hire    UNKNOWN · not supplied
+  │             Cable length is not supplied.
+  MORE below | line 19/61 | j/k PgDn Home/End | q quit
+
+
+COMMAND FILE: /tmp/hud-fidelity-run1-rS7MUp/author/evidence/final/a.72x35.30.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 72 35 30 
+
+EXIT (2 bytes):
+0
+
+
+STDERR (0 bytes):
+(empty)
+
+STDOUT (1406 bytes):
+
+  Work-lamp hire for the indoor repair day
+
+  Fictional emails; not live or independently verified.
+  18 October 2026 / one day / four-lamp set / GBP
+
+  ──── Battery operation
+  Is battery operation supported, and with what runtime limits?
+  Larch Hire    UNAVAILABLE · not available
+  │             Battery operation is explicitly unavailable for this
+  │             set; mains power is required.
+  Moss Hire     Available; quoted runtime up to 3 hours at half
+  │             brightness.
+  │             This is not a full-brightness runtime.
+  Reed Hire     UNKNOWN · not supplied
+  │             Whether this set supports battery operation is not
+  │             supplied.
+
+  ──── Cable length
+  What cable length is supplied?
+  Larch Hire    UNKNOWN · not supplied
+  │             Cable length is not supplied.
+  Moss Hire     5 metres per lamp
+  Reed Hire     4 metres per lamp
+
+  ──── Other hire terms
+  What deposits, damage excesses and replacement-lamp availability are
+  supplied?
+  Larch Hire    UNKNOWN · not supplied
+  │             Deposit amount, damage excess and replacement-lamp
+  │             availability are not supplied.
+  Moss Hire     UNKNOWN · not supplied
+  │             Deposit amount, damage excess and replacement-lamp
+  │             availability are not supplied.
+  MORE below | line 31/61 | j/k PgDn Home/End | q quit
+
+
+COMMAND FILE: /tmp/hud-fidelity-run1-rS7MUp/author/evidence/final/a.72x35.65535.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 72 35 65535 
+
+EXIT (2 bytes):
+0
+
+
+STDERR (0 bytes):
+(empty)
+
+STDOUT (1016 bytes):
+
+  Work-lamp hire for the indoor repair day
+
+  Fictional emails; not live or independently verified.
+  18 October 2026 / one day / four-lamp set / GBP
+
+  ──── Cable length
+  What cable length is supplied?
+  Larch Hire    UNKNOWN · not supplied
+  │             Cable length is not supplied.
+  Moss Hire     5 metres per lamp
+  Reed Hire     4 metres per lamp
+
+  ──── Other hire terms
+  What deposits, damage excesses and replacement-lamp availability are
+  supplied?
+  Larch Hire    UNKNOWN · not supplied
+  │             Deposit amount, damage excess and replacement-lamp
+  │             availability are not supplied.
+  Moss Hire     UNKNOWN · not supplied
+  │             Deposit amount, damage excess and replacement-lamp
+  │             availability are not supplied.
+  Reed Hire     UNKNOWN · not supplied
+  │             Deposit amount, damage excess and replacement-lamp
+  │             availability are not supplied.
+
+
+
+
+
+
+
+
+
+  END | line 43/61 | j/k PgDn Home/End | q quit
+
+
+COMMAND FILE: /tmp/hud-fidelity-run1-rS7MUp/author/evidence/final/a.80x24.0.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 80 24 0 
+
+EXIT (2 bytes):
+0
+
+
+STDERR (0 bytes):
+(empty)
+
+STDOUT (862 bytes):
+
+  Work-lamp hire for the indoor repair day
+
+  Fictional emails; not live or independently verified.
+  18 October 2026 / one day / four-lamp set / GBP
+
+  Help the community workshop organizer inspect price, fulfillment and power
+  access. Source order is not preference; no option is selected. No order is
+  established as placed. No power-outlet survey or brightness measurements are
+  supplied: do not infer equal light output or a cheapest usable setup.
+  Collection is not established as free.
+
+
+  ──── Compare · same questions · no ranking
+
+  ──── Quoted hire
+  What is quoted for the four-lamp set for one day?
+  Larch Hire    48 GBP
+  Moss Hire     62 GBP
+  Reed Hire     75 GBP
+  │             Delivery charge is not supplied; final delivered total is
+  │             unknown.
+
+  MORE below | line 1/56 | j/k PgDn Home/End | q quit
+
+
+COMMAND FILE: /tmp/hud-fidelity-run1-rS7MUp/author/evidence/final/a.80x24.15.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 80 24 15 
+
+EXIT (2 bytes):
+0
+
+
+STDERR (0 bytes):
+(empty)
+
+STDOUT (963 bytes):
+
+  Work-lamp hire for the indoor repair day
+
+  Fictional emails; not live or independently verified.
+  18 October 2026 / one day / four-lamp set / GBP
+
+  ──── Quoted hire
+  What is quoted for the four-lamp set for one day?
+  Larch Hire    48 GBP
+  Moss Hire     62 GBP
+  Reed Hire     75 GBP
+  │             Delivery charge is not supplied; final delivered total is
+  │             unknown.
+
+  ──── Fulfillment
+  When and on what terms is collection or delivery offered?
+  Larch Hire    Collection from its depot on the morning of 18 October.
+  Moss Hire     Collection from its depot on the evening of 17 October.
+  │             Hire covers 18 October only.
+  Reed Hire     Delivery on 18 October only if the organizer confirms by 12:00
+  │             local time on 15 October.
+  │             Delivery charge is not supplied; final delivered total is
+  │             unknown.
+  MORE below | line 10/56 | j/k PgDn Home/End | q quit
+
+
+COMMAND FILE: /tmp/hud-fidelity-run1-rS7MUp/author/evidence/final/a.80x24.25.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 80 24 25 
+
+EXIT (2 bytes):
+0
+
+
+STDERR (0 bytes):
+(empty)
+
+STDOUT (1106 bytes):
+
+  Work-lamp hire for the indoor repair day
+
+  Fictional emails; not live or independently verified.
+  18 October 2026 / one day / four-lamp set / GBP
+
+  ──── Fulfillment
+  When and on what terms is collection or delivery offered?
+  Larch Hire    Collection from its depot on the morning of 18 October.
+  Moss Hire     Collection from its depot on the evening of 17 October.
+  │             Hire covers 18 October only.
+  Reed Hire     Delivery on 18 October only if the organizer confirms by 12:00
+  │             local time on 15 October.
+  │             Delivery charge is not supplied; final delivered total is
+  │             unknown.
+
+  ──── Battery operation
+  Is battery operation supported, and with what runtime limits?
+  Larch Hire    UNAVAILABLE · not available
+  │             Battery operation is explicitly unavailable for this set;
+  │             mains power is required.
+  Moss Hire     Available; quoted runtime up to 3 hours at half brightness.
+  │             This is not a full-brightness runtime.
+  MORE below | line 18/56 | j/k PgDn Home/End | q quit
+
+
+COMMAND FILE: /tmp/hud-fidelity-run1-rS7MUp/author/evidence/final/a.80x24.35.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 80 24 35 
+
+EXIT (2 bytes):
+0
+
+
+STDERR (0 bytes):
+(empty)
+
+STDOUT (939 bytes):
+
+  Work-lamp hire for the indoor repair day
+
+  Fictional emails; not live or independently verified.
+  18 October 2026 / one day / four-lamp set / GBP
+
+  ──── Battery operation
+  Is battery operation supported, and with what runtime limits?
+  Larch Hire    UNAVAILABLE · not available
+  │             Battery operation is explicitly unavailable for this set;
+  │             mains power is required.
+  Moss Hire     Available; quoted runtime up to 3 hours at half brightness.
+  │             This is not a full-brightness runtime.
+  Reed Hire     UNKNOWN · not supplied
+  │             Whether this set supports battery operation is not supplied.
+
+  ──── Cable length
+  What cable length is supplied?
+  Larch Hire    UNKNOWN · not supplied
+  │             Cable length is not supplied.
+  Moss Hire     5 metres per lamp
+  Reed Hire     4 metres per lamp
+
+  MORE below | line 28/56 | j/k PgDn Home/End | q quit
+
+
+COMMAND FILE: /tmp/hud-fidelity-run1-rS7MUp/author/evidence/final/a.80x24.65535.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --preview 80 24 65535 
+
+EXIT (2 bytes):
+0
+
+
+STDERR (0 bytes):
+(empty)
+
+STDOUT (794 bytes):
+
+  Work-lamp hire for the indoor repair day
+
+  Fictional emails; not live or independently verified.
+  18 October 2026 / one day / four-lamp set / GBP
+
+  ──── Other hire terms
+  What deposits, damage excesses and replacement-lamp availability are
+  supplied?
+  Larch Hire    UNKNOWN · not supplied
+  │             Deposit amount, damage excess and replacement-lamp
+  │             availability are not supplied.
+  Moss Hire     UNKNOWN · not supplied
+  │             Deposit amount, damage excess and replacement-lamp
+  │             availability are not supplied.
+  Reed Hire     UNKNOWN · not supplied
+  │             Deposit amount, damage excess and replacement-lamp
+  │             availability are not supplied.
+
+
+
+
+
+  END | line 45/56 | j/k PgDn Home/End | q quit
+
+
+COMMAND FILE: /tmp/hud-fidelity-run1-rS7MUp/author/evidence/final/a.check.command
+cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json --check 
+
+EXIT (2 bytes):
+0
+
+
+STDERR (0 bytes):
+(empty)
+
+STDOUT (46 bytes):
+comparison OK (shape only; display data only)
+
+
+COMMAND FILE: /tmp/hud-fidelity-run1-rS7MUp/author/evidence/final/a.copy.command
+cp /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/a.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/final/a.compare.json 
+
+EXIT (2 bytes):
+0
+
+
+STDERR (0 bytes):
+(empty)
+
+STDOUT (0 bytes):
+(empty)

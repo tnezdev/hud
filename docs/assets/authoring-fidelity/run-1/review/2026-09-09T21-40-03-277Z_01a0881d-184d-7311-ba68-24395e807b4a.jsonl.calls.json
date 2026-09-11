@@ -1,0 +1,877 @@
+[
+  {
+    "line": 6,
+    "type": "toolCall",
+    "id": "call_y5dRsKnhDb8KpBZyA4J0mgG2|fc_0c22a9666e92e16d016aa1d236ba0c87d2a5e9fbefce995e38",
+    "name": "read",
+    "arguments": {
+      "path": "skills/hud/compare.md"
+    }
+  },
+  {
+    "line": 8,
+    "type": "toolCall",
+    "id": "call_LI15U8CYUeotTlF0grI3Vu0t|fc_0c22a9666e92e16d016aa1d23e080487d29b426a33e8d5b3cb",
+    "name": "read",
+    "arguments": {
+      "path": "skills/hud/sequence.md"
+    }
+  },
+  {
+    "line": 8,
+    "type": "toolCall",
+    "id": "call_9d3zyC40a20ytl1zRCYV0NaE|fc_0c22a9666e92e16d016aa1d23e081487d29c4783ce1b30831e",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/packets/a.txt"
+    }
+  },
+  {
+    "line": 8,
+    "type": "toolCall",
+    "id": "call_qSLdcvEYsESE4j2xPceyXhQa|fc_0c22a9666e92e16d016aa1d23e081c87d2bc6d7d720cdfdcae",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/packets/b.txt"
+    }
+  },
+  {
+    "line": 8,
+    "type": "toolCall",
+    "id": "call_8bpOMpfi9dZskJvnuuCvbjbu|fc_0c22a9666e92e16d016aa1d23e082487d29f6c8dfab10caec4",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/packets/c.txt"
+    }
+  },
+  {
+    "line": 8,
+    "type": "toolCall",
+    "id": "call_R5ytcxE8KzRpqsXo7Jae5PEV|fc_0c22a9666e92e16d016aa1d23e082c87d2ab83248798fbbcf9",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/packets/d.txt"
+    }
+  },
+  {
+    "line": 8,
+    "type": "toolCall",
+    "id": "call_eEEdb9ALfIThXMyW5uvPrQe0|fc_0c22a9666e92e16d016aa1d23e083087d29ea89354689da480",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/packets/e.txt"
+    }
+  },
+  {
+    "line": 15,
+    "type": "toolCall",
+    "id": "call_kKabc73NV0nM24lIGaIGnI8q|fc_0c22a9666e92e16d016aa1d2526f7487d29ee0f7f17db92a20",
+    "name": "write",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/intent-and-plan.md",
+      "content": "# Intent and form choices — recorded before composition\n\nSource boundary: read skills/hud/compare.md and its linked authoring entrypoint skills/hud/sequence.md completely, plus packets a.txt through e.txt completely. No fixtures, renderer source, other repository documentation, live information, or other agents consulted. The Compare entrypoint identifies itself as a post-trial discovery-only correction; this submission uses the current supplied discovery, not its linked historical archive. No product decision is being requested or changed.\n\n## A — Compare\nFor the community workshop organizer, help them judge Larch Hire, Moss Hire and Reed Hire for inspection of equipment hire for the indoor repair day using common questions about quote, fulfillment, battery power, cable length and other hire terms, while preserving fictional email provenance, conditional delivery/runtime, unknown charges and suitability evidence. Same day, set and currency support alignment. Preserve source order; no selection, ranking, or inferred usable total.\n\n## B — Sequence / procedure\nFor the print-room volunteer, help them follow the complete supplied single-path procedure for releasing one paper proof envelope on 21 October 2026. Swapping the supplied actions would misrepresent the mandatory order. Keep permission in the placement label itself, and retain exact-copy, counting, release-box, location and log semantics. No execution or approval is established.\n\n## C — Compare\nFor the school librarian, help them judge Bracken Library and Willow Library for inspection of the temporary reading-collection offers using common questions about the quoted loan, readiness wording, outbound and return carriage, renewal and other terms, while preserving fictional written provenance, undefined readiness, unknown loan start, conditional services and unknown charges. Same books, school, initial period and currency support comparing these bounded terms, not all-in totals or receipt dates. Preserve source order; neither choose nor book.\n\n## D — Sequence / chronology\nFor the greenhouse coordinator, help them understand the order of the selected 6 December 2026 notes. Temporal order is supplied, including an approximate time. Distinguish attributed display readings, a reported action and a request from independent verification, effects or completed checks. This is not an equipment procedure or complete incident record.\n\n## E — Prose\nFor the youth-group treasurer, explain that the notes do not establish a lower-cost offer or an all-in outing total, and why. Different currencies, units, endpoints and trip scope provide no truthful common cost basis. Neither Compare alignment nor Sequence would clarify that conclusion without inviting unsupported normalization or order. Preserve both offers in copied order and all missing-input limits.\n\n## Evidence plan\nInitial drafts go in drafts/; final submissions in final/; revisions, if necessary, in revisions/ without overwriting drafts. Exact Cargo commands, dimensions/offsets, stdout, stderr and exit codes will be saved contemporaneously in evidence/. Run only headless --check and --preview from the authorized checkout with CARGO_NET_OFFLINE=true. Story files are inert JSON; no story text becomes shell code. Inspect both sizes completely through overlapping intermediate views and end views; read prose in full. Document actual inspection and any failures/repairs, or why no refinement was warranted. A schema pass or preview does not establish acceptance, comprehension, live behavior or readiness.\n"
+    }
+  },
+  {
+    "line": 17,
+    "type": "toolCall",
+    "id": "call_D9ynxcJduTBKOZRos2DZheo4|fc_0c22a9666e92e16d016aa1d265e77c87d28fd11d77dfe471ea",
+    "name": "write",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/drafts/a.compare.json",
+      "content": "{\n  \"title\": \"Work-lamp hire for the indoor repair day\",\n  \"provenance\": \"Fictional supplier emails; not live or independently verified.\",\n  \"scope\": \"18 October 2026 / one day / four-lamp set / GBP\",\n  \"intent\": \"Help the community workshop organizer inspect price, fulfillment and power access. Source order is not preference; no option is selected or order placed. No power-outlet survey or brightness measurements are supplied: do not infer equal light output or a cheapest usable setup. Collection is not established as free.\",\n  \"criteria\": [\n    {\"name\": \"Quoted hire\", \"question\": \"What is quoted for the four-lamp set for one day?\"},\n    {\"name\": \"Fulfillment\", \"question\": \"When and on what terms is collection or delivery offered?\"},\n    {\"name\": \"Battery operation\", \"question\": \"Is battery operation supported, and with what runtime limits?\"},\n    {\"name\": \"Cable length\", \"question\": \"What cable length is supplied?\"},\n    {\"name\": \"Other hire terms\", \"question\": \"What deposits, damage excesses and replacement-lamp availability are supplied?\"}\n  ],\n  \"alternatives\": [\n    {\n      \"name\": \"Larch Hire\",\n      \"answers\": [\n        {\"criterion\": \"Quoted hire\", \"state\": \"known\", \"value\": \"48 GBP\"},\n        {\"criterion\": \"Fulfillment\", \"state\": \"known\", \"value\": \"Collection from its depot on the morning of 18 October.\"},\n        {\"criterion\": \"Battery operation\", \"state\": \"unavailable\", \"qualification\": \"Battery operation is explicitly unavailable for this set; mains power is required.\"},\n        {\"criterion\": \"Cable length\", \"state\": \"unknown\", \"qualification\": \"Cable length is not supplied.\"},\n        {\"criterion\": \"Other hire terms\", \"state\": \"unknown\", \"qualification\": \"Deposit amount, damage excess and replacement-lamp availability are not supplied.\"}\n      ]\n    },\n    {\n      \"name\": \"Moss Hire\",\n      \"answers\": [\n        {\"criterion\": \"Quoted hire\", \"state\": \"known\", \"value\": \"62 GBP\"},\n        {\"criterion\": \"Fulfillment\", \"state\": \"known\", \"value\": \"Collection from its depot on the evening of 17 October.\", \"qualification\": \"Hire covers 18 October only.\"},\n        {\"criterion\": \"Battery operation\", \"state\": \"known\", \"value\": \"Available; quoted runtime up to 3 hours at half brightness.\", \"qualification\": \"This is not a full-brightness runtime.\"},\n        {\"criterion\": \"Cable length\", \"state\": \"known\", \"value\": \"5 metres per lamp\"},\n        {\"criterion\": \"Other hire terms\", \"state\": \"unknown\", \"qualification\": \"Deposit amount, damage excess and replacement-lamp availability are not supplied.\"}\n      ]\n    },\n    {\n      \"name\": \"Reed Hire\",\n      \"answers\": [\n        {\"criterion\": \"Quoted hire\", \"state\": \"known\", \"value\": \"75 GBP\", \"qualification\": \"Delivery charge is not supplied; final delivered total is unknown.\"},\n        {\"criterion\": \"Fulfillment\", \"state\": \"known\", \"value\": \"Delivery on 18 October only if the organizer confirms by 12:00 local time on 15 October.\", \"qualification\": \"Delivery charge is not supplied; final delivered total is unknown.\"},\n        {\"criterion\": \"Battery operation\", \"state\": \"unknown\", \"qualification\": \"Whether this set supports battery operation is not supplied.\"},\n        {\"criterion\": \"Cable length\", \"state\": \"known\", \"value\": \"4 metres per lamp\"},\n        {\"criterion\": \"Other hire terms\", \"state\": \"unknown\", \"qualification\": \"Deposit amount, damage excess and replacement-lamp availability are not supplied.\"}\n      ]\n    }\n  ]\n}\n"
+    }
+  },
+  {
+    "line": 19,
+    "type": "toolCall",
+    "id": "call_rlSb38wMgvA0XqO6uebNgMe0|fc_0c22a9666e92e16d016aa1d283e5d087d2865d6100c6168126",
+    "name": "write",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/drafts/b.sequence.json",
+      "content": "{\n  \"title\": \"Release one paper proof envelope\",\n  \"provenance\": \"Fictional training; not live guidance; no step executed.\",\n  \"scope\": \"21 October 2026 / complete supplied single-path procedure\",\n  \"intent\": \"Help the print-room volunteer follow the mandatory supplied order for one paper proof envelope, not a production print run. No alternate route is supplied.\",\n  \"relationship\": \"procedure\",\n  \"items\": [\n    {\n      \"label\": \"Copy the job identifier from the blue job card onto the envelope\",\n      \"detail\": [\"Copy it exactly; do not substitute the client's name. No actual identifier is supplied in this fictional packet.\"]\n    },\n    {\n      \"label\": \"Count the enclosed proof sheets and write the count on that same envelope\",\n      \"detail\": [\"Count blank sheets as well as printed ones. No expected sheet count is supplied.\"]\n    },\n    {\n      \"label\": \"Obtain the supervisor's initials in the release box on the blue job card\",\n      \"detail\": [\"Initials in the comments box do not constitute release permission. The packet does not say approval has been granted.\"]\n    },\n    {\n      \"label\": \"Only after the release-box initials are present, place the envelope in the collection tray\",\n      \"detail\": [\"Do not place it there before that permission is recorded. The collection tray is inside the print room, not the public counter.\"]\n    },\n    {\n      \"label\": \"Enter the actual placement time in the paper handover log, using local 24-hour time\",\n      \"detail\": [\"This log entry reports placement in the tray, not client collection. No placement time or client collection time is supplied; do not invent either.\"]\n    }\n  ]\n}\n"
+    }
+  },
+  {
+    "line": 21,
+    "type": "toolCall",
+    "id": "call_2HWfTQoBVEzW6PDVKtSpw7rq|fc_0c22a9666e92e16d016aa1d29506e487d297c6e10c7dbf460d",
+    "name": "write",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/drafts/c.compare.json",
+      "content": "{\n  \"title\": \"Temporary reading-collection offers\",\n  \"provenance\": \"Fictional written offers; not live or independently verified.\",\n  \"scope\": \"2 Nov 2026 offers / same 60 named books, same school / EUR\",\n  \"intent\": \"Help the school librarian inspect the quoted loan, readiness wording, carriage and renewal terms, not choose or book. Both offers cover the same 60 named books delivered to the same school. Source order is not ranking. No final all-in total is established; conditional renewal or carriage is not secured. Do not convert working days to calendar days or infer pupil availability on a quoted ready date.\",\n  \"criteria\": [\n    {\"name\": \"Quoted loan\", \"question\": \"What loan charge and period are quoted?\"},\n    {\"name\": \"Readiness wording\", \"question\": \"What does the offer say about readiness, and what does that establish?\"},\n    {\"name\": \"Outbound delivery\", \"question\": \"Is outbound delivery included?\"},\n    {\"name\": \"Return carriage\", \"question\": \"Is return carriage offered, at what charge and under what conditions?\"},\n    {\"name\": \"Renewal\", \"question\": \"Is renewal permitted, with what limits and charge?\"},\n    {\"name\": \"Other terms\", \"question\": \"What lost-book charges, late fees and weekend contact arrangements are supplied?\"}\n  ],\n  \"alternatives\": [\n    {\n      \"name\": \"Bracken Library\",\n      \"answers\": [\n        {\"criterion\": \"Quoted loan\", \"state\": \"known\", \"value\": \"90 EUR for the first 28 calendar days only.\", \"qualification\": \"The date on which the 28-day loan period starts is not supplied.\"},\n        {\"criterion\": \"Readiness wording\", \"state\": \"known\", \"value\": \"Offer wording: \\\"ready on 9 November\\\".\", \"qualification\": \"The source does not define \\\"ready\\\". This date does not establish school receipt or permission to put the books into circulation.\"},\n        {\"criterion\": \"Outbound delivery\", \"state\": \"known\", \"value\": \"Included.\"},\n        {\"criterion\": \"Return carriage\", \"state\": \"unavailable\", \"qualification\": \"Explicitly not offered by Bracken. The school must arrange return carriage separately; its cost is not supplied.\"},\n        {\"criterion\": \"Renewal\", \"state\": \"known\", \"value\": \"One renewal of up to 7 calendar days permitted only if no other school has reserved the collection.\", \"qualification\": \"Renewal charge is not supplied; the conditional renewal is not established as secured.\"},\n        {\"criterion\": \"Other terms\", \"state\": \"unknown\", \"qualification\": \"Lost-book charges, late fees and weekend contact arrangements are not supplied.\"}\n      ]\n    },\n    {\n      \"name\": \"Willow Library\",\n      \"answers\": [\n        {\"criterion\": \"Quoted loan\", \"state\": \"known\", \"value\": \"110 EUR for the first 28 calendar days only.\", \"qualification\": \"The date on which the 28-day loan period starts is not supplied.\"},\n        {\"criterion\": \"Readiness wording\", \"state\": \"known\", \"value\": \"Offer wording: \\\"ready on 10 November\\\".\", \"qualification\": \"The source does not define \\\"ready\\\". This date does not establish school receipt or permission to put the books into circulation.\"},\n        {\"criterion\": \"Outbound delivery\", \"state\": \"known\", \"value\": \"Included.\"},\n        {\"criterion\": \"Return carriage\", \"state\": \"known\", \"value\": \"Offered for 18 EUR only when booked at least 2 working days before the loan ends.\", \"qualification\": \"Whether that condition can be met is not supplied; return carriage is not established as secured.\"},\n        {\"criterion\": \"Renewal\", \"state\": \"unavailable\", \"qualification\": \"Renewal is explicitly unavailable for this collection.\"},\n        {\"criterion\": \"Other terms\", \"state\": \"unknown\", \"qualification\": \"Lost-book charges, late fees and weekend contact arrangements are not supplied.\"}\n      ]\n    }\n  ]\n}\n"
+    }
+  },
+  {
+    "line": 23,
+    "type": "toolCall",
+    "id": "call_nmec8wY532otDM0xBQ3SuKoA|fc_0c22a9666e92e16d016aa1d2b43be887d2a22992d3315b8411",
+    "name": "write",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/drafts/d.sequence.json",
+      "content": "{\n  \"title\": \"Selected greenhouse notebook entries\",\n  \"provenance\": \"Fictional copied notes; not live or independently verified.\",\n  \"scope\": \"6 December 2026 / local times / selected observations\",\n  \"intent\": \"Help the greenhouse coordinator understand the supplied order of selected notes, not a complete incident record or a procedure for changing equipment.\",\n  \"relationship\": \"chronology\",\n  \"items\": [\n    {\n      \"label\": \"08:05 — Nia recorded a west-bench display reading of 12 degrees Celsius\",\n      \"detail\": [\"Attendant Nia recorded the display reading, not an independently checked air temperature.\"]\n    },\n    {\n      \"label\": \"Approximately 08:20 — Omar wrote that he closed the west vent\",\n      \"detail\": [\"Caretaker Omar's exact closure time and the vent's prior opening width were not supplied. This is a report of an action, not proof of its effect.\"]\n    },\n    {\n      \"label\": \"08:50 — Nia recorded the same west-bench display reading 15 degrees Celsius\",\n      \"detail\": [\"No comparison reading from another bench was supplied.\"]\n    },\n    {\n      \"label\": \"09:10 — Eli recorded requesting a sensor check for 7 December, the next day\",\n      \"detail\": [\"Coordinator Eli's request does not establish that a check was scheduled, performed or completed.\"]\n    }\n  ],\n  \"notes\": [\n    \"The notes do not establish why the display reading changed, whether closing the vent caused any change, or whether the sensor was accurate.\",\n    \"They do not establish the current greenhouse temperature or vent position. No target temperature, alarm threshold or instruction to repeat the vent action is supplied.\"\n  ]\n}\n"
+    }
+  },
+  {
+    "line": 25,
+    "type": "toolCall",
+    "id": "call_VU4pTVBfYxYPUDQTMzFaoOCw|fc_0c22a9666e92e16d016aa1d2c432a887d2a6f1fa30a037e75c",
+    "name": "write",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/drafts/e.prose.md",
+      "content": "# Transport costs: no lower-cost offer established\n\nFor the youth-group treasurer: these notes establish neither which offer costs less for the outing nor an all-in outing total. They are fictional, copied on 4 January 2027, not live or independently verified. The offers are independent and listed in copied order, not ranked. No booking has been made and no travel date is supplied.\n\nCopper Coaches quotes **420 GBP per coach** for a **return trip from East Quay to Hill Camp**, including the driver but excluding tolls. Coach capacity, the number of coaches required and toll amounts are not supplied.\n\nSilver Rail quotes **19 EUR per passenger** for a **one-way ticket from Central Station to Valley Halt**. No return fare, group size, group discount, transfer between those stops and the coach endpoints, or applicable exchange rate is supplied.\n\nThe numerals cannot establish a cheaper offer: the notes provide no common currency, passenger count, route scope or return-journey basis. Doubling the rail fare, converting currencies, dividing the coach cost per person or inventing a complete route would require unsupported inputs. The quoted amounts are not comparable outing totals. These notes also supply no booking procedure or temporal order connecting the offers.\n"
+    }
+  },
+  {
+    "line": 27,
+    "type": "toolCall",
+    "id": "call_RMbQHXsAslCKPWAW6exjYt4X|fc_0c22a9666e92e16d016aa1d2d70f5887d2ac2d4a6b9ef590e6",
+    "name": "write",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.sh",
+      "content": "#!/usr/bin/env bash\n# Evidence collection only: invoke frozen examples, preserve original streams.\nset -u\ncd /tmp/hud-fidelity-run1-rS7MUp/checkout || exit 1\nexport CARGO_NET_OFFLINE=true\nout=/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial\nmkdir -p \"$out\"\nprintf 'cwd=%s\\nCARGO_NET_OFFLINE=%s\\n' \"$PWD\" \"$CARGO_NET_OFFLINE\" > \"$out/environment.txt\"\nrun() {\n  local name=$1\n  shift\n  printf '%q ' \"$@\" > \"$out/$name.command\"\n  printf '\\n' >> \"$out/$name.command\"\n  \"$@\" > \"$out/$name.stdout\" 2> \"$out/$name.stderr\"\n  local status=$?\n  printf '%s\\n' \"$status\" > \"$out/$name.exit\"\n  printf '%s exit=%s\\n' \"$name\" \"$status\"\n}\nfor pair in a:compare b:sequence c:compare d:sequence; do\n  packet=${pair%:*}\n  example=${pair#*:}\n  input=/tmp/hud-fidelity-run1-rS7MUp/author/drafts/$packet.$example.json\n  run \"$packet.check\" cargo run --quiet --example \"$example\" -- \"$input\" --check\n  for size in 72x35 80x24; do\n    cols=${size%x*}\n    rows=${size#*x}\n    for offset in 0 65535; do\n      run \"$packet.$size.$offset\" cargo run --quiet --example \"$example\" -- \"$input\" --preview \"$cols\" \"$rows\" \"$offset\"\n    done\n  done\ndone\n"
+    }
+  },
+  {
+    "line": 29,
+    "type": "toolCall",
+    "id": "call_r1eLiXpMolhOXFpjclkkRWxp|fc_0c22a9666e92e16d016aa1d2e1258887d2a527417e2642d345",
+    "name": "bash",
+    "arguments": {
+      "command": "bash /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.sh > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.stderr; status=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.exit; printf 'Evidence script exit=%s\\n' \"$status\"",
+      "timeout": 200
+    }
+  },
+  {
+    "line": 31,
+    "type": "toolCall",
+    "id": "call_B85wFbI9yZ6P4UKPC6Ok3oId|fc_0c22a9666e92e16d016aa1d2e7901487d2b8c54705354ebadc",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.stdout"
+    }
+  },
+  {
+    "line": 33,
+    "type": "toolCall",
+    "id": "call_OhoPO5Eab12ISlHRzbm3JJpr|fc_0c22a9666e92e16d016aa1d2f39afc87d28ac7202f3e56f3a4",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/a.check.stderr"
+    }
+  },
+  {
+    "line": 33,
+    "type": "toolCall",
+    "id": "call_lQzQAQFkc4TJdehRHPnVAUIs|fc_0c22a9666e92e16d016aa1d2f39b1087d2b36aeb3480cf6126",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/c.check.stderr"
+    }
+  },
+  {
+    "line": 33,
+    "type": "toolCall",
+    "id": "call_7gF59jXZ3OVDu9xeWsiFX0dJ|fc_0c22a9666e92e16d016aa1d2f39b1887d29cb5c63a5c9e8371",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/b.check.stdout"
+    }
+  },
+  {
+    "line": 33,
+    "type": "toolCall",
+    "id": "call_Z6H6OS1hx2Xz2NCcp1Ap8iOL|fc_0c22a9666e92e16d016aa1d2f39b2087d2b5809fa77fbcdd95",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/d.check.stdout"
+    }
+  },
+  {
+    "line": 33,
+    "type": "toolCall",
+    "id": "call_I61FHfKxjev28ilZFWf0OM0X|fc_0c22a9666e92e16d016aa1d2f39b2887d2af0191d1748bcada",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/b.72x35.0.stdout"
+    }
+  },
+  {
+    "line": 33,
+    "type": "toolCall",
+    "id": "call_swBL6JgSs83Qzs4hcQxMAxWy|fc_0c22a9666e92e16d016aa1d2f39b3087d2b83547f7cfcc7d2e",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/b.72x35.65535.stdout"
+    }
+  },
+  {
+    "line": 33,
+    "type": "toolCall",
+    "id": "call_eUjD7KU5PKvXDkpz3uaw18M1|fc_0c22a9666e92e16d016aa1d2f39b3487d28707ab1dfc555683",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/b.80x24.0.stdout"
+    }
+  },
+  {
+    "line": 33,
+    "type": "toolCall",
+    "id": "call_pgy6mW04U9PdUiPbn2nfjaoF|fc_0c22a9666e92e16d016aa1d2f39b3c87d28947d7df37400fc9",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/b.80x24.65535.stdout"
+    }
+  },
+  {
+    "line": 42,
+    "type": "toolCall",
+    "id": "call_ITLcnFRbujrJxDbrPPyeVGyo|fc_0c22a9666e92e16d016aa1d2fd2e8087d2bfe15489762b3ecf",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/d.72x35.0.stdout"
+    }
+  },
+  {
+    "line": 42,
+    "type": "toolCall",
+    "id": "call_glXHot7EiIZlAfGqEScwOgP2|fc_0c22a9666e92e16d016aa1d2fd2e9087d28a817a36e104881e",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/d.72x35.65535.stdout"
+    }
+  },
+  {
+    "line": 42,
+    "type": "toolCall",
+    "id": "call_GiAZlEb7jsdM5cPB1uCAToKb|fc_0c22a9666e92e16d016aa1d2fd2e9887d2913ad094d3898722",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/d.80x24.0.stdout"
+    }
+  },
+  {
+    "line": 42,
+    "type": "toolCall",
+    "id": "call_EwFYXgbcBkTaK7WJsvvyt7B4|fc_0c22a9666e92e16d016aa1d2fd2ea087d2877f5d61f4b0b14f",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/initial/d.80x24.65535.stdout"
+    }
+  },
+  {
+    "line": 42,
+    "type": "toolCall",
+    "id": "call_5jw9e6deyFFDDs7SQdhpDeN9|fc_0c22a9666e92e16d016aa1d2fd2ea487d2978067fd16e8c9cc",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/drafts/e.prose.md"
+    }
+  },
+  {
+    "line": 48,
+    "type": "toolCall",
+    "id": "call_5LKHbLmOmFhgh5K527kyOnci|fc_0c22a9666e92e16d016aa1d302fa2087d2abe3023c82f26bb6",
+    "name": "bash",
+    "arguments": {
+      "command": "python3 - <<'PY' > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/provenance-lengths.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/provenance-lengths.stderr\nimport json\nfrom pathlib import Path\nroot=Path('/tmp/hud-fidelity-run1-rS7MUp/author')\nfor key in ('a','c'):\n    value=json.loads((root/'drafts'/f'{key}.compare.json').read_text())['provenance']\n    print(key, len(value), repr(value))\nPY\nstatus=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/provenance-lengths.exit",
+      "timeout": 20
+    }
+  },
+  {
+    "line": 50,
+    "type": "toolCall",
+    "id": "call_V525zSm6hFj7QcSU45cwU6Kw|fc_0c22a9666e92e16d016aa1d3097cfc87d29074e4dc79c83f4b",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/provenance-lengths.stdout"
+    }
+  },
+  {
+    "line": 52,
+    "type": "toolCall",
+    "id": "call_SSrEHcqunoruN5wwmj383WmU|fc_0c22a9666e92e16d016aa1d317b1a087d282a06cd977b67c4e",
+    "name": "bash",
+    "arguments": {
+      "command": "mkdir -p /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1; cp /tmp/hud-fidelity-run1-rS7MUp/author/drafts/a.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json; cp /tmp/hud-fidelity-run1-rS7MUp/author/drafts/c.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json",
+      "timeout": 20
+    }
+  },
+  {
+    "line": 54,
+    "type": "toolCall",
+    "id": "call_Ht0W9avTxDsfiJJ8ubIjpatK|fc_0c22a9666e92e16d016aa1d321dd2887d29518270107b046d2",
+    "name": "edit",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json",
+      "edits": [
+        {
+          "oldText": "Fictional supplier emails; not live or independently verified.",
+          "newText": "Fictional emails; not live or independently verified."
+        }
+      ]
+    }
+  },
+  {
+    "line": 54,
+    "type": "toolCall",
+    "id": "call_cnGeD3PTNU2LWcoKM6wPXZLJ|fc_0c22a9666e92e16d016aa1d321dd3887d2a1692dc92adb502f",
+    "name": "edit",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json",
+      "edits": [
+        {
+          "oldText": "Fictional written offers; not live or independently verified.",
+          "newText": "Fictional offers; not live or independently verified."
+        },
+        {
+          "oldText": "Help the school librarian inspect the quoted loan, readiness wording, carriage and renewal terms, not choose or book.",
+          "newText": "Help the school librarian inspect these written offers: quoted loan, readiness wording, carriage and renewal terms, not choose or book."
+        }
+      ]
+    }
+  },
+  {
+    "line": 57,
+    "type": "toolCall",
+    "id": "call_S01WEqbEjcC8b8dETGc2CrKv|fc_0c22a9666e92e16d016aa1d32418ec87d2b64e3b9a97dea340",
+    "name": "write",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.sh",
+      "content": "#!/usr/bin/env bash\nset -u\ncd /tmp/hud-fidelity-run1-rS7MUp/checkout || exit 1\nexport CARGO_NET_OFFLINE=true\nout=/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1\nmkdir -p \"$out\"\nprintf 'cwd=%s\\nCARGO_NET_OFFLINE=%s\\n' \"$PWD\" \"$CARGO_NET_OFFLINE\" > \"$out/environment.txt\"\nrun() {\n  local name=$1\n  shift\n  printf '%q ' \"$@\" > \"$out/$name.command\"\n  printf '\\n' >> \"$out/$name.command\"\n  \"$@\" > \"$out/$name.stdout\" 2> \"$out/$name.stderr\"\n  local status=$?\n  printf '%s\\n' \"$status\" > \"$out/$name.exit\"\n  printf '%s exit=%s\\n' \"$name\" \"$status\"\n}\nfor packet in a c; do\n  input=/tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/$packet.compare.json\n  run \"$packet.check\" cargo run --quiet --example compare -- \"$input\" --check\n  for size in 72x35 80x24; do\n    cols=${size%x*}\n    rows=${size#*x}\n    for offset in 0 65535; do\n      run \"$packet.$size.$offset\" cargo run --quiet --example compare -- \"$input\" --preview \"$cols\" \"$rows\" \"$offset\"\n    done\n  done\ndone\nfor packet in b d; do\n  input=/tmp/hud-fidelity-run1-rS7MUp/author/drafts/$packet.sequence.json\n  for size in 72x35 80x24; do\n    run \"$packet.$size.10\" cargo run --quiet --example sequence -- \"$input\" --preview \"${size%x*}\" \"${size#*x}\" 10\n  done\ndone\n"
+    }
+  },
+  {
+    "line": 59,
+    "type": "toolCall",
+    "id": "call_ycL0RB9CV5yy0iMsrU0J2xp7|fc_0c22a9666e92e16d016aa1d335302087d2864ce02d7c1c5382",
+    "name": "bash",
+    "arguments": {
+      "command": "bash /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.sh > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.stderr; status=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.exit; printf 'Evidence script exit=%s\\n' \"$status\"",
+      "timeout": 200
+    }
+  },
+  {
+    "line": 61,
+    "type": "toolCall",
+    "id": "call_dE1k0PNx8dyyY5R4synYrWhb|fc_0c22a9666e92e16d016aa1d3436f9487d2b536aacfd0d65da1",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.stdout"
+    }
+  },
+  {
+    "line": 61,
+    "type": "toolCall",
+    "id": "call_IAPOzwBKS96Lz66uoay4Lrv2|fc_0c22a9666e92e16d016aa1d3436fa487d2ae1fce90622341ef",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/a.check.stdout"
+    }
+  },
+  {
+    "line": 61,
+    "type": "toolCall",
+    "id": "call_FXsLOP11K55N0eU4hgwMAe4n|fc_0c22a9666e92e16d016aa1d3436fac87d2a16ef7600a152005",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/c.check.stdout"
+    }
+  },
+  {
+    "line": 61,
+    "type": "toolCall",
+    "id": "call_i8zhOhUsoIVvsjEACccxJSl4|fc_0c22a9666e92e16d016aa1d3436fb487d286837a5789615281",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/a.72x35.0.stdout"
+    }
+  },
+  {
+    "line": 61,
+    "type": "toolCall",
+    "id": "call_8KOPpugqZcIdjF9UYld8nBKX|fc_0c22a9666e92e16d016aa1d3436fbc87d280a6aa415f98b134",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/a.72x35.65535.stdout"
+    }
+  },
+  {
+    "line": 61,
+    "type": "toolCall",
+    "id": "call_m7eZXEZkSvxhiKmaETCATNjG|fc_0c22a9666e92e16d016aa1d3436fc487d29eb892ee88e03267",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/a.80x24.0.stdout"
+    }
+  },
+  {
+    "line": 61,
+    "type": "toolCall",
+    "id": "call_IAanF90uW83Pf5kMSWWNKY0P|fc_0c22a9666e92e16d016aa1d3436fcc87d2bfdb26c80fe8c661",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/a.80x24.65535.stdout"
+    }
+  },
+  {
+    "line": 69,
+    "type": "toolCall",
+    "id": "call_mcNzGZ7qJCObFV9NEqhbg1rV|fc_0c22a9666e92e16d016aa1d34f06a087d280656666d893ef62",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/c.72x35.0.stdout"
+    }
+  },
+  {
+    "line": 69,
+    "type": "toolCall",
+    "id": "call_LJHRv8PuLyRsnxyL1sRerJCe|fc_0c22a9666e92e16d016aa1d34f06b087d2b1520092e6c6d0ad",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/c.72x35.65535.stdout"
+    }
+  },
+  {
+    "line": 69,
+    "type": "toolCall",
+    "id": "call_DYF4bBey3ANW56XMvoFDRtAO|fc_0c22a9666e92e16d016aa1d34f06bc87d283f88e08a68be53b",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/c.80x24.0.stdout"
+    }
+  },
+  {
+    "line": 69,
+    "type": "toolCall",
+    "id": "call_dyWA5Le0Q9YbtV910KyO4HKU|fc_0c22a9666e92e16d016aa1d34f06c487d2bef0e3316089c01c",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/c.80x24.65535.stdout"
+    }
+  },
+  {
+    "line": 69,
+    "type": "toolCall",
+    "id": "call_aKJCm1DjWGeDSrFDz59g67bA|fc_0c22a9666e92e16d016aa1d34f06cc87d29727f5a57af92aad",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/b.72x35.10.stdout"
+    }
+  },
+  {
+    "line": 69,
+    "type": "toolCall",
+    "id": "call_TUMjdGlaA9BKsTi945qghvwt|fc_0c22a9666e92e16d016aa1d34f06d487d2981795aabbc28121",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/b.80x24.10.stdout"
+    }
+  },
+  {
+    "line": 69,
+    "type": "toolCall",
+    "id": "call_rZHaMjxbofpD7n56xMwPGEyb|fc_0c22a9666e92e16d016aa1d34f06e087d28a6c254fa0d11d35",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/d.72x35.10.stdout"
+    }
+  },
+  {
+    "line": 69,
+    "type": "toolCall",
+    "id": "call_Lu0piDLOZ3USMBMNoLLzsU7j|fc_0c22a9666e92e16d016aa1d34f06e887d29f1cb20ef2c17efb",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/r1/d.80x24.10.stdout"
+    }
+  },
+  {
+    "line": 78,
+    "type": "toolCall",
+    "id": "call_K6ayPKgNGwpBUil4ReYJic0n|fc_0c22a9666e92e16d016aa1d3577efc87d293e7fb8218f248a4",
+    "name": "write",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.sh",
+      "content": "#!/usr/bin/env bash\nset -u\ncd /tmp/hud-fidelity-run1-rS7MUp/checkout || exit 1\nexport CARGO_NET_OFFLINE=true\nout=/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle\nmkdir -p \"$out\"\nprintf 'cwd=%s\\nCARGO_NET_OFFLINE=%s\\n' \"$PWD\" \"$CARGO_NET_OFFLINE\" > \"$out/environment.txt\"\nfor spec in a:72:35:20 a:72:35:30 a:80:24:15 a:80:24:25 a:80:24:35 c:72:35:20 c:72:35:35 c:72:35:45 c:80:24:15 c:80:24:25 c:80:24:35 c:80:24:45; do\n  IFS=: read -r packet cols rows offset <<< \"$spec\"\n  name=$packet.${cols}x${rows}.$offset\n  cmd=(cargo run --quiet --example compare -- /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/$packet.compare.json --preview \"$cols\" \"$rows\" \"$offset\")\n  printf '%q ' \"${cmd[@]}\" > \"$out/$name.command\"\n  printf '\\n' >> \"$out/$name.command\"\n  \"${cmd[@]}\" > \"$out/$name.stdout\" 2> \"$out/$name.stderr\"\n  status=$?\n  printf '%s\\n' \"$status\" > \"$out/$name.exit\"\n  printf '%s exit=%s\\n' \"$name\" \"$status\"\ndone\n"
+    }
+  },
+  {
+    "line": 80,
+    "type": "toolCall",
+    "id": "call_kWNHdfok3i8aOySscvA4cw61|fc_0c22a9666e92e16d016aa1d3640fec87d2886cf42a014a93c4",
+    "name": "bash",
+    "arguments": {
+      "command": "bash /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.sh > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.stderr; status=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.exit; printf 'Evidence script exit=%s\\n' \"$status\"",
+      "timeout": 200
+    }
+  },
+  {
+    "line": 82,
+    "type": "toolCall",
+    "id": "call_3DE7ydDcFX4Rn5tsqnvWkVO1|fc_0c22a9666e92e16d016aa1d3729a0887d29d3bd6f2b1ff6204",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.stdout"
+    }
+  },
+  {
+    "line": 82,
+    "type": "toolCall",
+    "id": "call_XzZG2vJDHu3D8tIv6NRq3w34|fc_0c22a9666e92e16d016aa1d3729a1887d2ad58f55d81aeff1b",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/a.72x35.20.stdout"
+    }
+  },
+  {
+    "line": 82,
+    "type": "toolCall",
+    "id": "call_pbdcqtiB2B0abIrnDQmuIqmx|fc_0c22a9666e92e16d016aa1d3729a2487d2a4938593ccae1bd3",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/a.72x35.30.stdout"
+    }
+  },
+  {
+    "line": 82,
+    "type": "toolCall",
+    "id": "call_AhvA6kjEb6YSzrU7gJLNYL3X|fc_0c22a9666e92e16d016aa1d3729a2887d2865dd3c769d94c18",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/a.80x24.15.stdout"
+    }
+  },
+  {
+    "line": 82,
+    "type": "toolCall",
+    "id": "call_plx8q3eq1d2QmonxhOoWFk0v|fc_0c22a9666e92e16d016aa1d3729a3487d294f7ecd50f9a5e18",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/a.80x24.25.stdout"
+    }
+  },
+  {
+    "line": 82,
+    "type": "toolCall",
+    "id": "call_USsu3mYNqH4zB9xe3wgNRiLR|fc_0c22a9666e92e16d016aa1d3729a3887d2900d8020daa3a8b3",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/a.80x24.35.stdout"
+    }
+  },
+  {
+    "line": 89,
+    "type": "toolCall",
+    "id": "call_PzWXVyRuzdqn7zeiMd0HFYX5|fc_0c22a9666e92e16d016aa1d37d1d8087d29f94cf3375c8ece4",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.72x35.20.stdout"
+    }
+  },
+  {
+    "line": 89,
+    "type": "toolCall",
+    "id": "call_2JtJUXhHLEODvgIOmKmipDVf|fc_0c22a9666e92e16d016aa1d37d1d9487d29d9488243effb19d",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.72x35.35.stdout"
+    }
+  },
+  {
+    "line": 89,
+    "type": "toolCall",
+    "id": "call_gep7BpJHCA9fKDm89OAhtmeG|fc_0c22a9666e92e16d016aa1d37d1d9c87d29b80f203c9d6f5fd",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.72x35.45.stdout"
+    }
+  },
+  {
+    "line": 89,
+    "type": "toolCall",
+    "id": "call_OIuDflr1Idy7tKF41BkK41rc|fc_0c22a9666e92e16d016aa1d37d1da887d2af8d16f2f351fce5",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.80x24.15.stdout"
+    }
+  },
+  {
+    "line": 89,
+    "type": "toolCall",
+    "id": "call_cVsjxdg7HDOBwCORM4OV83Gy|fc_0c22a9666e92e16d016aa1d37d1db087d2ba53147cd38204a7",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.80x24.25.stdout"
+    }
+  },
+  {
+    "line": 89,
+    "type": "toolCall",
+    "id": "call_nkbVQ4rG60wtVjGmL8x0UInm|fc_0c22a9666e92e16d016aa1d37d1db887d2a1eaf663b1301cf8",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.80x24.35.stdout"
+    }
+  },
+  {
+    "line": 89,
+    "type": "toolCall",
+    "id": "call_FfmspUf1BhMOLnUCbHt5prug|fc_0c22a9666e92e16d016aa1d37d1dc087d2903b5aec829ee175",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/middle/c.80x24.45.stdout"
+    }
+  },
+  {
+    "line": 97,
+    "type": "toolCall",
+    "id": "call_tx4UI5FPzGLrDucHEIhmgrKq|fc_0c22a9666e92e16d016aa1d38b228087d29e0684826eeff09b",
+    "name": "write",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/inspection-and-repairs.md",
+      "content": "# Inspection and self-directed repairs\n\n## Initial validation\nAll 20 initial Cargo invocations are preserved in evidence/initial/, each with .command, .stdout, .stderr and .exit. The collector's exit 0 means it finished collecting, not that the individual checks passed.\n\nA and C: --check and both sizes' opening/end previews each exited 1. Original check stderr was exactly `provenance is limited to 60 display cells` followed by a newline. No rendered content was produced. A local length check of my own ASCII strings found 62 characters for A and 61 for C. No renderer source was inspected. B and D checks and previews exited 0; checks report shape/display-data only.\n\nR1 keeps the original drafts untouched. A removes redundant `supplier` from the provenance line (the alternatives still identify hire suppliers). C moves `written` from provenance into the intent. Fictional, not live and not independently verified remain explicit. These two checks and all R1 previews passed.\n\n## Actual inspection before R2\nRead full initial B/D opening and end stdout at 72x35 and 80x24, and their offset-10 stdout in evidence/r1/. At 72x35 offset 10 clamps to the same final view. At 80x24 it provides an overlapping middle view. All five B steps, all four D observations and both D background paragraphs were read. B retains the release condition in step 4's label, comments-box exclusion, actual local 24-hour log semantics and no invented counts/times. D retains approximate time, attribution, display-versus-air distinction, requested-versus-completed check and causality/current-state limits. The footers visibly warn of continuation; item ownership remains marked when an end view starts in an earlier item's continuation. No B/D revision warranted by this inspection.\n\nRead drafts/e.prose.md in full: copied order, two independent offers, distinct currencies/units/routes/directions, every missing input, no booking/date and no all-in or lower-cost conclusion are retained. No prose revision warranted.\n\nRead full R1 A/C opening and end stdout at both sizes. Then read every stdout in evidence/middle/: A 72x35 offsets 20,30; A 80x24 offsets 15,25,35; C 72x35 offsets 20,35,45; C 80x24 offsets 15,25,35,45. These are actual requested offsets; snapping means the footer positions differ. The last two C 80x24 requests both start at line 36/64, so they do NOT cover Willow's renewal answer. An additional offset 50 is needed for that portion and will be included in R2 inspection. This gap was not treated as inspected.\n\nA's entire R1 content was covered at both sizes: prices plus Reed's unknown delivered total, conditional delivery deadline, Moss's 18-October-only hire and half-brightness runtime, Larch unavailable versus Reed unknown battery state, all cable answers and shared unknown hire terms. C's 72x35 content was covered in full, including both undefined ready dates, unknown loan start, return conditions and renewal limitations. C's 80x24 content was covered except the renewal tail noted above. Qualification rows remain adjacent under the value column. Opening views alone do not expose all caveats; full inspection required overlapping views. C's opening 72x35 view stops immediately after Willow's ready-date value, with an explicit continuation footer; its matching qualification was read in the intermediate view.\n\n## R2 fidelity refinement prompted by inspection\nTwo common-intent sentences were too categorical about absence of evidence:\n- A originally said `no option is selected or order placed`. The packet establishes no selection but only forbids inferring an order. Replace with `no option is selected. No order is established as placed.`\n- C originally said `conditional renewal or carriage is not secured`. Replace with `conditional renewal or carriage is not established as secured` to preserve unknown status rather than assert non-booking.\n\nThese are self-directed fidelity repairs, not a changed product decision. Save R2 separately and rerun --check plus all necessary headless views; no alteration of renderer, schema or discovery. The original R1 previews and original failure diagnostics remain unchanged.\n"
+    }
+  },
+  {
+    "line": 99,
+    "type": "toolCall",
+    "id": "call_ue1hOPqoc9bdJTodkVseybBo|fc_0c22a9666e92e16d016aa1d3a6339087d2a73e8f4cc4b08664",
+    "name": "bash",
+    "arguments": {
+      "command": "mkdir -p /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2; cp /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/a.compare.json; cp /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/c.compare.json",
+      "timeout": 20
+    }
+  },
+  {
+    "line": 101,
+    "type": "toolCall",
+    "id": "call_qVnTbzHeS30hZv98q4czMDUy|fc_0c22a9666e92e16d016aa1d3b0606c87d2b5632224254ce8c7",
+    "name": "edit",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/a.compare.json",
+      "edits": [
+        {
+          "oldText": "Source order is not preference; no option is selected or order placed.",
+          "newText": "Source order is not preference; no option is selected. No order is established as placed."
+        }
+      ]
+    }
+  },
+  {
+    "line": 101,
+    "type": "toolCall",
+    "id": "call_N6D88fAV4q9m31xPWVlFr4ku|fc_0c22a9666e92e16d016aa1d3b0608087d28ee00fd9cc09f0bb",
+    "name": "edit",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/c.compare.json",
+      "edits": [
+        {
+          "oldText": "conditional renewal or carriage is not secured.",
+          "newText": "conditional renewal or carriage is not established as secured."
+        }
+      ]
+    }
+  },
+  {
+    "line": 104,
+    "type": "toolCall",
+    "id": "call_W8K7BgTJQIxC09WDFnBp8QOD|fc_0c22a9666e92e16d016aa1d3ba3a3c87d2abed3f4d81e9eec2",
+    "name": "write",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.sh",
+      "content": "#!/usr/bin/env bash\nset -u\nroot=/tmp/hud-fidelity-run1-rS7MUp/author\ncd /tmp/hud-fidelity-run1-rS7MUp/checkout || exit 1\nexport CARGO_NET_OFFLINE=true\nout=$root/evidence/final\nmkdir -p \"$root/final\" \"$out\"\nprintf 'cwd=%s\\nCARGO_NET_OFFLINE=%s\\n' \"$PWD\" \"$CARGO_NET_OFFLINE\" > \"$out/environment.txt\"\nrun() {\n  local name=$1\n  shift\n  printf '%q ' \"$@\" > \"$out/$name.command\"\n  printf '\\n' >> \"$out/$name.command\"\n  \"$@\" > \"$out/$name.stdout\" 2> \"$out/$name.stderr\"\n  local status=$?\n  printf '%s\\n' \"$status\" > \"$out/$name.exit\"\n  printf '%s exit=%s\\n' \"$name\" \"$status\"\n}\nrun a.copy cp \"$root/revisions/r2/a.compare.json\" \"$root/final/a.compare.json\"\nrun b.copy cp \"$root/drafts/b.sequence.json\" \"$root/final/b.sequence.json\"\nrun c.copy cp \"$root/revisions/r2/c.compare.json\" \"$root/final/c.compare.json\"\nrun d.copy cp \"$root/drafts/d.sequence.json\" \"$root/final/d.sequence.json\"\nrun e.copy cp \"$root/drafts/e.prose.md\" \"$root/final/e.prose.md\"\nfor pair in a:compare b:sequence c:compare d:sequence; do\n  packet=${pair%:*}\n  example=${pair#*:}\n  input=$root/final/$packet.$example.json\n  run \"$packet.check\" cargo run --quiet --example \"$example\" -- \"$input\" --check\n  for size in 72x35 80x24; do\n    cols=${size%x*}\n    rows=${size#*x}\n    case \"$packet:$size\" in\n      a:72x35) offsets='0 20 30 65535';;\n      a:80x24) offsets='0 15 25 35 65535';;\n      c:72x35) offsets='0 20 35 45 65535';;\n      c:80x24) offsets='0 15 25 35 45 50 65535';;\n      *) offsets='0 10 65535';;\n    esac\n    for offset in $offsets; do\n      run \"$packet.$size.$offset\" cargo run --quiet --example \"$example\" -- \"$input\" --preview \"$cols\" \"$rows\" \"$offset\"\n    done\n  done\ndone\nrun file-hashes sha256sum \"$root\"/final/* \"$root\"/drafts/* \"$root\"/revisions/r1/* \"$root\"/revisions/r2/*\n"
+    }
+  },
+  {
+    "line": 106,
+    "type": "toolCall",
+    "id": "call_ZexcyclLn0xHRZBDqOylJVXJ|fc_0c22a9666e92e16d016aa1d3d099b887d282b90db32ec1001b",
+    "name": "bash",
+    "arguments": {
+      "command": "bash /tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.sh > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.stderr; status=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.exit; printf 'Evidence script exit=%s\\n' \"$status\"",
+      "timeout": 200
+    }
+  },
+  {
+    "line": 108,
+    "type": "toolCall",
+    "id": "call_k3MwXzoYLwDPueteJAmTG3Jc|fc_0c22a9666e92e16d016aa1d3e2a30887d28d2347324b5318b2",
+    "name": "write",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.py",
+      "content": "# Evidence collation only, not rendering. Original streams remain untouched.\nfrom pathlib import Path\nroot = Path('/tmp/hud-fidelity-run1-rS7MUp/author')\nout = root / 'evidence' / 'inspection'\nout.mkdir(exist_ok=True)\nfor packet, name in [('a','a.compare.json'), ('b','b.sequence.json'), ('c','c.compare.json'), ('d','d.sequence.json'), ('e','e.prose.md')]:\n    source = root / 'final' / name\n    sections = [f'FINAL SOURCE: {source}\\n{source.read_text()}\\n']\n    commands = sorted((root/'evidence'/'final').glob(f'{packet}.*.command'))\n    for command in commands:\n        prefix = command.with_suffix('')\n        sections.append(f'COMMAND FILE: {command}\\n{command.read_text()}')\n        for suffix in ['exit', 'stderr', 'stdout']:\n            path = Path(str(prefix) + '.' + suffix)\n            text = path.read_text()\n            sections.append(f'{suffix.upper()} ({len(path.read_bytes())} bytes):\\n{text}' + ('\\n' if text else '(empty)\\n'))\n    (out/f'{packet}.txt').write_text('\\n'.join(sections))\n    print(f'Wrote inspection/{packet}.txt')\n# Audit all contemporaneously saved command records, including failed previews.\nsections = []\nfor stage in ['initial', 'r1', 'middle', 'final']:\n    for command in sorted((root/'evidence'/stage).glob('*.command')):\n        prefix = command.with_suffix('')\n        exit_path = Path(str(prefix)+'.exit')\n        stdout_path = Path(str(prefix)+'.stdout')\n        stderr_path = Path(str(prefix)+'.stderr')\n        sections.append(f'{stage}/{command.name}\\n{command.read_text()}exit={exit_path.read_text().strip()}; stdout bytes={stdout_path.stat().st_size}; stderr bytes={stderr_path.stat().st_size}\\nstderr verbatim:\\n{stderr_path.read_text()}')\n(out/'stream-audit.txt').write_text('\\n'.join(sections))\nprint('Wrote inspection/stream-audit.txt')\n"
+    }
+  },
+  {
+    "line": 110,
+    "type": "toolCall",
+    "id": "call_hkWF6zpyTL97YA7Yswy0PjKg|fc_0c22a9666e92e16d016aa1d3f0640087d2bd39ddf65d8fae98",
+    "name": "bash",
+    "arguments": {
+      "command": "python3 /tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.py > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.stderr; status=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.exit; printf 'Collation exit=%s\\n' \"$status\"",
+      "timeout": 20
+    }
+  },
+  {
+    "line": 112,
+    "type": "toolCall",
+    "id": "call_3ugWOdnyaCgBbKEZWzsiXhIC|fc_0c22a9666e92e16d016aa1d3f6d57087d2b3547c96bf4f9e57",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/a.txt"
+    }
+  },
+  {
+    "line": 114,
+    "type": "toolCall",
+    "id": "call_KlVwjOQ8dCpxnmNtLuIaHgsU|fc_0c22a9666e92e16d016aa1d3f986f887d2a8fd7b4f238c7cfb",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/c.txt"
+    }
+  },
+  {
+    "line": 116,
+    "type": "toolCall",
+    "id": "call_dw9s9HWdkZ1FLJtVAsgyo0U9|fc_0c22a9666e92e16d016aa1d3ffeafc87d2948368b9bb6153e0",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/b.txt"
+    }
+  },
+  {
+    "line": 116,
+    "type": "toolCall",
+    "id": "call_uDEgZoyX9d8VdmaRhbqZMPd6|fc_0c22a9666e92e16d016aa1d3ffeb0c87d2a96bfc15b68ad657",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/d.txt"
+    }
+  },
+  {
+    "line": 116,
+    "type": "toolCall",
+    "id": "call_blcUVXpVSz6kw8ZDTaZdP1GF|fc_0c22a9666e92e16d016aa1d3ffeb1487d294fa7a386569cbc1",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/e.txt"
+    }
+  },
+  {
+    "line": 120,
+    "type": "toolCall",
+    "id": "call_fihk7FIPmAP0k2Azl9smbdx3|fc_0c22a9666e92e16d016aa1d4041f0887d2865c64011697d9c8",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/inspection/stream-audit.txt"
+    }
+  },
+  {
+    "line": 122,
+    "type": "toolCall",
+    "id": "call_z8wgQNJvzzuZQRgOeaWy7mFh|fc_0c22a9666e92e16d016aa1d414e8dc87d2952bab020356a9ea",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/final/file-hashes.stdout"
+    }
+  },
+  {
+    "line": 122,
+    "type": "toolCall",
+    "id": "call_qLA2YLH3M02UgfILUyizmwDH|fc_0c22a9666e92e16d016aa1d414e8f087d2b1326ccdce1974be",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.stdout"
+    }
+  },
+  {
+    "line": 122,
+    "type": "toolCall",
+    "id": "call_4odyxz2b16A8DrhvCI79W3gk|fc_0c22a9666e92e16d016aa1d414e8f887d2a3ba46ea48279660",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.stderr"
+    }
+  },
+  {
+    "line": 122,
+    "type": "toolCall",
+    "id": "call_fRQ0DX2P1s2kcMjgTJjupuHh|fc_0c22a9666e92e16d016aa1d414e90087d296a2cedf16691dca",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.stderr"
+    }
+  },
+  {
+    "line": 122,
+    "type": "toolCall",
+    "id": "call_NWpRRnEzH1Eh6oKBTDc42o9a|fc_0c22a9666e92e16d016aa1d414e90c87d28603c75668f91cd5",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.stderr"
+    }
+  },
+  {
+    "line": 122,
+    "type": "toolCall",
+    "id": "call_OfnRvR4PcHkdXxRUFzX6WOuE|fc_0c22a9666e92e16d016aa1d414e91487d2b4a689caa75462d6",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.stderr"
+    }
+  },
+  {
+    "line": 122,
+    "type": "toolCall",
+    "id": "call_UZaF2RNScjSirJOmeyiUpl3a|fc_0c22a9666e92e16d016aa1d414e91c87d2931f45fdd0efc04f",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.stdout"
+    }
+  },
+  {
+    "line": 122,
+    "type": "toolCall",
+    "id": "call_kL43HtEvx0kWwmEydu2Ofjix|fc_0c22a9666e92e16d016aa1d414e92487d2aa7389329463ee14",
+    "name": "read",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.stderr"
+    }
+  },
+  {
+    "line": 131,
+    "type": "toolCall",
+    "id": "call_L3BZ7pchGdY5rLwQp00x7lYc|fc_0c22a9666e92e16d016aa1d423309087d2b76bd0a30bbb66c9",
+    "name": "edit",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/inspection-and-repairs.md",
+      "edits": [
+        {
+          "oldText": "The original R1 previews and original failure diagnostics remain unchanged.\n",
+          "newText": "The original R1 previews and original failure diagnostics remain unchanged.\n\n## Final inspection completed\nRead evidence/inspection/a.txt through e.txt completely. These are explicitly collated copies of the final source files and the actual final command/exit/stderr/stdout files, not reconstructed renderings. Read evidence/inspection/stream-audit.txt completely to inspect all saved per-command exit statuses and stderr, including all ten original failures. Also read final/file-hashes.stdout, submit-and-preview.stdout and its empty stderr, the three earlier collectors' empty stderr, and the bundle collector's stdout/empty stderr. The hashes match A/C finals to R2 and B/D/E finals to their preserved drafts.\n\nAll 33 final previews and all four final checks exited 0 with empty stderr. Both Compare checks say `comparison OK (shape only; display data only)`; both Sequence checks say `sequence OK (shape only; display data only)`. All successful earlier previews were read in full too; failed previews had no stdout to inspect.\n\nFinal requested offsets and observed footer starts (in matching order):\n\n| Packet | Size | Requested offsets | Observed first body line / total |\n|---|---|---|---|\n| A | 72x35 | 0,20,30,65535 | 1,19,31,43 / 61 |\n| A | 80x24 | 0,15,25,35,65535 | 1,10,18,28,45 / 56 |\n| B | 72x35 | 0,10,65535 | 1,5,5 / 32 |\n| B | 80x24 | 0,10,65535 | 1,11,15 / 30 |\n| C | 72x35 | 0,20,35,45,65535 | 1,21,33,38,51 / 70 |\n| C | 80x24 | 0,15,25,35,45,50,65535 | 1,11,20,36,36,47,56 / 64 |\n| D | 72x35 | 0,10,65535 | 1,9,9 / 34 |\n| D | 80x24 | 0,10,65535 | 1,11,16 / 32 |\n\nThe combined final views cover every body line, not merely opening/end. C's added 80x24 offset 50 shows the complete Renewal group, including Willow's explicit UNAVAILABLE and its qualification; the end view completes the other-terms tail. A's revised 72x35 opening now cuts Reed's fulfillment qualification at the bottom with an answer/section continuation warning; offset 20 shows that answer and unknown delivered total in full. R2's absence-of-evidence wording is visible in both sizes' opening views. Full source data and E's prose were also read in the final bundles.\n\nNo further refinement was warranted by this inspection: known, unknown and unavailable remain distinct; conditions remain attached to affected claims; no derived totals, recommendations, invented execution or causal conclusion appear. Overflow and snapping remain practical friction. Some end views leave blank rows, and some openings cut qualifications with an explicit footer. These are not standalone complete views; retain the data and overlapping previews rather than shortening away qualifications. This is headless textual inspection, not a live-terminal, color-perception or human-comprehension test.\n"
+        }
+      ]
+    }
+  },
+  {
+    "line": 133,
+    "type": "toolCall",
+    "id": "call_pIhFikSmbP90e5CLRDJdMkrj|fc_0c22a9666e92e16d016aa1d43f6c7887d2b46f21499db6a866",
+    "name": "write",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/evidence/execution-ledger.md",
+      "content": "# Execution ledger\n\nAll Cargo commands were recorded immediately before execution in `initial/*.command`, `r1/*.command`, `middle/*.command`, and `final/*.command`. Matching `.stdout`, `.stderr`, `.exit` files are original redirected streams/statuses. Each stage's `environment.txt` records the checkout working directory and offline setting. The four shell scripts preserve the exact loops/arguments, including dimensions and offsets. Final copy and hash commands have the same per-command records.\n\nThe following is a transcription of the harness shell calls (not a reconstruction of diagnostics). Tool-based authoring used `write` for new artifacts and `edit` for the targeted R1/R2 changes and inspection-log extension. No shell story interpolation was used. All shell calls started in `/tmp/hud-fidelity-run1-rS7MUp/checkout`; Cargo scripts explicitly change to that directory too.\n\n## In execution order\n\n```sh\nbash /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.sh > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.stderr; status=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-initial.exit; printf 'Evidence script exit=%s\\n' \"$status\"\n```\n\n```sh\npython3 - <<'PY' > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/provenance-lengths.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/provenance-lengths.stderr\nimport json\nfrom pathlib import Path\nroot=Path('/tmp/hud-fidelity-run1-rS7MUp/author')\nfor key in ('a','c'):\n    value=json.loads((root/'drafts'/f'{key}.compare.json').read_text())['provenance']\n    print(key, len(value), repr(value))\nPY\nstatus=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/provenance-lengths.exit\n```\n\n```sh\nmkdir -p /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1; cp /tmp/hud-fidelity-run1-rS7MUp/author/drafts/a.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json; cp /tmp/hud-fidelity-run1-rS7MUp/author/drafts/c.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json\n```\n\n```sh\nbash /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.sh > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.stderr; status=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-r1.exit; printf 'Evidence script exit=%s\\n' \"$status\"\n```\n\n```sh\nbash /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.sh > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.stderr; status=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/run-middle.exit; printf 'Evidence script exit=%s\\n' \"$status\"\n```\n\n```sh\nmkdir -p /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2; cp /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/a.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/a.compare.json; cp /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r1/c.compare.json /tmp/hud-fidelity-run1-rS7MUp/author/revisions/r2/c.compare.json\n```\n\n```sh\nbash /tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.sh > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.stderr; status=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/submit-and-preview.exit; printf 'Evidence script exit=%s\\n' \"$status\"\n```\n\n```sh\npython3 /tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.py > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.stdout 2> /tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.stderr; status=$?; printf '%s\\n' \"$status\" > /tmp/hud-fidelity-run1-rS7MUp/author/evidence/build-inspection-bundles.exit; printf 'Collation exit=%s\\n' \"$status\"\n```\n\nThe inspection bundles were created later by copying saved streams verbatim with labels. They are convenience collations, not original process output. Original evidence is retained in the stage directories. Collector scripts completed with exit 0; individual Cargo statuses, including ten initial failures, are recorded separately. The two preparatory mkdir/cp shell calls produced no tool output; no separate stream files were captured for those calls.\n"
+    }
+  },
+  {
+    "line": 135,
+    "type": "toolCall",
+    "id": "call_Ee6wJZEpBGoX4hk7D4qUMqdO|fc_0c22a9666e92e16d016aa1d473e88c87d292b3c46624e2d01f",
+    "name": "write",
+    "arguments": {
+      "path": "/tmp/hud-fidelity-run1-rS7MUp/author/report.md",
+      "content": "# Bounded HUD submission\n\nAll paths below are relative to `/tmp/hud-fidelity-run1-rS7MUp/author/`.\n\n## Final audience artifacts\n\n| Packet | Final file | Choice and purpose |\n|---|---|---|\n| A | `final/a.compare.json` | Compare equipment-hire quotes, fulfillment and power-access terms on the supplied common basis; no recommendation. |\n| B | `final/b.sequence.json` | Sequence / procedure: the complete supplied mandatory single path for the paper proof envelope; no execution claim. |\n| C | `final/c.compare.json` | Compare bounded reading-collection terms, retaining undefined readiness, conditional services and unknown costs/start dates; no booking or all-in total. |\n| D | `final/d.sequence.json` | Sequence / chronology: attributed selected notebook entries, not causation, verified readings or equipment instructions. |\n| E | `final/e.prose.md` | Explain why different cost bases do not establish a lower-cost outing offer; no normalization or ranking. |\n\nIntent and pre-composition reasoning for every packet: `intent-and-plan.md`. Choices were informed by the supplied discovery, not an uncued idiom-selection test.\n\n## Validation and inspection\n\nThe actual frozen Cargo examples were invoked from `/tmp/hud-fidelity-run1-rS7MUp/checkout`, with `CARGO_NET_OFFLINE=true`. Only `--check` and in-memory `--preview` were used; no real terminal or live panes.\n\nAll four final JSON checks passed. All **33 final previews** passed with empty stderr and were read completely, including overlapping intermediate views at **72x35 and 80x24**. The final sources and E's prose were read in full. Coverage by requested offset and actual footer position is in `inspection-and-repairs.md`.\n\nA/C initially failed because their provenance strings exceeded 60 cells. Original stderr and exit-1 results are preserved, including the failed preview attempts. R1 shortened provenance without dropping source status. R2 corrected two overly categorical absence-of-evidence sentences. B/D/E remain byte-identical to their drafts; inspection did not warrant revisions. C needed an extra 80x24 offset because two earlier requests snapped to the same view; the additional view exposed the full renewal group.\n\nOverflow remains visible and requires scrolling: openings are not complete submissions on their own. In particular, some qualifications continue below an explicit footer warning. No qualification was removed to fit a single screen. Inspection found no further change warranted for this bounded submission.\n\n## Evidence and history\n\n- `drafts/`: all five initial drafts, unchanged.\n- `revisions/r1/` and `revisions/r2/`: separate A/C revision snapshots.\n- `evidence/initial/`, `evidence/r1/`, `evidence/middle/`, `evidence/final/`: each invocation has exact `.command`, original `.stdout`, original `.stderr`, and `.exit`; each stage records working directory/offline status.\n- `evidence/run-initial.sh`, `run-r1.sh`, `run-middle.sh`, `submit-and-preview.sh`: exact invocation/capture scripts, with sibling collector stdout/stderr/exit records.\n- `evidence/execution-ledger.md`: shell-call transcription and evidence conventions.\n- `evidence/provenance-lengths.*`: contemporaneous local diagnostic of the author's own strings.\n- `evidence/inspection/a.txt` through `e.txt`: fully inspected convenience collations of final data, commands and original streams. They are not newly rendered or reconstructed output.\n- `evidence/inspection/stream-audit.txt`: inspected command/status/stderr collation across all stages.\n- `evidence/final/file-hashes.stdout`: inspected SHA-256 manifest establishing final-to-draft/revision correspondence.\n- `inspection-and-repairs.md`: actual inspection record, failures, self-directed repairs, coverage and remaining layout friction.\n\nExternal reads were limited to the two supplied discovery files and packets A–E; no example fixtures were needed. Other reads were of this author's own artifacts. No renderer source, other repository documentation, historical archive, evaluator material, other sessions, live information or other agent was consulted. No git operations or author edits to the checkout, sources, discovery or packets were performed. The helper scripts collect evidence only; they do not add an idiom, renderer, schema or authoring framework.\n\nChecks establish shape only. Headless text inspection does not establish Product Owner acceptance, human comprehension, perceived color, live-key behavior, production readiness or broad author reliability. Travis remains Product Owner; this submission makes no acceptance claim.\n"
+    }
+  }
+]
