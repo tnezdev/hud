@@ -1,5 +1,28 @@
 # Next session: semantic references checkpoint
 
+## PR #42 diagnostic-safety follow-up
+
+The complete branch was committed through `6cbd8b8` and published as
+[PR #42](https://github.com/tnezdev/hud/pull/42). Its full-branch review found
+terminal-control injection through decoded Serde error text despite green CI.
+Travis authorized the bounded fix; see
+[example-diagnostic-safety.md](example-diagnostic-safety.md).
+
+The three example CLIs now encode handled diagnostics at one example-only output
+boundary. Ordinary cleanup uses non-printing restoration and preserves both
+operation/cleanup errors. Focused re-review found no blockers after catching and
+correcting that cleanup bypass in the first candidate. The local gate passes
+109 tests plus formatting/Clippy; verify current commit and hosted CI/audit on
+GitHub rather than reusing the old head's green checks. No merge was authorized.
+
+Accepted rendering/style/navigation, fixtures, actual discovery bytes, production
+and dependencies remain unchanged. Only the three examples' diagnostic/cleanup
+plumbing and tests intentionally differ from the prior source checkpoint. Frozen
+trial sources and all original manifests remain unchanged; current equality with
+the 20 run-1 frozen source/discovery files is now 18/20, not the historical 20/20.
+The Compare discovery banner's “has not been trialed” wording predates run-1; the
+current-status erratum is in the PR and diagnostic brief, not a replaced trial input.
+
 ## Publication decision — one PR for the complete branch
 
 Travis subsequently authorized committing the trial/PO feedback, pushing the same

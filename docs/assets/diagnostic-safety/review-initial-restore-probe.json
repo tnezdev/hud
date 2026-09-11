@@ -1,0 +1,6 @@
+{
+  "exit": 0,
+  "stderr_hex": "4661696c656420746f20726573746f7265207465726d696e616c3a2042726f6b656e207069706520286f73206572726f72203332290a",
+  "stderr": "Failed to restore terminal: Broken pipe (os error 32)\n",
+  "note": "No terminal initialized. stdout pipe has no reader; ordinary ratatui::restore cleanup prints before finish(Ok)."
+}

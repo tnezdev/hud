@@ -1,0 +1,56 @@
+{
+  "check_exit": "0",
+  "build_exit": "0",
+  "verifier_exit": "0",
+  "helper-tests_exit": "0",
+  "independent-checks_exit": "0",
+  "restore-probe_exit": "0",
+  "diff-check_exit": "0",
+  "test_counts": [
+    39,
+    0,
+    8,
+    1,
+    16,
+    17,
+    24,
+    4
+  ],
+  "total_tests": 109,
+  "valid": 180,
+  "archived": 37,
+  "rejected": 15,
+  "evidence_copies": [
+    {
+      "original": "/tmp/hud-diagnostic-fix-AjWPjR/review/report.md",
+      "copy": "/home/tnez/Work/tnezdev/hud/docs/assets/diagnostic-safety/review-initial.md",
+      "equal": true,
+      "sha256": "2a5ae34acc243388c5d1624ea861f09e0c5426cc3b11a81ef146eeb31177a09b"
+    },
+    {
+      "original": "/tmp/hud-diagnostic-fix-AjWPjR/review/restore-probe.json",
+      "copy": "/home/tnez/Work/tnezdev/hud/docs/assets/diagnostic-safety/review-initial-restore-probe.json",
+      "equal": true,
+      "sha256": "3bc7fcd1161976cee46f51dc5d1c949c106e7b1c7fccc99c79dffdaadc1ef438"
+    },
+    {
+      "original": "/tmp/hud-diagnostic-fix-AjWPjR/check-initial.log",
+      "copy": "/home/tnez/Work/tnezdev/hud/docs/assets/diagnostic-safety/check-initial.log",
+      "equal": true,
+      "sha256": "9ff5db964316525b74731288818ed470cf1bc4c62107aa4fe5f4157163dcdd2c"
+    },
+    {
+      "original": "/tmp/hud-diagnostic-fix-AjWPjR/check-initial.exit",
+      "copy": "/home/tnez/Work/tnezdev/hud/docs/assets/diagnostic-safety/check-initial.exit",
+      "equal": true,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original": "/tmp/hud-diagnostic-fix-AjWPjR/verification-final.json",
+      "copy": "/home/tnez/Work/tnezdev/hud/docs/assets/diagnostic-safety/verification.json",
+      "equal": true,
+      "sha256": "492b3a4d9e52642e0c57775e8f0640e02675da2ac0ce323f4d84f427d447bcca"
+    }
+  ],
+  "valid_records_match_primary_final": true
+}

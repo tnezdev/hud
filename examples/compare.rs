@@ -11,6 +11,9 @@ use ratatui::{
 use serde::Deserialize;
 use std::{env, fs::File, io::Read, process::ExitCode};
 
+#[path = "support/diagnostic.rs"]
+mod diagnostic;
+
 const MAX_BYTES: usize = 65_536;
 const HEADER_ROWS: u16 = 6; // outer top padding, title, gap, provenance, scope, gap
 const MIN_WIDTH: u16 = 64;
@@ -653,8 +656,7 @@ fn live(comparison: &Comparison) -> Result<(), String> {
             }
         }
     })();
-    ratatui::restore();
-    result.map_err(|e| e.to_string())
+    diagnostic::after_restore(result, ratatui::try_restore())
 }
 
 const USAGE: &str = "usage: compare FILE.json [--check | --preview WIDTH HEIGHT [OFFSET]]";
@@ -699,13 +701,10 @@ fn run(args: &[String]) -> Result<(), String> {
 }
 
 fn main() -> ExitCode {
-    match run(&env::args().skip(1).collect::<Vec<_>>()) {
-        Ok(()) => ExitCode::SUCCESS,
-        Err(error) => {
-            eprintln!("{error}");
-            ExitCode::FAILURE
-        }
-    }
+    diagnostic::finish(
+        run(&env::args().skip(1).collect::<Vec<_>>()),
+        &mut std::io::stderr().lock(),
+    )
 }
 
 #[cfg(test)]
@@ -713,6 +712,46 @@ mod tests {
     use super::*;
 
     const FIXTURE: &str = include_str!("compare-suppliers.json");
+    const HOSTILE: &str = "\u{1b}[2JFIELD\u{9b}0m\u{202e}\n";
+    const ESCAPED_HOSTILE: &str = r"\u{1b}[2JFIELD\u{9b}0m\u{202e}\n";
+
+    fn assert_safe_rejection(value: serde_json::Value) {
+        let error = parse(&value.to_string()).unwrap_err();
+        assert!(error.contains(HOSTILE), "{error:?}");
+        let expected = format!("{}\n", error.replace(HOSTILE, ESCAPED_HOSTILE));
+        let mut stderr = Vec::new();
+        assert_eq!(
+            diagnostic::finish(Err(error), &mut stderr),
+            ExitCode::FAILURE
+        );
+        assert_eq!(stderr, expected.as_bytes());
+    }
+
+    #[test]
+    fn rejected_unknown_fields_have_safe_diagnostics_at_every_object_level() {
+        for pointer in [
+            "",
+            "/criteria/0",
+            "/alternatives/0",
+            "/alternatives/0/answers/0",
+        ] {
+            let mut value: serde_json::Value = serde_json::from_str(FIXTURE).unwrap();
+            value
+                .pointer_mut(pointer)
+                .unwrap()
+                .as_object_mut()
+                .unwrap()
+                .insert(HOSTILE.into(), true.into());
+            assert_safe_rejection(value);
+        }
+    }
+
+    #[test]
+    fn rejected_state_variants_have_safe_diagnostics() {
+        let mut value: serde_json::Value = serde_json::from_str(FIXTURE).unwrap();
+        value["alternatives"][0]["answers"][0]["state"] = HOSTILE.into();
+        assert_safe_rejection(value);
+    }
 
     #[test]
     fn boundary_rejects_unknown_fields_states_and_bad_correspondence() {

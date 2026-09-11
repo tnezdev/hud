@@ -46,6 +46,20 @@ separates semantic selection from actual invocation, factual fidelity, and
 post-trial teaching corrections. The [Sequence trial](sequence-trial.md)
 distinguishes its frozen author run from factual and scroll-boundary corrections.
 
+### Example diagnostic output boundary
+
+The [diagnostic-safety follow-up](example-diagnostic-safety.md) addresses PR #42's
+review finding: Serde errors can contain decoded controls before display-field
+validation. The three data-only examples encode handled errors once at their
+stderr boundary, escaping terminal/bidi controls and line separators while
+retaining readable diagnostics. Ordinary live cleanup uses non-printing
+`try_restore`; a restoration failure returns failure, preserving any original
+operation error before both reach the same encoder. An example-only helper with
+an injected writer/results keeps this testable without a terminal. Parsing rules,
+valid rendering, production
+`src/`, dependencies and all frozen trial evidence remain unchanged. This is
+output encoding, not a semantic content resolver or a renderer redesign.
+
 ### Preserved experiments, not the language contract
 
 HUD's earlier work explored a terminal-native visual vocabulary and canvas for agents
