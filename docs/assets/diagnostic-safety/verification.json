@@ -1,0 +1,2267 @@
+{
+  "before": "/tmp/hud-diagnostic-fix-AjWPjR/before",
+  "after": "/home/tnez/Work/tnezdev/hud/target/debug/examples",
+  "valid": [
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-suppliers.json",
+        "--check"
+      ],
+      "stdout_sha256": "e2243939622c5455a5c30ee9d06a619ba31f52f1f98977638c169d9003b88e61",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-suppliers.json",
+        "--preview",
+        "64",
+        "12",
+        "0"
+      ],
+      "stdout_sha256": "62bc270e2b4cbaac4e40c9bc5dcb70701c8d8a2be9db627e212ccb1226c04766",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-suppliers.json",
+        "--preview",
+        "64",
+        "12",
+        "8"
+      ],
+      "stdout_sha256": "cc18a353b693c0cdbacf8e5004eddc1e80d059889a7fd5ca0f0e32c1624d73b1",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-suppliers.json",
+        "--preview",
+        "64",
+        "12",
+        "20"
+      ],
+      "stdout_sha256": "c76dda84ef92486cdbdf6e2f38a685402ad7b2deb0953b348c5098c006526119",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-suppliers.json",
+        "--preview",
+        "64",
+        "12",
+        "65535"
+      ],
+      "stdout_sha256": "ad940522e2299d92e53bfbd6e45ce9300fb84f743c8b9b2c8662e71ada5abe6c",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-suppliers.json",
+        "--preview",
+        "72",
+        "35",
+        "0"
+      ],
+      "stdout_sha256": "af9ca9298fec4cbb71bb916c81a9cf8aa034a4ad245640bddcf276e131b6c6b9",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-suppliers.json",
+        "--preview",
+        "72",
+        "35",
+        "8"
+      ],
+      "stdout_sha256": "af9ca9298fec4cbb71bb916c81a9cf8aa034a4ad245640bddcf276e131b6c6b9",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-suppliers.json",
+        "--preview",
+        "72",
+        "35",
+        "20"
+      ],
+      "stdout_sha256": "af9ca9298fec4cbb71bb916c81a9cf8aa034a4ad245640bddcf276e131b6c6b9",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-suppliers.json",
+        "--preview",
+        "72",
+        "35",
+        "65535"
+      ],
+      "stdout_sha256": "af9ca9298fec4cbb71bb916c81a9cf8aa034a4ad245640bddcf276e131b6c6b9",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-suppliers.json",
+        "--preview",
+        "80",
+        "24",
+        "0"
+      ],
+      "stdout_sha256": "35625280945c5880404f23e53984dc96600c61bf21b972b4c273d6cd8c608a8c",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-suppliers.json",
+        "--preview",
+        "80",
+        "24",
+        "8"
+      ],
+      "stdout_sha256": "bb98665d9e9fd4f14fe00105c0cfbbe8435b33e5b61d491a6b20fc936a64c2f2",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-suppliers.json",
+        "--preview",
+        "80",
+        "24",
+        "20"
+      ],
+      "stdout_sha256": "3f5e58d8d018af2fcce614acb18deb27e7628338bdeb8a3e13cd20e0576ca8d8",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-suppliers.json",
+        "--preview",
+        "80",
+        "24",
+        "65535"
+      ],
+      "stdout_sha256": "3f5e58d8d018af2fcce614acb18deb27e7628338bdeb8a3e13cd20e0576ca8d8",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-access.json",
+        "--check"
+      ],
+      "stdout_sha256": "e2243939622c5455a5c30ee9d06a619ba31f52f1f98977638c169d9003b88e61",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-access.json",
+        "--preview",
+        "64",
+        "12",
+        "0"
+      ],
+      "stdout_sha256": "123cc9b10f98426329db9c9b1b16c481020d14496868f1cf2034a83601fced4c",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-access.json",
+        "--preview",
+        "64",
+        "12",
+        "8"
+      ],
+      "stdout_sha256": "03b18bd81caf9a8ff3dbd3eb99a55a7a5888537b835a6d5e346714a9c39de208",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-access.json",
+        "--preview",
+        "64",
+        "12",
+        "20"
+      ],
+      "stdout_sha256": "6ea053566c24cbcb81e4ba95c453c67c830e799e19ff5705c7a92b7de05b56fc",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-access.json",
+        "--preview",
+        "64",
+        "12",
+        "65535"
+      ],
+      "stdout_sha256": "81eb948063cb508342e16af38b6e1b11b970f4a85583b54024e67b7ff9740b67",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-access.json",
+        "--preview",
+        "72",
+        "35",
+        "0"
+      ],
+      "stdout_sha256": "14a85b288c2ee27ea538a70fd081cc9113fbd2925fbb75953770529491a1d808",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-access.json",
+        "--preview",
+        "72",
+        "35",
+        "8"
+      ],
+      "stdout_sha256": "14a85b288c2ee27ea538a70fd081cc9113fbd2925fbb75953770529491a1d808",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-access.json",
+        "--preview",
+        "72",
+        "35",
+        "20"
+      ],
+      "stdout_sha256": "14a85b288c2ee27ea538a70fd081cc9113fbd2925fbb75953770529491a1d808",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-access.json",
+        "--preview",
+        "72",
+        "35",
+        "65535"
+      ],
+      "stdout_sha256": "14a85b288c2ee27ea538a70fd081cc9113fbd2925fbb75953770529491a1d808",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-access.json",
+        "--preview",
+        "80",
+        "24",
+        "0"
+      ],
+      "stdout_sha256": "7446d847a1846a36a7bc8ea725a81a511af35d524ddf21beac109038c30d6449",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-access.json",
+        "--preview",
+        "80",
+        "24",
+        "8"
+      ],
+      "stdout_sha256": "ab0e9825d50aee5b57072d0669e0f601f26bb4ca058fd387041fcfa7e6275d5d",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-access.json",
+        "--preview",
+        "80",
+        "24",
+        "20"
+      ],
+      "stdout_sha256": "ab0e9825d50aee5b57072d0669e0f601f26bb4ca058fd387041fcfa7e6275d5d",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/compare-access.json",
+        "--preview",
+        "80",
+        "24",
+        "65535"
+      ],
+      "stdout_sha256": "ab0e9825d50aee5b57072d0669e0f601f26bb4ca058fd387041fcfa7e6275d5d",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-journey.json",
+        "--check"
+      ],
+      "stdout_sha256": "58a855e130b7b3ada637e942518caf75c33e4fe0bdf4b28fdc9556ce455c8449",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-journey.json",
+        "--preview",
+        "64",
+        "12",
+        "0"
+      ],
+      "stdout_sha256": "eaca95526d75ccee1bdcf79fba7f03699145689afe77106b481f3adc814d435c",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-journey.json",
+        "--preview",
+        "64",
+        "12",
+        "8"
+      ],
+      "stdout_sha256": "a1c15de6d26278bafdd97b5bea2c8e82f585b864f5451aca52514c8987ddff14",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-journey.json",
+        "--preview",
+        "64",
+        "12",
+        "20"
+      ],
+      "stdout_sha256": "1c4aa50dbeac60c5dacda84f4c0a5d6cf57baee04cf0fa97cdd7abe7b800bb8b",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-journey.json",
+        "--preview",
+        "64",
+        "12",
+        "65535"
+      ],
+      "stdout_sha256": "c25c20b041ea828d28505589d364926c2cf4c68e66a20ef7fdd3da19281f3e68",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-journey.json",
+        "--preview",
+        "72",
+        "35",
+        "0"
+      ],
+      "stdout_sha256": "47c5b20803f65b7d488d32be374f86646331824e157ae417e0cfc31a0622467a",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-journey.json",
+        "--preview",
+        "72",
+        "35",
+        "8"
+      ],
+      "stdout_sha256": "47c5b20803f65b7d488d32be374f86646331824e157ae417e0cfc31a0622467a",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-journey.json",
+        "--preview",
+        "72",
+        "35",
+        "20"
+      ],
+      "stdout_sha256": "47c5b20803f65b7d488d32be374f86646331824e157ae417e0cfc31a0622467a",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-journey.json",
+        "--preview",
+        "72",
+        "35",
+        "65535"
+      ],
+      "stdout_sha256": "47c5b20803f65b7d488d32be374f86646331824e157ae417e0cfc31a0622467a",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-journey.json",
+        "--preview",
+        "80",
+        "24",
+        "0"
+      ],
+      "stdout_sha256": "497cd90dcbbbcfa5255068c15a507bf7e7039d0c0b7b7daa8f8afdf97dacec64",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-journey.json",
+        "--preview",
+        "80",
+        "24",
+        "8"
+      ],
+      "stdout_sha256": "b038e657b8865ef754038cfaa7949711c1f47c441ff6306e09560ff840baf819",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-journey.json",
+        "--preview",
+        "80",
+        "24",
+        "20"
+      ],
+      "stdout_sha256": "d9404422d29f7a71090249cbadb1439f7b0509e5f3f055ed2379a247e671bb8e",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-journey.json",
+        "--preview",
+        "80",
+        "24",
+        "65535"
+      ],
+      "stdout_sha256": "d9404422d29f7a71090249cbadb1439f7b0509e5f3f055ed2379a247e671bb8e",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-intake.json",
+        "--check"
+      ],
+      "stdout_sha256": "58a855e130b7b3ada637e942518caf75c33e4fe0bdf4b28fdc9556ce455c8449",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-intake.json",
+        "--preview",
+        "64",
+        "12",
+        "0"
+      ],
+      "stdout_sha256": "abf6aaaf367421ae4548c627e6c9a8ffcf58e189cc3aa05f51e7ecb9ae73ae37",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-intake.json",
+        "--preview",
+        "64",
+        "12",
+        "8"
+      ],
+      "stdout_sha256": "0b8771ed367a7cb23715302396c2cd299cdd7a3808354cd90b6f0e8036a871af",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-intake.json",
+        "--preview",
+        "64",
+        "12",
+        "20"
+      ],
+      "stdout_sha256": "2e47e382c6ea79c53d52211d7a443ab0f28dca57e0c2ce60801e2a8bdbed401f",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-intake.json",
+        "--preview",
+        "64",
+        "12",
+        "65535"
+      ],
+      "stdout_sha256": "284a848d7ae9f65d362e5eb5d2904ddec70368a4bcfdc3d7630bce197770031c",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-intake.json",
+        "--preview",
+        "72",
+        "35",
+        "0"
+      ],
+      "stdout_sha256": "c97bbf375caac286fbb232aede31ecdc2225004f1abacbcf4f814f963065712c",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-intake.json",
+        "--preview",
+        "72",
+        "35",
+        "8"
+      ],
+      "stdout_sha256": "bed1e3c3f7654c3d82b47d1f04cf9fd7140c576026c8f662670e044c18c60dbf",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-intake.json",
+        "--preview",
+        "72",
+        "35",
+        "20"
+      ],
+      "stdout_sha256": "bed1e3c3f7654c3d82b47d1f04cf9fd7140c576026c8f662670e044c18c60dbf",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-intake.json",
+        "--preview",
+        "72",
+        "35",
+        "65535"
+      ],
+      "stdout_sha256": "bed1e3c3f7654c3d82b47d1f04cf9fd7140c576026c8f662670e044c18c60dbf",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-intake.json",
+        "--preview",
+        "80",
+        "24",
+        "0"
+      ],
+      "stdout_sha256": "d4e99199157d829d66548339289822602d48b2379e6054d1d446a274f594aea3",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-intake.json",
+        "--preview",
+        "80",
+        "24",
+        "8"
+      ],
+      "stdout_sha256": "80b16e059d03d94335e3a199b9f1dc2deaeb8c0b1d1ce63254c49e740dd7a30f",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-intake.json",
+        "--preview",
+        "80",
+        "24",
+        "20"
+      ],
+      "stdout_sha256": "4cae5a369fe6b6000f600503b950888942210d083ff56eca0a9b1479b37aba88",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-intake.json",
+        "--preview",
+        "80",
+        "24",
+        "65535"
+      ],
+      "stdout_sha256": "4cae5a369fe6b6000f600503b950888942210d083ff56eca0a9b1479b37aba88",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-observatory.json",
+        "--check"
+      ],
+      "stdout_sha256": "58a855e130b7b3ada637e942518caf75c33e4fe0bdf4b28fdc9556ce455c8449",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-observatory.json",
+        "--preview",
+        "64",
+        "12",
+        "0"
+      ],
+      "stdout_sha256": "00331b068d5518097869a3085e4d0a30a4b63e5b2327e717a7d093e459f14c4f",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-observatory.json",
+        "--preview",
+        "64",
+        "12",
+        "8"
+      ],
+      "stdout_sha256": "9f91052653b4f21823e9eb6bab886201e37f81164cbf55c311e7749731938930",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-observatory.json",
+        "--preview",
+        "64",
+        "12",
+        "20"
+      ],
+      "stdout_sha256": "df105187ca979f525ab7b20e549bca67a8773d15d8590d5a496724dcc4fa452c",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-observatory.json",
+        "--preview",
+        "64",
+        "12",
+        "65535"
+      ],
+      "stdout_sha256": "df105187ca979f525ab7b20e549bca67a8773d15d8590d5a496724dcc4fa452c",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-observatory.json",
+        "--preview",
+        "72",
+        "35",
+        "0"
+      ],
+      "stdout_sha256": "960607a88dd78c6f1b35eda8c82875ec980e1a8a12d9aef9f8cf3531a16ff7d4",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-observatory.json",
+        "--preview",
+        "72",
+        "35",
+        "8"
+      ],
+      "stdout_sha256": "960607a88dd78c6f1b35eda8c82875ec980e1a8a12d9aef9f8cf3531a16ff7d4",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-observatory.json",
+        "--preview",
+        "72",
+        "35",
+        "20"
+      ],
+      "stdout_sha256": "960607a88dd78c6f1b35eda8c82875ec980e1a8a12d9aef9f8cf3531a16ff7d4",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-observatory.json",
+        "--preview",
+        "72",
+        "35",
+        "65535"
+      ],
+      "stdout_sha256": "960607a88dd78c6f1b35eda8c82875ec980e1a8a12d9aef9f8cf3531a16ff7d4",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-observatory.json",
+        "--preview",
+        "80",
+        "24",
+        "0"
+      ],
+      "stdout_sha256": "44d4a501e1e7b41db4b64bb3b6c54c3ceb1314ae470e95f411a6ad759d360ef0",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-observatory.json",
+        "--preview",
+        "80",
+        "24",
+        "8"
+      ],
+      "stdout_sha256": "aa646341e603e01e1a6a123ca2c944233df6664c3bd7ae0664ea02605c6daca7",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-observatory.json",
+        "--preview",
+        "80",
+        "24",
+        "20"
+      ],
+      "stdout_sha256": "aa646341e603e01e1a6a123ca2c944233df6664c3bd7ae0664ea02605c6daca7",
+      "archived_capture": null
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/sequence-observatory.json",
+        "--preview",
+        "80",
+        "24",
+        "65535"
+      ],
+      "stdout_sha256": "aa646341e603e01e1a6a123ca2c944233df6664c3bd7ae0664ea02605c6daca7",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--check"
+      ],
+      "stdout_sha256": "8c71599580f7962f16bbb088b1bc291d915ac9fa9f8ca1182c23be445762b1ee",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--preview",
+        "64",
+        "12",
+        "0"
+      ],
+      "stdout_sha256": "398a152a44f73521db1a8ecb5bb65dafcee1e59c2f286c45997c0c6009fa20ea",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--preview",
+        "64",
+        "12",
+        "8"
+      ],
+      "stdout_sha256": "82cb9cb0ea5c86a5854dd9379e9ce57dbe388488284661c8e451f96f0eb4d04a",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--preview",
+        "64",
+        "12",
+        "20"
+      ],
+      "stdout_sha256": "6276ce6d969d80c3d2602f6373a3f982d16245af35c23e639f4bae4265fc0c0a",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--preview",
+        "64",
+        "12",
+        "65535"
+      ],
+      "stdout_sha256": "6276ce6d969d80c3d2602f6373a3f982d16245af35c23e639f4bae4265fc0c0a",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--preview",
+        "72",
+        "35",
+        "0"
+      ],
+      "stdout_sha256": "d637777098d40e841cf6fadf5b970fd37001e77f63d340b00d3c179f821a6104",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--preview",
+        "72",
+        "35",
+        "8"
+      ],
+      "stdout_sha256": "d637777098d40e841cf6fadf5b970fd37001e77f63d340b00d3c179f821a6104",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--preview",
+        "72",
+        "35",
+        "20"
+      ],
+      "stdout_sha256": "d637777098d40e841cf6fadf5b970fd37001e77f63d340b00d3c179f821a6104",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--preview",
+        "72",
+        "35",
+        "65535"
+      ],
+      "stdout_sha256": "d637777098d40e841cf6fadf5b970fd37001e77f63d340b00d3c179f821a6104",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--preview",
+        "80",
+        "24",
+        "0"
+      ],
+      "stdout_sha256": "2666cea7e7bb58d31d318f7eabc66ce2f3f41b131fa1afd34b63a2c52443feba",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--preview",
+        "80",
+        "24",
+        "8"
+      ],
+      "stdout_sha256": "25a6782e208ecf1df0d85b3d5a8de53e28849d037ea64e37cb7c87bd55a52e13",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--preview",
+        "80",
+        "24",
+        "20"
+      ],
+      "stdout_sha256": "25a6782e208ecf1df0d85b3d5a8de53e28849d037ea64e37cb7c87bd55a52e13",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--preview",
+        "80",
+        "24",
+        "65535"
+      ],
+      "stdout_sha256": "25a6782e208ecf1df0d85b3d5a8de53e28849d037ea64e37cb7c87bd55a52e13",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--plain",
+        "--check"
+      ],
+      "stdout_sha256": "8c71599580f7962f16bbb088b1bc291d915ac9fa9f8ca1182c23be445762b1ee",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--plain",
+        "--preview",
+        "64",
+        "12",
+        "0"
+      ],
+      "stdout_sha256": "e028e2e5d69139d5d6749dab23b689e5e03367aace488bae415965d83c3b90a3",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--plain",
+        "--preview",
+        "64",
+        "12",
+        "8"
+      ],
+      "stdout_sha256": "686f522e27aee4a751f3f43f6bbfcde59995b680ddfd72899651527979c3df80",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--plain",
+        "--preview",
+        "64",
+        "12",
+        "20"
+      ],
+      "stdout_sha256": "a618456191bd40ee9127acc9a7d0750bdf6a9b32cdd787da404388bcd93d4a11",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--plain",
+        "--preview",
+        "64",
+        "12",
+        "65535"
+      ],
+      "stdout_sha256": "a618456191bd40ee9127acc9a7d0750bdf6a9b32cdd787da404388bcd93d4a11",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--plain",
+        "--preview",
+        "72",
+        "35",
+        "0"
+      ],
+      "stdout_sha256": "04b652a02dcc533872b2650772feac43ffbee806b3ab5bfc37b04166389430d7",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--plain",
+        "--preview",
+        "72",
+        "35",
+        "8"
+      ],
+      "stdout_sha256": "04b652a02dcc533872b2650772feac43ffbee806b3ab5bfc37b04166389430d7",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--plain",
+        "--preview",
+        "72",
+        "35",
+        "20"
+      ],
+      "stdout_sha256": "04b652a02dcc533872b2650772feac43ffbee806b3ab5bfc37b04166389430d7",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--plain",
+        "--preview",
+        "72",
+        "35",
+        "65535"
+      ],
+      "stdout_sha256": "04b652a02dcc533872b2650772feac43ffbee806b3ab5bfc37b04166389430d7",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--plain",
+        "--preview",
+        "80",
+        "24",
+        "0"
+      ],
+      "stdout_sha256": "257b1596d9dfd154dd88ba878926175a71614950f57641ae625866b3a4443d66",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--plain",
+        "--preview",
+        "80",
+        "24",
+        "8"
+      ],
+      "stdout_sha256": "d1ed97ee8f6c23b7e036dfbc6d61b7d4684559830550cd464a05c3b9e5dd77d6",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--plain",
+        "--preview",
+        "80",
+        "24",
+        "20"
+      ],
+      "stdout_sha256": "d1ed97ee8f6c23b7e036dfbc6d61b7d4684559830550cd464a05c3b9e5dd77d6",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-story.json",
+        "--plain",
+        "--preview",
+        "80",
+        "24",
+        "65535"
+      ],
+      "stdout_sha256": "d1ed97ee8f6c23b7e036dfbc6d61b7d4684559830550cd464a05c3b9e5dd77d6",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--check"
+      ],
+      "stdout_sha256": "8c71599580f7962f16bbb088b1bc291d915ac9fa9f8ca1182c23be445762b1ee",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--preview",
+        "64",
+        "12",
+        "0"
+      ],
+      "stdout_sha256": "199959d7998922be00918aa0d3f4fb116fa909458ff65bda5cd5bc20819d7ce2",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--preview",
+        "64",
+        "12",
+        "8"
+      ],
+      "stdout_sha256": "7b55c9e5793dc137023d8442eed0bdcf9d3a3f5fda87e331cf0639be725b970f",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--preview",
+        "64",
+        "12",
+        "20"
+      ],
+      "stdout_sha256": "d921c2c7b1150e81b3ca8f703117efad8417bb34cbeb98ddc5188e3e13c6d956",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--preview",
+        "64",
+        "12",
+        "65535"
+      ],
+      "stdout_sha256": "d921c2c7b1150e81b3ca8f703117efad8417bb34cbeb98ddc5188e3e13c6d956",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--preview",
+        "72",
+        "35",
+        "0"
+      ],
+      "stdout_sha256": "7013120d47c53885beea79d8986cea522af2b42a6306bbbfc5dfb85cd6a1e712",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--preview",
+        "72",
+        "35",
+        "8"
+      ],
+      "stdout_sha256": "7013120d47c53885beea79d8986cea522af2b42a6306bbbfc5dfb85cd6a1e712",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--preview",
+        "72",
+        "35",
+        "20"
+      ],
+      "stdout_sha256": "7013120d47c53885beea79d8986cea522af2b42a6306bbbfc5dfb85cd6a1e712",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--preview",
+        "72",
+        "35",
+        "65535"
+      ],
+      "stdout_sha256": "7013120d47c53885beea79d8986cea522af2b42a6306bbbfc5dfb85cd6a1e712",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--preview",
+        "80",
+        "24",
+        "0"
+      ],
+      "stdout_sha256": "f16bc701059cf1139efc0703177b690269eb673473e1f2591e4145adaddf8a36",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--preview",
+        "80",
+        "24",
+        "8"
+      ],
+      "stdout_sha256": "f16bc701059cf1139efc0703177b690269eb673473e1f2591e4145adaddf8a36",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--preview",
+        "80",
+        "24",
+        "20"
+      ],
+      "stdout_sha256": "f16bc701059cf1139efc0703177b690269eb673473e1f2591e4145adaddf8a36",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--preview",
+        "80",
+        "24",
+        "65535"
+      ],
+      "stdout_sha256": "f16bc701059cf1139efc0703177b690269eb673473e1f2591e4145adaddf8a36",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--plain",
+        "--check"
+      ],
+      "stdout_sha256": "8c71599580f7962f16bbb088b1bc291d915ac9fa9f8ca1182c23be445762b1ee",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--plain",
+        "--preview",
+        "64",
+        "12",
+        "0"
+      ],
+      "stdout_sha256": "336f6b37bce4f2d5213d965a12c8639905f1c2a38dab3fa60446e69c4b53c02a",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--plain",
+        "--preview",
+        "64",
+        "12",
+        "8"
+      ],
+      "stdout_sha256": "620e9fb1b9f9fcd0e08a21b5c9048868e12d02a1b95b1aa01aed6d2d66c6a06a",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--plain",
+        "--preview",
+        "64",
+        "12",
+        "20"
+      ],
+      "stdout_sha256": "1059457ac7a5d12aa6b36dbe6d2f5719955ae742c4f4b1da18708cc29923d287",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--plain",
+        "--preview",
+        "64",
+        "12",
+        "65535"
+      ],
+      "stdout_sha256": "1059457ac7a5d12aa6b36dbe6d2f5719955ae742c4f4b1da18708cc29923d287",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--plain",
+        "--preview",
+        "72",
+        "35",
+        "0"
+      ],
+      "stdout_sha256": "8880e59c010148ccae23396fb429f7266a147b2ec1c5cb10d62a33667610abd4",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--plain",
+        "--preview",
+        "72",
+        "35",
+        "8"
+      ],
+      "stdout_sha256": "8880e59c010148ccae23396fb429f7266a147b2ec1c5cb10d62a33667610abd4",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--plain",
+        "--preview",
+        "72",
+        "35",
+        "20"
+      ],
+      "stdout_sha256": "8880e59c010148ccae23396fb429f7266a147b2ec1c5cb10d62a33667610abd4",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--plain",
+        "--preview",
+        "72",
+        "35",
+        "65535"
+      ],
+      "stdout_sha256": "8880e59c010148ccae23396fb429f7266a147b2ec1c5cb10d62a33667610abd4",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--plain",
+        "--preview",
+        "80",
+        "24",
+        "0"
+      ],
+      "stdout_sha256": "adaacba16d7a523f8fe521bbda44871594bcb80ba2d10f49de63aa8b2be25a2f",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--plain",
+        "--preview",
+        "80",
+        "24",
+        "8"
+      ],
+      "stdout_sha256": "adaacba16d7a523f8fe521bbda44871594bcb80ba2d10f49de63aa8b2be25a2f",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--plain",
+        "--preview",
+        "80",
+        "24",
+        "20"
+      ],
+      "stdout_sha256": "adaacba16d7a523f8fe521bbda44871594bcb80ba2d10f49de63aa8b2be25a2f",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-departure.json",
+        "--plain",
+        "--preview",
+        "80",
+        "24",
+        "65535"
+      ],
+      "stdout_sha256": "adaacba16d7a523f8fe521bbda44871594bcb80ba2d10f49de63aa8b2be25a2f",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--check"
+      ],
+      "stdout_sha256": "8c71599580f7962f16bbb088b1bc291d915ac9fa9f8ca1182c23be445762b1ee",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--preview",
+        "64",
+        "12",
+        "0"
+      ],
+      "stdout_sha256": "0814e5541a7ac69cac84adbfceb82192db29dc1f7c3926a5b5df3b1edfda5137",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--preview",
+        "64",
+        "12",
+        "8"
+      ],
+      "stdout_sha256": "05fcc72a366b6efbc3839de55b0980c917c1989962d6c1517b0acb04f04c079d",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--preview",
+        "64",
+        "12",
+        "20"
+      ],
+      "stdout_sha256": "5ac9a67c759fe8286254c199259dd2f3ffea20a41e50dbf7d023fe099403edfb",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--preview",
+        "64",
+        "12",
+        "65535"
+      ],
+      "stdout_sha256": "5ac9a67c759fe8286254c199259dd2f3ffea20a41e50dbf7d023fe099403edfb",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--preview",
+        "72",
+        "35",
+        "0"
+      ],
+      "stdout_sha256": "c083d20e7813040186d10ed94595a3b7d7540c74cb9e996e809e61a3b4b19471",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--preview",
+        "72",
+        "35",
+        "8"
+      ],
+      "stdout_sha256": "c083d20e7813040186d10ed94595a3b7d7540c74cb9e996e809e61a3b4b19471",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--preview",
+        "72",
+        "35",
+        "20"
+      ],
+      "stdout_sha256": "c083d20e7813040186d10ed94595a3b7d7540c74cb9e996e809e61a3b4b19471",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--preview",
+        "72",
+        "35",
+        "65535"
+      ],
+      "stdout_sha256": "c083d20e7813040186d10ed94595a3b7d7540c74cb9e996e809e61a3b4b19471",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--preview",
+        "80",
+        "24",
+        "0"
+      ],
+      "stdout_sha256": "e9ef46b4cc958cff72bbc700b90f678549255e3b2711d8496b65759a03a0777f",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--preview",
+        "80",
+        "24",
+        "8"
+      ],
+      "stdout_sha256": "e9ef46b4cc958cff72bbc700b90f678549255e3b2711d8496b65759a03a0777f",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--preview",
+        "80",
+        "24",
+        "20"
+      ],
+      "stdout_sha256": "e9ef46b4cc958cff72bbc700b90f678549255e3b2711d8496b65759a03a0777f",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--preview",
+        "80",
+        "24",
+        "65535"
+      ],
+      "stdout_sha256": "e9ef46b4cc958cff72bbc700b90f678549255e3b2711d8496b65759a03a0777f",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--plain",
+        "--check"
+      ],
+      "stdout_sha256": "8c71599580f7962f16bbb088b1bc291d915ac9fa9f8ca1182c23be445762b1ee",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--plain",
+        "--preview",
+        "64",
+        "12",
+        "0"
+      ],
+      "stdout_sha256": "201999ec74cf84a372e2fed803c94c85b2d8cfb28f35f39fb8f6dc164b4df759",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--plain",
+        "--preview",
+        "64",
+        "12",
+        "8"
+      ],
+      "stdout_sha256": "84509b7c5aefd035b12627a73552c72a63500b7855af82ddf465b1c3042df1b6",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--plain",
+        "--preview",
+        "64",
+        "12",
+        "20"
+      ],
+      "stdout_sha256": "43e2c4cb847d57cba5d384d7a5f768eb8d97c834de48d7df9ff9cfbb5e25f149",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--plain",
+        "--preview",
+        "64",
+        "12",
+        "65535"
+      ],
+      "stdout_sha256": "43e2c4cb847d57cba5d384d7a5f768eb8d97c834de48d7df9ff9cfbb5e25f149",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--plain",
+        "--preview",
+        "72",
+        "35",
+        "0"
+      ],
+      "stdout_sha256": "2a6eae2def3170f94a98d1aff2f3f8372cd0f5c1cc648a6d1a4f5961f31f6c55",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--plain",
+        "--preview",
+        "72",
+        "35",
+        "8"
+      ],
+      "stdout_sha256": "2a6eae2def3170f94a98d1aff2f3f8372cd0f5c1cc648a6d1a4f5961f31f6c55",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--plain",
+        "--preview",
+        "72",
+        "35",
+        "20"
+      ],
+      "stdout_sha256": "2a6eae2def3170f94a98d1aff2f3f8372cd0f5c1cc648a6d1a4f5961f31f6c55",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--plain",
+        "--preview",
+        "72",
+        "35",
+        "65535"
+      ],
+      "stdout_sha256": "2a6eae2def3170f94a98d1aff2f3f8372cd0f5c1cc648a6d1a4f5961f31f6c55",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--plain",
+        "--preview",
+        "80",
+        "24",
+        "0"
+      ],
+      "stdout_sha256": "0afd1b3c19965c312f3d4580d4151dff063f2899eb36355ba2de7066ab33969d",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--plain",
+        "--preview",
+        "80",
+        "24",
+        "8"
+      ],
+      "stdout_sha256": "0afd1b3c19965c312f3d4580d4151dff063f2899eb36355ba2de7066ab33969d",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--plain",
+        "--preview",
+        "80",
+        "24",
+        "20"
+      ],
+      "stdout_sha256": "0afd1b3c19965c312f3d4580d4151dff063f2899eb36355ba2de7066ab33969d",
+      "archived_capture": null
+    },
+    {
+      "example": "expressive_story",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/examples/coach-arrival.json",
+        "--plain",
+        "--preview",
+        "80",
+        "24",
+        "65535"
+      ],
+      "stdout_sha256": "0afd1b3c19965c312f3d4580d4151dff063f2899eb36355ba2de7066ab33969d",
+      "archived_capture": null
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/a.compare.json",
+        "--check"
+      ],
+      "stdout_sha256": "e2243939622c5455a5c30ee9d06a619ba31f52f1f98977638c169d9003b88e61",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/a.check.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/a.compare.json",
+        "--preview",
+        "72",
+        "35",
+        "0"
+      ],
+      "stdout_sha256": "57b058ec06b28babf0618548bfac112b9ccf0e4d40dc587fe0575f24a793a26f",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/a.72x35.0.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/a.compare.json",
+        "--preview",
+        "72",
+        "35",
+        "20"
+      ],
+      "stdout_sha256": "80e61dc03b2ba8cf9965351dad3dce7289a6743129d193221424798fb966ec14",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/a.72x35.20.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/a.compare.json",
+        "--preview",
+        "72",
+        "35",
+        "30"
+      ],
+      "stdout_sha256": "018f9f167d1e625dd73607b3524bd819a623d18baf193f92d82f712d2a846492",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/a.72x35.30.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/a.compare.json",
+        "--preview",
+        "72",
+        "35",
+        "65535"
+      ],
+      "stdout_sha256": "7c05026af037aa35bdd9897f605880c2f0aad914fa9f6b657bae3317b7f8aa58",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/a.72x35.65535.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/a.compare.json",
+        "--preview",
+        "80",
+        "24",
+        "0"
+      ],
+      "stdout_sha256": "2ebbc579b3c7f3a00be405472be478e1fb2d5ebbb7a3e461edf3bb009cc6e687",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/a.80x24.0.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/a.compare.json",
+        "--preview",
+        "80",
+        "24",
+        "15"
+      ],
+      "stdout_sha256": "51d1de6f108ff2a96bfc3214a99a39cddd22a6c55874bd0e249f011b192712fc",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/a.80x24.15.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/a.compare.json",
+        "--preview",
+        "80",
+        "24",
+        "25"
+      ],
+      "stdout_sha256": "62ecf7f2b770659dc4bba44a038d3800570fd84d96987af6cea6c6cf6859d0c1",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/a.80x24.25.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/a.compare.json",
+        "--preview",
+        "80",
+        "24",
+        "35"
+      ],
+      "stdout_sha256": "a10488a2e8fc443070254dcc5c976d736d445eca267ae490f4604f42a182ca34",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/a.80x24.35.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/a.compare.json",
+        "--preview",
+        "80",
+        "24",
+        "65535"
+      ],
+      "stdout_sha256": "ac064483848b1f8d6e760eacbe99057fdf0bbfabceddac65a87bf794aa63b1f8",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/a.80x24.65535.stdout"
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/b.sequence.json",
+        "--check"
+      ],
+      "stdout_sha256": "58a855e130b7b3ada637e942518caf75c33e4fe0bdf4b28fdc9556ce455c8449",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/b.check.stdout"
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/b.sequence.json",
+        "--preview",
+        "72",
+        "35",
+        "0"
+      ],
+      "stdout_sha256": "8a21f5d6520a2333d156d58358d7d2b2b8c29facb7d293c02315ee612aacc74b",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/b.72x35.0.stdout"
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/b.sequence.json",
+        "--preview",
+        "72",
+        "35",
+        "10"
+      ],
+      "stdout_sha256": "4b3b45498a6e03d418aac2684c7293e340411b1b22b7e17c4491ca458421bd1c",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/b.72x35.10.stdout"
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/b.sequence.json",
+        "--preview",
+        "72",
+        "35",
+        "65535"
+      ],
+      "stdout_sha256": "4b3b45498a6e03d418aac2684c7293e340411b1b22b7e17c4491ca458421bd1c",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/b.72x35.65535.stdout"
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/b.sequence.json",
+        "--preview",
+        "80",
+        "24",
+        "0"
+      ],
+      "stdout_sha256": "ae6f705b8d06a4037df051cfedc958a60e96d4aa46a65d77361227c62e5c5903",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/b.80x24.0.stdout"
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/b.sequence.json",
+        "--preview",
+        "80",
+        "24",
+        "10"
+      ],
+      "stdout_sha256": "f7c1484fafc4c914f21230ca9efa0b268c7cbb0af13ede2f411b727c4b3edca4",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/b.80x24.10.stdout"
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/b.sequence.json",
+        "--preview",
+        "80",
+        "24",
+        "65535"
+      ],
+      "stdout_sha256": "f6952e35c7770787b01bb78d7a4ddafae3cfc11b1863162cb03df7e5b2ff04a2",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/b.80x24.65535.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json",
+        "--check"
+      ],
+      "stdout_sha256": "e2243939622c5455a5c30ee9d06a619ba31f52f1f98977638c169d9003b88e61",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/c.check.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json",
+        "--preview",
+        "72",
+        "35",
+        "0"
+      ],
+      "stdout_sha256": "3f74d6d63030eeca5b2d0647f1c186858b0e35eeba2cf16361fabb14b8c3e5e9",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/c.72x35.0.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json",
+        "--preview",
+        "72",
+        "35",
+        "20"
+      ],
+      "stdout_sha256": "4f9b2cf3a8ea2477c1bbbf79cc7ddb95c47160b77a564425981f1183f2bd88dd",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/c.72x35.20.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json",
+        "--preview",
+        "72",
+        "35",
+        "35"
+      ],
+      "stdout_sha256": "2c1c4e885e6c00a93f0d940f8474128718e5b34a2af291e908c512c8427b2052",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/c.72x35.35.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json",
+        "--preview",
+        "72",
+        "35",
+        "45"
+      ],
+      "stdout_sha256": "20637900ab93ae064ae88fcdb83a657ed65fc8b08bab6bbce2ed775db9e46ab0",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/c.72x35.45.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json",
+        "--preview",
+        "72",
+        "35",
+        "65535"
+      ],
+      "stdout_sha256": "14a1661181f5bbc278b0a2c00a6f0f11a41cf5b4cd12aaa2516c020f30c702f9",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/c.72x35.65535.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json",
+        "--preview",
+        "80",
+        "24",
+        "0"
+      ],
+      "stdout_sha256": "992f2d58364427cc7a8a1d84971ddf2971d50f5ef610e3a0d5b00326dd102f2c",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/c.80x24.0.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json",
+        "--preview",
+        "80",
+        "24",
+        "15"
+      ],
+      "stdout_sha256": "8865c4d11d0f09a06e777575eb5c470f7ed74eac0a4e77ff38094dc3ade74429",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/c.80x24.15.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json",
+        "--preview",
+        "80",
+        "24",
+        "25"
+      ],
+      "stdout_sha256": "7a9f30099614fcea2cab0bd864c584dffcfada1689bd404635182cfe46f411e0",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/c.80x24.25.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json",
+        "--preview",
+        "80",
+        "24",
+        "35"
+      ],
+      "stdout_sha256": "9da064f9bc57be3230c1033fff33914bce107de4675c2e88113642a11176c379",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/c.80x24.35.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json",
+        "--preview",
+        "80",
+        "24",
+        "45"
+      ],
+      "stdout_sha256": "9da064f9bc57be3230c1033fff33914bce107de4675c2e88113642a11176c379",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/c.80x24.45.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json",
+        "--preview",
+        "80",
+        "24",
+        "50"
+      ],
+      "stdout_sha256": "9a6ed9a906a528510c2b8e4608e2c9c83009df0a3dac857dd899cdcd30d0017a",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/c.80x24.50.stdout"
+    },
+    {
+      "example": "compare",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/c.compare.json",
+        "--preview",
+        "80",
+        "24",
+        "65535"
+      ],
+      "stdout_sha256": "a413bdbbfa533801c6dabae98c2bbe9c184f47e0a5965d49edcaeee9f0563451",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/c.80x24.65535.stdout"
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/d.sequence.json",
+        "--check"
+      ],
+      "stdout_sha256": "58a855e130b7b3ada637e942518caf75c33e4fe0bdf4b28fdc9556ce455c8449",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/d.check.stdout"
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/d.sequence.json",
+        "--preview",
+        "72",
+        "35",
+        "0"
+      ],
+      "stdout_sha256": "3531992e881a6c127f78dcf6cfb425e306309ae269458ca9455972bc41f8ab45",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/d.72x35.0.stdout"
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/d.sequence.json",
+        "--preview",
+        "72",
+        "35",
+        "10"
+      ],
+      "stdout_sha256": "b5ddfe0e2e523aec555586d6c7f5cff44a6b1bf2055ff6b74e1bb5c59c8fc8f2",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/d.72x35.10.stdout"
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/d.sequence.json",
+        "--preview",
+        "72",
+        "35",
+        "65535"
+      ],
+      "stdout_sha256": "b5ddfe0e2e523aec555586d6c7f5cff44a6b1bf2055ff6b74e1bb5c59c8fc8f2",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/d.72x35.65535.stdout"
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/d.sequence.json",
+        "--preview",
+        "80",
+        "24",
+        "0"
+      ],
+      "stdout_sha256": "97eceaa1eccbb8d0cbfba209ca7708ac1d940caee2c2e58b1c1fff7a5b578d6b",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/d.80x24.0.stdout"
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/d.sequence.json",
+        "--preview",
+        "80",
+        "24",
+        "10"
+      ],
+      "stdout_sha256": "c62430748ff7343e0b41631d9d733ba33a2090d150662df3b0da47dccae1b972",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/d.80x24.10.stdout"
+    },
+    {
+      "example": "sequence",
+      "args": [
+        "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/final/d.sequence.json",
+        "--preview",
+        "80",
+        "24",
+        "65535"
+      ],
+      "stdout_sha256": "ec9bbaaa6e07213c15e08e974a9a3833e9b38cf07b62f0c5952b6026daa6c7d4",
+      "archived_capture": "/home/tnez/Work/tnezdev/hud/docs/assets/authoring-fidelity/run-1/author/evidence/final/d.80x24.65535.stdout"
+    }
+  ],
+  "rejected": [
+    {
+      "example": "compare",
+      "case": "JSON root",
+      "exit": 1,
+      "before_stderr_hex": "756e6b6e6f776e206669656c6420601b5b324a50524f4245c29b306de280ae0a602c206578706563746564206f6e65206f6620607469746c65602c206070726f76656e616e6365602c206073636f7065602c2060696e74656e74602c20606372697465726961602c2060616c7465726e61746976657360206174206c696e65203120636f6c756d6e20313635320a",
+      "after_stderr": "unknown field `\\u{1b}[2JPROBE\\u{9b}0m\\u{202e}\\n`, expected one of `title`, `provenance`, `scope`, `intent`, `criteria`, `alternatives` at line 1 column 1652\n"
+    },
+    {
+      "example": "compare",
+      "case": "JSON /criteria/0",
+      "exit": 1,
+      "before_stderr_hex": "756e6b6e6f776e206669656c6420601b5b324a50524f4245c29b306de280ae0a602c20657870656374656420606e616d6560206f7220607175657374696f6e60206174206c696e65203120636f6c756d6e203538340a",
+      "after_stderr": "unknown field `\\u{1b}[2JPROBE\\u{9b}0m\\u{202e}\\n`, expected `name` or `question` at line 1 column 584\n"
+    },
+    {
+      "example": "compare",
+      "case": "JSON /alternatives/0",
+      "exit": 1,
+      "before_stderr_hex": "756e6b6e6f776e206669656c6420601b5b324a50524f4245c29b306de280ae0a602c20657870656374656420606e616d6560206f722060616e737765727360206174206c696e65203120636f6c756d6e20313034390a",
+      "after_stderr": "unknown field `\\u{1b}[2JPROBE\\u{9b}0m\\u{202e}\\n`, expected `name` or `answers` at line 1 column 1049\n"
+    },
+    {
+      "example": "compare",
+      "case": "JSON /alternatives/0/answers/0",
+      "exit": 1,
+      "before_stderr_hex": "756e6b6e6f776e206669656c6420601b5b324a50524f4245c29b306de280ae0a602c206578706563746564206f6e65206f662060637269746572696f6e602c20607374617465602c206076616c7565602c20607175616c696669636174696f6e60206174206c696e65203120636f6c756d6e203836320a",
+      "after_stderr": "unknown field `\\u{1b}[2JPROBE\\u{9b}0m\\u{202e}\\n`, expected one of `criterion`, `state`, `value`, `qualification` at line 1 column 862\n"
+    },
+    {
+      "example": "compare",
+      "case": "JSON /alternatives/0/answers/0/state",
+      "exit": 1,
+      "before_stderr_hex": "756e6b6e6f776e2076617269616e7420601b5b324a50524f4245c29b306de280ae0a602c206578706563746564206f6e65206f6620606b6e6f776e602c2060756e6b6e6f776e602c2060756e617661696c61626c6560206174206c696e65203120636f6c756d6e203833340a",
+      "after_stderr": "unknown variant `\\u{1b}[2JPROBE\\u{9b}0m\\u{202e}\\n`, expected one of `known`, `unknown`, `unavailable` at line 1 column 834\n"
+    },
+    {
+      "example": "compare",
+      "case": "path-bearing I/O error",
+      "exit": 1,
+      "before_stderr_hex": "2f746d702f6875642d646961676e6f737469632d70726f62652d77633434746337752f6d697373696e672d1b5b324a50524f4245c29b306de280ae0a2e6a736f6e3a204e6f20737563682066696c65206f72206469726563746f727920286f73206572726f722032290a",
+      "after_stderr": "/tmp/hud-diagnostic-probe-wc44tc7u/missing-\\u{1b}[2JPROBE\\u{9b}0m\\u{202e}\\n.json: No such file or directory (os error 2)\n"
+    },
+    {
+      "example": "sequence",
+      "case": "JSON root",
+      "exit": 1,
+      "before_stderr_hex": "756e6b6e6f776e206669656c6420601b5b324a50524f4245c29b306de280ae0a602c206578706563746564206f6e65206f6620607469746c65602c206070726f76656e616e6365602c206073636f7065602c2060696e74656e74602c206072656c6174696f6e73686970602c20606974656d73602c20606e6f74657360206174206c696e65203120636f6c756d6e20313233300a",
+      "after_stderr": "unknown field `\\u{1b}[2JPROBE\\u{9b}0m\\u{202e}\\n`, expected one of `title`, `provenance`, `scope`, `intent`, `relationship`, `items`, `notes` at line 1 column 1230\n"
+    },
+    {
+      "example": "sequence",
+      "case": "JSON /items/0",
+      "exit": 1,
+      "before_stderr_hex": "756e6b6e6f776e206669656c6420601b5b324a50524f4245c29b306de280ae0a602c20657870656374656420606c6162656c60206f72206064657461696c60206174206c696e65203120636f6c756d6e203538310a",
+      "after_stderr": "unknown field `\\u{1b}[2JPROBE\\u{9b}0m\\u{202e}\\n`, expected `label` or `detail` at line 1 column 581\n"
+    },
+    {
+      "example": "sequence",
+      "case": "JSON /relationship",
+      "exit": 1,
+      "before_stderr_hex": "756e6b6e6f776e2076617269616e7420601b5b324a50524f4245c29b306de280ae0a602c206578706563746564206070726f63656475726560206f7220606368726f6e6f6c6f677960206174206c696e65203120636f6c756d6e203332340a",
+      "after_stderr": "unknown variant `\\u{1b}[2JPROBE\\u{9b}0m\\u{202e}\\n`, expected `procedure` or `chronology` at line 1 column 324\n"
+    },
+    {
+      "example": "sequence",
+      "case": "path-bearing I/O error",
+      "exit": 1,
+      "before_stderr_hex": "2f746d702f6875642d646961676e6f737469632d70726f62652d77633434746337752f6d697373696e672d1b5b324a50524f4245c29b306de280ae0a2e6a736f6e3a204e6f20737563682066696c65206f72206469726563746f727920286f73206572726f722032290a",
+      "after_stderr": "/tmp/hud-diagnostic-probe-wc44tc7u/missing-\\u{1b}[2JPROBE\\u{9b}0m\\u{202e}\\n.json: No such file or directory (os error 2)\n"
+    },
+    {
+      "example": "expressive_story",
+      "case": "JSON root",
+      "exit": 1,
+      "before_stderr_hex": "756e6b6e6f776e206669656c6420601b5b324a50524f4245c29b306de280ae0a602c206578706563746564206f6e65206f6620607469746c65602c206070726f76656e616e6365602c20606c656164602c2060726f757465602c2060737570706f727460206174206c696e65203120636f6c756d6e20313137300a",
+      "after_stderr": "unknown field `\\u{1b}[2JPROBE\\u{9b}0m\\u{202e}\\n`, expected one of `title`, `provenance`, `lead`, `route`, `support` at line 1 column 1170\n"
+    },
+    {
+      "example": "expressive_story",
+      "case": "JSON /lead",
+      "exit": 1,
+      "before_stderr_hex": "756e6b6e6f776e206669656c6420601b5b324a50524f4245c29b306de280ae0a602c206578706563746564206f6e65206f6620606c6162656c602c2060686561646c696e65602c20606c696e657360206174206c696e65203120636f6c756d6e203436340a",
+      "after_stderr": "unknown field `\\u{1b}[2JPROBE\\u{9b}0m\\u{202e}\\n`, expected one of `label`, `headline`, `lines` at line 1 column 464\n"
+    },
+    {
+      "example": "expressive_story",
+      "case": "JSON /route",
+      "exit": 1,
+      "before_stderr_hex": "756e6b6e6f776e206669656c6420601b5b324a50524f4245c29b306de280ae0a602c20657870656374656420606c6162656c60206f722060737465707360206174206c696e65203120636f6c756d6e203732340a",
+      "after_stderr": "unknown field `\\u{1b}[2JPROBE\\u{9b}0m\\u{202e}\\n`, expected `label` or `steps` at line 1 column 724\n"
+    },
+    {
+      "example": "expressive_story",
+      "case": "JSON /support",
+      "exit": 1,
+      "before_stderr_hex": "756e6b6e6f776e206669656c6420601b5b324a50524f4245c29b306de280ae0a602c20657870656374656420606c6162656c60206f7220606c696e657360206174206c696e65203120636f6c756d6e20313136390a",
+      "after_stderr": "unknown field `\\u{1b}[2JPROBE\\u{9b}0m\\u{202e}\\n`, expected `label` or `lines` at line 1 column 1169\n"
+    },
+    {
+      "example": "expressive_story",
+      "case": "path-bearing I/O error",
+      "exit": 1,
+      "before_stderr_hex": "2f746d702f6875642d646961676e6f737469632d70726f62652d77633434746337752f6d697373696e672d1b5b324a50524f4245c29b306de280ae0a2e6a736f6e3a204e6f20737563682066696c65206f72206469726563746f727920286f73206572726f722032290a",
+      "after_stderr": "/tmp/hud-diagnostic-probe-wc44tc7u/missing-\\u{1b}[2JPROBE\\u{9b}0m\\u{202e}\\n.json: No such file or directory (os error 2)\n"
+    }
+  ]
+}

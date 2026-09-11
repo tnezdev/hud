@@ -36,6 +36,13 @@ existing history and scope the PR as experimental references, not production
 promotion. Full-diff review and CI/audit must pass before merge; merge, release,
 installation and a further product slice are not authorized by this decision.
 
+PR #42's full-branch review subsequently found a diagnostic-output safety gap,
+which Travis authorized fixing. The [bounded correction](example-diagnostic-safety.md)
+changes only the three example CLIs' handled-error/cleanup plumbing and tests,
+using an example-only output encoder. Accepted rendering, valid data and discovery
+remain unchanged; historical source snapshots/hashes are preserved rather than
+silently refreshed. This is pre-merge engineering, not a new visual/product slice.
+
 ## Previous slice: Compare (approved)
 
 After accepting the demonstrated Sequence visual reference and its top padding,

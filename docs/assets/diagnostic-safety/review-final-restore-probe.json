@@ -1,0 +1,42 @@
+[
+  {
+    "operation_fails": false,
+    "restoration_fails": false,
+    "exit": 0,
+    "stderr": "",
+    "stdout_hex": "1b5b3f313034396c"
+  },
+  {
+    "operation_fails": false,
+    "restoration_fails": true,
+    "exit": 1,
+    "stderr": "Failed to restore terminal: Broken pipe (os error 32)\n",
+    "stdout_hex": ""
+  },
+  {
+    "operation_fails": false,
+    "restoration_fails": true,
+    "stderr_broken": true,
+    "exit": 1
+  },
+  {
+    "operation_fails": true,
+    "restoration_fails": false,
+    "exit": 1,
+    "stderr": "original\\u{1b}[2J caf\u00e9 \u65c5\\n\n",
+    "stdout_hex": "1b5b3f313034396c"
+  },
+  {
+    "operation_fails": true,
+    "restoration_fails": true,
+    "exit": 1,
+    "stderr": "original\\u{1b}[2J caf\u00e9 \u65c5\\n; Failed to restore terminal: Broken pipe (os error 32)\n",
+    "stdout_hex": ""
+  },
+  {
+    "operation_fails": true,
+    "restoration_fails": true,
+    "stderr_broken": true,
+    "exit": 1
+  }
+]

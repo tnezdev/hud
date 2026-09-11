@@ -1,0 +1,332 @@
+   Compiling proc-macro2 v1.0.106
+   Compiling quote v1.0.45
+   Compiling unicode-ident v1.0.24
+   Compiling libc v0.2.186
+    Checking cfg-if v1.0.4
+   Compiling rustversion v1.0.22
+    Checking equivalent v1.0.2
+    Checking bitflags v2.11.1
+   Compiling thiserror v2.0.18
+    Checking foldhash v0.2.0
+    Checking memchr v2.8.1
+    Checking allocator-api2 v0.2.21
+   Compiling serde_core v1.0.228
+   Compiling ident_case v1.0.1
+   Compiling strsim v0.11.1
+    Checking itoa v1.0.18
+   Compiling unicode-segmentation v1.13.2
+   Compiling parking_lot_core v0.9.12
+    Checking either v1.16.0
+   Compiling heck v0.5.0
+   Compiling signal-hook v0.3.18
+    Checking hashbrown v0.16.1
+    Checking scopeguard v1.2.0
+    Checking itertools v0.14.0
+   Compiling instability v0.3.12
+   Compiling indoc v2.0.7
+   Compiling convert_case v0.10.0
+    Checking smallvec v1.15.1
+    Checking unicode-width v0.2.2
+   Compiling rustix v1.1.4
+    Checking static_assertions v1.1.0
+    Checking ryu v1.0.23
+    Checking log v0.4.29
+    Checking lock_api v0.4.14
+    Checking castaway v0.2.4
+   Compiling litrs v1.0.0
+    Checking linux-raw-sys v0.12.1
+    Checking compact_str v0.9.0
+    Checking powerfmt v0.2.0
+   Compiling autocfg v1.5.1
+    Checking lru v0.16.4
+    Checking deranged v0.5.8
+    Checking aho-corasick v1.1.4
+    Checking regex-syntax v0.8.10
+   Compiling syn v2.0.117
+   Compiling zmij v1.0.21
+    Checking num-conv v0.2.2
+   Compiling num-traits v0.2.19
+    Checking errno v0.3.14
+    Checking mio v1.2.0
+   Compiling document-features v0.2.12
+    Checking time-core v0.1.8
+    Checking parking_lot v0.12.5
+    Checking signal-hook-registry v1.4.8
+    Checking num_threads v0.1.7
+    Checking line-clipping v0.3.7
+   Compiling serde v1.0.228
+    Checking winnow v1.0.3
+   Compiling serde_json v1.0.150
+    Checking signal-hook-mio v0.2.5
+    Checking predicates-core v1.0.10
+    Checking toml_writer v1.1.1+spec-1.1.0
+    Checking anstyle v1.0.14
+    Checking unicode-truncate v2.0.1
+   Compiling assert_cmd v2.2.2
+    Checking normalize-line-endings v0.3.0
+    Checking termtree v0.5.1
+    Checking difflib v0.4.0
+    Checking wait-timeout v0.2.1
+    Checking toml_parser v1.1.2+spec-1.1.0
+    Checking predicates-tree v1.0.13
+    Checking time v0.3.47
+    Checking toml_datetime v1.1.1+spec-1.1.0
+    Checking serde_spanned v1.1.1
+    Checking float-cmp v0.10.0
+    Checking toml v1.1.2+spec-1.1.0
+    Checking regex-automata v0.4.14
+   Compiling darling_core v0.23.0
+   Compiling thiserror-impl v2.0.18
+   Compiling strum_macros v0.27.2
+   Compiling derive_more-impl v2.1.1
+   Compiling serde_derive v1.0.228
+    Checking regex v1.12.3
+    Checking bstr v1.12.1
+    Checking derive_more v2.1.1
+    Checking crossterm v0.29.0
+    Checking predicates v3.1.4
+    Checking kasuari v0.4.12
+    Checking strum v0.27.2
+    Checking ratatui-core v0.1.0
+   Compiling darling_macro v0.23.0
+   Compiling darling v0.23.0
+    Checking ratatui-widgets v0.3.0
+    Checking ratatui-crossterm v0.1.0
+    Checking ratatui v0.30.0
+    Checking hud v0.1.0 (/home/tnez/Work/tnezdev/hud)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 8.81s
+   Compiling libc v0.2.186
+   Compiling unicode-segmentation v1.13.2
+   Compiling cfg-if v1.0.4
+   Compiling foldhash v0.2.0
+   Compiling bitflags v2.11.1
+   Compiling equivalent v1.0.2
+   Compiling memchr v2.8.1
+   Compiling allocator-api2 v0.2.21
+   Compiling either v1.16.0
+   Compiling itoa v1.0.18
+   Compiling thiserror v2.0.18
+   Compiling castaway v0.2.4
+   Compiling serde_core v1.0.228
+   Compiling static_assertions v1.1.0
+   Compiling unicode-width v0.2.2
+   Compiling ryu v1.0.23
+   Compiling log v0.4.29
+   Compiling scopeguard v1.2.0
+   Compiling smallvec v1.15.1
+   Compiling compact_str v0.9.0
+   Compiling itertools v0.14.0
+   Compiling lock_api v0.4.14
+   Compiling strum v0.27.2
+   Compiling powerfmt v0.2.0
+   Compiling linux-raw-sys v0.12.1
+   Compiling time-core v0.1.8
+   Compiling hashbrown v0.16.1
+   Compiling convert_case v0.10.0
+   Compiling deranged v0.5.8
+   Compiling regex-syntax v0.8.10
+   Compiling num-conv v0.2.2
+   Compiling num_threads v0.1.7
+   Compiling line-clipping v0.3.7
+   Compiling aho-corasick v1.1.4
+   Compiling derive_more-impl v2.1.1
+   Compiling rustix v1.1.4
+   Compiling winnow v1.0.3
+   Compiling errno v0.3.14
+   Compiling signal-hook-registry v1.4.8
+   Compiling mio v1.2.0
+   Compiling parking_lot_core v0.9.12
+   Compiling signal-hook v0.3.18
+   Compiling kasuari v0.4.12
+   Compiling lru v0.16.4
+   Compiling parking_lot v0.12.5
+   Compiling derive_more v2.1.1
+   Compiling signal-hook-mio v0.2.5
+   Compiling time v0.3.47
+   Compiling toml_parser v1.1.2+spec-1.1.0
+   Compiling num-traits v0.2.19
+   Compiling crossterm v0.29.0
+   Compiling zmij v1.0.21
+   Compiling toml_writer v1.1.1+spec-1.1.0
+   Compiling predicates-core v1.0.10
+   Compiling difflib v0.4.0
+   Compiling unicode-truncate v2.0.1
+   Compiling normalize-line-endings v0.3.0
+   Compiling anstyle v1.0.14
+   Compiling termtree v0.5.1
+   Compiling ratatui-core v0.1.0
+   Compiling wait-timeout v0.2.1
+   Compiling predicates-tree v1.0.13
+   Compiling float-cmp v0.10.0
+   Compiling regex-automata v0.4.14
+   Compiling serde_spanned v1.1.1
+   Compiling toml_datetime v1.1.1+spec-1.1.0
+   Compiling serde_json v1.0.150
+   Compiling serde v1.0.228
+   Compiling toml v1.1.2+spec-1.1.0
+   Compiling ratatui-crossterm v0.1.0
+   Compiling ratatui-widgets v0.3.0
+   Compiling ratatui v0.30.0
+   Compiling hud v0.1.0 (/home/tnez/Work/tnezdev/hud)
+   Compiling regex v1.12.3
+   Compiling bstr v1.12.1
+   Compiling predicates v3.1.4
+   Compiling assert_cmd v2.2.2
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 12.06s
+     Running unittests src/lib.rs (/tmp/hud-diagnostic-fix-AjWPjR/review-final/target/debug/deps/hud-9620b9c2bfc856d9)
+
+running 39 tests
+test cli::tests::parse_config_with_path ... ok
+test cli::tests::parse_unknown_argument_returns_error ... ok
+test action::tests::resolves_action_for_focused_panel_only ... ok
+test command::tests::fake_runner_can_stand_in_for_command_execution ... ok
+test cli::tests::parse_flags ... ok
+test app::tests::action_launch_uses_injectable_runner ... ok
+test cli::tests::parse_config_without_path_returns_error ... ok
+test cli::tests::parse_empty_args ... ok
+test config::tests::missing_config_path_is_clear ... ok
+test command::shell_runner_edge_tests::launch_returns_immediately_without_blocking ... ok
+test config::tests::rejects_invalid_action_key ... ok
+test config::tests::reports_invalid_shapes ... ok
+test config::tests::reports_missing_required_fields ... ok
+test panel::tests::directional_focus_matches_four_panel_mission_control_map ... ok
+test panel::tests::directional_focus_matches_two_column_panel_map ... ok
+test panel::tests::focus_movement_wraps_deterministically ... ok
+test config::tests::parses_valid_config ... ok
+test panel::tests::focused_panel_selection_resets_when_output_changes ... ok
+test panel::tests::malformed_metrics_json_is_panel_error ... ok
+test panel::tests::focused_panel_selection_clamps_to_output_rows ... ok
+test panel::tests::malformed_table_json_is_panel_error ... ok
+test panel::tests::parses_metrics_json_output_at_panel_boundary ... ok
+test panel::tests::parses_table_json_output_at_panel_boundary ... ok
+test panel::tests::panel_state_tracks_loading_ready_and_error ... ok
+test panel::tests::selected_table_row_builds_row_detail_request_and_pushes_view ... ok
+test ui::tests::mission_control_layout_requires_room_for_three_instruments ... ok
+test panel::tests::unknown_row_placeholder_pushes_row_detail_error ... ok
+test ui::tests::wrapped_line_count_includes_visual_wraps ... ok
+test ui::tests::table_render_widths_expand_description_column ... ok
+test command::tests::shell_runner_reports_timeout ... ok
+test command::shell_runner_edge_tests::run_timeout_status_is_timed_out ... ok
+test command::shell_runner_edge_tests::run_captures_both_stdout_and_stderr_simultaneously ... ok
+test command::tests::shell_runner_captures_stderr ... ok
+test command::tests::shell_runner_preserves_nonzero_exit ... ok
+test command::shell_runner_edge_tests::run_captures_stderr_alongside_nonzero_exit ... ok
+test command::tests::shell_runner_reports_launch_failure ... ok
+test command::shell_runner_edge_tests::run_silent_command_produces_empty_output ... ok
+test command::tests::shell_runner_captures_stdout ... ok
+test command::shell_runner_edge_tests::run_concurrent_calls_isolate_temp_files ... ok
+
+test result: ok. 39 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.31s
+
+     Running unittests src/main.rs (/tmp/hud-diagnostic-fix-AjWPjR/review-final/target/debug/deps/hud-5d0745b6d5624511)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/cli.rs (/tmp/hud-diagnostic-fix-AjWPjR/review-final/target/debug/deps/cli-b45e94f19babc734)
+
+running 8 tests
+test config_without_path_exits_nonzero ... ok
+test help_exits_successfully ... ok
+test unknown_argument_exits_nonzero ... ok
+test dogfood_check_config_exits_successfully ... ok
+test missing_config_path_exits_nonzero ... ok
+test demo_check_config_exits_successfully ... ok
+test version_exits_successfully ... ok
+test kitchen_sink_check_config_exits_successfully ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/examples.rs (/tmp/hud-diagnostic-fix-AjWPjR/review-final/target/debug/deps/examples-5673d74adc69812b)
+
+running 1 test
+test committed_examples_parse_successfully ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/compare.rs (/tmp/hud-diagnostic-fix-AjWPjR/review-final/target/debug/examples/compare-4b782c343f1a8da5)
+
+running 16 tests
+test diagnostic::tests::broken_stderr_still_returns_failure_without_panicking ... ok
+test diagnostic::tests::path_and_io_error_text_cannot_add_terminal_commands_or_lines ... ok
+test diagnostic::tests::restoration_failure_turns_success_into_an_encoded_failure ... ok
+test diagnostic::tests::operation_and_restoration_errors_survive_and_are_encoded_together ... ok
+test diagnostic::tests::ordinary_diagnostics_keep_printable_unicode_and_punctuation ... ok
+test diagnostic::tests::success_does_not_write_a_diagnostic ... ok
+test diagnostic::tests::controls_bidi_and_line_separators_are_visible_escapes ... ok
+test diagnostic::tests::successful_restoration_preserves_the_operation_result ... ok
+test tests::rejected_state_variants_have_safe_diagnostics ... ok
+test tests::rejected_unknown_fields_have_safe_diagnostics_at_every_object_level ... ok
+test tests::unsupported_dimensions_report_limits_without_terminal_effects ... ok
+test tests::boundary_rejects_unknown_fields_states_and_bad_correspondence ... ok
+test tests::supplier_baseline_facts_and_provenance_are_retained ... ok
+test tests::inert_text_and_explicit_states_are_not_commands ... ok
+test tests::criterion_grouping_and_narrow_identity_are_preserved ... ok
+test tests::all_body_words_are_reachable_through_page_paths ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running unittests examples/expressive_story.rs (/tmp/hud-diagnostic-fix-AjWPjR/review-final/target/debug/examples/expressive_story-23e785147826bc28)
+
+running 17 tests
+test diagnostic::tests::broken_stderr_still_returns_failure_without_panicking ... ok
+test diagnostic::tests::successful_restoration_preserves_the_operation_result ... ok
+test diagnostic::tests::ordinary_diagnostics_keep_printable_unicode_and_punctuation ... ok
+test diagnostic::tests::path_and_io_error_text_cannot_add_terminal_commands_or_lines ... ok
+test diagnostic::tests::operation_and_restoration_errors_survive_and_are_encoded_together ... ok
+test diagnostic::tests::restoration_failure_turns_success_into_an_encoded_failure ... ok
+test diagnostic::tests::success_does_not_write_a_diagnostic ... ok
+test diagnostic::tests::controls_bidi_and_line_separators_are_visible_escapes ... ok
+test tests::candidate_preserves_baseline_wording ... ok
+test tests::rejected_unknown_fields_have_safe_diagnostics_at_every_object_level ... ok
+test tests::validates_at_the_boundary_and_rejects_executable_fields ... ok
+test tests::scrolling_and_resize_clamp_without_losing_the_end ... ok
+test tests::unicode_preview_has_no_spurious_wide_character_spaces ... ok
+test tests::lead_has_real_emphasis_not_only_pattern_names ... ok
+test tests::shell_syntax_is_literal_data ... ok
+test tests::reviewed_author_examples_keep_facts_and_limits_on_the_overview ... ok
+test tests::journey_is_readable_and_overflow_is_explicit ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running unittests examples/sequence.rs (/tmp/hud-diagnostic-fix-AjWPjR/review-final/target/debug/examples/sequence-9b3ce7c71d62e638)
+
+running 24 tests
+test diagnostic::tests::broken_stderr_still_returns_failure_without_panicking ... ok
+test diagnostic::tests::restoration_failure_turns_success_into_an_encoded_failure ... ok
+test diagnostic::tests::success_does_not_write_a_diagnostic ... ok
+test diagnostic::tests::ordinary_diagnostics_keep_printable_unicode_and_punctuation ... ok
+test diagnostic::tests::operation_and_restoration_errors_survive_and_are_encoded_together ... ok
+test diagnostic::tests::path_and_io_error_text_cannot_add_terminal_commands_or_lines ... ok
+test diagnostic::tests::controls_bidi_and_line_separators_are_visible_escapes ... ok
+test diagnostic::tests::successful_restoration_preserves_the_operation_result ... ok
+test tests::fixed_journey_keeps_original_wording ... ok
+test tests::rejected_relationship_variants_have_safe_diagnostics ... ok
+test tests::rejected_unknown_fields_have_safe_diagnostics_at_every_object_level ... ok
+test tests::review_corrections_preserve_raw_trial_and_restore_only_missing_facts ... ok
+test tests::optional_content_is_not_compulsory_template_filler ... ok
+test tests::boundary_rejects_invalid_data_not_only_invalid_json ... ok
+test tests::unicode_and_shell_looking_prose_are_inert_and_not_corrupted ... ok
+test tests::wrapping_stays_in_item_column_and_scroll_reidentifies_continuation ... ok
+test tests::section_rhythm_is_distinct_without_separating_labels_from_detail ... ok
+test tests::scrolling_resize_and_argument_errors_are_bounded ... ok
+test tests::opening_padding_preserves_authored_text_and_body_height ... ok
+test tests::oversized_final_paragraph_is_explicit_and_pages_skip_no_body_lines ... ok
+test tests::actual_page_paths_expose_every_word_in_both_directions ... ok
+test tests::section_landmarks_are_not_stranded_at_the_bottom ... ok
+test tests::fitted_negation_is_never_an_unmarked_leading_fragment ... ok
+test tests::every_body_line_remains_reachable_with_persistent_scope ... ok
+
+test result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.78s
+
+     Running unittests examples/story_preview.rs (/tmp/hud-diagnostic-fix-AjWPjR/review-final/target/debug/examples/story_preview-b59a13768f724537)
+
+running 4 tests
+test tests::preview_rejects_unknown_fixtures_panels_and_invalid_dimensions ... ok
+test tests::fixtures_parse_the_same_payloads_used_by_the_terminal_configs ... ok
+test tests::comparison_detail_uses_the_production_detail_view ... ok
+test tests::both_audiences_render_at_roomy_and_constrained_sizes ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
